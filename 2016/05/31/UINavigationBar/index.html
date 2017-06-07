@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UINavigationBar | Aaron的开发笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="NavigationBar 是在大多数App中很常见的一个控件，它总是显示在 App 窗口的顶部，其作用就是用来显示当前视图的层级。 NavigationBar 主要包含了这样几个部分，left(back) Button 、 CenterTitle 、 RightButton。如下图：">
+<meta name="keywords" content="UIKit,UINavigationBar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UINavigationBar">
+<meta property="og:url" content="Aaronzjp.cn/2016/05/31/UINavigationBar/index.html">
+<meta property="og:site_name" content="Aaron的开发笔记">
+<meta property="og:description" content="NavigationBar 是在大多数App中很常见的一个控件，它总是显示在 App 窗口的顶部，其作用就是用来显示当前视图的层级。 NavigationBar 主要包含了这样几个部分，left(back) Button 、 CenterTitle 、 RightButton。如下图：">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/2017033114909574652892.png">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170331149097063070405.png">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170401149101332388956.png">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170401149101595942735.jpg">
+<meta property="og:updated_time" content="2017-04-19T09:22:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UINavigationBar">
+<meta name="twitter:description" content="NavigationBar 是在大多数App中很常见的一个控件，它总是显示在 App 窗口的顶部，其作用就是用来显示当前视图的层级。 NavigationBar 主要包含了这样几个部分，left(back) Button 、 CenterTitle 、 RightButton。如下图：">
+<meta name="twitter:image" content="http://onocdmhtw.bkt.clouddn.com/2017033114909574652892.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron的开发笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Aaron的开发笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay foolish,Stay hungry!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="Aaronzjp.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-UINavigationBar" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/31/UINavigationBar/" class="article-date">
+  <time datetime="2016-05-31T10:31:30.000Z" itemprop="datePublished">2016-05-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UINavigationBar
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>NavigationBar 是在大多数App中很常见的一个控件，它总是显示在 App 窗口的顶部，其作用就是用来显示当前视图的层级。</p>
+<p>NavigationBar 主要包含了这样几个部分，left(back) Button 、 CenterTitle 、 RightButton。如下图：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/2017033114909574652892.png" alt="2017033114909574652892.png"></p>
+<a id="more"></a>
+<p>大多数时候 NavigationBar 都是使用在 UINavigationController 中的，由 NavigationController 来管理和显示 NavigationBar 的。当然 NavigationBar 也可以单独的使用。当在 NavigationController 中使用 NavigationBar 的时候，NavigationController 会自动管理 NavigationBar 的状态，这时候 NavigationBar 的 Title 默认为当前控制器的 Title 。也可以自己去手动的修改，在 NavigationController 中修改 NavigationBar 直接通过 NavigationController 上的属性 NavigationBar 就可以修改的。</p>
+<h1 id="NavigationBar的使用"><a href="#NavigationBar的使用" class="headerlink" title="NavigationBar的使用"></a>NavigationBar的使用</h1><p>其实 NavigationBar 是很少单独使用的，但是不排除某些时候需要单独的去创建一个 NavigationBar 然后去自己管理。所以还是在这里写一下，以免到时候需要用到我又得到处去翻资料。</p>
+<p>向 UINavigationBar 的栈顶压入新的 UINavigationItem 使用如下方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)pushNavigationItem:(UINavigationItem *)item animated:(BOOL)animated; 向 NavigationBar;</div></pre></td></tr></table></figure>
+<p>使 UINavigationBar 出栈，使用如下方法，该方法会返回出栈的 Item ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (nullable UINavigationItem *)popNavigationItemAnimated:(BOOL)animated;</div></pre></td></tr></table></figure>
+<p>除了使用上面的方法添加 Items 以外还可以通过 items 属性以及如下方法添加 UINavigationItem 到 UINavigationBar：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)setItems:(nullable NSArray&lt;UINavigationItem *&gt; *)items animated:(BOOL)animated;</div></pre></td></tr></table></figure>
+<p>NavigationBar代理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//是否 push 该 Item</div><div class="line">- (BOOL)navigationBar:(UINavigationBar *)navigationBar shouldPushItem:(UINavigationItem *)item &#123;</div><div class="line">    return YES;</div><div class="line">&#125;</div><div class="line">//Item push 后到回调</div><div class="line">- (void)navigationBar:(UINavigationBar *)navigationBar didPushItem:(UINavigationItem *)item &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">//是否 pop 该 Item</div><div class="line">- (BOOL)navigationBar:(UINavigationBar *)navigationBar shouldPopItem:(UINavigationItem *)item &#123;</div><div class="line">    return YES;</div><div class="line">&#125;</div><div class="line">//Item pop后到回调</div><div class="line">- (void)navigationBar:(UINavigationBar *)navigationBar didPopItem:(UINavigationItem *)item &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过 UINavigationBar 的代理可以很方便的管理 UINavigationBar 中 items 的进栈和出栈。</p>
+<p>UINavigationBar 中 items 的进栈和出栈示意图：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170331149097063070405.png" alt="20170331149097063070405.png"></p>
+<h1 id="自定义UINavigationBar的外观"><a href="#自定义UINavigationBar的外观" class="headerlink" title="自定义UINavigationBar的外观"></a>自定义UINavigationBar的外观</h1><p>了解如下属性后，就可以通过这些属性来设置自己满意的 UINavigationBar 了。</p>
+<p>barStyle： UINavigationBar 的样式，可供选择的有两种白色(UIBarStyleDefault)和黑色(UIBarStyleBlack)</p>
+<p>translucent： UINavigationBar 是否半透明，默认为 YES</p>
+<p>barTintColor： 通过此属性可以设置 UINavigationBar 的背景色</p>
+<p>tintColor： 这里是修改 UINavigationBar 中 UINavigationItem 的颜色，包括 Item 中图片和标题的颜色。(该属性是 iOS 7.0 后新增的一个属性，凡是继承于 UIView 的试图都有该属性)。</p>
+<p>titleTextAttributes：该属性可以设置标题的颜色，其实除了颜色意外还可以设置字体阴影、背景色等等和字符相关的。使用如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">_bar.titleTextAttributes = @&#123;NSForegroundColorAttributeName:[UIColor redColor]&#125;;</div></pre></td></tr></table></figure>
+<p>除了可以更改标题的颜色外还可以更改标题垂直位置，使用以下方法即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)setTitleVerticalPositionAdjustment:(CGFloat)adjustment forBarMetrics:(UIBarMetrics)barMetrics;</div></pre></td></tr></table></figure>
+<p>修改返回按钮图标通过这两个属性可以修改返回按钮的图标：</p>
+<p>backIndicatorImage 返回按钮图标</p>
+<p>backIndicatorTransitionMaskImage 返回按钮图标遮罩</p>
+<p>需要注意的是要同时设置这两个属性才能修改返回按钮的图标</p>
+<p>NavigationBar颜色和标题如下图所示：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170401149101332388956.png" alt="20170401149101332388956.png"></p>
+<p>为 NavigationBar 设置背景图片以及阴影图片：</p>
+<p>使用该方法可以为 UINavigationBar 设置背景图片，调整图片位置等等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)setBackgroundImage:(nullable UIImage *)backgroundImage forBarPosition:(UIBarPosition)barPosition barMetrics:(UIBarMetrics)barMetrics;</div></pre></td></tr></table></figure>
+<p>同样也可以提供一个可调整大小的图片来设置阴影图片，通过 shadowImage 这个属性即可，需要注意的是如果没有设置背景图片，那么阴影图片是不会生效的。之前就遇到一个需求要求隐藏 NavigationBar 下面的黑线，就可以通过设置一个空的图片来达到。</p>
+<p>在 UINavigationBar 中层级关系如下图：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170401149101595942735.jpg" alt="20170401149101595942735.jpg"></p>
+<p>参考资料：</p>
+<p><a href="https://developer.apple.com/reference/uikit/uinavigationbar?language=objc" target="_blank" rel="external">UINavigationBar</a></p>
+<p><a href="https://developer.apple.com/reference/uikit/uinavigationitem?language=objc" target="_blank" rel="external">UINavigationItem</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="Aaronzjp.cn/2016/05/31/UINavigationBar/" data-id="cj3n5l9nn001932t5grvjaw5a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UINavigationBar/">UINavigationBar</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/09/iOS10-CrashOfPermission/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS10 权限Crash问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/17/Multiple-Thread/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS - 多线程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Core-Animation/">Core Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS网络编程/">iOS网络编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/runtime/">runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程技术/">多线程技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小技巧/">小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据存储/">数据存储</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库（DataBase）/">数据库（DataBase）</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoLayout/">AutoLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Core-Animation/">Core Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVO-KVC/">KVO/KVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift基础/">Swift基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationBar/">UINavigationBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/block/">block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS多线程/">iOS多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发思路/">iOS开发思路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime/">runtime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime​/">runtime​</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-sizing-TableView-Cells/">self-sizing TableView Cells</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图层/">图层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小坑/">小坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据持久化/">数据持久化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件管理/">文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程/">构造过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动布局/">自动布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自适应Cell/">自适应Cell</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/AutoLayout/" style="font-size: 10px;">AutoLayout</a> <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CALayer/" style="font-size: 10px;">CALayer</a> <a href="/tags/Core-Animation/" style="font-size: 10px;">Core Animation</a> <a href="/tags/KVO-KVC/" style="font-size: 10px;">KVO/KVC</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Swift基础/" style="font-size: 10px;">Swift基础</a> <a href="/tags/UIKit/" style="font-size: 10px;">UIKit</a> <a href="/tags/UINavigationBar/" style="font-size: 10px;">UINavigationBar</a> <a href="/tags/block/" style="font-size: 10px;">block</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS多线程/" style="font-size: 10px;">iOS多线程</a> <a href="/tags/iOS开发思路/" style="font-size: 15px;">iOS开发思路</a> <a href="/tags/runtime/" style="font-size: 20px;">runtime</a> <a href="/tags/runtime​/" style="font-size: 10px;">runtime​</a> <a href="/tags/self-sizing-TableView-Cells/" style="font-size: 10px;">self-sizing TableView Cells</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/图层/" style="font-size: 10px;">图层</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/小坑/" style="font-size: 10px;">小坑</a> <a href="/tags/数据存储/" style="font-size: 15px;">数据存储</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据持久化/" style="font-size: 10px;">数据持久化</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/本地化/" style="font-size: 15px;">本地化</a> <a href="/tags/构造过程/" style="font-size: 10px;">构造过程</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/自适应Cell/" style="font-size: 10px;">自适应Cell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/19/TransitionAnimation/">自定义转场动画（ViewController Transition）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/27/Swift-Initialization/">Swift-构造过程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/Swift-Method/">Swift-方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/07/Animation/">iOS动画</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/01/swift 3.0-Function/">swift - 函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Aaron_36<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

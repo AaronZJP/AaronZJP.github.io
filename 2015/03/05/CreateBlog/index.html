@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>如何搭建自己的个人博客 | Aaron的开发笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="自己也搭建了个人博客，在搭建的过程中也又遇到了很多问题，所以在这里我自己来总结一下，搭建一个博客的过程。方便以后博客出问题的时候来这里查找。">
+<meta name="keywords" content="其他">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何搭建自己的个人博客">
+<meta property="og:url" content="Aaronzjp.cn/2015/03/05/CreateBlog/index.html">
+<meta property="og:site_name" content="Aaron的开发笔记">
+<meta property="og:description" content="自己也搭建了个人博客，在搭建的过程中也又遇到了很多问题，所以在这里我自己来总结一下，搭建一个博客的过程。方便以后博客出问题的时候来这里查找。">
+<meta property="og:updated_time" content="2017-04-19T09:09:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何搭建自己的个人博客">
+<meta name="twitter:description" content="自己也搭建了个人博客，在搭建的过程中也又遇到了很多问题，所以在这里我自己来总结一下，搭建一个博客的过程。方便以后博客出问题的时候来这里查找。">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron的开发笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Aaron的开发笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay foolish,Stay hungry!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="Aaronzjp.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CreateBlog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/05/CreateBlog/" class="article-date">
+  <time datetime="2015-03-04T17:04:20.000Z" itemprop="datePublished">2015-03-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何搭建自己的个人博客
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  自己也搭建了个人博客，在搭建的过程中也又遇到了很多问题，所以在这里我自己来总结一下，搭建一个博客的过程。方便以后博客出问题的时候来这里查找。</p>
+<a id="more"></a>
+<h1 id="首先环境搭建"><a href="#首先环境搭建" class="headerlink" title="首先环境搭建"></a>首先环境搭建</h1><ol>
+<li>安装Node.js。<a href="https://nodejs.org/en/" target="_blank" rel="external">官网下载</a>，下载后打开按照提示一步一步的安装即可。</li>
+<li>git这个不用多说，因为我使用的是Mac电脑，所以自带git。</li>
+<li>npm的安装，npm使用命令安装 <code>npm install -g hexo-cli</code>,也可以到官网下载下来进行安装<a href="https://nodejs.org/en/" target="_blank" rel="external">官网链接</a></li>
+<li>上面几步做好后我们的准备工作就做的差不多了，查看上面的工具是否安装成功可以通过查看版本的方式来查看。如：<code>node -v</code></li>
+</ol>
+<h1 id="建立本地站点"><a href="#建立本地站点" class="headerlink" title="建立本地站点"></a>建立本地站点</h1><blockquote>
+<p>hexo init &lt;文件夹名称&gt;</p>
+<p>cd &lt;文件夹名称&gt;</p>
+<p>npm install</p>
+</blockquote>
+<h1 id="克隆主题"><a href="#克隆主题" class="headerlink" title="克隆主题"></a>克隆主题</h1><p>&emsp;&emsp;不知道在哪找主题吧，可以进入到<a href="https://nodejs.org/en/" target="_blank" rel="external">官网链接</a>去查看，点击主题里面有一部分的主题，也可以去这里</p>
+<blockquote>
+<p><a href="http://www.zhihu.com/question/24422335" target="_blank" rel="external">有哪些好看的hexo主题？</a>  </p>
+</blockquote>
+<h1 id="发布到github"><a href="#发布到github" class="headerlink" title="发布到github"></a>发布到github</h1><p>  注册github这些我就不说了吧，进入到githu登陆账号后，点击<code>New repository</code>创建一个新的项目，注意这里的这个项目命名是有规定的，必须是如下的这种格式命名：</p>
+<p><code>你的github名称.github.io</code></p>
+<p>​    因为github规定只能是这样命名的才能以page的样式展现，其他的全部默认就好，创建完成后，我们可以像平时使用github一样的，把博客的文件push到这个项目即可。（注意push博客的时候是push&lt;文件夹名称&gt;–&gt;public这个文件夹下所有的文件）。<br>  为了更方便的管理博客和平时文件的更新，我们来配置一个deploy。打开站点配置文件<code>_config.yml</code>，找到<code>deploy</code>字段，修改成如下的样式即可。</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; # Deployment</div><div class="line">&gt; ## Docs: http://hexo.io/docs/deployment.html</div><div class="line">&gt; deploy:</div><div class="line">&gt; type: git</div><div class="line">&gt; repository: git@github.com:用户名/用户名.github.io.git</div><div class="line">&gt; branch: master</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>这样配置好以后，有新的博客添加，或者修改后，只需要执行如下的操作就可以将博客发布到github：</p>
+<p><code>hexo g //生成静态网页</code></p>
+<p><code>hexo s //部署在本地，此步操作完后就可以在本地查看网页预览</code> </p>
+<p><code>hexo deploy //没有问题后就可以部署到github上了</code></p>
+<p>这三步操作完成后就其他人也可以通过github来访问你的个人博客了。</p>
+<p>⚠️注意：使用<code>hexo d</code>来部署博客到<code>github</code>首先要安装一个插件<a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a>，安装方式，cd 到你当前的博客根目录文件夹下执行以下命令：</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save</p>
+</blockquote>
+<h1 id="发布新的文章"><a href="#发布新的文章" class="headerlink" title="发布新的文章"></a>发布新的文章</h1><p><code>hexo new &quot;文章标题名称&quot;</code></p>
+<p>执行以上命令后，相应文件夹中生成.md文件，找到编辑并保存后。执行以上发布到github这部分，就可以把文章发布出去了。</p>
+<p><code>hexo clean</code>清理，这个操作会将<code>public</code>文件夹删除，这个慎用，在遇到问题的时候可以通过这个来清除后再通过<code>hexo g</code>重新生成，并同步到github。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="Aaronzjp.cn/2015/03/05/CreateBlog/" data-id="cj3n5l9mw000932t54lvt7kxd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/06/21/iOS-Precompiling/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS-预处理程序
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Core-Animation/">Core Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS网络编程/">iOS网络编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/runtime/">runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程技术/">多线程技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小技巧/">小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据存储/">数据存储</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库（DataBase）/">数据库（DataBase）</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoLayout/">AutoLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Core-Animation/">Core Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVO-KVC/">KVO/KVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift基础/">Swift基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationBar/">UINavigationBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/block/">block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS多线程/">iOS多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发思路/">iOS开发思路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime/">runtime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime​/">runtime​</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-sizing-TableView-Cells/">self-sizing TableView Cells</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图层/">图层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小坑/">小坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据持久化/">数据持久化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件管理/">文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程/">构造过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动布局/">自动布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自适应Cell/">自适应Cell</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/AutoLayout/" style="font-size: 10px;">AutoLayout</a> <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CALayer/" style="font-size: 10px;">CALayer</a> <a href="/tags/Core-Animation/" style="font-size: 10px;">Core Animation</a> <a href="/tags/KVO-KVC/" style="font-size: 10px;">KVO/KVC</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Swift基础/" style="font-size: 10px;">Swift基础</a> <a href="/tags/UIKit/" style="font-size: 10px;">UIKit</a> <a href="/tags/UINavigationBar/" style="font-size: 10px;">UINavigationBar</a> <a href="/tags/block/" style="font-size: 10px;">block</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS多线程/" style="font-size: 10px;">iOS多线程</a> <a href="/tags/iOS开发思路/" style="font-size: 15px;">iOS开发思路</a> <a href="/tags/runtime/" style="font-size: 20px;">runtime</a> <a href="/tags/runtime​/" style="font-size: 10px;">runtime​</a> <a href="/tags/self-sizing-TableView-Cells/" style="font-size: 10px;">self-sizing TableView Cells</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/图层/" style="font-size: 10px;">图层</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/小坑/" style="font-size: 10px;">小坑</a> <a href="/tags/数据存储/" style="font-size: 15px;">数据存储</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据持久化/" style="font-size: 10px;">数据持久化</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/本地化/" style="font-size: 15px;">本地化</a> <a href="/tags/构造过程/" style="font-size: 10px;">构造过程</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/自适应Cell/" style="font-size: 10px;">自适应Cell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/19/TransitionAnimation/">自定义转场动画（ViewController Transition）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/27/Swift-Initialization/">Swift-构造过程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/Swift-Method/">Swift-方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/07/Animation/">iOS动画</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/01/swift 3.0-Function/">swift - 函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Aaron_36<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

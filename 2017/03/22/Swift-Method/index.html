@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Swift-方法 | Aaron的开发笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在 Swift 中方法分为两种，实例方法、类型方法。其中类型方法和 Obj-c 中的类方法相似的，类型方法是作用于类型本身的，实例方法则是作用于类型对应的实例。和 Obj-c 不同的是，在 Swift 中不仅可以给类定义方法，同时还可以给结构体和枚举定义方法。">
+<meta name="keywords" content="Swift,枚举">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift-方法">
+<meta property="og:url" content="Aaronzjp.cn/2017/03/22/Swift-Method/index.html">
+<meta property="og:site_name" content="Aaron的开发笔记">
+<meta property="og:description" content="在 Swift 中方法分为两种，实例方法、类型方法。其中类型方法和 Obj-c 中的类方法相似的，类型方法是作用于类型本身的，实例方法则是作用于类型对应的实例。和 Obj-c 不同的是，在 Swift 中不仅可以给类定义方法，同时还可以给结构体和枚举定义方法。">
+<meta property="og:updated_time" content="2017-03-31T10:23:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift-方法">
+<meta name="twitter:description" content="在 Swift 中方法分为两种，实例方法、类型方法。其中类型方法和 Obj-c 中的类方法相似的，类型方法是作用于类型本身的，实例方法则是作用于类型对应的实例。和 Obj-c 不同的是，在 Swift 中不仅可以给类定义方法，同时还可以给结构体和枚举定义方法。">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron的开发笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Aaron的开发笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay foolish,Stay hungry!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="Aaronzjp.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Swift-Method" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/22/Swift-Method/" class="article-date">
+  <time datetime="2017-03-22T04:57:57.000Z" itemprop="datePublished">2017-03-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Swift/">Swift</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift-方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 Swift 中方法分为两种，实例方法、类型方法。其中类型方法和 Obj-c 中的类方法相似的，类型方法是作用于类型本身的，实例方法则是作用于类型对应的实例。和 Obj-c 不同的是，在 Swift 中不仅可以给类定义方法，同时还可以给结构体和枚举定义方法。</p>
+<a id="more"></a>
+<h1 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h1><p>实例方法是属于类、结构体或者枚举类型实例的方法。实例方法的语法和函数是一致的（其实就是函数吧，只是是和某个特定类型相关联的函数），实例方法是提供修改和访问实例属性的方法，实现和实例目的相关的功能。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">giveDog</span><span class="params">(name: String)</span></span> &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">changeDog</span><span class="params">(name: String)</span></span> &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">deleteDogName</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">self</span>.name = <span class="literal">nil</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Dog 类定义了三个实例方法，方法的调用和属性是一样的使用点语法:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> dog = <span class="type">Dog</span>()</div><div class="line">dog.giveDog(name: <span class="string">"DouDou"</span>)</div><div class="line"><span class="comment">//dog 的名字是 DouDou</span></div><div class="line">dog.changeDog(name: <span class="string">"SB"</span>)</div><div class="line"><span class="comment">//dog 的名字是 SB</span></div><div class="line">dog.deleteDogName()</div><div class="line"><span class="comment">//dog 的名字是一个 nil 的可选值</span></div></pre></td></tr></table></figure>
+<p>方法和函数一样也可以指定参数外部名称和内部名称。</p>
+<h2 id="实例方法中修改值类型属性"><a href="#实例方法中修改值类型属性" class="headerlink" title="实例方法中修改值类型属性"></a>实例方法中修改值类型属性</h2><p>swift 中枚举和结构体属于值类型，默认情况下值类型的属性是不能在实例方法中就行修改的，如果需要在值类型中修改属性就需要使用可变方法。可变方法使用关键字 mutating 修饰，放在方法声明的最前面，在可变方法中还可以对 self 进行赋值，方法结束后被赋值的 self 的实例会被新的值所取代。在常量值类型实例中是不可以调用可变方法的，因为值类型的实例一旦声明成为常量那么他的属性也全部变为常量。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></div><div class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">moveTo</span><span class="params">(x:Double, y:Double)</span></span> &#123;</div><div class="line">        <span class="keyword">self</span> = <span class="type">Point</span>(x: x, y: y)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同样的也可以应用在枚举中</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">TriStateSwitch</span> </span>&#123;</div><div class="line">  <span class="keyword">case</span> <span class="type">Off</span>, <span class="type">Low</span>, <span class="type">High</span></div><div class="line">  <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">next</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</div><div class="line">    <span class="keyword">case</span> <span class="type">Off</span>:</div><div class="line">      <span class="keyword">self</span> = <span class="type">Low</span></div><div class="line">    <span class="keyword">case</span> <span class="type">Low</span>:</div><div class="line">      <span class="keyword">self</span> = <span class="type">High</span></div><div class="line">    <span class="keyword">case</span> <span class="type">High</span>:</div><div class="line">      <span class="keyword">self</span> = <span class="type">Off</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="类型方法"><a href="#类型方法" class="headerlink" title="类型方法"></a>类型方法</h1><p>实例方法是被类型的特定实例调用，那么类型方法就是被类型调用的。在类中声明类型方法使用 class 关键字，放在 func 的前面，在结构体和枚举中声明类型方法使用 static 关键字，也是放在 func 前面。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">newPerson</span>(<span class="title">name</span>: <span class="title">String</span>) -&gt; <span class="title">Person</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">Person</span>(name: name)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> person = <span class="type">Person</span>.newPerson(name: <span class="string">"Aaron"</span>)</div></pre></td></tr></table></figure>
+<p>在 Person 中声明了一个类方法，调用该类方法会返回一个 person 实例。在类型方法中可以直接访问类型属性或者调用类型方法，而不需要加上类型名称。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="Aaronzjp.cn/2017/03/22/Swift-Method/" data-id="cj3n5l9ne001032t5q3ehy2e4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/枚举/">枚举</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/27/Swift-Initialization/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Swift-构造过程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/07/Animation/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS动画</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Core-Animation/">Core Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS网络编程/">iOS网络编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/runtime/">runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程技术/">多线程技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小技巧/">小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据存储/">数据存储</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库（DataBase）/">数据库（DataBase）</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoLayout/">AutoLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Core-Animation/">Core Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVO-KVC/">KVO/KVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift基础/">Swift基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationBar/">UINavigationBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/block/">block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS多线程/">iOS多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发思路/">iOS开发思路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime/">runtime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime​/">runtime​</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-sizing-TableView-Cells/">self-sizing TableView Cells</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图层/">图层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小坑/">小坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据持久化/">数据持久化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件管理/">文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程/">构造过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动布局/">自动布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自适应Cell/">自适应Cell</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/AutoLayout/" style="font-size: 10px;">AutoLayout</a> <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CALayer/" style="font-size: 10px;">CALayer</a> <a href="/tags/Core-Animation/" style="font-size: 10px;">Core Animation</a> <a href="/tags/KVO-KVC/" style="font-size: 10px;">KVO/KVC</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Swift基础/" style="font-size: 10px;">Swift基础</a> <a href="/tags/UIKit/" style="font-size: 10px;">UIKit</a> <a href="/tags/UINavigationBar/" style="font-size: 10px;">UINavigationBar</a> <a href="/tags/block/" style="font-size: 10px;">block</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS多线程/" style="font-size: 10px;">iOS多线程</a> <a href="/tags/iOS开发思路/" style="font-size: 15px;">iOS开发思路</a> <a href="/tags/runtime/" style="font-size: 20px;">runtime</a> <a href="/tags/runtime​/" style="font-size: 10px;">runtime​</a> <a href="/tags/self-sizing-TableView-Cells/" style="font-size: 10px;">self-sizing TableView Cells</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/图层/" style="font-size: 10px;">图层</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/小坑/" style="font-size: 10px;">小坑</a> <a href="/tags/数据存储/" style="font-size: 15px;">数据存储</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据持久化/" style="font-size: 10px;">数据持久化</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/本地化/" style="font-size: 15px;">本地化</a> <a href="/tags/构造过程/" style="font-size: 10px;">构造过程</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/自适应Cell/" style="font-size: 10px;">自适应Cell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/19/TransitionAnimation/">自定义转场动画（ViewController Transition）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/27/Swift-Initialization/">Swift-构造过程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/Swift-Method/">Swift-方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/07/Animation/">iOS动画</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/01/swift 3.0-Function/">swift - 函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Aaron_36<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

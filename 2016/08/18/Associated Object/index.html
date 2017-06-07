@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS-对象关联 | Aaron的开发笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关联对象就是给某个对象关联一些其他的对象，这些被关联的对象通过键（key）来区分管理。比如：  有一个Person类，Aaron是这个Person类的实例也就是对象。现在又增加了一个Car类，且有一个Audi的实例，我们需要给Aaron实例增加关联一辆Audi车。显然常规的做法是把Car类作为属性添加到Aaron中，但是在有的某些特殊的情况下我们无法对Aaron这个实例直接进行操作，也无法通过继承">
+<meta name="keywords" content="runtime">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS-对象关联">
+<meta property="og:url" content="Aaronzjp.cn/2016/08/18/Associated Object/index.html">
+<meta property="og:site_name" content="Aaron的开发笔记">
+<meta property="og:description" content="关联对象就是给某个对象关联一些其他的对象，这些被关联的对象通过键（key）来区分管理。比如：  有一个Person类，Aaron是这个Person类的实例也就是对象。现在又增加了一个Car类，且有一个Audi的实例，我们需要给Aaron实例增加关联一辆Audi车。显然常规的做法是把Car类作为属性添加到Aaron中，但是在有的某些特殊的情况下我们无法对Aaron这个实例直接进行操作，也无法通过继承">
+<meta property="og:updated_time" content="2017-04-21T07:58:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS-对象关联">
+<meta name="twitter:description" content="关联对象就是给某个对象关联一些其他的对象，这些被关联的对象通过键（key）来区分管理。比如：  有一个Person类，Aaron是这个Person类的实例也就是对象。现在又增加了一个Car类，且有一个Audi的实例，我们需要给Aaron实例增加关联一辆Audi车。显然常规的做法是把Car类作为属性添加到Aaron中，但是在有的某些特殊的情况下我们无法对Aaron这个实例直接进行操作，也无法通过继承">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron的开发笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Aaron的开发笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay foolish,Stay hungry!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="Aaronzjp.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Associated Object" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/18/Associated Object/" class="article-date">
+  <time datetime="2016-08-18T10:35:51.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/runtime/">runtime</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS-对象关联
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关联对象就是给某个对象关联一些其他的对象，这些被关联的对象通过键（key）来区分管理。比如：</p>
+<blockquote>
+<p>有一个<code>Person</code>类，<code>Aaron</code>是这个<code>Person</code>类的实例也就是对象。现在又增加了一个<code>Car</code>类，且有一个<code>Audi</code>的实例，我们需要给<code>Aaron</code>实例增加关联一辆Audi车。显然常规的做法是把<code>Car</code>类作为属性添加到<code>Aaron</code>中，但是在有的某些特殊的情况下我们无法对<code>Aaron</code>这个实例直接进行操作，也无法通过继承去操作，那么这个时候就可以用关联对象来解决这个问题了。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="怎么关联对象"><a href="#怎么关联对象" class="headerlink" title="怎么关联对象"></a>怎么关联对象</h1><p>如何关联对象？苹果早就为我们提供了关联对象的方法：</p>
+<blockquote>
+<p>//通过设置键（key）和关联对象以及被管理对象和内存关联类型来关联对象</p>
+<p>void objc_setAssociatedObject(id object, void *key, id value, objc_AssociationPolicy policy)</p>
+<p>//从对应的键（key）获取相对应的关联对象</p>
+<p>id objc_getAssociatedObject(id object, void *key)</p>
+<p>//移除指定对象的全部关联对象。一般不这样做，因为会移除所有的关联对象，如不需要的时候只要关联对象为nil即可</p>
+<p>void objc_removeAssociatedObjects(id object)</p>
+</blockquote>
+<p>参数说明：</p>
+<blockquote>
+<p>id object ：被关联的对象 </p>
+<p>const void *key ：被关联对象的键（key）此键是一个不透明的指针，即该指针指向的数据不局限于某种特定的类型</p>
+<p>id value ： 关联的对象</p>
+<p>objc_AssociationPolicy policy : 内存管理策略</p>
+</blockquote>
+<p><code>objc_AssociationPolicy policy</code>是一个枚举值，其中每一个枚举值对应了关联对象的存储策略，其中如果与其<code>@property</code>对应的策略如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">关联类型</th>
+<th style="text-align:center">与之等效的@property属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">OBJC_ASSOCIATION_ASSIGN</td>
+<td style="text-align:center">assign</td>
+</tr>
+<tr>
+<td style="text-align:center">OBJC_ASSOCIATION_RETAIN_NONATOMIC</td>
+<td style="text-align:center">nonatomic,retain</td>
+</tr>
+<tr>
+<td style="text-align:center">OBJC_ASSOCIATION_COPY_NONATOMIC</td>
+<td style="text-align:center">nonatomic,copy</td>
+</tr>
+<tr>
+<td style="text-align:center">OBJC_ASSOCIATION_RETAIN</td>
+<td style="text-align:center">retain</td>
+</tr>
+<tr>
+<td style="text-align:center">OBJC_ASSOCIATION_COPY</td>
+<td style="text-align:center">copy</td>
+</tr>
+</tbody>
+</table>
+<h1 id="关联对象的使用"><a href="#关联对象的使用" class="headerlink" title="关联对象的使用"></a>关联对象的使用</h1><p>如在当前控制器需要弹出一个<code>AlertView</code>，但是在有很多这样的信息要处理的时候，代码就会显得很乱。但是我们在创建alertView的时候就把每个按钮点击后的事件写好就看起来简洁多了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line">#import &lt;objc/runtime.h&gt;</div><div class="line"></div><div class="line">static void *AlertViewTest = &quot;AlertViewTest&quot;;</div><div class="line"></div><div class="line">@interface ViewController () &lt;UIAlertViewDelegate&gt;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    // Do any additional setup after loading the view, typically from a nib.</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (IBAction)alertViewClicked:(UIButton *)sender &#123;</div><div class="line">    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@&quot;AlertView弹出&quot; message:@&quot;对象关联的练习&quot; delegate:self cancelButtonTitle:@&quot;取消&quot; otherButtonTitles:@&quot;确定&quot;, nil];</div><div class="line">    </div><div class="line">    //block,点击后处理的block</div><div class="line">    void (^alertViewClicked) (NSInteger) = ^(NSInteger buttonIndex) &#123;</div><div class="line">        </div><div class="line">        NSLog(@&quot;你点击了第 %ld 个按钮&quot;,buttonIndex);</div><div class="line">        </div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    //把block关联到alertView中</div><div class="line">    objc_setAssociatedObject(alertView, AlertViewTest, alertViewClicked, OBJC_ASSOCIATION_COPY);</div><div class="line">    </div><div class="line">    [alertView show];</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex &#123;</div><div class="line">    </div><div class="line">    //从alertView中获取被关联的block</div><div class="line">    void (^alertViewClicked) (NSInteger) = objc_getAssociatedObject(alertView, AlertViewTest);</div><div class="line">    //调用block，以来处理alertView按钮被点击后的响应</div><div class="line">    alertViewClicked(buttonIndex);</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>关联对象的介绍和用法大致就是这样，虽然使用起来很方便，好用。但是在项目中我觉得还是尽量避免使用这样的方法，因为对象关联频繁大量的使用会对项目后期的调试和维护造成困难，一旦这里出现问题就会很难再<code>bug</code>查找调试中找到问题所在。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="Aaronzjp.cn/2016/08/18/Associated Object/" data-id="cj3n5l9mr000532t51ryduat8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/runtime/">runtime</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/08/objc-msgSend/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS发送消息
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/11/iOS-NetWork-Programming-NSURLConnectionAndNSURLSession/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS网络编程NSURLConnection／NSURLSession</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Core-Animation/">Core Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS网络编程/">iOS网络编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/runtime/">runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程技术/">多线程技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小技巧/">小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据存储/">数据存储</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库（DataBase）/">数据库（DataBase）</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoLayout/">AutoLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Core-Animation/">Core Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVO-KVC/">KVO/KVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift基础/">Swift基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationBar/">UINavigationBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/block/">block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS多线程/">iOS多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发思路/">iOS开发思路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime/">runtime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime​/">runtime​</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-sizing-TableView-Cells/">self-sizing TableView Cells</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图层/">图层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小坑/">小坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据持久化/">数据持久化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件管理/">文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程/">构造过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动布局/">自动布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自适应Cell/">自适应Cell</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/AutoLayout/" style="font-size: 10px;">AutoLayout</a> <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CALayer/" style="font-size: 10px;">CALayer</a> <a href="/tags/Core-Animation/" style="font-size: 10px;">Core Animation</a> <a href="/tags/KVO-KVC/" style="font-size: 10px;">KVO/KVC</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Swift基础/" style="font-size: 10px;">Swift基础</a> <a href="/tags/UIKit/" style="font-size: 10px;">UIKit</a> <a href="/tags/UINavigationBar/" style="font-size: 10px;">UINavigationBar</a> <a href="/tags/block/" style="font-size: 10px;">block</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS多线程/" style="font-size: 10px;">iOS多线程</a> <a href="/tags/iOS开发思路/" style="font-size: 15px;">iOS开发思路</a> <a href="/tags/runtime/" style="font-size: 20px;">runtime</a> <a href="/tags/runtime​/" style="font-size: 10px;">runtime​</a> <a href="/tags/self-sizing-TableView-Cells/" style="font-size: 10px;">self-sizing TableView Cells</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/图层/" style="font-size: 10px;">图层</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/小坑/" style="font-size: 10px;">小坑</a> <a href="/tags/数据存储/" style="font-size: 15px;">数据存储</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据持久化/" style="font-size: 10px;">数据持久化</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/本地化/" style="font-size: 15px;">本地化</a> <a href="/tags/构造过程/" style="font-size: 10px;">构造过程</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/自适应Cell/" style="font-size: 10px;">自适应Cell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/19/TransitionAnimation/">自定义转场动画（ViewController Transition）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/27/Swift-Initialization/">Swift-构造过程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/Swift-Method/">Swift-方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/07/Animation/">iOS动画</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/01/swift 3.0-Function/">swift - 函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Aaron_36<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

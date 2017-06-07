@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS动画 | Aaron的开发笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="​    在iOS／MacOS中，基本上所有的动画都是由 Core Animation 这个框架来完成的。这个框架的主要功能就是渲染图形，以及动画的实现，使用 Core Animation 来实现图形渲染以及动画只需要配置一些简单的参数，告诉它动画应该什么时候开始，什么时候结束，以及状态等。 Core Animation 通过硬件加速自动的完成图形的绘制，渲染以及动画。">
+<meta name="keywords" content="动画,Animation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS动画">
+<meta property="og:url" content="Aaronzjp.cn/2017/03/07/Animation/index.html">
+<meta property="og:site_name" content="Aaron的开发笔记">
+<meta property="og:description" content="​    在iOS／MacOS中，基本上所有的动画都是由 Core Animation 这个框架来完成的。这个框架的主要功能就是渲染图形，以及动画的实现，使用 Core Animation 来实现图形渲染以及动画只需要配置一些简单的参数，告诉它动画应该什么时候开始，什么时候结束，以及状态等。 Core Animation 通过硬件加速自动的完成图形的绘制，渲染以及动画。">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258946476275.jpg">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258947674369.jpg">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258952129969.jpg">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258955543595.gif">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258958290902.gif">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258960815893.gif">
+<meta property="og:updated_time" content="2017-04-19T08:40:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS动画">
+<meta name="twitter:description" content="​    在iOS／MacOS中，基本上所有的动画都是由 Core Animation 这个框架来完成的。这个框架的主要功能就是渲染图形，以及动画的实现，使用 Core Animation 来实现图形渲染以及动画只需要配置一些简单的参数，告诉它动画应该什么时候开始，什么时候结束，以及状态等。 Core Animation 通过硬件加速自动的完成图形的绘制，渲染以及动画。">
+<meta name="twitter:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258946476275.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron的开发笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Aaron的开发笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay foolish,Stay hungry!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="Aaronzjp.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Animation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/07/Animation/" class="article-date">
+  <time datetime="2017-03-07T06:44:31.000Z" itemprop="datePublished">2017-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Core-Animation/">Core Animation</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS动画
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258946476275.jpg" alt="20170419149258946476275.jpg"></p>
+<p>​    在iOS／MacOS中，基本上所有的动画都是由 Core Animation 这个框架来完成的。这个框架的主要功能就是渲染图形，以及动画的实现，使用 Core Animation 来实现图形渲染以及动画只需要配置一些简单的参数，告诉它动画应该什么时候开始，什么时候结束，以及状态等。 Core Animation 通过硬件加速自动的完成图形的绘制，渲染以及动画。</p>
+<a id="more"></a>
+<p>​    首先看一下 Core Animation 中主要的几个类的继承机构，如下图：<br><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258947674369.jpg" alt="Core Animation继承图"></p>
+<h2 id="隐式动画"><a href="#隐式动画" class="headerlink" title="隐式动画"></a>隐式动画</h2><p>之所以叫隐式动画我觉得应该是我们在处理隐式动画的时候不需要去处理动画相关的东西，不需要去设置动画的时间，动画的轨迹，而只需要改变一个属性就可以做出一个动画，这些动画其实都是由 Core Animation 来完成的。Core Animation 包含了一系列的属性动画的集合机制。隐式动画只作用于 RootLayer 以外的 Layer 。</p>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>隐式动画其实是通过事务来管理的，事务实际上是 Core Animation 用来包含管理属性动画的集合机制，任何通过事务去改变的动画属性都不会立刻的发生变化，而是当事务提交的时候才开始从原来的值过渡到一个新的值。事务是通过 CATransaction 类来管理的，该类和其他普通的类不一样，没有属性和实例方法，也没有 <code>+ alloc;</code> ， <code>- init;</code> 等方法。而是通过 <code>+ begin;</code> ， <code>+ commit;</code> 来入栈和出栈。所有可以做动画的属性都可以添加到栈顶顶事务，然后提交事务。隐式动画中动画默认的时间为0.25秒，但是我们也可以通过 <code>- setAnimationDuration;</code> 来设置时间，或者通过 <code>+ animationDuration;</code> 来获取当前的时间。图层作出的所有的改变都是事务的一部分，都是经由事务把图层的改变更新到图层的。事务又可以分为隐式事务和显式事务。</p>
+<h3 id="隐式事务"><a href="#隐式事务" class="headerlink" title="隐式事务"></a>隐式事务</h3><p>当修改图层没有在显示的获取事务进行更改的时候都会自动的创建隐式事务，当线程中的 run-loop 执行下一次迭代的时候就会自动的收集事务并提交事务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">layer.position = CGPointMake(0.0,1.0);</div></pre></td></tr></table></figure>
+<p>上面的这段代码会被事务收集并提交，生成动画效果。</p>
+<h3 id="显式事务"><a href="#显式事务" class="headerlink" title="显式事务"></a>显式事务</h3><p>显示事务就需要在修改 layer 前开始一个新的事务，然后在修改 layer 后提交事务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//开始一个新事务，如果不开启新的事务，直接在当前事务中做修改可能会造成一些副作用</div><div class="line">[CATransaction begin];</div><div class="line">//    [CATransaction setDisableActions:YES];</div><div class="line">//设置事务时间</div><div class="line">[CATransaction setAnimationDuration:3.0];</div><div class="line">//设置完成事务</div><div class="line">[CATransaction setCompletionBlock:^&#123;</div><div class="line">    CGAffineTransform transform = self.layer.affineTransform;</div><div class="line">    transform = CGAffineTransformRotate(transform, M_PI_4);</div><div class="line">    self.layer.affineTransform = transform;</div><div class="line">&#125;];</div><div class="line">CGFloat red = arc4random() / (CGFloat)INT_MAX;</div><div class="line">CGFloat green = arc4random() / (CGFloat)INT_MAX;</div><div class="line">CGFloat blue = arc4random() / (CGFloat)INT_MAX;</div><div class="line">self.layer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;</div><div class="line">//提交事务</div><div class="line">[CATransaction commit];</div></pre></td></tr></table></figure>
+<p>这种设置动画的方式是不是觉得好像在那见过？对，在 UIView 中也有这样类似的动画的实现方式。在 UIView中设置一个动画如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">CGPoint piont = [[touches anyObject]locationInView:self.view];</div><div class="line"></div><div class="line">[UIView beginAnimations:nil context:nil];</div><div class="line">[UIView setAnimationDuration:2.0];</div><div class="line">self.layerView.backgroundColor = [UIColor orangeColor];</div><div class="line">self.layerView.center = piont;</div><div class="line"></div><div class="line">[UIView commitAnimations];</div></pre></td></tr></table></figure>
+<p>实际上通过 UIView 这种方式实现的动画都是通过设置 CATransaction 来完成的，但是 UIView 相对于 CATransaction 来说要更加丰富一些，可以设置 delay、repeatCount等等。</p>
+<p>在 iOS 4.0 点时苹果为 UIView 添加了基于 Block 添加点动画点方式： <code>+ (void)animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animations completion:(void (^ __nullable)(BOOL finished))completion；</code> 在 Block 动画方式中可以设置 completion 以在动画完成的时候做一些其他操作，这种方式在 CATransaction 中也有对应的方法 ：<code>+ (void)setCompletionBlock:(nullable void (^)(void))block;</code></p>
+<p>在 CATransaction 中使用动画完成块：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//开始一个新事务</div><div class="line">[CATransaction begin];</div><div class="line">//    [CATransaction setDisableActions:YES];</div><div class="line">//设置事务时间</div><div class="line">[CATransaction setAnimationDuration:3.0];</div><div class="line">//设置完成事务</div><div class="line">[CATransaction setCompletionBlock:^&#123;</div><div class="line">    CGAffineTransform transform = self.layer.affineTransform;</div><div class="line">    transform = CGAffineTransformRotate(transform, M_PI_4);</div><div class="line">    self.layer.affineTransform = transform;</div><div class="line">&#125;];</div><div class="line">CGFloat red = arc4random() / (CGFloat)INT_MAX;</div><div class="line">CGFloat green = arc4random() / (CGFloat)INT_MAX;</div><div class="line">CGFloat blue = arc4random() / (CGFloat)INT_MAX;</div><div class="line">self.layer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;</div><div class="line">//提交事务</div><div class="line">[CATransaction commit];</div></pre></td></tr></table></figure>
+<p>以上代码会在动画完成的时候旋转90度，在图层旋转的时候要比颜色渐变快很多，这是因为旋转是在事务提交后才被执行的，是使用默认的事务做的旋转，所以时间就变成了默认的0.25秒。</p>
+<h3 id="隐式动画的实现"><a href="#隐式动画的实现" class="headerlink" title="隐式动画的实现"></a>隐式动画的实现</h3><p>在最上面就讲到了隐式动画只作用于非 RootLayer 的图层，这是因为在 UIView 中苹果禁用了 RootLayer 的这个特性。为了搞清楚 UIView 是如何禁用 CALayer 的隐式动画的就需要了解隐式动画的实现。</p>
+<p>隐式动画实现方式可以分为如下的几步：</p>
+<ul>
+<li>当 CALayer 的属性改变的时候，就会调用 <code>- actionForKey(NSSrting *):event;</code> 方法传递属性的名称。</li>
+<li>如果图层否有委托，并且是否实现 <code>CALayerDelegate</code> 协议指定的 <code>- actionForLayer:forKey</code> 方法。如果有，直接调用并返回结果。</li>
+<li>如果没有委托，或者委托没有实现 <code>-actionForLayer:forKey</code> 方法，图层接着检查包含属性名称对应行为映射的 actions 字典。</li>
+<li>如果 actions 字典没有包含对应的属性，那么图层接着在它的 style 字典接着搜索属性名。</li>
+<li>最后，如果在 style 里面也找不到对应的行为，那么图层将会直接调用定义了每个属性的标准行为的 <code>- defaultActionForKey:</code> 方法。</li>
+</ul>
+<p>所以当一轮搜索过后，要么 <code>- actionForLayer:forkey;</code> 返回 nil ，要么就是 CAAction 协议对应的对象，最后 CALayer 就会获取这个结果对之前和现在的值做动画。</p>
+<p><strong>那么 UIView 是如何禁用隐式动画的呢？</strong></p>
+<p>每个 UIView 对其关联的 RootLayer 都是一个委托，并且实现了 <code>- actionForLayer:forKey;</code> 方法，当不再一个动画块的实现的时候，UIView 对所有的图层的动画行为都返回 nil ，但是在动画范围内的就返回一个非空的值。当然还有一种方式可以直接禁用隐式动画，就是在入栈的时候调用 <code>- setDisableActions;</code> 方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[CATransaction begin];</div><div class="line">[CATransaction setDisableActions:YES];</div><div class="line">[CATrasnaction commit];</div></pre></td></tr></table></figure>
+<h3 id="呈现与模型"><a href="#呈现与模型" class="headerlink" title="呈现与模型"></a>呈现与模型</h3><p>前面也提到了，当更改一个图层的属性的时候，事务被提交，图层在屏幕上就会从之前的值过渡到更改的新值，而不是立即就会生效的。当图层的属性值更新后，并不会马上的在屏幕上显示出来，而是从之前的值慢慢过渡过来的，我们更改的图层属性的值其实是在过渡完成后将要显示在屏幕上的值。</p>
+<p>在iOS中，屏幕每秒钟重绘60次。如果动画时长比60分之一秒要长，Core Animation就需要在设置一次新值和新值生效之间，对屏幕上的图层进行重新组织。这意味着 CALayer 除了“真实”值（就是你设置的值）之外，必须要知道当前显示在屏幕上的属性值的记录。每个图层属性的显示值都被存储在一个叫呈现图层的独立图层中，该图层可以通过 <code>presentationLayer;</code> 方法获取，这个呈现图层其实是模型图层的复制，呈现图层的值就是当前屏幕正在显示的值。除了呈现层，模型层以外其实还有一个渲染层，但是渲染层是私有的所以这里不做了解。</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258952129969.jpg" alt="图层模型"></p>
+<p><strong>什么时候会用到呈现层？</strong></p>
+<p>当我们需要实现一个基于定时器的动画的时候，需要知道在某个时间图层显示的位置时，或者在动画正在进行的时候也允许动画与用户交互的时候，这个时候呈现层就起了很大的作用，我们通过呈现层可以知道目前图层在屏幕上处于什么位置，以及当前屏幕上图层的状态。</p>
+<p>如下Demo：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event &#123;</div><div class="line"></div><div class="line">    CGPoint point = [[touches anyObject] locationInView:self.view];</div><div class="line"></div><div class="line">    if ([self.layer.presentationLayer hitTest:point]) &#123;</div><div class="line">        CGFloat red = arc4random() / (CGFloat)INT_MAX;</div><div class="line">        CGFloat green = arc4random() / (CGFloat)INT_MAX;</div><div class="line">        CGFloat blue = arc4random() / (CGFloat)INT_MAX;</div><div class="line"></div><div class="line">        [CATransaction begin];</div><div class="line">        [CATransaction setAnimationDuration:1];</div><div class="line">        self.layer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1].CGColor;</div><div class="line">        [CATransaction commit];</div><div class="line">    &#125;else&#123;</div><div class="line">        [CATransaction begin];</div><div class="line">        [CATransaction setAnimationDuration:4];</div><div class="line">        self.layer.position = point;</div><div class="line">        [CATransaction commit];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="显式动画"><a href="#显式动画" class="headerlink" title="显式动画"></a>显式动画</h2><p>​    显示动画就是需要显示去设置动画时间动画轨迹，以及一些其他动画的特性。它能够对一些属性做指定的自定义动画，或者创建非线性动画，比如沿着任意一条曲线移动。</p>
+<h3 id="CAAnimation"><a href="#CAAnimation" class="headerlink" title="CAAnimation"></a>CAAnimation</h3><p>​    CAAnimation 作为动画的根类，是不可以直接使用的，应该使用他的子类。但是 CAAnimation中还是有一些经常使用到的一些属性，和方法，这里列举一下。</p>
+<p><strong>属性：</strong></p>
+<p><strong>delgate:</strong>为 CAAnimation 设置代理，默认的为ni，该代理下有两个代理回调方法。</p>
+<p><strong>removedOnCompletion:</strong>动画完成后是否移除动画效果，默认为 YES ，当动画结束的时候则会立即恢复到动画前的状态。如果想让动画在完成后保持动画执行完的状态，需要设置该属性为 NO ，同时还要设置 fillMode 为kCAFillModeForwards。</p>
+<p><strong>timingFuncation:</strong>速度控制，控制动画的节奏。该属性是一个 NSString 类型，可以接受如下几种常量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//匀速</div><div class="line">kCAMediaTimingFunctionLinear</div><div class="line">//慢进快出</div><div class="line">kCAMediaTimingFunctionEaseIn</div><div class="line">//快进慢出</div><div class="line">kCAMediaTimingFunctionEaseOut</div><div class="line">//慢进慢出中间加速</div><div class="line">kCAMediaTimingFunctionEaseInEaseOut</div><div class="line">//默认形式</div><div class="line">kCAMediaTimingFunctionDefault</div></pre></td></tr></table></figure>
+<p><strong>方法：</strong></p>
+<p><code>+ animation;</code> 返回一个 CAAnimation 实例对象。</p>
+<p><code>+ defualtValueForKey:(NSString *)key;</code> 根据属性 Key 返回相对应的值，用于当使用的键没有被设置值的时候，返回一个默认值。</p>
+<p><code>- (BOOL)shouldArchiveValueForKey:(NSString *)key;</code> 设置对应的键的属性是否可以被归档，默认为 YES 。</p>
+<p><strong>代理方法：</strong></p>
+<p><code>- (void)animationDidStart:(CAAnimation *)theAnimation;</code> 动画开始的回调。</p>
+<p><code>- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag;</code> 动画停止时候回调，flag动画是否结束。</p>
+<h3 id="CAMediaTiming"><a href="#CAMediaTiming" class="headerlink" title="CAMediaTiming"></a>CAMediaTiming</h3><p>​    CAMediaTiming 作为一个协议类，CAAnimation 和 CALayer 都实现了该协议。该协议主要控制动画的时间，以及一些重复属性。该协议包含了一系列的属性，如下：</p>
+<p><strong>beginTime：</strong>指动画开始前延迟的时间，这个开始时间是相对当前图层时间来说的，这个时间是从动画被添加那一刻开始的，默认为0。</p>
+<p><strong>timeOffset:</strong> 时间偏移量，这个属性有点不太好理解，首先把一个动画看成是一个循环，如果设置动画的时间为5s，timeOffset 默认为0的情况下没有任何的变化。如果把 timeOffset 设置为3，那么动画就会从第4秒的地方开始，执行到第3秒。</p>
+<p><strong>duration:</strong> 动画执行的时间，该属性还和 speed 属性有关系，如果一个 speed 为2， duration 为3的动画，那么这个动画的实际执行时间为 duration / speed ，speed 是可以叠加的，如果一个 layer 的 speed 为2，sublayer 的 speed 也为2， duration为3，那么这个 sublayer 的动画时间则为 3 / (2 * 2) 秒。</p>
+<p><strong>speed:</strong> 动画执行速度，和 duration 有一定的关系，具体的参见上一条 duration。</p>
+<p><strong>repeatCount:</strong> 动画重复次数</p>
+<p><strong>repeatDuration:</strong> 重复时间，这个重复时间是指让动画持续重复执行的时长</p>
+<p><strong>autoreverses:</strong> 动画翻转回放，默认为 NO ，如果设置为 YES ，那么动画结束时会以动画的方式回到初始状态。</p>
+<p><strong>fillMode:</strong> 填充模式，该属性时一个 NSString 的类型，可以接受如下四种常量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//动画结束后回到准备状态</div><div class="line">kCAFillModeForwards</div><div class="line">//动画结束后保持最后状态</div><div class="line">kCAFillModeBackwards</div><div class="line">//动画结束后回到准备状态,并保持最后状态</div><div class="line">kCAFillModeBoth</div><div class="line">//执行完成移除动画</div><div class="line">kCAFillModeRemoved</div></pre></td></tr></table></figure>
+<p>要注意的是如果 CA Animation 的 removedOnCompletion 属性设置为 NO 的时候，fillMode 是无效的。</p>
+<h3 id="属性动画-CAPropertyAnimation"><a href="#属性动画-CAPropertyAnimation" class="headerlink" title="属性动画(CAPropertyAnimation)"></a>属性动画(CAPropertyAnimation)</h3><p>​    属性动画作用于图层的某个单一属性，并指定了它的一个目标值，或者一连串将要做动画的值。属性动画分为两种：基础和关键帧。</p>
+<h4 id="基础动画-CABasicAnimation"><a href="#基础动画-CABasicAnimation" class="headerlink" title="基础动画(CABasicAnimation)"></a>基础动画(CABasicAnimation)</h4><p>​    在上面的显示动画中也提到了，动画其实就是图层/视图在一段时间内发生的改变，从一个值到另一个值之间的过渡，这也是 CABasicAnimation 最主要的功能。 CABasicAnimation 是 CAPropertyAnimation 的子类。 CAPropertyAnimation 通过指定一个图层的 keyPath 作用于这个属性，实际上这个 keyPath 并不是指单一的图层的属性，而是包含了它子成员的属性，或者是一些虚拟属性。</p>
+<p>CABasicAnimation 继承于 CAPropertyAnimation，并且添加了如下三个属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">id fromValue</div><div class="line">id toValue</div><div class="line">id byValue</div></pre></td></tr></table></figure>
+<p>分别设置这三个属性说表达的效果：</p>
+<ul>
+<li>同时设置 fromValue 和 toValue，会在这两个值之间做动画</li>
+<li>同时设置 formValue 和 byValue，则会在 fromValue 和 fromValue + byValue 之间做动画</li>
+<li>同时设置 byValue 和 toValue，会在 toValue - byValue 和 toValue 之间做动画</li>
+<li>只设置 fromValue 则会在 fromValue 和当前图层的呈现层的目标值之间做动画</li>
+<li>只设置 toValue 则会在当前图层呈现层的目标值和 toValue 之间做动画</li>
+<li>只设置 byValue 则会在当前图层呈现层的目标值和 当前图层呈现层的目标值 + byValue 之间做动画</li>
+</ul>
+<p>这三个属性都被指定成了 id 类型，之所以是 id 类型的是因为属性动画不是单一的作用在一个固定类型的属性，而是很多不同类型的属性上，包括数字类型，矢量，变换矩阵，甚至是颜色或者图片。还有一些非 NSObject 派生对象的属性，那么如果用这些属性来做动画就需要将数据转换包装一下。</p>
+<p>但是需要注意的是不能同事设置这三个属性，因为可能会发生冲突。</p>
+<p>如下通过 CABasicAnimation 显示动画来修改 CALayer 的背景色：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">CGFloat red = arc4random() / (CGFloat)INT_MAX;</div><div class="line">CGFloat green = arc4random() / (CGFloat)INT_MAX;</div><div class="line">CGFloat blue = arc4random() / (CGFloat)INT_MAX;</div><div class="line">UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];</div><div class="line">CABasicAnimation *animation = [CABasicAnimation animation];</div><div class="line">animation.duration = 3.0;</div><div class="line">animation.keyPath = @&quot;backgroundColor&quot;;</div><div class="line">animation.toValue = (__bridge id) color.CGColor;</div><div class="line">[_layer addAnimation:animation forKey:@&quot;backgroundColor&quot;];</div></pre></td></tr></table></figure>
+<p>当运行这段代码的时候会发现 layer 的背景色过渡到一个新的颜色后当动画结束的那一瞬间， layer 的背景色又立刻变回了最初始的值。这所以这样是因为 CABasicAnimation 动画并不会改变图层的模型层，而是改变的呈现层。一旦动画结束就会从图层上移除，图层恢复到初始的状态。因为我们也从来没有改变 backgroudColor 这个属性。利用这一点， CABasicAnimation 很合适用来做连续循环的动画。如下展示了一个心跳的简单动画。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">_layer = [CALayer layer];</div><div class="line">UIImage *image = [UIImage imageNamed:@&quot;heart.jpg&quot;];</div><div class="line">_layer.contents = (__bridge id )image.CGImage;</div><div class="line">self.layer.bounds = CGRectMake(0, 0, image.size.width / 10, image.size.height / 10);</div><div class="line">_layer.position = self.view.layer.position;</div><div class="line">[self.view.layer addSublayer:_layer];</div><div class="line"></div><div class="line">CABasicAnimation *animation = [CABasicAnimation animation];</div><div class="line">animation.keyPath = @&quot;bounds&quot;;</div><div class="line">animation.fromValue = [NSValue valueWithCGRect:_layer.bounds];</div><div class="line">animation.toValue = [NSValue valueWithCGRect:CGRectMake(0, 0, image.size.width / 2, image.size.height / 2)];</div><div class="line">//重复次数，HUGE 一个宏定义等同于MAXFLOAT</div><div class="line">animation.repeatCount = HUGE;</div><div class="line">//动画时长</div><div class="line">animation.duration = 1.0;</div><div class="line">//以动画的形式回到初始状态</div><div class="line">animation.autoreverses = YES;</div><div class="line">//计时方式</div><div class="line">animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];</div><div class="line">//添加动画到 layer</div><div class="line">[_layer addAnimation:animation forKey:@&quot;heartJump&quot;];</div></pre></td></tr></table></figure>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258955543595.gif" alt="心跳动画展示"></p>
+<h4 id="关键帧动画-CAKeyframeAnimation"><a href="#关键帧动画-CAKeyframeAnimation" class="headerlink" title="关键帧动画(CAKeyframeAnimation)"></a>关键帧动画(CAKeyframeAnimation)</h4><p>​    CAKeyframeAnimation 同样的也是 CAPropertyAnimation 的子类，同样的也是作用于一个单一的属性。但是和 CABasicAnimation 不同的是它不限制于在 fromValue 、 byValue 和 toValue 之间的值做动画，而是可以根据一连串随意的值来做动画。</p>
+<p>​    CAKeyframeAnimation 有一些关键的属性如下：</p>
+<p><strong>values:</strong> 关键帧值数组，动画会根据该数组的内容数值作出动画变换。</p>
+<p><strong>path:</strong> 关键帧路径，动画根据该路径作出变化，优先权大于 values ，当同时设置 values 和 path 时，优先作用于 path 。</p>
+<p><strong>keyTimes:</strong> 每一帧所对应的时间，时间可以控制动画的速度，值从 0.0-1.0 ，默认为每一帧时间相等。</p>
+<p><strong>timingFunctions:</strong> 时间控制数组，即每一帧的动画速度控制，具体效果在 CAAnimation 中有描述。</p>
+<p><strong>calculationMode:</strong> 动画计算模式，该属性时一个 NSString 类型的，可接受如下几种常量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//关键帧为座标点的时候,关键帧之间直接直线相连进行插值计算</div><div class="line">kCAAnimationLinear</div><div class="line"></div><div class="line">//离散的,也就是没有补间动画</div><div class="line">kCAAnimationDiscrete</div><div class="line"></div><div class="line">//平均，keyTimes跟timeFunctions失效</div><div class="line">kCAAnimationPaced</div><div class="line"></div><div class="line">//对关键帧为座标点的关键帧进行圆滑曲线相连后插值计算,对于曲线的形状还可以通过tensionValues,continuityValues,biasValues来进行调整自定义,keyTimes跟timeFunctions失效</div><div class="line">kCAAnimationCubic</div><div class="line"></div><div class="line">//在kCAAnimationCubic的基础上使得动画运行变得均匀,就是系统时间内运动的距离相同,keyTimes跟timeFunctions失效</div><div class="line">kCAAnimationCubicPaced</div></pre></td></tr></table></figure>
+<p><strong>tensionValues:</strong> NSNumber 数组，定义曲线密度。</p>
+<p><strong>continuityValues:</strong> NSNumber 数组，定义曲线拐角的锐度</p>
+<p><strong>biasValues:</strong> 动画的偏斜率</p>
+<p><strong>rotationMode:</strong> 动画沿 path 移动时旋转的方式，默认为 nil 就是不做任何旋转。NSString 类型的属性，接受如下两种常量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//根据path的切面自动旋转方向</div><div class="line">kCAAnimationRotateAuto</div><div class="line">//根据path的切面自动翻转</div><div class="line">kCAAnimationRotateAutoReverse</div></pre></td></tr></table></figure>
+<p>如下使用做一个动画让其根据设定的点移动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">//首先添加一个 layer 到视图</div><div class="line">_maliaoLayer = [CALayer layer];</div><div class="line">_maliaoLayer.frame = CGRectMake(0, 0, 65, 75);</div><div class="line">_maliaoLayer.position = CGPointMake(33, CGRectGetHeight(self.view.bounds) - 38);</div><div class="line">_maliaoLayer.contents = (__bridge id) [UIImage imageNamed:@&quot;maliao.png&quot;].CGImage;</div><div class="line">[self.view.layer addSublayer:_maliaoLayer];</div><div class="line"></div><div class="line">//添加动画</div><div class="line">- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event &#123;</div><div class="line">    //创建关键帧动画</div><div class="line">    CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];</div><div class="line">    //针对position值做动画</div><div class="line">    animation.keyPath = @&quot;position&quot;;</div><div class="line">    //动画时间</div><div class="line">    animation.duration = 3.0;</div><div class="line">    animation.values = @[[NSValue valueWithCGPoint:CGPointMake(0, 667)],</div><div class="line">                         [NSValue valueWithCGPoint:CGPointMake(10, 550)],</div><div class="line">                         [NSValue valueWithCGPoint:CGPointMake(40, 400)],</div><div class="line">                         [NSValue valueWithCGPoint:CGPointMake(100, 300)],</div><div class="line">                         [NSValue valueWithCGPoint:CGPointMake(200, 600)],</div><div class="line">                         [NSValue valueWithCGPoint:CGPointMake(300, 250)],</div><div class="line">                         [NSValue valueWithCGPoint:CGPointMake(350, 0)]];</div><div class="line">    //动画方式</div><div class="line">    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];</div><div class="line">    //添加动画到图层</div><div class="line">    [_maliaoLayer addAnimation:animation forKey:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258958290902.gif" alt="马里奥Value动画"></p>
+<p>当然上面的例子时通过 values 来做动画的，但是同样的效果也可以通过 path 来实现，只需要把 values 更改成 path，如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">_path = [[UIBezierPath alloc]init];</div><div class="line">[_path moveToPoint:CGPointMake(33, CGRectGetHeight(self.view.bounds))];</div><div class="line">[_path addCurveToPoint:CGPointMake(100, 10) controlPoint1:CGPointMake(100, 20) controlPoint2:CGPointMake(100, 50)];</div><div class="line">[_path addCurveToPoint:CGPointMake(200,20) controlPoint1:CGPointMake(100, 50) controlPoint2:CGPointMake(200, 50)];</div><div class="line"></div><div class="line">animation.path = _path.CGPath;</div><div class="line">[_maliaoLayer addAnimation:animation forKey:nil];</div></pre></td></tr></table></figure>
+<h4 id="弹性动画-CASpringAnimation"><a href="#弹性动画-CASpringAnimation" class="headerlink" title="弹性动画(CASpringAnimation)"></a>弹性动画(CASpringAnimation)</h4><p>​    弹性动画是在 iOS9 之后新加入的，主要可以通过这个类来做一些带有弹性的动画，该类继承自 CABasicAnimation ，除了 CABasicAnimation 的属性外，新增了如下属性：</p>
+<p><strong>mass:</strong> 质量，影响图层运动时的弹簧惯性，质量越大，弹簧拉伸和压缩的幅度越大。</p>
+<p><strong>stiffness:</strong> 刚度系数，刚度系数越大，形变产生的力就越大，运动越快</p>
+<p><strong>damping:</strong> 阻尼系数，阻止弹簧伸缩的系数，阻尼系数越大，动画停止越快</p>
+<p><strong>initialVelocity:</strong> 初始速率，动画视图的初始速度大小<br>速率为正数时，速度方向与运动方向一致，速率为负数时，速度方向与运动方向相反</p>
+<p><strong>settlingDuration:</strong> 结束时间，这是一个只读属性，返回动画结束的时间，该时间是根据当前动画的各个参数计算的。</p>
+<p>下面通过一个 Demo 来感受下这个弹性动画😄</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">CASpringAnimation *animation = [CASpringAnimation animation];</div><div class="line">animation.keyPath = @&quot;position.x&quot;;</div><div class="line">animation.fromValue = (id)@(_imageView.layer.position.x);</div><div class="line">animation.toValue = (id)@(_imageView.layer.position.x + 100);</div><div class="line">animation.mass = 1;</div><div class="line">animation.stiffness = 100;</div><div class="line">animation.damping = 1;</div><div class="line">animation.initialVelocity = 0;</div><div class="line">animation.duration = animation.settlingDuration;</div><div class="line">[_imageView.layer addAnimation:animation forKey:nil];</div></pre></td></tr></table></figure>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258960815893.gif" alt="弹性动画"></p>
+<h3 id="动画组-CAAnimationGroup"><a href="#动画组-CAAnimationGroup" class="headerlink" title="动画组(CAAnimationGroup)"></a>动画组(CAAnimationGroup)</h3><p>​    动画组，顾名思义就是一组动画同时进行。CAAnimationGroup 继承于 CAAnimation ，有一个 Animations 的属性，就是把多个 Animation 或者其子类装入数组中添加到动画组中一起执行。用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">CASpringAnimation *animation = [CASpringAnimation animation];</div><div class="line">animation.keyPath = @&quot;position.x&quot;;</div><div class="line">animation.fromValue = (id)@(_imageView.layer.position.x);</div><div class="line">animation.toValue = (id)@(_imageView.layer.position.x + 100);</div><div class="line">animation.mass = 1;</div><div class="line">animation.stiffness = 100;</div><div class="line">animation.damping = 1;</div><div class="line">animation.initialVelocity = 0;</div><div class="line">animation.duration = animation.settlingDuration;</div><div class="line"></div><div class="line">CABasicAnimation *scalAnimation = [CABasicAnimation animation];</div><div class="line">scalAnimation.keyPath = @&quot;bounds.size&quot;;</div><div class="line">scalAnimation.fromValue = [NSValue valueWithCGSize:_imageView.layer.bounds.size];</div><div class="line">scalAnimation.toValue = [NSValue valueWithCGSize:CGSizeMake(_imageView.layer.bounds.size.width * 3, _imageView.layer.bounds.size.height *3)];</div><div class="line">scalAnimation.duration = 3;</div><div class="line"></div><div class="line">CAAnimationGroup *animationGroup = [CAAnimationGroup animation];</div><div class="line">animationGroup.animations = @[animation,scalAnimation];</div><div class="line">animationGroup.duration = 6;</div><div class="line">[_imageView.layer addAnimation:animationGroup forKey:nil];</div></pre></td></tr></table></figure>
+<h3 id="转场过渡动画-CATrsantion"><a href="#转场过渡动画-CATrsantion" class="headerlink" title="转场过渡动画(CATrsantion)"></a>转场过渡动画(CATrsantion)</h3><p>​    CATrasition 继承自 CAAnimation ，CATrasntion 通过 type 属性提供了 4 种过渡动画，是一个 NSString 类型的属性，可以接受下面四种常量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//淡入淡出</div><div class="line">kCATransitionFade</div><div class="line">//移进</div><div class="line">kCATransitionMoveIn </div><div class="line">//推动进去</div><div class="line">kCATransitionPush </div><div class="line">//揭开</div><div class="line">kCATransitionReveal</div></pre></td></tr></table></figure>
+<p>其实除了上面这 4 种过渡动画还有一些私有的。这四种出了第一种是固定的以为，后面三种都是有一个方向的，方向的更改可以通过 subtype 属性来更改方向，该属性也是一个 NSString 类型的，有如下四种常量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kCATransitionFromRight </div><div class="line">kCATransitionFromLeft </div><div class="line">kCATransitionFromTop </div><div class="line">kCATransitionFromBottom</div></pre></td></tr></table></figure>
+<p>平常基本上需要用到的动画都在这里了，基本上都可以通过这里讲到的动画方式来组合出来的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="Aaronzjp.cn/2017/03/07/Animation/" data-id="cj3n5l9mm000132t5wikw8bct" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Animation/">Animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动画/">动画</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/22/Swift-Method/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Swift-方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/01/swift 3.0-Function/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">swift - 函数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Core-Animation/">Core Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS网络编程/">iOS网络编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/runtime/">runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程技术/">多线程技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小技巧/">小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据存储/">数据存储</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库（DataBase）/">数据库（DataBase）</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoLayout/">AutoLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Core-Animation/">Core Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVO-KVC/">KVO/KVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift基础/">Swift基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationBar/">UINavigationBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/block/">block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS多线程/">iOS多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发思路/">iOS开发思路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime/">runtime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime​/">runtime​</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-sizing-TableView-Cells/">self-sizing TableView Cells</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图层/">图层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小坑/">小坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据持久化/">数据持久化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件管理/">文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程/">构造过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动布局/">自动布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自适应Cell/">自适应Cell</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/AutoLayout/" style="font-size: 10px;">AutoLayout</a> <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CALayer/" style="font-size: 10px;">CALayer</a> <a href="/tags/Core-Animation/" style="font-size: 10px;">Core Animation</a> <a href="/tags/KVO-KVC/" style="font-size: 10px;">KVO/KVC</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Swift基础/" style="font-size: 10px;">Swift基础</a> <a href="/tags/UIKit/" style="font-size: 10px;">UIKit</a> <a href="/tags/UINavigationBar/" style="font-size: 10px;">UINavigationBar</a> <a href="/tags/block/" style="font-size: 10px;">block</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS多线程/" style="font-size: 10px;">iOS多线程</a> <a href="/tags/iOS开发思路/" style="font-size: 15px;">iOS开发思路</a> <a href="/tags/runtime/" style="font-size: 20px;">runtime</a> <a href="/tags/runtime​/" style="font-size: 10px;">runtime​</a> <a href="/tags/self-sizing-TableView-Cells/" style="font-size: 10px;">self-sizing TableView Cells</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/图层/" style="font-size: 10px;">图层</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/小坑/" style="font-size: 10px;">小坑</a> <a href="/tags/数据存储/" style="font-size: 15px;">数据存储</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据持久化/" style="font-size: 10px;">数据持久化</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/本地化/" style="font-size: 15px;">本地化</a> <a href="/tags/构造过程/" style="font-size: 10px;">构造过程</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/自适应Cell/" style="font-size: 10px;">自适应Cell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/19/TransitionAnimation/">自定义转场动画（ViewController Transition）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/27/Swift-Initialization/">Swift-构造过程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/Swift-Method/">Swift-方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/07/Animation/">iOS动画</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/01/swift 3.0-Function/">swift - 函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Aaron_36<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

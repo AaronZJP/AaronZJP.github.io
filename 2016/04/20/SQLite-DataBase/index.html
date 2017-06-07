@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS开发-SQLite数据库 | Aaron的开发笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="​    在 iOS 开发中我们经常会对数据进行存储，我们已知有如下几种数据本地化的方式：  属性列表 对象归档 SQLite数据库 Core Data">
+<meta name="keywords" content="数据存储,本地化,数据库,SQLite,数据持久化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发-SQLite数据库">
+<meta property="og:url" content="Aaronzjp.cn/2016/04/20/SQLite-DataBase/index.html">
+<meta property="og:site_name" content="Aaron的开发笔记">
+<meta property="og:description" content="​    在 iOS 开发中我们经常会对数据进行存储，我们已知有如下几种数据本地化的方式：  属性列表 对象归档 SQLite数据库 Core Data">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/2017041914925901213326.jpg">
+<meta property="og:updated_time" content="2017-04-20T07:47:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发-SQLite数据库">
+<meta name="twitter:description" content="​    在 iOS 开发中我们经常会对数据进行存储，我们已知有如下几种数据本地化的方式：  属性列表 对象归档 SQLite数据库 Core Data">
+<meta name="twitter:image" content="http://onocdmhtw.bkt.clouddn.com/2017041914925901213326.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron的开发笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Aaron的开发笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay foolish,Stay hungry!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="Aaronzjp.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-SQLite-DataBase" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/20/SQLite-DataBase/" class="article-date">
+  <time datetime="2016-04-20T13:00:25.000Z" itemprop="datePublished">2016-04-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/数据库（DataBase）/">数据库（DataBase）</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS开发-SQLite数据库
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    在 iOS 开发中我们经常会对数据进行存储，我们已知有如下几种数据本地化的方式：</p>
+<ul>
+<li>属性列表</li>
+<li>对象归档</li>
+<li>SQLite数据库</li>
+<li>Core Data</li>
+</ul>
+<a id="more"></a>
+<p>​        其中，前两项属性列表以及归档都只适合轻量化的数据存储，对于比较少量的轻量级的数据我们可以使用<strong>属性列表</strong>以及<strong>对象归档</strong>的方式来进行存储。但是在需要存储大量的数据的时候我们就需要利用数据库来对数据进行存储。iOS开发中比较常用的数据库有 SQLite ，Core Data ，当然也有一些其它的第三方的框架实现对数据库的存储和操作，比如FMDB，Realm。</p>
+<h1 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h1><p>​    SQLite 是一款开源的数据库，主要采用 C 语言编写，具有可移植性强、可靠性高、小而容易使用的特点。SQLite 在使用的时候它与应用程序之间是共用的相同的进程，而不是单独的两个进程。SQLite 目前的主流版本是 SQLite3 。SQLite 是弱类型的数据库，其实基本上可以忽略数据类型，但是为了编程规范，以及后续方便的维护，建议还是在创建数据库表的时候明确定义各个字段的数据类型。</p>
+<p>​    SQLite支持如下常见的数据类型：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">和程序对应的数据类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">INTEGER</td>
+<td style="text-align:center">有符号的整数类型</td>
+</tr>
+<tr>
+<td style="text-align:center">REAl</td>
+<td style="text-align:center">浮点类型</td>
+</tr>
+<tr>
+<td style="text-align:center">TEXT</td>
+<td style="text-align:center">字符串类型，采用UTF-8UTF-16字符编码</td>
+</tr>
+<tr>
+<td style="text-align:center">BLOB</td>
+<td style="text-align:center">二进制大对象类型，能够存放任何二进制数据</td>
+</tr>
+</tbody>
+</table>
+<p>除了上面这些数据类型的支持，还有一些兼容的数据类型。其中 SQLite 中是没有  <code>Boolean</code>  类型的，一般我们用 0 和 1 来代替，也没有日期和时间类型，一般这样的类型我们将它存储在 <code>TEXT</code> 、 <code>REAL</code> 和 <code>INTEGER</code> 类型中。</p>
+<h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><p>要想熟练的使用 SQLite 数据库，首先还是需要熟悉一下 SQLite 数据库简单的增、删、改、查的 <a href="http://www.runoob.com/sqlite/sqlite-syntax.html" target="_blank" rel="external">SQL语句</a> 的，能简单的使用 SQL 的查询语句。</p>
+<p>在 iOS中 我们要使用 SQLite 数据库首先要添加 SQLite 库到工程中，并引入头文件 <code>sqlite3.h</code></p>
+<p>要创建数据库，一般使用以下三个步骤</p>
+<ol>
+<li>使用 <code>sqlite3_open</code> 函数打开数据库。</li>
+<li>使用 <code>sqlite3_exec</code> 函数来创建数据库表。</li>
+<li>使用 <code>sqlite3_close</code> 函数关闭数据库。</li>
+</ol>
+<p>在我的 Demo 中，我首先创建了一个叫 <code>SQLiteManager</code> 的类，来专门管理数据库的操作，在<code>- (BOOL)creatDB;</code>方法中开始创建数据库表，并返回是否成功创建数据库表，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">- (BOOL)creatDB &#123;</div><div class="line">    //获取Documents文件路径</div><div class="line">    NSString *basePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];</div><div class="line">  	//拼接获取数据库的地址</div><div class="line">    dataBasePath = [[NSString alloc]initWithString:[basePath stringByAppendingPathComponent:DATA_BASE_NAME]];</div><div class="line">    NSLog(@&quot;数据库地址---&gt; %@&quot;,dataBasePath);</div><div class="line">    </div><div class="line">    //返回成功与否</div><div class="line">    BOOL isSuccess = YES;</div><div class="line">    </div><div class="line">    //打开数据库</div><div class="line">    //第一个参数是数据库完整的地址</div><div class="line">    //第二个参数是SQLite数据库对象</div><div class="line">    //SQLITE_OK 是SQLite中的常量宏定义，表示当前数据库操作的状态</div><div class="line">    if (sqlite3_open([dataBasePath UTF8String], &amp;db) == SQLITE_OK) &#123;</div><div class="line">        </div><div class="line">        char *erro;</div><div class="line">        //数据库SQL语句，当Person表不存在的时候就创建，否则就不创建</div><div class="line">        NSString *createSQLite = [NSString stringWithFormat:@&quot;CREATE TABLE IF NOT EXISTS Person (name TEXT PRIMARY KEY, phone TEXT, age TEXT);&quot;];</div><div class="line">        </div><div class="line">        //数据库建表函数</div><div class="line">        if (sqlite3_exec(db, [createSQLite UTF8String], NULL, NULL, &amp;erro) != SQLITE_OK) &#123;</div><div class="line">            //关闭数据库，释放资源</div><div class="line">            sqlite3_close(db);</div><div class="line">            NSAssert(NO, @&quot;数据库建表失败！&quot;);</div><div class="line">            return isSuccess = NO;</div><div class="line">        &#125; else &#123;</div><div class="line">            sqlite3_close(db);</div><div class="line">            NSLog(@&quot;数据库建表成功！&quot;);</div><div class="line">            return isSuccess;</div><div class="line">        &#125;</div><div class="line">    &#125; else &#123;</div><div class="line">        //注意只要执行了数据库打开函数的操作，不管数据库是否打开成功或失败，为了安全起见都需要关闭数据库</div><div class="line">        sqlite3_close(db);</div><div class="line">        NSAssert(NO, @&quot;数据库打开失败!&quot;);</div><div class="line">        return isSuccess = NO;</div><div class="line">    &#125;</div><div class="line">    return isSuccess;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面这段代码中的 SQL 语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSString *createSQLite = [NSString stringWithFormat:@&quot;CREATE TABLE IF NOT EXISTS Person (name TEXT PRIMARY KEY, phone TEXT, age TEXT);&quot;];</div></pre></td></tr></table></figure>
+<p>在创建数据库表的时候存入了三种数据，<code>name</code>、<code>phone</code>、<code>age</code>。其中 <code>name</code> 是主键。在 SQL 语句中，还可以加入字段约束，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSString *sql = @&quot;create table if not exists stu (ID integer primary key, name text not null, gender text default &apos;男&apos;)&quot;;</div></pre></td></tr></table></figure>
+<p>以下是 SQLite 中常用的字段约束条件：</p>
+<ul>
+<li><code>NOT NULL</code>        非空，确保某列不能有 <code>NULL</code> 值。</li>
+<li><code>UNIQUE</code>                 唯一，确保某列中的所有值是不同的。</li>
+<li><code>PRIMARY KEY</code>        主键，唯一标识数据库表中的各行/记录。</li>
+<li><code>CHECK</code>                    条件检查，确保一列中的所有值满足一定条件</li>
+<li><code>DEFAULT</code>                默认，当某列没有指定值时，为该列提供默认值</li>
+</ul>
+<p>当写完上面代码后，只要运行程序我们就能在相对应的模拟器路径下找到 <code>Person.sqlite</code> 文件了，当然为了调试方便，看程序是否执行成功，最好还是在电脑上安装一个 SQLite 的工具，以便查看数据库。我推荐如下图这个工具吧，具体的使用还是看个人的习惯。（不要问我从哪下。。。我相信你们找得到😀）</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/2017041914925901213326.jpg" alt="2017041914925901213326.jpg"></p>
+<h1 id="存储数据（修改数据）"><a href="#存储数据（修改数据）" class="headerlink" title="存储数据（修改数据）"></a>存储数据（修改数据）</h1><p>修改数据时，会使用到的 SQL 语句有 <code>insert</code> 、<code>update</code> 、<code>delete</code> 、<code>insert or replace</code> 等。这次 Demo 中存储数据使用的是 <code>insert or replace</code> ，因为这里没有对数据进行很好的规划，没有对如果主键的数据是相同的情况作出处理，如果用 <code>insert</code> 的话，主键相同的时候，就会存储数据失败，修改数据的操作步骤都是一样的，只是 SQL 语句不一样。</p>
+<p>修改数据的主要步骤如下：</p>
+<ol>
+<li>使用 <code>sqlite3_open</code> 函数打开数据库</li>
+<li>使用 <code>sqlite3_prepare_v2</code> 函数与处理 SQL 语句</li>
+<li>使用 <code>sqlite3_bind_text</code> 函数来绑定参数</li>
+<li>使用 <code>sqlite3_step</code> 函数执行 SQL 语句</li>
+<li>查询结束后使用 <code>sqlite3_ finalize</code> 和 <code>sqlite3_close</code> 函数释放资源</li>
+</ol>
+<p>Demo 中只是存储了简单的数据类型，因为在写这个 Demo 时我忽略了数据库类型 <code>BLOB</code> 我也不知道，图片，音频，视频，是怎么存储进去的😂。</p>
+<p>但是，但是就在我写这个博客日记前，我算是知道怎么存储进去的了。如果要存储图片，音频，视频文件的话，需要先使用 <code>NSData</code> 类将文件转换成二进制，然后用 <code>BLOB</code> 类型存入 SQLite 数据库，这个具体的操作我会在 Demo 中更新。</p>
+<p>存储数据的方法在 Demo 中我也用了一个专门的方法（<code>- (BOOL)saveName:(NSString *)name AndPhone:(NSString *)phone WithAge:(NSString *)age ;</code>）来存储数据，并返回一个 <code>BOOL</code> 值来确定是否储存成功。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">- (BOOL)saveName:(NSString *)name AndPhone:(NSString *)phone WithAge:(NSString *)age &#123;</div><div class="line">    //返回成功与否</div><div class="line">    BOOL isSuccess = YES;</div><div class="line">    if (sqlite3_open([dataBasePath UTF8String], &amp;db) != SQLITE_OK) &#123;</div><div class="line">        sqlite3_close(db);</div><div class="line">        isSuccess = NO;</div><div class="line">        NSAssert(NO, @&quot;数据库打开失败&quot;);</div><div class="line">    &#125; else &#123;</div><div class="line">        NSString *insertSQLString = [NSString stringWithFormat:@&quot;INSERT OR REPLACE INTO Person (name, phone, age) VALUES (?, ?, ?)&quot;];</div><div class="line">        //预处理函数</div><div class="line">        int result = sqlite3_prepare_v2(db, [insertSQLString UTF8String], -1, &amp;statment, NULL);</div><div class="line">        if (result == SQLITE_OK) &#123;</div><div class="line">            //绑定数据</div><div class="line">            sqlite3_bind_text(statment, 1, [name UTF8String], -1, NULL);</div><div class="line">            sqlite3_bind_text(statment, 2, [phone UTF8String], -1, NULL);</div><div class="line">            sqlite3_bind_text(statment, 3, [age UTF8String], -1, NULL);</div><div class="line">            //插入数据</div><div class="line">            if (sqlite3_step(statment) != SQLITE_DONE) &#123;</div><div class="line">                isSuccess = NO;</div><div class="line">                NSAssert(NO, @&quot;插入数据失败&quot;);</div><div class="line">            &#125; else &#123;</div><div class="line">                isSuccess = YES;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    sqlite3_finalize(statment);</div><div class="line">    sqlite3_close(db);</div><div class="line">    return isSuccess;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h1><p>查询数据和修改数据的步骤基本是一样的，只是在第4步后多了一个字段数据提取的步骤。查询所有 <code>Person</code> 的代码如下： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">- (NSArray *)findAllPerson &#123;</div><div class="line">    NSMutableArray *personArray = [NSMutableArray array];</div><div class="line">    </div><div class="line">    if (sqlite3_open([dataBasePath UTF8String], &amp;db) != SQLITE_OK) &#123;</div><div class="line">        sqlite3_close(db);</div><div class="line">        NSAssert(NO, @&quot;数据库打开失败&quot;);</div><div class="line">    &#125; else &#123;</div><div class="line">        NSString *findAllPersonSQLString = @&quot;SELECT name,phone,age FROM Person&quot;;</div><div class="line">        int result = sqlite3_prepare_v2(db, [findAllPersonSQLString UTF8String], -1, &amp;statment, NULL);</div><div class="line">        if (result == SQLITE_OK) &#123;</div><div class="line">            while (sqlite3_step(statment) == SQLITE_ROW) &#123;</div><div class="line">                // 获取记录中的字段值</div><div class="line">                // 第一个参数是语句对象，第二个参数是字段的下标，从0开始</div><div class="line">                NSString *name = [NSString stringWithUTF8String:(const char *) sqlite3_column_text(statment, 0)];</div><div class="line">                </div><div class="line">                NSString *phone = [NSString stringWithUTF8String:(const char *) sqlite3_column_text(statment, 1)];</div><div class="line">                </div><div class="line">                NSString *age = [NSString stringWithUTF8String:(const char *) sqlite3_column_text(statment, 2)];</div><div class="line">    </div><div class="line">                Person *person = [[Person alloc]init];</div><div class="line">                person.name = name;</div><div class="line">                person.phone = phone;</div><div class="line">                person.age = age;</div><div class="line">                </div><div class="line">                [personArray addObject:person];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        sqlite3_finalize(statment);</div><div class="line">        sqlite3_close(db);</div><div class="line">    &#125;</div><div class="line">    return [personArray copy];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这段代码中查询的是数据库表中所有的数据。按条件查询数据的方法和这个基本也是差不多的，区别在于查询所有数据没有查询条件，不需要绑定参数，遍历数据的时候使用的是 <code>while</code> 循环语句，而不是 <code>if</code> 条件判断语句。查找对应 <code>phone</code> 的 <code>Person</code> 如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">- (Person *)findPersonWithPhone:(NSString *)phone &#123;</div><div class="line">    NSMutableArray *personArray = [NSMutableArray array];</div><div class="line">    </div><div class="line">    if (sqlite3_open([dataBasePath UTF8String], &amp;db) != SQLITE_OK) &#123;</div><div class="line">        sqlite3_close(db);</div><div class="line">        NSAssert(NO, @&quot;数据库打开失败&quot;);</div><div class="line">    &#125; else &#123;</div><div class="line">        NSString *findAllPersonSQLString = @&quot;SELECT * FROM Person WHERE phone = ?&quot;;</div><div class="line">        int result = sqlite3_prepare_v2(db, [findAllPersonSQLString UTF8String], -1, &amp;statment, NULL);</div><div class="line">        if (result == SQLITE_OK) &#123;</div><div class="line">          	//和查询所有数据的区别就在这里，先绑定数据，再用if去过滤查询结果</div><div class="line">          	//绑定数据</div><div class="line">          	sqlite3_bind_text(statment,1,[phone UTF8String],-1,NULL)</div><div class="line">            if (sqlite3_step(statment) == SQLITE_ROW) &#123;</div><div class="line">                // 获取记录中的字段值</div><div class="line">                // 第一个参数是语句对象，第二个参数是字段的下标，从0开始</div><div class="line">                NSString *name = [NSString stringWithUTF8String:(const char *) sqlite3_column_text(statment, 0)];</div><div class="line">                </div><div class="line">                NSString *phone = [NSString stringWithUTF8String:(const char *) sqlite3_column_text(statment, 1)];</div><div class="line">                </div><div class="line">                NSString *age = [NSString stringWithUTF8String:(const char *) sqlite3_column_text(statment, 2)];</div><div class="line">    </div><div class="line">                Person *person = [[Person alloc]init];</div><div class="line">                person.name = name; </div><div class="line">                person.phone = phone;</div><div class="line">                person.age = age;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        sqlite3_finalize(statment);</div><div class="line">        sqlite3_close(db);</div><div class="line">    &#125;</div><div class="line">    return person;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>SQLite 的查询语句当然也是可以添加一些条件的，比如：</p>
+<p>计算某字段记录的数量：</p>
+<blockquote>
+<p>SELECT COUNT （字段）FROM 表名；</p>
+</blockquote>
+<p>示例🌰：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSString *findAllPersonCountSQLString = @&quot;SELECT COUNT (phone) FROM Person &quot;;</div></pre></td></tr></table></figure>
+<p>查询结果按顺序排列：</p>
+<blockquote>
+<p>SELECT * FROM 表名 ORDER BY 字段 ;</p>
+</blockquote>
+<p>示例🌰：</p>
+<p>查找Person并按照降序排列（ DESC 降序，ASC 升序）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSString *findAllPersonSQLStringByDesc = @&quot;SELECT * FROM Person ORDER BY phone DESC &quot;;</div></pre></td></tr></table></figure>
+<p>控制查询结果的数量：</p>
+<blockquote>
+<p>SELECT * FROM 表名 LIMIT 数值1, 数值2 ;</p>
+</blockquote>
+<p>示例🌰：</p>
+<p>跳过第0跳数据取10条数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSString *findAllPersonSQLString = @&quot;SELECT * FROM Person LIMIT 0，10 &quot;;</div></pre></td></tr></table></figure>
+<p>其实还有更多的SQL查询语句，想要知道更多查询语句的可以在我前面给出的网站中自行学习。</p>
+<h1 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">- (BOOL)deletePersonWithName:(NSString *)name &#123;</div><div class="line">    BOOL isSucces = YES;</div><div class="line">    if (sqlite3_open([dataBasePath UTF8String], &amp;db) != SQLITE_OK) &#123;</div><div class="line">        sqlite3_close(db);</div><div class="line">        return NO;</div><div class="line">        NSAssert(NO, @&quot;数据库打开失败&quot;);</div><div class="line">    &#125; else &#123;</div><div class="line">        NSString *deletePersonSQLString = @&quot;DELETE FROM Person WHERE name =?&quot;;</div><div class="line">        int result = sqlite3_prepare_v2(db, [deletePersonSQLString UTF8String], -1, &amp;statment, NULL);</div><div class="line">        if (result == SQLITE_OK) &#123;</div><div class="line">            sqlite3_bind_text(statment, 1, [name UTF8String], -1, NULL);</div><div class="line">            if (sqlite3_step(statment) != SQLITE_DONE) &#123;</div><div class="line">                return isSucces = NO;</div><div class="line">                NSAssert(NO, @&quot;数据库删除失败&quot;);</div><div class="line">            &#125; else &#123;</div><div class="line">                NSLog(@&quot;数据删除成功&quot;);</div><div class="line">                return isSucces = YES;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    sqlite3_finalize(statment);</div><div class="line">    sqlite3_close(db);</div><div class="line">    return isSucces;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> <a href="http://www.runoob.com/sqlite/sqlite-syntax.html" target="_blank" rel="external">关于SQLite更多的学习</a> </p>
+<p><a href="https://github.com/AaronZJP/iOS-Basic-Demos/tree/master/SQLite-Demo" target="_blank" rel="external">Demo下载地址</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="Aaronzjp.cn/2016/04/20/SQLite-DataBase/" data-id="cj3n5l9nb000w32t5zzpmb126" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据存储/">数据存储</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据持久化/">数据持久化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/本地化/">本地化</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/28/File-Manager/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS开发-文件管理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/31/KVO:KVC/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">KVO/KVC的使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Core-Animation/">Core Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS网络编程/">iOS网络编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/runtime/">runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程技术/">多线程技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小技巧/">小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据存储/">数据存储</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库（DataBase）/">数据库（DataBase）</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoLayout/">AutoLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Core-Animation/">Core Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVO-KVC/">KVO/KVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift基础/">Swift基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationBar/">UINavigationBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/block/">block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS多线程/">iOS多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发思路/">iOS开发思路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime/">runtime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime​/">runtime​</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-sizing-TableView-Cells/">self-sizing TableView Cells</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图层/">图层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小坑/">小坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据持久化/">数据持久化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件管理/">文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程/">构造过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动布局/">自动布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自适应Cell/">自适应Cell</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/AutoLayout/" style="font-size: 10px;">AutoLayout</a> <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CALayer/" style="font-size: 10px;">CALayer</a> <a href="/tags/Core-Animation/" style="font-size: 10px;">Core Animation</a> <a href="/tags/KVO-KVC/" style="font-size: 10px;">KVO/KVC</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Swift基础/" style="font-size: 10px;">Swift基础</a> <a href="/tags/UIKit/" style="font-size: 10px;">UIKit</a> <a href="/tags/UINavigationBar/" style="font-size: 10px;">UINavigationBar</a> <a href="/tags/block/" style="font-size: 10px;">block</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS多线程/" style="font-size: 10px;">iOS多线程</a> <a href="/tags/iOS开发思路/" style="font-size: 15px;">iOS开发思路</a> <a href="/tags/runtime/" style="font-size: 20px;">runtime</a> <a href="/tags/runtime​/" style="font-size: 10px;">runtime​</a> <a href="/tags/self-sizing-TableView-Cells/" style="font-size: 10px;">self-sizing TableView Cells</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/图层/" style="font-size: 10px;">图层</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/小坑/" style="font-size: 10px;">小坑</a> <a href="/tags/数据存储/" style="font-size: 15px;">数据存储</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据持久化/" style="font-size: 10px;">数据持久化</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/本地化/" style="font-size: 15px;">本地化</a> <a href="/tags/构造过程/" style="font-size: 10px;">构造过程</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/自适应Cell/" style="font-size: 10px;">自适应Cell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/19/TransitionAnimation/">自定义转场动画（ViewController Transition）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/27/Swift-Initialization/">Swift-构造过程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/Swift-Method/">Swift-方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/07/Animation/">iOS动画</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/01/swift 3.0-Function/">swift - 函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Aaron_36<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

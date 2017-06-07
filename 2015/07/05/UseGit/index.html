@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>git的简单使用 | Aaron的开发笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于安装git因为在Mac上安装Xcode后就会自动的安装git，所有Mac端的安装方式就不需要怎么说了，在Linux下具体的就不怎么说了，自行Google，因为Linux的版本太多，各个版本之间都存在微小的差异。在Windows下推荐使用git for Windows，它包括了图形工具以及命令的使用。">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git的简单使用">
+<meta property="og:url" content="Aaronzjp.cn/2015/07/05/UseGit/index.html">
+<meta property="og:site_name" content="Aaron的开发笔记">
+<meta property="og:description" content="关于安装git因为在Mac上安装Xcode后就会自动的安装git，所有Mac端的安装方式就不需要怎么说了，在Linux下具体的就不怎么说了，自行Google，因为Linux的版本太多，各个版本之间都存在微小的差异。在Windows下推荐使用git for Windows，它包括了图形工具以及命令的使用。">
+<meta property="og:updated_time" content="2017-04-19T09:18:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git的简单使用">
+<meta name="twitter:description" content="关于安装git因为在Mac上安装Xcode后就会自动的安装git，所有Mac端的安装方式就不需要怎么说了，在Linux下具体的就不怎么说了，自行Google，因为Linux的版本太多，各个版本之间都存在微小的差异。在Windows下推荐使用git for Windows，它包括了图形工具以及命令的使用。">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron的开发笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Aaron的开发笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay foolish,Stay hungry!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="Aaronzjp.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-UseGit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/05/UseGit/" class="article-date">
+  <time datetime="2015-07-05T06:04:25.000Z" itemprop="datePublished">2015-07-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      git的简单使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于安装<code>git</code>因为在<code>Mac</code>上安装<code>Xcode</code>后就会自动的安装<code>git</code>，所有<code>Mac</code>端的安装方式就不需要怎么说了，在<code>Linux</code>下具体的就不怎么说了，自行<code>Google</code>，因为<code>Linux</code>的版本太多，各个版本之间都存在微小的差异。在<code>Windows</code>下推荐使用<code>git for Windows</code>，它包括了图形工具以及命令的使用。</p>
+<a id="more"></a>
+<h1 id="配置git"><a href="#配置git" class="headerlink" title="配置git"></a>配置git</h1><p>安装完<code>git</code>后我们第一件事要做的就是配置<code>git</code>，其中配置<code>git</code>方式如下：</p>
+<blockquote>
+<p>git config –global user.name “用户名”</p>
+<p>git config –global user.email “邮箱”</p>
+</blockquote>
+<p>配置好这两项后，就能通过git的配置知道谁在git仓库中做了什么。</p>
+<h1 id="创建一个新的git仓库"><a href="#创建一个新的git仓库" class="headerlink" title="创建一个新的git仓库"></a>创建一个新的git仓库</h1><p>创建一个<code>git</code>仓库后，<code>git</code>会把该项目的所有文件以及历史记录通过快照的方式保存在项目中，在创建仓库的时候，首先要进入到项目的根目录下，然后创建<code>git</code>仓库。创建完成后<code>git</code>会在该文件夹下创建一个隐藏的文件夹以<code>.git</code>结尾。</p>
+<blockquote>
+<p>cd desktop/test</p>
+<p>git init</p>
+</blockquote>
+<p>这样就为这个<code>test</code>的工程创建了一个<code>git</code>仓库。</p>
+<h1 id="查看git仓库的状态"><a href="#查看git仓库的状态" class="headerlink" title="查看git仓库的状态"></a>查看git仓库的状态</h1><p><code>git</code>仓库的状态是很重要的一个东西，我们通过<code>git</code>仓库的状态可以判断出来该项目仓库中的东西是否为最新的，以及项目是否被(<code>commit</code>)提交到<code>git</code>仓库保存。</p>
+<blockquote>
+<p>git status</p>
+</blockquote>
+<p>通过这个命令就可以在<code>terminal</code>中显示出当前<code>git</code>仓库的状态。</p>
+<h1 id="暂存"><a href="#暂存" class="headerlink" title="暂存"></a>暂存</h1><p><code>git</code>中有个叫暂存区的东西，我们在提交代码前都先要将代码保存到暂存区在进行代码的提交。如下提交代码到git暂存区的命令：</p>
+<p>提交单个的文件到暂存区：</p>
+<blockquote>
+<p>git add 文件命</p>
+</blockquote>
+<p>提交所有的文件到暂存区：</p>
+<blockquote>
+<p>git add -A</p>
+</blockquote>
+<p>将文件提交到暂存区后再次使用<code>git status</code>查看状态就会发现文件已经提交了，其中的信息还会告诉我们哪些文件发生了改变，修改了什么东西。</p>
+<h1 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h1><p>文件被存到暂存区后我们还是需要提交代码到git</p>
+<blockquote>
+<p>git commit</p>
+</blockquote>
+<p>当然我们也可以对提交的代码加以描述，以便清楚的表达我们修改了什么，等等，这样我们能更好的找到某个阶段的代码，回滚等等的其他操作</p>
+<blockquote>
+<p>git commit -m “描述内容”</p>
+</blockquote>
+<h1 id="提交代码到远端仓库"><a href="#提交代码到远端仓库" class="headerlink" title="提交代码到远端仓库"></a>提交代码到远端仓库</h1><p>上面我们所有的操作都是在本地，文件也都是被保存在本地的，但是当我们处于多人协同开发时，我们需要将代码发布到远端的仓库以便其他的工程师<code>pull</code>以及<code>push</code>代码及时的修改代码和提交合并代码。</p>
+<p>这里远端仓库就用<code>github</code>作为示例，首先在<code>github</code>上创建一个仓库，然后找到仓库的<code>ssh</code>地址或者<code>http</code>地址。然后在<code>terminal</code>中输入如下命令：</p>
+<blockquote>
+<p>git remote add origin 仓库地址</p>
+</blockquote>
+<p>在本地仓库中添加好远端仓库的地址后就可以提交代码到远端仓库了：</p>
+<blockquote>
+<p>git push origin master</p>
+</blockquote>
+<p>成功<code>push</code>到远端仓库后该项目的其他人就可以从远端仓库拉取刚刚<code>push</code>上去的最新的代码：</p>
+<blockquote>
+<p>git pull origin master</p>
+</blockquote>
+<h1 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h1><p>每个仓库在默认的时候都只有一个默认的分支<code>master</code>，但是在项目中有时候我们需要开一些新的分支，新开分支：</p>
+<blockquote>
+<p>git branch 分支名</p>
+</blockquote>
+<p>查看分支状态：</p>
+<blockquote>
+<p>git branch</p>
+</blockquote>
+<p>新开一个分支后我们需要试试看切换到新的分支，切换分支：</p>
+<blockquote>
+<p>git checkout 分支名</p>
+</blockquote>
+<p>合并分支，在合并分支的时候，一定要把要合并的分支切换到当前分支，然后去合并被合并的分支，这里就是用master去合并一个分支：</p>
+<blockquote>
+<p>git checkout master</p>
+<p>git merge 分支名</p>
+</blockquote>
+<p>删除分支：</p>
+<blockquote>
+<p>git branch -d 分支名</p>
+</blockquote>
+<h1 id="其他使用"><a href="#其他使用" class="headerlink" title="其他使用"></a>其他使用</h1><p>查看<code>git</code>提交日志：</p>
+<blockquote>
+<p>git log</p>
+</blockquote>
+<p>要查看每次更新具体都更新了什么东西：</p>
+<blockquote>
+<p>git show 提交的id</p>
+</blockquote>
+<p>查看两次提交的不同：</p>
+<blockquote>
+<p>git diff 提交的id..提交的id</p>
+</blockquote>
+<p>差不多git的基本使用就是这些了，已经足够在平常的工作中使用了，最后我还是建议能用图形工具还是使用图形工具吧，因为图形工具更便捷，更清楚明了还不容易出错，有什么不好的呢。<code>OS X</code>上我现在正在使用的是<code>SourceTree</code>，具体使用什么这个看个人的喜好和习惯。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="Aaronzjp.cn/2015/07/05/UseGit/" data-id="cj3n5l9no001b32t504t2mjpj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/14/iOS9-http-Request/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS9http请求
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/30/Multiple-UITabBar/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">一个App多个UITabBar的处理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Core-Animation/">Core Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS网络编程/">iOS网络编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/runtime/">runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程技术/">多线程技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小技巧/">小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据存储/">数据存储</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库（DataBase）/">数据库（DataBase）</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoLayout/">AutoLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Core-Animation/">Core Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVO-KVC/">KVO/KVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift基础/">Swift基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationBar/">UINavigationBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/block/">block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS多线程/">iOS多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发思路/">iOS开发思路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime/">runtime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime​/">runtime​</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-sizing-TableView-Cells/">self-sizing TableView Cells</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图层/">图层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小坑/">小坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据持久化/">数据持久化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件管理/">文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程/">构造过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动布局/">自动布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自适应Cell/">自适应Cell</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/AutoLayout/" style="font-size: 10px;">AutoLayout</a> <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CALayer/" style="font-size: 10px;">CALayer</a> <a href="/tags/Core-Animation/" style="font-size: 10px;">Core Animation</a> <a href="/tags/KVO-KVC/" style="font-size: 10px;">KVO/KVC</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Swift基础/" style="font-size: 10px;">Swift基础</a> <a href="/tags/UIKit/" style="font-size: 10px;">UIKit</a> <a href="/tags/UINavigationBar/" style="font-size: 10px;">UINavigationBar</a> <a href="/tags/block/" style="font-size: 10px;">block</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS多线程/" style="font-size: 10px;">iOS多线程</a> <a href="/tags/iOS开发思路/" style="font-size: 15px;">iOS开发思路</a> <a href="/tags/runtime/" style="font-size: 20px;">runtime</a> <a href="/tags/runtime​/" style="font-size: 10px;">runtime​</a> <a href="/tags/self-sizing-TableView-Cells/" style="font-size: 10px;">self-sizing TableView Cells</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/图层/" style="font-size: 10px;">图层</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/小坑/" style="font-size: 10px;">小坑</a> <a href="/tags/数据存储/" style="font-size: 15px;">数据存储</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据持久化/" style="font-size: 10px;">数据持久化</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/本地化/" style="font-size: 15px;">本地化</a> <a href="/tags/构造过程/" style="font-size: 10px;">构造过程</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/自适应Cell/" style="font-size: 10px;">自适应Cell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/19/TransitionAnimation/">自定义转场动画（ViewController Transition）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/27/Swift-Initialization/">Swift-构造过程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/Swift-Method/">Swift-方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/07/Animation/">iOS动画</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/01/swift 3.0-Function/">swift - 函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Aaron_36<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

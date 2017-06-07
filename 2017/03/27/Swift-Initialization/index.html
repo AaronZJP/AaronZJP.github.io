@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Swift-构造过程 | Aaron的开发笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Swift 构造过程是在使用类、结构体或者枚举类型的实例之前所做的准备工作。在使用类型实例之前为了确保类型实例能够正确的实例化，需要在实例化过程中对存储属性等设置初始值，和一些必须执行和初始化的工作。">
+<meta name="keywords" content="Swift,构造过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift-构造过程">
+<meta property="og:url" content="Aaronzjp.cn/2017/03/27/Swift-Initialization/index.html">
+<meta property="og:site_name" content="Aaron的开发笔记">
+<meta property="og:description" content="Swift 构造过程是在使用类、结构体或者枚举类型的实例之前所做的准备工作。在使用类型实例之前为了确保类型实例能够正确的实例化，需要在实例化过程中对存储属性等设置初始值，和一些必须执行和初始化的工作。">
+<meta property="og:updated_time" content="2017-04-19T09:18:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift-构造过程">
+<meta name="twitter:description" content="Swift 构造过程是在使用类、结构体或者枚举类型的实例之前所做的准备工作。在使用类型实例之前为了确保类型实例能够正确的实例化，需要在实例化过程中对存储属性等设置初始值，和一些必须执行和初始化的工作。">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron的开发笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Aaron的开发笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay foolish,Stay hungry!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="Aaronzjp.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Swift-Initialization" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/27/Swift-Initialization/" class="article-date">
+  <time datetime="2017-03-27T14:06:28.000Z" itemprop="datePublished">2017-03-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift-构造过程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Swift 构造过程是在使用类、结构体或者枚举类型的实例之前所做的准备工作。在使用类型实例之前为了确保类型实例能够正确的实例化，需要在实例化过程中对存储属性等设置初始值，和一些必须执行和初始化的工作。</p>
+<a id="more"></a>
+<h1 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h1><p>构造器是在创建一个类型的实例等时候被调用的方法，构造器的声明是以 init 关键字声明的。如下就是创建了 Person 类的构造器。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在构造器方法中，将参数 name 的值设置为 name 属性的值，作为初始值。</p>
+<h1 id="默认属性值"><a href="#默认属性值" class="headerlink" title="默认属性值"></a>默认属性值</h1><p>要知道在 Swift 中类和结构体在创建实例的时候，所有的存储属性都必须要有合适的初始值，存储属性的值不能是出于一个未赋值的未知状态，这样才能正确的使用类型的实例。除了像上面那样在构造器中位存储属性设置初始值外，可以在属性声明时为其设置默认值。如下，为 Person 类设置一个默认值。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span> = <span class="string">"Aaron"</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> person = <span class="type">Person</span>()</div><div class="line"><span class="built_in">print</span>(person.name)</div><div class="line"><span class="comment">//输出 Aaron</span></div></pre></td></tr></table></figure>
+<p>当然属性默认值也可以设置为可选类型。</p>
+<h1 id="自定义构造过程"><a href="#自定义构造过程" class="headerlink" title="自定义构造过程"></a>自定义构造过程</h1><p>当然也可以自定义构造器的构造过程来确保类型在创建类型实例的时候可以被正确的初始化。</p>
+<h2 id="构造参数"><a href="#构造参数" class="headerlink" title="构造参数"></a>构造参数</h2><p>自定义构造器构造过程的时候可以在定义中提供构造参数，指定参数的名称，类型等。自定义构造器的语法和函数和方法类似。其实在上面的 Person 类中就使用了自定义的构造过程。如下:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>该构造器有一个 name 参数，该参数是 String 类型，在构造器内部，将构造器的参数 name 赋值给了 Person 类的 name 属性。</p>
+<h2 id="外部参数名称和内部参数名称"><a href="#外部参数名称和内部参数名称" class="headerlink" title="外部参数名称和内部参数名称"></a>外部参数名称和内部参数名称</h2><p>构造器和方法、函数一样，参数也有外部参数名称和内部参数名称。但是和方法和函数不一样的是，如果在定义构造器的时候没有为其定义参数外部名称，那么构造器将会自动的为构造器生成跟内部参数名称一样的外部参数名称。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">init</span>(nickName name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里展示了两种构造器，第一个是没有明确添加外部参数名的构造器，第二个则是添加了 nickName 作为 name 参数的外部名称的构造器。这两种构造器方法都可以创建一个 Person 实例。</p>
+<p>当然也可以不使用外部名称，使用下划线(_)来显示的说明忽略掉外部参数名称。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">init</span>(<span class="number">_</span> name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> person = <span class="type">Person</span>(name: <span class="string">"Aaron"</span>)</div><div class="line"><span class="keyword">let</span> person2 = <span class="type">Person</span>(<span class="string">"Aaron"</span>)</div></pre></td></tr></table></figure>
+<h2 id="可选属性"><a href="#可选属性" class="headerlink" title="可选属性"></a>可选属性</h2><p>如果一个类型在初始化实例的时候某个属性并不需要初始值怎么办呢？上面也说了属性不能处于未知状态。那么可以定义一个可选类型的属性，可选类型的属性如果在构造器中未赋值的时候将会自动初始化为 nil 。这样就可以表示这个属性初始化后是没有值的。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span></div><div class="line">    <span class="keyword">var</span> age: <span class="type">Int</span>?</div><div class="line">    <span class="keyword">init</span>(name: <span class="type">String</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.name = name</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面这段代码在创建一个 Person 实例后，Person 的 age 属性就是 nil</p>
+<h2 id="构造过程中常量属性的修改"><a href="#构造过程中常量属性的修改" class="headerlink" title="构造过程中常量属性的修改"></a>构造过程中常量属性的修改</h2><p>在构造过程中同样也可以对常量的属性进行赋值，但是一旦类型的实例被创建后该实例的常量属性就无法被修改。在类中常量属性只能在定义该类的构造器中修改常量属性，在子类的构造器中是无法对常量属性进行修改的。</p>
+<h2 id="默认构造器"><a href="#默认构造器" class="headerlink" title="默认构造器"></a>默认构造器</h2><p>在 Swift 中如果结构体和类中所有的属性都有默认值，同时没有自定义的构造器的时候 Swift 则会提供一个默认的构造器，通过该构造器会创建一个所有属性都是默认值的实例。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> name: <span class="type">String</span>?</div><div class="line">    <span class="keyword">var</span> age: <span class="type">Int</span>?</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> person = <span class="type">Person</span>()</div></pre></td></tr></table></figure>
+<p>通过该构造器创建出来的 Person 类的实例其所有的属性都将是 nil</p>
+<h2 id="结构体的逐一成员构造器"><a href="#结构体的逐一成员构造器" class="headerlink" title="结构体的逐一成员构造器"></a>结构体的逐一成员构造器</h2><p>除了默认的构造器以外，在结构体中如果没有提供自定义的构造器，那么将会有一个自动根据结构体中的属性生成的一个构造器，该构造器的参数将是结构体中所有属性，参数名则是所有属性名。如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> x: <span class="type">Float</span></div><div class="line">    <span class="keyword">var</span> y: <span class="type">Float</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> point = <span class="type">Point</span>(x: <span class="number">100</span>, y: <span class="number">100</span>)</div></pre></td></tr></table></figure>
+<h1 id="值类型的构造器代理"><a href="#值类型的构造器代理" class="headerlink" title="值类型的构造器代理"></a>值类型的构造器代理</h1><p>构造器可以通过调用其他构造器来完成实例的部分构造过程，这样的过程就是构造器代理，构造器代理可以减少多个构造器之间的重复。值类型和类类型的构造器代理规则是有区别的，值类型是不支持继承的，所以值类型的构造器代理职能使用自己的其他构造器，而类则是可以继承自其他类的。</p>
+<p>在值类型中可以使用 <code>self.init</code> 在自定义的构造器中使用本类型中其他的的构造器，且只能够在构造器内部调用 <code>self.init</code> 。当为值类型自定义了构造器时，将无法使用默认构造器、逐一成员构造器。如果需要自定义构造器，默认构造器和逐一成员构造器都可以访问，则需要将自定义构造器写到扩展中。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Size</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rect</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> origin = <span class="type">Point</span>()</div><div class="line">    <span class="keyword">var</span> size = <span class="type">Size</span>()</div><div class="line">    <span class="keyword">init</span>() &#123;&#125;</div><div class="line">    <span class="keyword">init</span>(origin: <span class="type">Point</span>, size: <span class="type">Size</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.origin = origin</div><div class="line">        <span class="keyword">self</span>.size = size</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">init</span>(center: <span class="type">Point</span>, size: <span class="type">Size</span>) &#123;</div><div class="line">        <span class="keyword">let</span> originX = center.x - (size.width / <span class="number">2</span>)</div><div class="line">        <span class="keyword">let</span> originY = center.y - (size.height / <span class="number">2</span>)</div><div class="line">        <span class="keyword">self</span>.<span class="keyword">init</span>(origin: <span class="type">Point</span>(x: originX, y: originY), size: size)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在该例子中 Rect 定义了三个构造器，其中第一个构造器是一个空函数，这和没有自定义构造器的时自动获得的默认构造器是一样的。第二哥构造器有两个参数，构造器内部在构造过程中将这两个参数分别赋值给了 origin 和 size 属性。第三个构造器也是有两个参数，不同的是在构造器内部的构造过程中，将获取到的参数经过计算后，再调用第二个构造器将计算得到的 origin 和 size 赋值到对应的属性。像第三个构造器这样在构造器内部的构造过程中调用其他的构造器就是构造器代理。</p>
+<h1 id="类的继承和构造过程"><a href="#类的继承和构造过程" class="headerlink" title="类的继承和构造过程"></a>类的继承和构造过程</h1><p>类是可以继承的，在类中所有的存储属性包括继承自父类的属性都必须在构造过程中设置初始值。在类类型中 Swift 为其提供了两种构造器，分别是指定构造器和便利构造器。</p>
+<h2 id="指定构造器和便利构造器"><a href="#指定构造器和便利构造器" class="headerlink" title="指定构造器和便利构造器"></a>指定构造器和便利构造器</h2><p>指定构造器是类中最主要的构造器，一个指定的构造器初始化类中所有的属性，并根据父类链往上调用父类的构造器来实现父类的初始化。每一个类都必须有至少一个的指定构造器。便利构造器则是类中的辅助型的构造器，可以通过便利构造器调用类中的指定构造器，并为其参数提供默认值，也可以在便利构造器中创建一些特殊用途的实例。</p>
+<p>指定构造器其实和构造器语法是一样的，使用 init 作为关键字可以加入参数。便利构造器需要在构造器 init 前加上 convenience 关键字。</p>
+<h2 id="类的构造器代理规则"><a href="#类的构造器代理规则" class="headerlink" title="类的构造器代理规则"></a>类的构造器代理规则</h2><p>Swift 中有三条规则来限制构造器之间的代理调用：</p>
+<ul>
+<li>指定构造器必须调用其直接父类的的指定构造器。</li>
+<li>便利构造器必须调用同类中定义的其它构造器。</li>
+<li>便利构造器必须最终导致一个指定构造器被调用。</li>
+</ul>
+<h2 id="构造器的继承和重写"><a href="#构造器的继承和重写" class="headerlink" title="构造器的继承和重写"></a>构造器的继承和重写</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="Aaronzjp.cn/2017/03/27/Swift-Initialization/" data-id="cj3n5l9nh001332t5hyd88zn3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Swift/">Swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/构造过程/">构造过程</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/19/TransitionAnimation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          自定义转场动画（ViewController Transition）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/22/Swift-Method/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Swift-方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Core-Animation/">Core Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS网络编程/">iOS网络编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/runtime/">runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程技术/">多线程技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小技巧/">小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据存储/">数据存储</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库（DataBase）/">数据库（DataBase）</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoLayout/">AutoLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Core-Animation/">Core Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVO-KVC/">KVO/KVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift基础/">Swift基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationBar/">UINavigationBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/block/">block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS多线程/">iOS多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发思路/">iOS开发思路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime/">runtime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime​/">runtime​</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-sizing-TableView-Cells/">self-sizing TableView Cells</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图层/">图层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小坑/">小坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据持久化/">数据持久化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件管理/">文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程/">构造过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动布局/">自动布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自适应Cell/">自适应Cell</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/AutoLayout/" style="font-size: 10px;">AutoLayout</a> <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CALayer/" style="font-size: 10px;">CALayer</a> <a href="/tags/Core-Animation/" style="font-size: 10px;">Core Animation</a> <a href="/tags/KVO-KVC/" style="font-size: 10px;">KVO/KVC</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Swift基础/" style="font-size: 10px;">Swift基础</a> <a href="/tags/UIKit/" style="font-size: 10px;">UIKit</a> <a href="/tags/UINavigationBar/" style="font-size: 10px;">UINavigationBar</a> <a href="/tags/block/" style="font-size: 10px;">block</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS多线程/" style="font-size: 10px;">iOS多线程</a> <a href="/tags/iOS开发思路/" style="font-size: 15px;">iOS开发思路</a> <a href="/tags/runtime/" style="font-size: 20px;">runtime</a> <a href="/tags/runtime​/" style="font-size: 10px;">runtime​</a> <a href="/tags/self-sizing-TableView-Cells/" style="font-size: 10px;">self-sizing TableView Cells</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/图层/" style="font-size: 10px;">图层</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/小坑/" style="font-size: 10px;">小坑</a> <a href="/tags/数据存储/" style="font-size: 15px;">数据存储</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据持久化/" style="font-size: 10px;">数据持久化</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/本地化/" style="font-size: 15px;">本地化</a> <a href="/tags/构造过程/" style="font-size: 10px;">构造过程</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/自适应Cell/" style="font-size: 10px;">自适应Cell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/19/TransitionAnimation/">自定义转场动画（ViewController Transition）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/27/Swift-Initialization/">Swift-构造过程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/Swift-Method/">Swift-方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/07/Animation/">iOS动画</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/01/swift 3.0-Function/">swift - 函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Aaron_36<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

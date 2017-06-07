@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>初识CALayer | Aaron的开发笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CALayer 和 UIView 类似，也是一些被层级关系树管理的块。 CALayer 和 UIView 一样的可以可以在其中展示图片，文本，通过方法或属性做动画和图形变换等等的界面上的显示相关的东西，可以说 UIView 能做到的 CALayer 基本上也能做到，但是 CALayer 和  UIView 最大的不同是 CALayer 不处理和用户的交互。因为  CALayer 不能很好的处理具">
+<meta name="keywords" content="图层,CALayer,Core Animation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识CALayer">
+<meta property="og:url" content="Aaronzjp.cn/2016/12/01/iOS-CALayer/index.html">
+<meta property="og:site_name" content="Aaron的开发笔记">
+<meta property="og:description" content="CALayer 和 UIView 类似，也是一些被层级关系树管理的块。 CALayer 和 UIView 一样的可以可以在其中展示图片，文本，通过方法或属性做动画和图形变换等等的界面上的显示相关的东西，可以说 UIView 能做到的 CALayer 基本上也能做到，但是 CALayer 和  UIView 最大的不同是 CALayer 不处理和用户的交互。因为  CALayer 不能很好的处理具">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/2017041914925897648023.jpg">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258979264423.png">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258980259671.png">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258981531173.png">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258984234876.jpg">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258986364727.png">
+<meta property="og:updated_time" content="2017-04-20T11:46:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识CALayer">
+<meta name="twitter:description" content="CALayer 和 UIView 类似，也是一些被层级关系树管理的块。 CALayer 和 UIView 一样的可以可以在其中展示图片，文本，通过方法或属性做动画和图形变换等等的界面上的显示相关的东西，可以说 UIView 能做到的 CALayer 基本上也能做到，但是 CALayer 和  UIView 最大的不同是 CALayer 不处理和用户的交互。因为  CALayer 不能很好的处理具">
+<meta name="twitter:image" content="http://onocdmhtw.bkt.clouddn.com/2017041914925897648023.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron的开发笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Aaron的开发笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay foolish,Stay hungry!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="Aaronzjp.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-iOS-CALayer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/01/iOS-CALayer/" class="article-date">
+  <time datetime="2016-12-01T06:11:37.000Z" itemprop="datePublished">2016-12-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Core-Animation/">Core Animation</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      初识CALayer
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> CALayer 和 UIView 类似，也是一些被层级关系树管理的块。 CALayer 和 UIView 一样的可以可以在其中展示图片，文本，通过方法或属性做动画和图形变换等等的界面上的显示相关的东西，可以说 UIView 能做到的 CALayer 基本上也能做到，但是 CALayer 和  UIView 最大的不同是 CALayer 不处理和用户的交互。因为  CALayer 不能很好的处理具体的响应链，无法响应事件的处理，即使在 CALayer 的方法中提供了触摸事件的检测方法。</p>
+<a id="more"></a>
+<h1 id="CALayer和UIView的关系"><a href="#CALayer和UIView的关系" class="headerlink" title="CALayer和UIView的关系"></a>CALayer和UIView的关系</h1><p>很早以前我一直弄不清楚  CALayer  和  UIView  之间到底是个怎么样的关系，我只是知道每一个 UIView 中都至少包含了一个  CALayer 。其实在每一个 UIView 中都有一个 CALayer  的实例图层属性，当视图被创建的时候就会有对应的一个图层，图层和视图一样也可以添加子图层。 UIView  其实是对  CALayer  的一层封装，之前也说了  CALayer  不能响应事件以及和用户交互， UIView  在这里就充当了一个来代替  CALayer  响应事件的处理和管理  CALayer  的一个角色， UIView  也只是负责这些东西的处理，在屏幕上显示和动画的处理其实都是在  CALayer  上进行的。</p>
+<p>图层结构和对应的视图层级的关系如下图：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/2017041914925897648023.jpg" alt="2017041914925897648023.jpg"></p>
+<h1 id="CALayer常用属性"><a href="#CALayer常用属性" class="headerlink" title="CALayer常用属性"></a>CALayer常用属性</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">属性相关描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">backgroundColor</td>
+<td style="text-align:center">为图层添加背景色，该属性为CGColorRef类型</td>
+</tr>
+<tr>
+<td style="text-align:center">contents</td>
+<td style="text-align:center">图层内容，寄宿图。id 类型，iOS中一般使用CGImage赋值，MacOS中则可以使用NSImage 或 CGImage</td>
+</tr>
+<tr>
+<td style="text-align:center">contentsGravity</td>
+<td style="text-align:center">寄宿图内容展示方式，和UIImageView的contensMode对应。该属性是NSString类型</td>
+</tr>
+<tr>
+<td style="text-align:center">contentsScale</td>
+<td style="text-align:center">寄宿图显示比例设置，</td>
+</tr>
+<tr>
+<td style="text-align:center">maskToBounds</td>
+<td style="text-align:center">是否显示超出边界的内容，该属性是一个BOOL值类型，默认为NO，即显示超出边界的内容</td>
+</tr>
+<tr>
+<td style="text-align:center">contentsRect</td>
+<td style="text-align:center">CGRect类型，允许图层显示寄宿图的某个固定区域。使用单位坐标，即0到1之间</td>
+</tr>
+<tr>
+<td style="text-align:center">contentsCenter</td>
+<td style="text-align:center">图层可拉伸区域的设置，也是使用单位坐标</td>
+</tr>
+<tr>
+<td style="text-align:center">frame</td>
+<td style="text-align:center">代表图层外部的坐标以及大小，即相对于父图层的位置</td>
+</tr>
+<tr>
+<td style="text-align:center">bounds</td>
+<td style="text-align:center">图层的内部坐标大小，bounds的X，Y轴在 iOS 中一般位于图层的左上角</td>
+</tr>
+<tr>
+<td style="text-align:center">position</td>
+<td style="text-align:center">position 是相对于 anchorPiont 的位置在 superLayer 的位置。</td>
+</tr>
+<tr>
+<td style="text-align:center">anchorPiont</td>
+<td style="text-align:center">图层的锚点，固定图层的点。（当对图层做旋转形变的时候，图层将围绕该点旋转），使用单位坐标即{0,0,1,1};</td>
+</tr>
+<tr>
+<td style="text-align:center">geometryFlipped</td>
+<td style="text-align:center">图层翻转，该属性是一个 BOOL 属性，在 iOS 中将该属性设置为 YES 的时候，图层将会相对于父图层做垂直翻转，即该图层的位置将会相对于父图层从左下角开始。</td>
+</tr>
+<tr>
+<td style="text-align:center">conrnerRadius</td>
+<td style="text-align:center">该属性控制着图层角的曲率。它是一个浮点数，默认为0（为0的时候就是直角），但是你可以把它设置成任意值。</td>
+</tr>
+<tr>
+<td style="text-align:center">masksToBounds</td>
+<td style="text-align:center">该属性是一个BOOL类型的，当设置为YES的时候他将会截取图层中超出边界的部分</td>
+</tr>
+<tr>
+<td style="text-align:center">borderWidth</td>
+<td style="text-align:center">图层边框宽度，以点为单位，默认为0</td>
+</tr>
+<tr>
+<td style="text-align:center">borderColor</td>
+<td style="text-align:center">图层边框颜色，是一个 CGColorRef 类型的属性</td>
+</tr>
+</tbody>
+</table>
+<h1 id="CALayer的使用"><a href="#CALayer的使用" class="headerlink" title="CALayer的使用"></a>CALayer的使用</h1><p> CALayer  也可以像  UIView  一样的添加背景色，寄宿图，同时还可以通过  CALayer  做一些  UIView  不能做到的视觉效果。</p>
+<h2 id="为CALayer添加背景色"><a href="#为CALayer添加背景色" class="headerlink" title="为CALayer添加背景色"></a>为CALayer添加背景色</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">#import &quot;CALayerBGColorViewController.h&quot;</div><div class="line"></div><div class="line">@interface CALayerBGColorViewController ()</div><div class="line">@property (nonatomic,strong) UIView *whiteView;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation CALayerBGColorViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    </div><div class="line">    self.whiteView = [[UIView alloc]init];</div><div class="line">    _whiteView.backgroundColor = [UIColor whiteColor];</div><div class="line">    _whiteView.bounds = CGRectMake(0, 0, 150, 150);</div><div class="line">    _whiteView.center = self.view.center;</div><div class="line">    [self.view addSubview:_whiteView];</div><div class="line">    </div><div class="line">    CALayer *orangeLayer = [CALayer layer];</div><div class="line">    orangeLayer.frame = CGRectMake(25, 25, 100, 100);</div><div class="line">    orangeLayer.backgroundColor = [UIColor orangeColor].CGColor;</div><div class="line">    [_whiteView.layer addSublayer:orangeLayer];</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>这里为控制器添加了一个白色的视图   图  whiteView  ，然后向  whiteView  中的  layer  添加了一个子图层（ orangeLayer ），并给  orangeLayer  添加了橘色的背景色。 CALayer  和 UIView 相比，缺少了一个  center  属性。当向  CALayer  添加背景色的时候并不是赋值的  UIColor  类，而是一个  CGColorRef  这是因为该库是由 C 语言所编写的。 CALayer  中设置寄宿图同样也是赋值一个  CGImage 。</p>
+<h2 id="CALayer的contents的使用"><a href="#CALayer的contents的使用" class="headerlink" title="CALayer的contents的使用"></a>CALayer的contents的使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">#import &quot;CALayerBackImageViewController.h&quot;</div><div class="line"></div><div class="line">@interface CALayerBackImageViewController ()</div><div class="line">@property (nonatomic,strong) UIView *layerView;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation CALayerBackImageViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    self.layerView = [[UIView alloc]init];</div><div class="line">    _layerView.bounds = CGRectMake(0, 0, 150, 100);</div><div class="line">    _layerView.center = self.view.center;</div><div class="line">    [self.view addSubview:_layerView];</div><div class="line">    </div><div class="line">    UIImage *EdisonImage = [UIImage imageNamed:@&quot;Edison.jpg&quot;];</div><div class="line">    _layerView.layer.contents = (__bridge id)(EdisonImage.CGImage);</div><div class="line">    _layerView.layer.backgroundColor = [UIColor orangeColor].CGColor;</div><div class="line">    _layerView.layer.contentsGravity = kCAGravityResizeAspect;</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>代码中我们为视图的  layer  添加了一个图片作为  layer  的寄宿图，但是这里要注意⚠️的是，这和我们使用  UIImageView  添加图片是有区别的。我们给  layer  赋值的图片是一个  CGImage  的类型，原因上面也提到了因为该库是由 C 语言编写的，所以  CGImage  其实是一个  CGImageRef  的  Core Foundation  类型。 Core Foundation  类型和 Cocoa 对象并不是兼容的对象，所以这里在赋值的时候还需要进行类型转换，在  ARC  环境下需要使用桥接来转换类型，以便编译器在内存管理的时候不会出错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">_layerView.layer.contents = (__bridge id)(EdisonImage.CGImage);</div></pre></td></tr></table></figure>
+<p> layer  在被赋值寄宿图的时候被赋值的属性并不是平常使用  UIImageView  时赋值的  Image  属性，该属性是一个叫  Contents  的  id  类型的属性。 id  类型就意味着可以赋值任何的对象给这个  Contents  属性，可以尝试下赋值其他的对象给  Contents  属性，当被赋值其他对象的时候  layer  几乎不会发生任何的改变，就是一个空白的图层， 编译也能通过，甚至还可能产生错误，这样的错误❌如果出现在实际的项目中的话应该是很难被发现的。其实在  iOS  中只能为  layer  的  Contents  属性赋值  CGImageRef  类型，这个属性被苹果设置成  id  的原因是因为  iOS  系统是由  MacOS  的系统演变出来的，在  MacOS  中该属性可以接受   CGImage  和  NSImage  类型。</p>
+<p> CALayer  可以添加寄宿图，所以  CALayer  还有一个和  UIImageView  的  contentMode  属性相对应的属性用来处理寄宿图的显示方式。这个与之相对应的属性叫  contentsGravity  ，但是这个属性是一个  NSString  的类型，而 UIKit 中的  contentMode  属性是一个枚举类型。具体的使用和  contentMode  所对应的枚举值一一对应，区别是一个是作用于  UIImageView  上的，一个是作用于  CALayer 。</p>
+<h2 id="寄宿图显示比例（contentsScale）"><a href="#寄宿图显示比例（contentsScale）" class="headerlink" title="寄宿图显示比例（contentsScale）"></a>寄宿图显示比例（contentsScale）</h2><p>还有一个值得注意的是，在  CALayer  赋值寄宿图的时候是赋值的一个由  UIImage  转换成  CGImage  的类型的图片， UIImage  在获取图片的时候是按照  Retina  屏幕的分辨率比例来获取图片的，获取的是高质量的  Retina  版本的图片，但是在转换成  CGImage  后这个比例的缩放拉伸就被忽略了，所以同样的一张图片  UIImage  展示出来的看起来比  CGImage  展示出来的要小，但是更清晰。但是在  CALayer  中还是可以让赋值的  CGImage  正常的显示在  Retina  屏幕上的，这里设置  CALayer 的  contentScale  属性，该属性其实就是为了支持高分辨率屏幕的显示而存在的吧。一般如下设置该属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">layer.contentsScale = [UIScreen mainScreen].scale;</div></pre></td></tr></table></figure>
+<p>该方法设置  layer  的  contentsScale  属性比起直接设置改属性的比例更好，改方法会让该属性跟随屏幕的比例而改变。</p>
+<h2 id="截取超出图层边界的显示内容（masksToBounds）"><a href="#截取超出图层边界的显示内容（masksToBounds）" class="headerlink" title="截取超出图层边界的显示内容（masksToBounds）"></a>截取超出图层边界的显示内容（masksToBounds）</h2><p>在图层上显示寄宿图有时候图片可能会超出图层的边界，这样的情况在  UIView  下也有同样的问题。在  UIView  中用一个叫做  clipsToBounds  属性来决定是否显示超出边界的内容。 CALayer  中同样的也有一个属性可以决定是否显示其超出边界的内容  masksToBounds 。示例🌰如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">_layerView.layer.masksToBounds = YES;</div></pre></td></tr></table></figure>
+<h2 id="CALayer中使用图片拼合技术（contentsRect）"><a href="#CALayer中使用图片拼合技术（contentsRect）" class="headerlink" title="CALayer中使用图片拼合技术（contentsRect）"></a>CALayer中使用图片拼合技术（contentsRect）</h2><p> CALayer  中  contentsRect  可以图层显示自己的一部分内容。这个属性是一个  CGRect  类型的，但是这里和平常使用的  bounds 、 frame 属性不同。 contentsRect  使用的是单位坐标，单位坐标是指在0到1之间的一个相对的坐标系，这里就是相对于寄宿图的。 contentsRect  默认情况下是{0，0，1，1}，也就是说在默认情况下是显示一个完整的图片的，当把该属性缩小后图片就会被裁剪，只显示出设置的相对的坐标中的内容。如下演示了如何将一个图片切割成4块，来拼接显示出来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">#import &quot;CALayerImageSpritesViewController.h&quot;</div><div class="line"></div><div class="line">@interface CALayerImageSpritesViewController ()</div><div class="line">@property (weak, nonatomic) IBOutlet UIView *firstView;</div><div class="line">@property (weak, nonatomic) IBOutlet UIView *secondView;</div><div class="line">@property (weak, nonatomic) IBOutlet UIView *thirdView;</div><div class="line">@property (weak, nonatomic) IBOutlet UIView *forthView;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation CALayerImageSpritesViewController</div><div class="line"></div><div class="line">- (instancetype)init &#123;</div><div class="line">  self = [super init];</div><div class="line">  if (self) &#123;</div><div class="line">    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@&quot;Main&quot; bundle:nil];</div><div class="line">    self = [storyboard instantiateViewControllerWithIdentifier:@&quot;spriteImageVC&quot;];</div><div class="line">  &#125;</div><div class="line">  return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">  [super viewDidLoad];</div><div class="line">  UIImage *spriteImage = [UIImage imageNamed:@&quot;Edison.jpg&quot;];</div><div class="line">  [self addImage:spriteImage WithContentsRect:CGRectMake(0, 0, 0.5, 0.5) toLayer:self.firstView.layer];</div><div class="line">  [self addImage:spriteImage WithContentsRect:CGRectMake(0.5, 0, 0.5, 0.5) toLayer:self.secondView.layer];</div><div class="line">  [self addImage:spriteImage WithContentsRect:CGRectMake(0, 0.5, 0.5, 0.5) toLayer:self.thirdView.layer];</div><div class="line">  [self addImage:spriteImage WithContentsRect:CGRectMake(0.5, 0.5, 0.5, 0.5) toLayer:self.forthView.layer];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)addImage:(UIImage *)image WithContentsRect:(CGRect)rect toLayer:(CALayer *)layer &#123;</div><div class="line">  layer.contents = (__bridge id)image.CGImage;</div><div class="line">  layer.contentsGravity = kCAGravityResizeAspect;</div><div class="line">  layer.contentsRect = rect;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="设置图层的可拉伸区域（contentsCenter）"><a href="#设置图层的可拉伸区域（contentsCenter）" class="headerlink" title="设置图层的可拉伸区域（contentsCenter）"></a>设置图层的可拉伸区域（contentsCenter）</h2><p>该属性是一个  CGRect  类型，和  contentsRect  一样使用的是单位坐标，默认情况下是{0，0，1，1}。它定义了一个固定的边框和一个在图层上可拉伸的区域，在普通情况下修改该属性，图层的显示并不会发生任何的变化，但是当图层被拉伸的时候就会有所变化，因为这就是设置拉伸区域的一个属性。</p>
+<p>例如🌰：将 contentsCenter 设置为：{0.25，0.25，0.5，0.5}。其效果如下所示：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258979264423.png" alt="20170419149258979264423.png"></p>
+<p>其实我看到这个图我也还是搞不太懂这个是怎么拉伸的，但是再看下下面这个例子🌰：</p>
+<p>被拉伸前的原图：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258980259671.png" alt="20170419149258980259671.png"></p>
+<p>在代码中如下设置  contentsCenter  属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#import &quot;CALayerContentsCenterViewController.h&quot;</div><div class="line"></div><div class="line">@interface CALayerContentsCenterViewController ()</div><div class="line">@property (nonatomic,strong) UIView *layerView;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation CALayerContentsCenterViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">  [super viewDidLoad];</div><div class="line">  self.layerView = [[UIView alloc]init];</div><div class="line">  _layerView.bounds = CGRectMake(0, 0, 300, 300);</div><div class="line">  _layerView.center = self.view.center;</div><div class="line">  [self.view addSubview:_layerView];</div><div class="line">  </div><div class="line">  UIImage *image = [UIImage imageNamed:@&quot;Test.png&quot;];</div><div class="line">  _layerView.layer.contents = (__bridge id) image.CGImage;</div><div class="line">  _layerView.layer.contentsGravity = kCAGravityResizeAspect;</div><div class="line">  _layerView.layer.contentsCenter = CGRectMake(0.25, 0.25, 0.5, 0.5);</div><div class="line">  </div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>拉伸后的效果如下图：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258981531173.png" alt="20170419149258981531173.png"></p>
+<p>该效果可以作用于在寄宿图层上，同时也可以作用于在  Core Graphics  运行时绘制的图形上。</p>
+<h1 id="图层布局管理"><a href="#图层布局管理" class="headerlink" title="图层布局管理"></a>图层布局管理</h1><p>图层和  UIView  一样也有自己的布局管理的相关的属性， UIView  有  frame， bounds ， center ， CALayer  也有与之相对应的属性， frame， bounds ， position 。 CALayer  的  position  其实和  UIView  的  center  代表的都是同一个值。 frame 这个属性其实并不是一个初始的属性，该属性是通过  bounds  和  position  和  transform  计算得到的，所有改变这3个中的任意一个的值都会影响到  frame ，同样改变  frame 也会影响这三个属性的值的改变。最后注意一点的是当图层做出旋转后，图层的  frame 可能就和  bounds  不一致了， frame 实际上代表了覆盖在图层旋转之后的整个轴对齐的矩形区域。</p>
+<h2 id="锚点（anchorPoint）"><a href="#锚点（anchorPoint）" class="headerlink" title="锚点（anchorPoint）"></a>锚点（anchorPoint）</h2><p>这个属性很可能会把人搞糊涂，看似是很好理解的，但是很多人经常因为这个属性被搞糊涂。 anchorPoint 一般位于图层的中心，但是这个属性是可以被改变的，虽然在  UIView  中该属性没有被暴露出来，但是在  CALayer  中是可以进行修改的。当修改  anchorPoint  属性时可能会造成图层的偏移， 也就是说这个时候图层的中心点（ position ）以及  UIView  的  center  相对于父视图是不会改变的，但是  anchorPoint  发生了改变， anchorPoint  被修改后  anchorPoint  会自动的向图层的  position  对齐，这个时候  center  或者  position  这个属性可能并不是图层真正的中心点。当改变了  anchorPoint  ， position  属性保持固定的值并没有发生改变，但是  frame 却移动了。当对图层做变换，旋转的时候，图层都会以  anchorPoint  为中心点来旋转。</p>
+<h2 id="图层翻转（geometryFlipped）"><a href="#图层翻转（geometryFlipped）" class="headerlink" title="图层翻转（geometryFlipped）"></a>图层翻转（geometryFlipped）</h2><p>通常来说，在 iOS 上，一个图层的位置是相对于父图层从左上角开始的，但是在 MacOS 中则是从左下角开始的。图层翻转，该属性是一个  BOOL  属性，在 iOS 中将该属性设置为  YES  的时候，图层将会相对于父图层做垂直翻转，即该图层的位置将会相对于父图层从左下角开始。</p>
+<h2 id="坐标系转换"><a href="#坐标系转换" class="headerlink" title="坐标系转换"></a>坐标系转换</h2><p>图层和  UIView  一样，图层树中各个图层间相对于的坐标位置是可以相互转换的，苹果提供了如下的方法，让我们可以在各个图层间获得其相对于其他图层的坐标位置，而不仅限于相对于父图层的位置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (CGPoint)convertPoint:(CGPoint)point fromLayer:(CALayer *)layer; </div><div class="line">- (CGPoint)convertPoint:(CGPoint)point toLayer:(CALayer *)layer; </div><div class="line">- (CGRect)convertRect:(CGRect)rect fromLayer:(CALayer *)layer;</div><div class="line">- (CGRect)convertRect:(CGRect)rect toLayer:(CALayer *)layer;</div></pre></td></tr></table></figure>
+<h2 id="图层的自动布局"><a href="#图层的自动布局" class="headerlink" title="图层的自动布局"></a>图层的自动布局</h2><p>在Mac OS平台下， CALayer 有一个叫做 layoutManager 的属性可以通过 CALayoutManager 协议和 CAConstraintLayoutManager 类来实现自动排版的机制。但是因为 iOS 和 MacOS 还是有一定的区别，所有在 iOS 上并不适用。在使用视图  UIView  时我们一般使用 UIViewAutoresizingMask 和 NSLayoutConstraint 来完成自动布局，但是在  CALayer  下就不能使用这样的方式来处理了。在  CALayer  中布局需要遵守 CALayerDelegate 中的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)layoutSublayersOfLayer:(CALayer *)layer;</div></pre></td></tr></table></figure>
+<p>在此方法中来布局图层。当图层的 bounds 发生改变，或者图层的<code>-setNeedsLayout</code>方法被调用时就会执行此代理方法。我们可以在此代理方法中来布局或重新调整子图层的大小以及位置，但是不能像 UIView 的 autoresizingMask 和 constraints 属性做到自适应屏幕旋转。</p>
+<h1 id="图层效果"><a href="#图层效果" class="headerlink" title="图层效果"></a>图层效果</h1><h2 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h2><p>圆角矩形， CALayer 有一个叫 conrnerRadius 的属性，他控制图层的圆角率，默认是0.0，但是我们可以设置为任意的值，该值会影响背景色，但是背景图片和里面的子图层不会受到影响，所以如果有背景图片或者有子视图在图层内时，设置改属性后可能不会根据设置的圆角率来显示图层。不过这个问题只需要设置另一个属性即可解决， masksToBounds ，该属性是一个 BOOL 类型,他可以决定是否显示超出图层外的图层部分。默认是 NO ，当设置为 YES 的时候图层就会截取超出图层的部分。圆形图层也可以通过设置 conrnerRadius 来设置，前提是当前图层是一个正方形，当 conrnerRadius 的值等于正方形边长的一半的时候就是圆形。</p>
+<h2 id="图层边框"><a href="#图层边框" class="headerlink" title="图层边框"></a>图层边框</h2><p> CALayer 有两个属性可以为图层绘制边框，即 borderWidth 和 borderColor ，通过这两个属性我们可以定制图层绘制的边框，这条线(又被称作stroke)会沿着图层的 bounds 边缘来绘制，同时也包含了图层的角。边框是绘制在图层边界里面的，且在所有的子图层或子内容前面。 borderWidth 确定了图层所绘制的边框的宽度， borderColor 则确定了图层边框的颜色。</p>
+<h2 id="图层阴影"><a href="#图层阴影" class="headerlink" title="图层阴影"></a>图层阴影</h2><p>在很多情况下我们需要为图层绘制阴影，绘制图层阴影之需要给图层的 shadowOpacity 复制即可，该属性是一个0(不可见)-1(完全不透明)之间的浮点数。另外还可以通过其他一些图层的属性来更改阴影的一些其他效果， shadowColor ， shadowOffset 和<code>shwdowRadius</code>。</p>
+<p> shadowColor 看名字我们就知道这是控制阴影颜色的属性，该属性是一个 CGColorRef 类型的属性，该属性默认的阴影颜色是黑色。 shadowOffset 属性控制着阴影的方向和距离，它是一个 CGSize 的值。 shadowRadius 是控制图层阴影边界模糊度的属性，当该属性为0的时候，图层边界和阴影之间就显得非常明显，不是很自然，当数值越大图层和阴影的边界就越自然，显得没有那么明显。</p>
+<p>要注意的是图层的阴影是根据图层内容计算绘制出来的，并不是简单的在图层边框外绘制出阴影的。比如说如果图层中除了图层中图片显示部分有内容，其他部分是透明的，那么这个阴影将会沿着图层的显示内容来绘制，而不是沿着图层的边界绘制的。还有一点阴影在图层中是可以被 masksToBounds 属性裁剪掉的，所以在有使用 masksToBounds 属性的图层中绘制阴影的时候最好单独在创建一个图层放在图层之下来专门绘制图层的阴影，这样阴影就不会被裁剪掉。</p>
+<h2 id="使用-shadowPath-自定义图层阴影"><a href="#使用-shadowPath-自定义图层阴影" class="headerlink" title="使用 shadowPath 自定义图层阴影"></a>使用 shadowPath 自定义图层阴影</h2><p>事实上图层的阴影是很消耗性能的，因为从上面得知图层阴影并不是固定的沿着图层的边缘绘制的，而是根据图层内容的形状计算来的。我们可以事先为图层指定阴影样式，通过对图层的 shadowPath 属性指定图层样式来提高性能。 shadowPath 是一个 CGPathRef 类型（一个指向 CGPath 的指针）。 CGPath 是一个 Core Graphics 对象，用来指定任意的一个矢量图形。可以通过这个属性单独于图层形状之外指定阴影的形状。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">@interface <span class="type">ViewController</span> ()</div><div class="line"></div><div class="line">@property (nonatomic, <span class="keyword">weak</span>) <span class="type">IBOutlet</span> <span class="type">UIView</span> *layerView1;</div><div class="line">@property (nonatomic, <span class="keyword">weak</span>) <span class="type">IBOutlet</span> <span class="type">UIView</span> *layerView2;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation <span class="type">ViewController</span></div><div class="line"></div><div class="line">- (void)viewDidLoad</div><div class="line">&#123;</div><div class="line">  [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">  <span class="comment">//enable layer shadows</span></div><div class="line">  <span class="keyword">self</span>.layerView1.layer.shadowOpacity = <span class="number">0</span>.5f;</div><div class="line">  <span class="keyword">self</span>.layerView2.layer.shadowOpacity = <span class="number">0</span>.5f;</div><div class="line"></div><div class="line">  <span class="comment">//create a square shadow</span></div><div class="line">  <span class="type">CGMutablePathRef</span> squarePath = <span class="type">CGPathCreateMutable</span>();</div><div class="line">  <span class="type">CGPathAddRect</span>(squarePath, <span class="type">NULL</span>, <span class="keyword">self</span>.layerView1.bounds);</div><div class="line">  <span class="keyword">self</span>.layerView1.layer.shadowPath = squarePath; <span class="type">CGPathRelease</span>(squarePath);</div><div class="line"></div><div class="line">  ￼<span class="comment">//create a circular shadow</span></div><div class="line">  <span class="type">CGMutablePathRef</span> circlePath = <span class="type">CGPathCreateMutable</span>();</div><div class="line">  <span class="type">CGPathAddEllipseInRect</span>(circlePath, <span class="type">NULL</span>, <span class="keyword">self</span>.layerView2.bounds);</div><div class="line">  <span class="keyword">self</span>.layerView2.layer.shadowPath = circlePath; <span class="type">CGPathRelease</span>(circlePath);</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>如果图层阴影的图形相当的复杂也可以使用 UIBezierPath 来为图层绘制阴影。</p>
+<h2 id="图层蒙版"><a href="#图层蒙版" class="headerlink" title="图层蒙版"></a>图层蒙版</h2><p> CALayer 中有一个叫 mask 的属性，这个属性本身就是一个 CALayer 的类型。该图层就像是图层的子图层一样，我的理解应该是覆盖在父图层(该属性的拥有者)之上的图层，上面一部分代码中的 conrnerRadius 和 masksToBounds 属性就是通过对 mask 图层进行操作达到修改图层圆角率以及裁剪图层的。有很重要的一点我之前一直有错误的理解，我一直以为 mask 属性中 mask 图层透明的部分才是被保留的而实心的部分会被裁剪，然而这点和我的理解刚刚相反。 mask 图层中实心的部分会被保留显示出来，透明的部分则会被隐藏掉。</p>
+<p>如下代码，将会把一个图层，显示成 mask 内容的形状：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">#<span class="keyword">import</span> "CALayerMaskViewController.h"</div><div class="line"></div><div class="line">@interface <span class="type">CALayerMaskViewController</span> ()</div><div class="line">@property (<span class="keyword">weak</span>, nonatomic) <span class="type">IBOutlet</span> <span class="type">UIImageView</span> *imageView;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation <span class="type">CALayerMaskViewController</span></div><div class="line"></div><div class="line">- (instancetype)<span class="keyword">init</span> &#123;</div><div class="line">  <span class="keyword">self</span> = [<span class="keyword">super</span> <span class="keyword">init</span>];</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</div><div class="line">    <span class="type">UIStoryboard</span> *storyboard = [<span class="type">UIStoryboard</span> storyboardWithName:@<span class="string">"Main"</span> bundle:<span class="literal">nil</span>];</div><div class="line">    <span class="keyword">self</span> = [storyboard instantiateViewControllerWithIdentifier:@<span class="string">"MaskLayerVC"</span>];</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">  [<span class="keyword">super</span> viewDidLoad];</div><div class="line">  <span class="keyword">self</span>.view.backgroundColor = [<span class="type">UIColor</span> whiteColor];</div><div class="line">  <span class="keyword">self</span>.imageView.image = [<span class="type">UIImage</span> imageNamed:@<span class="string">"Edison.jpg"</span>];</div><div class="line">  </div><div class="line">  <span class="type">CALayer</span> *maskLayer = [[<span class="type">CALayer</span> alloc]<span class="keyword">init</span>];</div><div class="line">  maskLayer.frame = _imageView.bounds;</div><div class="line">  maskLayer.contents = (__bridge id)[<span class="type">UIImage</span> imageNamed:@<span class="string">"Heart"</span>].<span class="type">CGImage</span>;</div><div class="line">  _imageView.layer.mask = maskLayer;</div><div class="line">  </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258984234876.jpg" alt="20170419149258984234876.jpg"></p>
+<p> CALayer 的 mask 属性因为是 CALayer 类型，所以图层蒙版不一定局限于静态的图片的样式。任何由图层构成的都可以作为 mask 属性，这样蒙板可以通过代码甚至是动画实时生成。</p>
+<h2 id="组透明"><a href="#组透明" class="headerlink" title="组透明"></a>组透明</h2><p>在 UIView 中有一个 alpha 的属性用来设置视图的透明度，同样的在 CALayer 中也有与之对应设置透明度的属性，那就是opacity。这两个属性都会对子视图或者子图层有所影响。当一个视图包含子视图的时候，去设置视图的透明度就会有所问题，比如把一个视图的透明度（alpha）设置为0.5的时候该视图的子视图透明度却不是0.5。这是因为图层的重叠透明度造成的，如果希望子视图也同样和视图透明，那么有两种方式去解决。第一种就是通过在项目的<code>Info.plist</code>文件中设置 UIViewGroupOpacity 属性为 YES 即可达到效果，但是这种方式会影响到整个的项目，很明显的在某些时候这个解决方式并不是最好的。第二种方式就是设置视图中图层的 shouldRasterize 属性为 YES ，设置该属性的时候一定要设置 rasterizationScale 属性以去匹配屏幕，防止视图在<em>Retina</em>屏幕下像素化的问题。还有一点，如果 shouldRasterize 和 UIViewGroupOpacity 同时使用会有一定的性能问题。</p>
+<h2 id="绘制CALayer的寄宿图"><a href="#绘制CALayer的寄宿图" class="headerlink" title="绘制CALayer的寄宿图"></a>绘制CALayer的寄宿图</h2><p>CALayer 的 Contents 属性也不一定非要赋值一个寄宿图，可能有的时候我们需呀自己定义一些简单的视图，这个时候我们可以通过 Core Grapcis 直接来绘制寄宿图。通过继承 UIView 并实现  <code>- drawRect：</code>方法来实现自定义绘制。</p>
+<p>在默认的情况下 <code>- drawRect：</code>方法是没有实现的，因为对于UIView来说寄宿图不是必须的，而且调用这个方法后系统就会为视图分配一个寄宿图，这个寄宿图的像素尺寸就是视图的尺寸大小乘以 contentsSacle 的值。该方法的调用会消耗一定的 CPU 资源，对性能造成一定的损耗，所以在没有实现自定义绘制的时候就不要去调用该方法。</p>
+<p>在实现了<code>- drawRect：</code>方法后系统就会自动绘制寄宿图显示到屏幕上。但是有的时候我们需要重新绘制一个寄宿图，当然重绘也是在<code>- drawRect：</code>方法中来完成的，但是当添加了绘制代码后运行起来发现没有任何的效果。其实这里我们需要去手动的调用另一个方法<code>- setNeedDisplay：</code>，调用该方法后系统会自动调用<code>- drawRect：</code>方法进行重绘，为什么会这样呢？这是因为<code>- drawRect：</code>方法默认只会调用一次，我们重绘的时候就不回再次调用了，这个时候我们就需要调用<code>- setNeedDisplay：</code>来让系统自动调用<code>- drawRect：</code>方法来进行重绘。当然这是在 UIView 中绘制寄宿图，其实也是使用 CALayer 来完成的绘制工作，和保存绘制好的寄宿图。</p>
+<p>我们也可以在 CALayer 中直接绘制寄宿图。CALayer 有一个可选的 delegate 属性，实现了 CALayerDelegate的协议，该协议是一个非正式协议，只需要在需要绘制的时候调用相对应的方法后 CALayer 就会自动去完成剩下的工作。当 CALayer 被绘制的时候首先会调用下面的这个代理方法，来请求获取一个寄宿图来显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)displayLayer:(CALayerCALayer *)layer;</div></pre></td></tr></table></figure>
+<p>在这个代理方法中我们可以给它一个已经绘制好的寄宿图。如果没有实现该方法那么 CALayer 就会继续调用下面这个方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx;</div></pre></td></tr></table></figure>
+<p>在这个方法调用后这个方法里会生成一个空的寄宿图 layer 和一个 Core Graphics 的绘制寄宿图的上下文环境 ctx。在这个方法中我们就可以做一些绘制的工作。但是这里我们还需要显示的去调用<code>- display</code>方法我们绘制的寄宿图才会显示在屏幕上，这里和 UIView 的不同是当图层显示在屏幕上的时候 CALayer 不回自动重绘该内容，重绘内容是需要开发者自己去调用的。在 CALayer 中绘制寄宿的的时候超出边界的图是不回被绘制出来的。</p>
+<p>其实在平时自定义绘制控件的时候我们一般都是不会使用 CALayer 的 delegate 去绘制控件的，一般都是在 UIView 中调用 <code>- drawRect：</code>方法进行绘制，UIView 会自动的把图层的代理设置为 self ，并且提供<code>- displayLayer ：</code>的实现，完成所有的绘制，并且在需要重绘的时候调用<code>- display</code>方法。</p>
+<p>如下演示一下如何使用 CALayer 来绘制寄宿图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">@interface ViewController () &lt;CALayerDelegate&gt;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">  [super viewDidLoad];</div><div class="line"></div><div class="line">  CALayer *layer = [CALayer layer];</div><div class="line">  layer.frame = CGRectMake(50, 50, 100, 100);</div><div class="line">  layer.backgroundColor = [UIColor orangeColor].CGColor;</div><div class="line">  </div><div class="line">  layer.delegate = self;</div><div class="line">  </div><div class="line">  layer.contentsScale = [UIScreen mainScreen].scale;</div><div class="line">  [self.view.layer addSublayer:layer];</div><div class="line">  </div><div class="line">  [layer display];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx &#123;</div><div class="line">  CGContextSetLineWidth(ctx, 10.0);</div><div class="line">  CGContextSetFillColorWithColor(ctx, [UIColor redColor].CGColor);</div><div class="line">  </div><div class="line">  CGMutablePathRef path = CGPathCreateMutable();</div><div class="line">  CGPathMoveToPoint(path, &amp;CGAffineTransformIdentity, 0, 0);</div><div class="line">  CGPathAddLineToPoint(path, &amp;CGAffineTransformIdentity, 100, 100);</div><div class="line">  CGPathAddLineToPoint(path, &amp;CGAffineTransformIdentity, 20, 80);</div><div class="line">  CGPathCloseSubpath(path);</div><div class="line">  CGContextAddPath(ctx, path);</div><div class="line">  CGContextFillPath(ctx);</div><div class="line">  </div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258986364727.png" alt="20170419149258986364727.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="Aaronzjp.cn/2016/12/01/iOS-CALayer/" data-id="cj3n5l9nr001h32t5vffve3hf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Core-Animation/">Core Animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图层/">图层</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/01/swift 3.0-Function/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          swift - 函数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/19/Method-Swizzling/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">方法调配技术（method swizzling）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Core-Animation/">Core Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS网络编程/">iOS网络编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/runtime/">runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程技术/">多线程技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小技巧/">小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据存储/">数据存储</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库（DataBase）/">数据库（DataBase）</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoLayout/">AutoLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Core-Animation/">Core Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVO-KVC/">KVO/KVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift基础/">Swift基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationBar/">UINavigationBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/block/">block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS多线程/">iOS多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发思路/">iOS开发思路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime/">runtime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime​/">runtime​</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-sizing-TableView-Cells/">self-sizing TableView Cells</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图层/">图层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小坑/">小坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据持久化/">数据持久化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件管理/">文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程/">构造过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动布局/">自动布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自适应Cell/">自适应Cell</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/AutoLayout/" style="font-size: 10px;">AutoLayout</a> <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CALayer/" style="font-size: 10px;">CALayer</a> <a href="/tags/Core-Animation/" style="font-size: 10px;">Core Animation</a> <a href="/tags/KVO-KVC/" style="font-size: 10px;">KVO/KVC</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Swift基础/" style="font-size: 10px;">Swift基础</a> <a href="/tags/UIKit/" style="font-size: 10px;">UIKit</a> <a href="/tags/UINavigationBar/" style="font-size: 10px;">UINavigationBar</a> <a href="/tags/block/" style="font-size: 10px;">block</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS多线程/" style="font-size: 10px;">iOS多线程</a> <a href="/tags/iOS开发思路/" style="font-size: 15px;">iOS开发思路</a> <a href="/tags/runtime/" style="font-size: 20px;">runtime</a> <a href="/tags/runtime​/" style="font-size: 10px;">runtime​</a> <a href="/tags/self-sizing-TableView-Cells/" style="font-size: 10px;">self-sizing TableView Cells</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/图层/" style="font-size: 10px;">图层</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/小坑/" style="font-size: 10px;">小坑</a> <a href="/tags/数据存储/" style="font-size: 15px;">数据存储</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据持久化/" style="font-size: 10px;">数据持久化</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/本地化/" style="font-size: 15px;">本地化</a> <a href="/tags/构造过程/" style="font-size: 10px;">构造过程</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/自适应Cell/" style="font-size: 10px;">自适应Cell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/19/TransitionAnimation/">自定义转场动画（ViewController Transition）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/27/Swift-Initialization/">Swift-构造过程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/Swift-Method/">Swift-方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/07/Animation/">iOS动画</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/01/swift 3.0-Function/">swift - 函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Aaron_36<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

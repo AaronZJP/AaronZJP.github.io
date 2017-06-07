@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS - 多线程 | Aaron的开发笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="很多时候在我们的软件项目中我们都需要用到多线程，在iOS的项目中也不例外。多线程是编程中重要的一项技术，多线程又分为并发和串行，在此基础上又分为同步线程和异步线程。以下这几点很容易混淆，当然GCD中还有并发队列和串行队列，这个在下面的GCD中有提到。">
+<meta name="keywords" content="iOS多线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS - 多线程">
+<meta property="og:url" content="Aaronzjp.cn/2016/05/17/Multiple-Thread/index.html">
+<meta property="og:site_name" content="Aaron的开发笔记">
+<meta property="og:description" content="很多时候在我们的软件项目中我们都需要用到多线程，在iOS的项目中也不例外。多线程是编程中重要的一项技术，多线程又分为并发和串行，在此基础上又分为同步线程和异步线程。以下这几点很容易混淆，当然GCD中还有并发队列和串行队列，这个在下面的GCD中有提到。">
+<meta property="og:updated_time" content="2017-04-20T07:46:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS - 多线程">
+<meta name="twitter:description" content="很多时候在我们的软件项目中我们都需要用到多线程，在iOS的项目中也不例外。多线程是编程中重要的一项技术，多线程又分为并发和串行，在此基础上又分为同步线程和异步线程。以下这几点很容易混淆，当然GCD中还有并发队列和串行队列，这个在下面的GCD中有提到。">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron的开发笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Aaron的开发笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay foolish,Stay hungry!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="Aaronzjp.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Multiple-Thread" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/17/Multiple-Thread/" class="article-date">
+  <time datetime="2016-05-17T01:40:48.000Z" itemprop="datePublished">2016-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/多线程技术/">多线程技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS - 多线程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很多时候在我们的软件项目中我们都需要用到多线程，在iOS的项目中也不例外。多线程是编程中重要的一项技术，多线程又分为并发和串行，在此基础上又分为同步线程和异步线程。以下这几点很容易混淆，当然GCD中还有并发队列和串行队列，这个在下面的GCD中有提到。</p>
+<a id="more"></a>
+<p><strong>同步线程</strong></p>
+<p>不回开启新的线程，在当前线程中执行任务，同时会阻塞当前线程，等到当前任务执行完毕后才会继续执行下一个任务。</p>
+<p><strong>异步线程</strong></p>
+<p>会开启新的线程，在新的线程中执行任务，所以并不会阻塞当前的线程。</p>
+<h1 id="NSThread"><a href="#NSThread" class="headerlink" title="NSThread"></a>NSThread</h1><p>NSThread相对其他线程方案比较轻量级，能更方便直观的去控制线程对象，对其进行管理，但是缺点是需要自己去管理线程生命周期，线程同步。对系统也会有一定的开销。其实在实际的开发使用中该方案使用的很少，一般就是获取下当前线程和主线程的时候使用起来比较便利。</p>
+<p>获取当前线程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSThread *current = [NSThread currentThread];</div></pre></td></tr></table></figure>
+<p>获取主线程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSThread *main = [NSThread mainThread];</div></pre></td></tr></table></figure>
+<p>创建并开启线程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSThread *thread = [[[NSThreadalloc] initWithTarget:selfselector:@selector(run:)object:@&quot;mj&quot;] autorelease];</div><div class="line">//开启线程</div><div class="line">[thread start];</div></pre></td></tr></table></figure>
+<p>创建并自动启动线程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[NSThread detachNewThreadSelector:@selector(run:) toTarget:self withObject:@&quot;mj&quot;];</div></pre></td></tr></table></figure>
+<p>通过NSObject基类的方法隐式创建线程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self performSelectorInBackground:@selector(run:) withObject:@&quot;mj&quot;];</div></pre></td></tr></table></figure>
+<p>通过以上NSbject方式创建线程的方式只能在OC中使用，在swift中苹果因为某些安全问题去掉了<code>performSelector</code>这一系列的方法</p>
+<p>暂停当前线程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[NSThread sleepForTimeInterval:2];</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NSDate *date = [NSDate dateWithTimeInterval:2 sinceDate:[NSDate date]];</div><div class="line">[NSThread sleepUntilDate:date];</div></pre></td></tr></table></figure>
+<p>暂停当前线程到某个时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+ (void)sleepUntilDate:(NSDate *)date;</div></pre></td></tr></table></figure>
+<p>在指定线程执行操作直到完成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//在thread这个线程中执行self的run方法。YES是指该线程会会造成阻塞，run方法会在thread线程执行完毕后才会执行其他操作。</div><div class="line">[self performSelector:@selector(run) onThread:thread withObject:nil waitUntilDone:YES];</div></pre></td></tr></table></figure>
+<p>在主线程执行操作直到完成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self performSelectorOnMainThread:@selector(run) withObject:nil waitUntilDone:YES];</div></pre></td></tr></table></figure>
+<p>在当前线程执行操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self performSelector:@selector(run) withObject:nil];</div></pre></td></tr></table></figure>
+<p>其他操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//取消线程</div><div class="line">- (void)cancel;</div><div class="line">//启动线程</div><div class="line">- (void)start;</div><div class="line">//判断某个线程的状态的属性</div><div class="line">@property (readonly, getter=isExecuting) BOOL executing;</div><div class="line">@property (readonly, getter=isFinished) BOOL finished;</div><div class="line">@property (readonly, getter=isCancelled) BOOL cancelled;</div><div class="line">//设置和获取线程名字</div><div class="line">-(void)setName:(NSString *)n;</div><div class="line">-(NSString *)name;</div></pre></td></tr></table></figure>
+<h1 id="NSOpreation"><a href="#NSOpreation" class="headerlink" title="NSOpreation"></a>NSOpreation</h1><p>使用<code>NSOperation</code>和<code>NSOperationQueue</code>进行多线程开发，在线程的管理上就更加的方便，只要将一个<code>NSOperation</code>（实际开中需要使用其子类<code>NSInvocationOperation</code>、<code>NSBlockOperation</code>）放到<code>NSOperationQueue</code>这个队列中线程就会依次启动。</p>
+<p><code>NSOperationQueue</code>负责管理、执行所有的<code>NSOperation</code>，在这个过程中可以更加容易的管理线程总数和控制线程之间的依赖关系。</p>
+<p><code>NSOperation</code>有两个常用子类用于创建线程操作：<code>NSInvocationOperation</code>和<code>NSBlockOperation</code>，两种方式其实没有区别，但是是后者使用Block形式进行代码组织，使用起来会相对于前者更加方便灵活。</p>
+<h2 id="NSInvocationOperation："><a href="#NSInvocationOperation：" class="headerlink" title="NSInvocationOperation："></a>NSInvocationOperation：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">NSInvocationOperation *invocationOperation =[[NSInvocationOperation alloc]initWithTarget:self selector:@selector(loadImage) object:nil];</div><div class="line">//开始执行</div><div class="line">[invocationOperation start];</div></pre></td></tr></table></figure>
+<h2 id="NSBlockOperation："><a href="#NSBlockOperation：" class="headerlink" title="NSBlockOperation："></a>NSBlockOperation：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^()&#123;</div><div class="line">        　　NSLog(@&quot;执行第1次操作，线程：%@&quot;, [NSThread currentThread]);</div><div class="line">    &#125;];</div><div class="line">//添加一个新的线程</div><div class="line">[operation addExecutionBlock:^() &#123;</div><div class="line">        　　NSLog(@&quot;又执行了1个新的操作，线程：%@&quot;, [NSThread currentThread]);</div><div class="line">    &#125;];</div><div class="line">////添加一个新的线程</div><div class="line">[operation addExecutionBlock:^() &#123;</div><div class="line">        　　NSLog(@&quot;又执行了1个新的操作，线程：%@&quot;, [NSThread currentThread]);</div><div class="line">    &#125;];</div><div class="line">//开始执行</div><div class="line">[operation start];</div><div class="line">/*</div><div class="line">这里一共并发执行了三个线程</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>在做完以上的操作后(不管是通过<code>NSInvocationOperation</code>还是通过<code>NSBlockOperation</code>)该线程启动执行，默认是在当前线程同步执行的，调用<code>start</code>方法后并不会去开启一个新的线程去执行操作。需要如下创建一个操作队列，将<code>NSOperation</code>放入操作队列中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//创建操作队列</div><div class="line">NSOperationQueue *operationQueue=[[NSOperationQueue alloc]init];</div><div class="line">//注意添加到操作队后，队列会开启一个线程执行此操作</div><div class="line">[operationQueue addOperation:operation];</div></pre></td></tr></table></figure>
+<p>取消线程操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[operation cancel];</div></pre></td></tr></table></figure>
+<p>线程结束后做一些操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//如果想在一个NSOperation执行完毕后做一些事情，就调用NSOperation的setCompletionBlock方法来设置想做的事情</div><div class="line">operation.completionBlock = ^() &#123;</div><div class="line"></div><div class="line">        NSLog(@&quot;执行完毕&quot;);</div><div class="line"></div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<p>设置线程依赖，该方法可以用来处理在执行一个操作前需要用到上一个线程操作的结果的情景。比如有一个网络请求B，该网络需要等待网络请求A请求到的结果来作为网络请求B的参数，这个时候就可以谁知网络请求B线程依赖网络请求A线程，在A线程请求结束得到结果后再发起网络请求B。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[operation addDependency:A];</div><div class="line">//operation线程在线程A执行完成后才会执行</div></pre></td></tr></table></figure>
+<h1 id="GCD-Grand-Central-Dispatch"><a href="#GCD-Grand-Central-Dispatch" class="headerlink" title="GCD(Grand Central Dispatch)"></a>GCD(Grand Central Dispatch)</h1><p><code>GCD(Grand Central Dispatch)</code>是基于<code>C</code>语言开发的一套多线程开发机制，也是目前苹果官方推荐的多线程开发方法。<code>GCD</code>在三种多线程方式中抽象层次最高，是用起来也最简单，它基于<code>C</code>语言开发，并不像<code>NSOperation</code>是面向对象的开发，而是完全面向过程的。这种机制相比较于前面两种多线程开发方式最显著的优点就是它对于多核运算更加有效。</p>
+<p><code>GCD</code>中也有一个类似于<code>NSOperationQueue</code>的队列，<code>GCD</code>统一管理整个队列中的任务。但是<code>GCD</code>中的队列分为并行队列和串行队列两类：</p>
+<p><strong>串行队列：一次只执行一个线程，按照添加到队列的顺序依次执行。</strong></p>
+<p><strong>并发队列：一次可以执行多个线程，线程的执行没有先后顺序。根据同步或者异步有不同的执行方式。放到并行队列的任务，GCD也会FIFO的取出来，但不同的是，他取出来一个就会放到别的线程，然后再取出来一个又放到另一个线程去执行，但是因为这个过程相当的短暂，所以可以忽略不计，看起来所有的任务都是一起执行的，但是还是得注意并发线程的数量，数量过大同样会对系统性能造成影响。</strong></p>
+<p>在<code>GCD</code>中还有一个特殊队列就是主队列，用来执行主线程上的操作任务。在需要更新UI的时候我们就会用到这个队列，我们用如下的方式来获取该队列。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">	//主队列中需要运行的代码	</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="并发队列的创建："><a href="#并发队列的创建：" class="headerlink" title="并发队列的创建："></a>并发队列的创建：</h2><p>并发队列同样是使用<code>dispatch_queue_create()</code>方法创建，只是最后一个参数指定为<code>DISPATCH_QUEUE_CONCURRENT</code>进行创建,如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dispatch_queue_t concurrent = dispatch_queue_create(&quot;concurrentThread&quot;, DISPATCH_QUEUE_CONCURRENT);</div></pre></td></tr></table></figure>
+<p>在实际的使用中其实通常不会去创建一个新的并发队列，一般会用下面的方式去获取系统中的<strong>全局并发队列</strong>来执行任务。</p>
+<h2 id="全局并发队列的创建："><a href="#全局并发队列的创建：" class="headerlink" title="全局并发队列的创建："></a>全局并发队列的创建：</h2><p>在实际开发中通常不会重新创建一个全局并发队列而是使用<code>dispatch_get_global_queue()</code>方法取得一个全局的并发队列（如果有多个并发队列可以使用前者创建），其中在该全局并发队列中有四种优先级选项，一般我们使用默认（<code>DISPATCH_QUEUE_PRIORITY_DEFAULT</code>）的就好，四种优先级如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"> * The global concurrent queues may still be identified by their priority,</div><div class="line"> * which map to the following QOS classes:</div><div class="line"> * </div><div class="line"> *  - DISPATCH_QUEUE_PRIORITY_HIGH:         QOS_CLASS_USER_INITIATED</div><div class="line"> *  - DISPATCH_QUEUE_PRIORITY_DEFAULT:      QOS_CLASS_DEFAULT</div><div class="line"> *  - DISPATCH_QUEUE_PRIORITY_LOW:          QOS_CLASS_UTILITY</div><div class="line"> *  - DISPATCH_QUEUE_PRIORITY_BACKGROUND:   QOS_CLASS_BACKGROUND</div><div class="line"> */</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> /*取得全局队列</div><div class="line">  第一个参数：线程优先级</div><div class="line">  第二个参数：预留参数，目前没有用，一般传入0</div><div class="line">  */</div><div class="line"> dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</div><div class="line"> //创建多个线程用于填充图片</div><div class="line"> for (int i=0; i&lt;count; ++i) &#123;</div><div class="line">     //异步执行队列任务</div><div class="line">     dispatch_async(globalQueue, ^&#123;</div><div class="line">//线程中需要执行的操作</div><div class="line">     &#125;);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h2 id="并发数的控制"><a href="#并发数的控制" class="headerlink" title="并发数的控制"></a>并发数的控制</h2><p>并发太多的时候我们需要去控制并发数量，因为并发太多会带来很多问题，在实际开发中并发数不是越多越好的。因为并发数量太大对系统的开销，消耗会增大，同时对资源的访问也很难控制，容易导致死锁。我们使用<code>dispatch_apply</code>来控制最大并发数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</div><div class="line">//线程最大并发数为10</div><div class="line">size_t maxConcurrentThread = 10;</div><div class="line">dispatch_apply(maxConcurrentThread, globalQueue, ^(size_t i) &#123;</div><div class="line">	//线程中需要的操作</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="串行队列的创建："><a href="#串行队列的创建：" class="headerlink" title="串行队列的创建："></a>串行队列的创建：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">/*创建一个串行队列</div><div class="line">     第一个参数：队列名称</div><div class="line">     第二个参数：队列类型(也可以传NULL，因为默认的就是DISPATCH_QUEUE_SERIAL)</div><div class="line">     */</div><div class="line">    dispatch_queue_t serialQueue = dispatch_queue_create(&quot;myThreadQueue1&quot;, DISPATCH_QUEUE_SERIAL);//注意queue对象不是指针类型</div><div class="line">    //创建多个线程用于填充图片</div><div class="line">    for (int i=0; i&lt;count; ++i) &#123;</div><div class="line">        //异步执行队列任务</div><div class="line">        dispatch_async(serialQueue, ^&#123;</div><div class="line">			//线程中需要的操作</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="异步与同步："><a href="#异步与同步：" class="headerlink" title="异步与同步："></a>异步与同步：</h2><p>上面创建的这些线程操作都是异步操作 <code>dispatch_async()</code>，如果要使用同步操作则是 <code>dispatch_sync()</code>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">同步执行(阻塞当前线程)</th>
+<th style="text-align:center">异步执行（不阻塞当前线程）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">串行队列</td>
+<td style="text-align:center">当前线程，一个一个执行（FIFO）</td>
+<td style="text-align:center">其他线程，一个一个执行（FIFO）</td>
+</tr>
+<tr>
+<td style="text-align:center">并行队列</td>
+<td style="text-align:center">当前线程，一个一个执行（FIFO）</td>
+<td style="text-align:center">多个线程，一起执行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="获取公共队列"><a href="#获取公共队列" class="headerlink" title="获取公共队列"></a>获取公共队列</h2><p>其实这个在上面也有提到，通过这几种方法可以获取到系统预设的公共队列:</p>
+<ul>
+<li><code>dispatch_get_current_queue</code>：在<code>iOS 6.0</code>之后已经废弃，用于获取当前正在执行任务的队列，主要用于调试</li>
+<li><code>dispatch_get_main_queue</code>： 最常用的，用于获取应用主线程关联的<strong>串行调度队列</strong></li>
+<li><code>dispatch_get_global_queue</code>：最常用的，用于获取应用全局共享的<strong>并发队列</strong></li>
+</ul>
+<p>后面这两个分别获取主线程的串行队列和获取应用全局共享的并发队列是非常常用的，当我们需要开一个线程并发地异步执行任务时，我们就会放到全局队列中。当我们在异步执行完成时，通常需要回到主线程更新<code>UI</code>显示。</p>
+<h2 id="队列的内存管理"><a href="#队列的内存管理" class="headerlink" title="队列的内存管理"></a>队列的内存管理</h2><p>队列，即<code>Dispatch Queue</code>与其它类型的<code>dispatch</code>对象是引用计数的数据类型。当创建一个串行<code>dispatch queue</code>时,初始引用计数为<code>1</code>,我们可用<code>dispatch_retain</code>和<code>dispatch_release</code>函数来增加和减少引用计数。当引用计数为<code>0</code>时,系统会异步地销毁这个<code>queue</code>。对于系统预设提供的队列此方法无效，系统预设的队列不需要我们来管理，系统会自动管理该队列。</p>
+<h2 id="暂停-继续队列"><a href="#暂停-继续队列" class="headerlink" title="暂停/继续队列"></a>暂停/继续队列</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dispatch_suspend(gqueue);</div><div class="line">dispatch_resume(gqueue);</div></pre></td></tr></table></figure>
+<h2 id="队列组的使用"><a href="#队列组的使用" class="headerlink" title="队列组的使用"></a>队列组的使用</h2><p>很多时候我们需要进行多个操作，但是需要这些操作都完成以后才能回到主队列去更新UI，那么就可以用这样的方式使用队列组来完成这样的要求。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</div><div class="line"> </div><div class="line">// 异步执行</div><div class="line">dispatch_async(queue, ^&#123;</div><div class="line">  // 创建一个组</div><div class="line">  dispatch_group_t group = dispatch_group_create();</div><div class="line">  </div><div class="line">  // 分别将任务添加到组中</div><div class="line">  dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</div><div class="line"></div><div class="line">  &#125;);</div><div class="line">  </div><div class="line">  dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</div><div class="line"></div><div class="line">  &#125;);</div><div class="line">  </div><div class="line">  // 等待组中的任务执行完毕,回到主线程执行block回调</div><div class="line">  dispatch_group_notify(group, dispatch_get_main_queue(), ^&#123;</div><div class="line">    </div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="延迟执行"><a href="#延迟执行" class="headerlink" title="延迟执行"></a>延迟执行</h2><ul>
+<li>使用<code>NSObject</code>提供的API同步执行，但是该类似方法在swift语言中已经废弃，原因的不安全。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self performSelector:@selector(myFunction) withObject:nil afterDelay:5.0];</div></pre></td></tr></table></figure>
+<ul>
+<li>通过使用计时器来达到延迟执行的效果</li>
+<li>使用<code>dispatch_after</code>方法异步延迟执行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CGFloat time = 5.0f;</div><div class="line">dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)),</div><div class="line">             dispatch_get_main_queue(), ^&#123;</div><div class="line">    // time秒后异步执行这里的代码...</div><div class="line">    </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>最后附上GCD中的简单使用的Demo</p>
+<p><a href="https://github.com/AaronZJP/iOS-Basic-Demos/tree/master/Multiple-Thread-Demo" target="_blank" rel="external">GCDDemo</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="Aaronzjp.cn/2016/05/17/Multiple-Thread/" data-id="cj3n5l9n8000m32t5b5byvvpz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS多线程/">iOS多线程</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/31/UINavigationBar/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          UINavigationBar
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/28/File-Manager/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS开发-文件管理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Core-Animation/">Core Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS网络编程/">iOS网络编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/runtime/">runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程技术/">多线程技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小技巧/">小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据存储/">数据存储</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库（DataBase）/">数据库（DataBase）</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoLayout/">AutoLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Core-Animation/">Core Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVO-KVC/">KVO/KVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift基础/">Swift基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationBar/">UINavigationBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/block/">block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS多线程/">iOS多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发思路/">iOS开发思路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime/">runtime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime​/">runtime​</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-sizing-TableView-Cells/">self-sizing TableView Cells</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图层/">图层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小坑/">小坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据持久化/">数据持久化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件管理/">文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程/">构造过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动布局/">自动布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自适应Cell/">自适应Cell</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/AutoLayout/" style="font-size: 10px;">AutoLayout</a> <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CALayer/" style="font-size: 10px;">CALayer</a> <a href="/tags/Core-Animation/" style="font-size: 10px;">Core Animation</a> <a href="/tags/KVO-KVC/" style="font-size: 10px;">KVO/KVC</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Swift基础/" style="font-size: 10px;">Swift基础</a> <a href="/tags/UIKit/" style="font-size: 10px;">UIKit</a> <a href="/tags/UINavigationBar/" style="font-size: 10px;">UINavigationBar</a> <a href="/tags/block/" style="font-size: 10px;">block</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS多线程/" style="font-size: 10px;">iOS多线程</a> <a href="/tags/iOS开发思路/" style="font-size: 15px;">iOS开发思路</a> <a href="/tags/runtime/" style="font-size: 20px;">runtime</a> <a href="/tags/runtime​/" style="font-size: 10px;">runtime​</a> <a href="/tags/self-sizing-TableView-Cells/" style="font-size: 10px;">self-sizing TableView Cells</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/图层/" style="font-size: 10px;">图层</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/小坑/" style="font-size: 10px;">小坑</a> <a href="/tags/数据存储/" style="font-size: 15px;">数据存储</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据持久化/" style="font-size: 10px;">数据持久化</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/本地化/" style="font-size: 15px;">本地化</a> <a href="/tags/构造过程/" style="font-size: 10px;">构造过程</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/自适应Cell/" style="font-size: 10px;">自适应Cell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/19/TransitionAnimation/">自定义转场动画（ViewController Transition）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/27/Swift-Initialization/">Swift-构造过程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/Swift-Method/">Swift-方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/07/Animation/">iOS动画</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/01/swift 3.0-Function/">swift - 函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Aaron_36<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

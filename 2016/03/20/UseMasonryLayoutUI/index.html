@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用Masonry布局UI | Aaron的开发笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Masonry 是一个针对 AutoLayout 的封装的轻量级的布局框架，拥有自己的语法描述，通过链式语法封装 AutoLayout，大大的提高了代码的可读性和简洁度。">
+<meta name="keywords" content="AutoLayout">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Masonry布局UI">
+<meta property="og:url" content="Aaronzjp.cn/2016/03/20/UseMasonryLayoutUI/index.html">
+<meta property="og:site_name" content="Aaron的开发笔记">
+<meta property="og:description" content="Masonry 是一个针对 AutoLayout 的封装的轻量级的布局框架，拥有自己的语法描述，通过链式语法封装 AutoLayout，大大的提高了代码的可读性和简洁度。">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149259044416388.png">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149259045554935.png">
+<meta property="og:updated_time" content="2017-04-19T09:18:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Masonry布局UI">
+<meta name="twitter:description" content="Masonry 是一个针对 AutoLayout 的封装的轻量级的布局框架，拥有自己的语法描述，通过链式语法封装 AutoLayout，大大的提高了代码的可读性和简洁度。">
+<meta name="twitter:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149259044416388.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Aaron的开发笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Aaron的开发笔记</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stay foolish,Stay hungry!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="Aaronzjp.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-UseMasonryLayoutUI" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/20/UseMasonryLayoutUI/" class="article-date">
+  <time datetime="2016-03-20T08:29:23.000Z" itemprop="datePublished">2016-03-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/UI/">UI</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用Masonry布局UI
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Masonry 是一个针对 AutoLayout 的封装的轻量级的布局框架，拥有自己的语法描述，通过链式语法封装 AutoLayout，大大的提高了代码的可读性和简洁度。</p>
+<a id="more"></a>
+<h1 id="AutoLayout介绍"><a href="#AutoLayout介绍" class="headerlink" title="AutoLayout介绍"></a>AutoLayout介绍</h1><p>iOS UI布局目前有很多种方式，从最开始的只需要简单的计算下相对位置，到 AutoresizingMask 布局，再到 <a href="http://aaronzjp.cn/2016/03/06/iOS-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0AutoLayout%E5%B8%83%E5%B1%80/" target="_blank" rel="external">AutoLayout 布局</a>。从这些 UI 布局到方式就可以看出 iOS 设备屏幕尺寸的改变，为了兼容多个屏幕尺寸苹果推出了上面提到的这些 UI 布局技术，目前使用最多的就是 AutoLayout 布局。在 Storyboard 上使用还是比较直接的，设置约束后就会立即生效，所见即所得。但是 Storyboard 在相对复杂的 UI 布局上就显得不是那么好用了，还是得使用代码进行布局。那么使用代码布局的时候问题就来了，使用过都知道简直就是难以忍受，可以说这样的代码简直是啰嗦。</p>
+<p>不信看一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">   UIView *redView = [[UIView alloc]init];</div><div class="line">   redView.backgroundColor = [UIColor redColor];</div><div class="line">   //给每个视图代码添加NSLayoutConstraint约束的时候要关闭这个属性</div><div class="line">   redView.translatesAutoresizingMaskIntoConstraints = NO;</div><div class="line">   //在给视图添加约束的时候要先将视图添加到父视图，不然会报错</div><div class="line">   [self.view addSubview:redView];</div><div class="line">   </div><div class="line">//相对于父控件的左边距</div><div class="line">   NSLayoutConstraint *redViewLeft = [NSLayoutConstraint constraintWithItem:redView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:20.0];</div><div class="line">   [self.view addConstraint:redViewLeft];</div><div class="line">   //相对于父控件的下边距</div><div class="line">   NSLayoutConstraint *redViewBottom = [NSLayoutConstraint constraintWithItem:redView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-20.0];</div><div class="line">   [self.view addConstraint:redViewBottom];</div><div class="line">   //自身宽度约束（这里是直接添加宽度约束）</div><div class="line">   NSLayoutConstraint *redViewWidth = [NSLayoutConstraint constraintWithItem:redView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:kNilOptions multiplier:1.0 constant:50];</div><div class="line">   [redView addConstraint:redViewWidth];</div><div class="line">   //自身高度约束（这里是直接添加高度约束）</div><div class="line">   NSLayoutConstraint *redViewHeight = [NSLayoutConstraint constraintWithItem:redView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:kNilOptions multiplier:1.0 constant:50];</div><div class="line">   [redView addConstraint:redViewHeight];</div></pre></td></tr></table></figure>
+<p>是不是觉得这样来布局 UI 代码很啰嗦，也很难读？这仅仅是对一个 View 的布局，想象一下一个复杂的控制器，里面有多个的视图。。。</p>
+<p>再来对比下 Masonry：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">UIView *redView = [[UIView alloc]init];</div><div class="line">redView.backgroundColor = [UIColor redColor];</div><div class="line">[self.view addSubview:redView];</div><div class="line">//添加约束</div><div class="line">[redView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">  make.left.equalTo(self.view).offset(20);</div><div class="line">  make.bottom.equalTo(self.view).offset(-20);</div><div class="line">  make.size.mas_equalTo(CGSizeMake(50, 50));</div><div class="line">  </div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>没错，上面那么大一堆代码，在 Masonry 上只需要这么几句。</p>
+<h1 id="Masonry的使用"><a href="#Masonry的使用" class="headerlink" title="Masonry的使用"></a>Masonry的使用</h1><p>首先在 Masonry 有三个方法用来修改约束的，通过名字大概也能了解到这三个方法的用处。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//用来添加约束的，注意的是AutoLayout不能同时存在两条约束同时针对一个对象，会报错</div><div class="line">- (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *))block;</div><div class="line">//用来更新约束，不存在相同约束针对同一个对象，相同的会被更新</div><div class="line">- (NSArray *)mas_updateConstraints:(void(^)(MASConstraintMaker *))block;</div><div class="line">//清除之前所有的约束，并更新现在添加的约束</div><div class="line">- (NSArray *)mas_remakeConstraints:(void(^)(MASConstraintMaker *make))block;</div></pre></td></tr></table></figure>
+<p>equalTo 和 mas_equalTo 的区别：</p>
+<p>这里 mas_equalTo 是对其中的参数做了一个BOX操作（装箱操作），看了下源码很长，具体的我也没看太懂，这个后面有时间仔细了解下。目前我在使用中的时候如果是相对于 View 的约束操作是使用 equalTo ，相对于直接的数值和结构体的约束是使用 mas_equalTo。</p>
+<p>介绍完一些基本的使用方法后就来做一些实际操作。</p>
+<h2 id="例子1"><a href="#例子1" class="headerlink" title="例子1"></a>例子1</h2><p>首先来居中显示一个红色 View：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">UIView *redView = [[UIView alloc]init];</div><div class="line">redView.backgroundColor = [UIColor redColor];</div><div class="line">//添加约束前需要先把视图添加到superView上，否则会报错</div><div class="line">[self.view addSubview:redView];</div><div class="line"></div><div class="line">[redView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">  //中心点等于self.view</div><div class="line">  make.center.equalTo(self.view);</div><div class="line">  //view的宽和高等于300</div><div class="line">  make.width.and.height.mas_equalTo(300);</div><div class="line">  // 这一句和上面一句是等同的，也是设置view的宽和高的约束等于300</div><div class="line">  // make.width.and.height.equalTo(@300);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149259044416388.png" alt="20170419149259044416388.png"></p>
+<h2 id="例子2"><a href="#例子2" class="headerlink" title="例子2"></a>例子2</h2><p>在例子1的基础上创建两个视图，边距相互为10，且高相等，宽相等：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">//首先添加这两个 View 到 redView 上</div><div class="line">UIView *view1 = [[UIView alloc]init];</div><div class="line">view1.backgroundColor = [UIColor purpleColor];</div><div class="line">[redView addSubview:view1];</div><div class="line"></div><div class="line">UIView *view2 = [[UIView alloc]init];</div><div class="line">view2.backgroundColor = [UIColor orangeColor];</div><div class="line">[redView addSubview:view2];</div><div class="line"></div><div class="line">//添加 View1 的约束</div><div class="line">[view1 mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">  //左边和顶部相对 redView 相距10</div><div class="line">  make.left.and.top.equalTo(redView).offset(10);</div><div class="line">  //右边相对于 View2 的左边相距 10</div><div class="line">  make.right.equalTo(view2.mas_left).offset(-10);</div><div class="line">  //中心点相对于 redView 中心Y轴对齐</div><div class="line">  make.centerY.equalTo(redView.mas_centerY);</div><div class="line">  //底部相对于 redView 的底部相距10</div><div class="line">  make.bottom.equalTo(redView).offset(-10);</div><div class="line">  //宽相对于 View2 的宽相等</div><div class="line">  make.width.equalTo(view2.mas_width);</div><div class="line">&#125;];</div><div class="line"></div><div class="line">[view2 mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">  //左边相对于 View1 的右边相距10</div><div class="line">  make.left.equalTo(view1.mas_right).offset(10);</div><div class="line">  //右边相对于 redView 的右边相距10</div><div class="line">  make.right.equalTo(redView).offset(-10);</div><div class="line">  //中心点相对于 redView 中心Y轴对齐</div><div class="line">  make.centerY.equalTo(redView.mas_centerY);</div><div class="line">  //顶部相对于 redView 的边距为10</div><div class="line">  make.top.equalTo(redView).offset(10);</div><div class="line">  //底部相对于 redView 的边距为10</div><div class="line">  make.bottom.equalTo(redView).offset(-10);</div><div class="line">  //宽相对于 View1 的宽相等</div><div class="line">  make.width.equalTo(view1.mas_width);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149259045554935.png" alt="20170419149259045554935.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="Aaronzjp.cn/2016/03/20/UseMasonryLayoutUI/" data-id="cj3n5l9nq001f32t5dl0aop2d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AutoLayout/">AutoLayout</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/26/AppThemes/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          App皮肤，更换皮肤思路
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/06/AutoLayout UI/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">代码实现AutoLayout布局</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Core-Animation/">Core Animation</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/UI/">UI</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS网络编程/">iOS网络编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/runtime/">runtime</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程技术/">多线程技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/小技巧/">小技巧</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据存储/">数据存储</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库（DataBase）/">数据库（DataBase）</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Animation/">Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AutoLayout/">AutoLayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Autolayout/">Autolayout</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CALayer/">CALayer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Core-Animation/">Core Animation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KVO-KVC/">KVO/KVC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift/">Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift基础/">Swift基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIKit/">UIKit</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UINavigationBar/">UINavigationBar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/block/">block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS多线程/">iOS多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS开发思路/">iOS开发思路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime/">runtime</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runtime​/">runtime​</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-sizing-TableView-Cells/">self-sizing TableView Cells</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动画/">动画</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图层/">图层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小坑/">小坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据存储/">数据存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据持久化/">数据持久化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件管理/">文件管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/本地化/">本地化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构造过程/">构造过程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/枚举/">枚举</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自动布局/">自动布局</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/自适应Cell/">自适应Cell</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Animation/" style="font-size: 10px;">Animation</a> <a href="/tags/AutoLayout/" style="font-size: 10px;">AutoLayout</a> <a href="/tags/Autolayout/" style="font-size: 10px;">Autolayout</a> <a href="/tags/CALayer/" style="font-size: 10px;">CALayer</a> <a href="/tags/Core-Animation/" style="font-size: 10px;">Core Animation</a> <a href="/tags/KVO-KVC/" style="font-size: 10px;">KVO/KVC</a> <a href="/tags/SQLite/" style="font-size: 10px;">SQLite</a> <a href="/tags/Swift/" style="font-size: 15px;">Swift</a> <a href="/tags/Swift基础/" style="font-size: 10px;">Swift基础</a> <a href="/tags/UIKit/" style="font-size: 10px;">UIKit</a> <a href="/tags/UINavigationBar/" style="font-size: 10px;">UINavigationBar</a> <a href="/tags/block/" style="font-size: 10px;">block</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS多线程/" style="font-size: 10px;">iOS多线程</a> <a href="/tags/iOS开发思路/" style="font-size: 15px;">iOS开发思路</a> <a href="/tags/runtime/" style="font-size: 20px;">runtime</a> <a href="/tags/runtime​/" style="font-size: 10px;">runtime​</a> <a href="/tags/self-sizing-TableView-Cells/" style="font-size: 10px;">self-sizing TableView Cells</a> <a href="/tags/其他/" style="font-size: 10px;">其他</a> <a href="/tags/动画/" style="font-size: 10px;">动画</a> <a href="/tags/图层/" style="font-size: 10px;">图层</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/小坑/" style="font-size: 10px;">小坑</a> <a href="/tags/数据存储/" style="font-size: 15px;">数据存储</a> <a href="/tags/数据库/" style="font-size: 10px;">数据库</a> <a href="/tags/数据持久化/" style="font-size: 10px;">数据持久化</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/本地化/" style="font-size: 15px;">本地化</a> <a href="/tags/构造过程/" style="font-size: 10px;">构造过程</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/自动布局/" style="font-size: 10px;">自动布局</a> <a href="/tags/自适应Cell/" style="font-size: 10px;">自适应Cell</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/19/TransitionAnimation/">自定义转场动画（ViewController Transition）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/27/Swift-Initialization/">Swift-构造过程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/Swift-Method/">Swift-方法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/07/Animation/">iOS动画</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/01/swift 3.0-Function/">swift - 函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Aaron_36<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
