@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Aaron的开发笔记</title>
+  <subtitle>Stay foolish,Stay hungry!</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="Aaronzjp.cn/"/>
+  <updated>2017-04-20T07:09:33.000Z</updated>
+  <id>Aaronzjp.cn/</id>
+  
+  <author>
+    <name>Aaron_36</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>自定义转场动画（ViewController Transition）</title>
+    <link href="Aaronzjp.cn/2017/04/19/TransitionAnimation/"/>
+    <id>Aaronzjp.cn/2017/04/19/TransitionAnimation/</id>
+    <published>2017-04-19T09:28:41.000Z</published>
+    <updated>2017-04-20T07:09:33.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;什么是转场动画，转场动画就是从一个 Controller 跳转到另一个 Controller 时呈现的动画。在现在的iOS App 中很多 App 都实现了自己的转场动画，要知道自定义转场动画在 iOS7 以前是没有这么轻松的，在 iOS7 以前要想自定义转场动画那就只能自己去一步一步的实现，很久以前我隐约记得我看过一篇文章是关于自定义控制器容易器转场动画的，大概意思就是自定&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Swift-构造过程</title>
+    <link href="Aaronzjp.cn/2017/03/27/Swift-Initialization/"/>
+    <id>Aaronzjp.cn/2017/03/27/Swift-Initialization/</id>
+    <published>2017-03-27T14:06:28.000Z</published>
+    <updated>2017-04-19T09:18:09.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Swift 构造过程是在使用类、结构体或者枚举类型的实例之前所做的准备工作。在使用类型实例之前为了确保类型实例能够正确的实例化，需要在实例化过程中对存储属性等设置初始值，和一些必须执行和初始化的工作。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
+    
+      <category term="构造过程" scheme="Aaronzjp.cn/tags/%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift-方法</title>
+    <link href="Aaronzjp.cn/2017/03/22/Swift-Method/"/>
+    <id>Aaronzjp.cn/2017/03/22/Swift-Method/</id>
+    <published>2017-03-22T04:57:57.000Z</published>
+    <updated>2017-03-31T10:23:11.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 Swift 中方法分为两种，实例方法、类型方法。其中类型方法和 Obj-c 中的类方法相似的，类型方法是作用于类型本身的，实例方法则是作用于类型对应的实例。和 Obj-c 不同的是，在 Swift 中不仅可以给类定义方法，同时还可以给结构体和枚举定义方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Swift" scheme="Aaronzjp.cn/categories/Swift/"/>
+    
+    
+      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
+    
+      <category term="枚举" scheme="Aaronzjp.cn/tags/%E6%9E%9A%E4%B8%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS动画</title>
+    <link href="Aaronzjp.cn/2017/03/07/Animation/"/>
+    <id>Aaronzjp.cn/2017/03/07/Animation/</id>
+    <published>2017-03-07T06:44:31.000Z</published>
+    <updated>2017-04-19T08:40:40.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149258946476275.jpg&quot; alt=&quot;20170419149258946476275.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;​    在iOS／MacOS中，基本上所有的动画都是由 Core Animation 这个框架来完成的。这个框架的主要功能就是渲染图形，以及动画的实现，使用 Core Animation 来实现图形渲染以及动画只需要配置一些简单的参数，告诉它动画应该什么时候开始，什么时候结束，以及状态等。 Core Animation 通过硬件加速自动的完成图形的绘制，渲染以及动画。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Core Animation" scheme="Aaronzjp.cn/categories/Core-Animation/"/>
+    
+    
+      <category term="动画" scheme="Aaronzjp.cn/tags/%E5%8A%A8%E7%94%BB/"/>
+    
+      <category term="Animation" scheme="Aaronzjp.cn/tags/Animation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift - 函数</title>
+    <link href="Aaronzjp.cn/2016/12/01/swift%203.0-Function/"/>
+    <id>Aaronzjp.cn/2016/12/01/swift 3.0-Function/</id>
+    <published>2016-12-01T06:11:37.000Z</published>
+    <updated>2017-04-20T11:36:33.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Swift" scheme="Aaronzjp.cn/categories/Swift/"/>
+    
+    
+      <category term="Swift基础" scheme="Aaronzjp.cn/tags/Swift%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初识CALayer</title>
+    <link href="Aaronzjp.cn/2016/12/01/iOS-CALayer/"/>
+    <id>Aaronzjp.cn/2016/12/01/iOS-CALayer/</id>
+    <published>2016-12-01T06:11:37.000Z</published>
+    <updated>2017-04-20T11:46:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; CALayer 和 UIView 类似，也是一些被层级关系树管理的块。 CALayer 和 UIView 一样的可以可以在其中展示图片，文本，通过方法或属性做动画和图形变换等等的界面上的显示相关的东西，可以说 UIView 能做到的 CALayer 基本上也能做到，但是 CALayer 和  UIView 最大的不同是 CALayer 不处理和用户的交互。因为  CALayer 不能很好的处理具体的响应链，无法响应事件的处理，即使在 CALayer 的方法中提供了触摸事件的检测方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Core Animation" scheme="Aaronzjp.cn/categories/Core-Animation/"/>
+    
+    
+      <category term="图层" scheme="Aaronzjp.cn/tags/%E5%9B%BE%E5%B1%82/"/>
+    
+      <category term="CALayer" scheme="Aaronzjp.cn/tags/CALayer/"/>
+    
+      <category term="Core Animation" scheme="Aaronzjp.cn/tags/Core-Animation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>方法调配技术（method swizzling）</title>
+    <link href="Aaronzjp.cn/2016/09/19/Method-Swizzling/"/>
+    <id>Aaronzjp.cn/2016/09/19/Method-Swizzling/</id>
+    <published>2016-09-19T09:33:52.000Z</published>
+    <updated>2017-04-19T09:10:17.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    在前面的关于&lt;code&gt;runtime&lt;/code&gt;中已经说过&lt;code&gt;OC&lt;/code&gt;运行时语言，在其编译的时候就会把OC中的消息转换成一个类似于如下：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;id objc_msgSend ( id self, SEL cmd, ... );&lt;/code&gt;结构的C语言函数，在程序运行的时候程序就会根据id所对应的类，以及传入的SEL选择子在该类的方法列表中去查找相对应的方法，并执行。利用这一特点，我们可以在运行期去改变选择子名称相对应的方法，这样我们既不需要查看到源代码，又没有必要去重写子类来覆写方法就能改变类本身的功能。这样一来新功能就会在类的所有实例中表现出来，而不仅限于那些重写子类的实例。这种方案就叫做“方法调配”（&lt;code&gt;method swizzling&lt;/code&gt;）。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="runtime" scheme="Aaronzjp.cn/categories/runtime/"/>
+    
+    
+      <category term="runtime" scheme="Aaronzjp.cn/tags/runtime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>runtime-消息转发机制（message forwarding）</title>
+    <link href="Aaronzjp.cn/2016/09/13/Message-Forwarding/"/>
+    <id>Aaronzjp.cn/2016/09/13/Message-Forwarding/</id>
+    <published>2016-09-13T03:48:39.000Z</published>
+    <updated>2017-04-19T09:10:10.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    上次在发送消息&lt;code&gt;objc_msgSend&lt;/code&gt;中提到了，如果在当前的类的方法列表中如果找不到对应的选择子的方法就会执行消息转发（&lt;code&gt;message forwarding&lt;/code&gt;），在消息的转发过程中我们就可以在程序中告诉程序应该怎样去处理这样未知的消息，可以在消息的转发过程中设置挂钩，用来执行预定的逻辑处理方式，来做到当程序中的某个类找不到对应的方法时不至于导致程序的崩溃。&lt;/p&gt;
+&lt;p&gt;​    其中消息转发机制详细的来划分一共分为3个部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;动态方法解析&lt;/li&gt;
+&lt;li&gt;备援接收者&lt;/li&gt;
+&lt;li&gt;完整的消息转发&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="runtime" scheme="Aaronzjp.cn/categories/runtime/"/>
+    
+    
+      <category term="runtime​" scheme="Aaronzjp.cn/tags/runtime%E2%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS发送消息</title>
+    <link href="Aaronzjp.cn/2016/09/08/objc-msgSend/"/>
+    <id>Aaronzjp.cn/2016/09/08/objc-msgSend/</id>
+    <published>2016-09-08T14:23:28.000Z</published>
+    <updated>2017-04-21T07:58:30.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    &lt;code&gt;OC&lt;/code&gt; 语言中，对象调用方法我们称之为发送消息，或者叫做“传递消息”（&lt;code&gt;pass a message&lt;/code&gt;）。消息具有“名称”（&lt;code&gt;name&lt;/code&gt;）或“选择子”（&lt;code&gt;selector&lt;/code&gt;），实际上就是方法名称，可以接受参数，也可以有返回值。在 &lt;code&gt;OC&lt;/code&gt; 中我们是这样发送消息的，结构如下：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;id retrunValue = [someObject messageName:parameter];&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="runtime" scheme="Aaronzjp.cn/categories/runtime/"/>
+    
+    
+      <category term="runtime" scheme="Aaronzjp.cn/tags/runtime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS-对象关联</title>
+    <link href="Aaronzjp.cn/2016/08/18/Associated%20Object/"/>
+    <id>Aaronzjp.cn/2016/08/18/Associated Object/</id>
+    <published>2016-08-18T10:35:51.000Z</published>
+    <updated>2017-04-21T07:58:48.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关联对象就是给某个对象关联一些其他的对象，这些被关联的对象通过键（key）来区分管理。比如：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有一个&lt;code&gt;Person&lt;/code&gt;类，&lt;code&gt;Aaron&lt;/code&gt;是这个&lt;code&gt;Person&lt;/code&gt;类的实例也就是对象。现在又增加了一个&lt;code&gt;Car&lt;/code&gt;类，且有一个&lt;code&gt;Audi&lt;/code&gt;的实例，我们需要给&lt;code&gt;Aaron&lt;/code&gt;实例增加关联一辆Audi车。显然常规的做法是把&lt;code&gt;Car&lt;/code&gt;类作为属性添加到&lt;code&gt;Aaron&lt;/code&gt;中，但是在有的某些特殊的情况下我们无法对&lt;code&gt;Aaron&lt;/code&gt;这个实例直接进行操作，也无法通过继承去操作，那么这个时候就可以用关联对象来解决这个问题了。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="runtime" scheme="Aaronzjp.cn/categories/runtime/"/>
+    
+    
+      <category term="runtime" scheme="Aaronzjp.cn/tags/runtime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS网络编程NSURLConnection／NSURLSession</title>
+    <link href="Aaronzjp.cn/2016/08/11/iOS-NetWork-Programming-NSURLConnectionAndNSURLSession/"/>
+    <id>Aaronzjp.cn/2016/08/11/iOS-NetWork-Programming-NSURLConnectionAndNSURLSession/</id>
+    <published>2016-08-11T04:16:49.000Z</published>
+    <updated>2017-04-19T09:09:35.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS网络编程是最基础常用的知识，可以说是从开始学习iOS的时候就应该要必备的基础知识。但是平常在项目中都使用比较成熟的第三方网络请求的框架（比如：AFNetworking）来替代了苹果官方所提供的网络请求API，对苹果提供的API相关的东西就逐渐的忽略了。为了理解其相关知识和原理，所以对这块知识复习一下，顺便整理成博客。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS网络编程" scheme="Aaronzjp.cn/categories/iOS%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="网络" scheme="Aaronzjp.cn/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS10 权限Crash问题</title>
+    <link href="Aaronzjp.cn/2016/08/09/iOS10-CrashOfPermission/"/>
+    <id>Aaronzjp.cn/2016/08/09/iOS10-CrashOfPermission/</id>
+    <published>2016-08-09T03:22:30.000Z</published>
+    <updated>2017-04-19T09:09:46.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    手机升级iOS10beat版本后，公司项目在真机上测试出现了崩溃的现象。一打开App就Crash了，一开始还不太确定问题，以为是项目本身代码的问题。找了半天，后来居然在控制台的输出中找到了问题（控制台输出的内容太多了不好找啊😂）。&lt;/p&gt;
+&lt;p&gt;​    控制台输出的信息如下：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="疑难杂症" scheme="Aaronzjp.cn/categories/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
+    
+    
+      <category term="小坑" scheme="Aaronzjp.cn/tags/%E5%B0%8F%E5%9D%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UINavigationBar</title>
+    <link href="Aaronzjp.cn/2016/05/31/UINavigationBar/"/>
+    <id>Aaronzjp.cn/2016/05/31/UINavigationBar/</id>
+    <published>2016-05-31T10:31:30.000Z</published>
+    <updated>2017-04-19T09:22:57.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;NavigationBar 是在大多数App中很常见的一个控件，它总是显示在 App 窗口的顶部，其作用就是用来显示当前视图的层级。&lt;/p&gt;
+&lt;p&gt;NavigationBar 主要包含了这样几个部分，left(back) Button 、 CenterTitle 、 RightButton。如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/2017033114909574652892.png&quot; alt=&quot;2017033114909574652892.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="UIKit" scheme="Aaronzjp.cn/tags/UIKit/"/>
+    
+      <category term="UINavigationBar" scheme="Aaronzjp.cn/tags/UINavigationBar/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS - 多线程</title>
+    <link href="Aaronzjp.cn/2016/05/17/Multiple-Thread/"/>
+    <id>Aaronzjp.cn/2016/05/17/Multiple-Thread/</id>
+    <published>2016-05-17T01:40:48.000Z</published>
+    <updated>2017-04-20T07:46:54.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;很多时候在我们的软件项目中我们都需要用到多线程，在iOS的项目中也不例外。多线程是编程中重要的一项技术，多线程又分为并发和串行，在此基础上又分为同步线程和异步线程。以下这几点很容易混淆，当然GCD中还有并发队列和串行队列，这个在下面的GCD中有提到。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="多线程技术" scheme="Aaronzjp.cn/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="iOS多线程" scheme="Aaronzjp.cn/tags/iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发-文件管理</title>
+    <link href="Aaronzjp.cn/2016/04/28/File-Manager/"/>
+    <id>Aaronzjp.cn/2016/04/28/File-Manager/</id>
+    <published>2016-04-28T04:53:47.000Z</published>
+    <updated>2017-04-19T08:41:22.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    在 iOS 开发中，总是有需求我们需要在本地存储数据，但是存储数据的方式有很多，我们怎么样去决定用什么方式去存储数据？目前 iOS 开发中存储数据的方式有属性列表、对象归档、数据库（SQLite，Core Data）等，最终这些数据都会以某些文件等形式存入该App对应的沙盒（SandBox）目录中。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据存储" scheme="Aaronzjp.cn/categories/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
+    
+    
+      <category term="数据存储" scheme="Aaronzjp.cn/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
+    
+      <category term="本地化" scheme="Aaronzjp.cn/tags/%E6%9C%AC%E5%9C%B0%E5%8C%96/"/>
+    
+      <category term="文件管理" scheme="Aaronzjp.cn/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发-SQLite数据库</title>
+    <link href="Aaronzjp.cn/2016/04/20/SQLite-DataBase/"/>
+    <id>Aaronzjp.cn/2016/04/20/SQLite-DataBase/</id>
+    <published>2016-04-20T13:00:25.000Z</published>
+    <updated>2017-04-20T07:47:11.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    在 iOS 开发中我们经常会对数据进行存储，我们已知有如下几种数据本地化的方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;属性列表&lt;/li&gt;
+&lt;li&gt;对象归档&lt;/li&gt;
+&lt;li&gt;SQLite数据库&lt;/li&gt;
+&lt;li&gt;Core Data&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="数据库（DataBase）" scheme="Aaronzjp.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88DataBase%EF%BC%89/"/>
+    
+    
+      <category term="数据存储" scheme="Aaronzjp.cn/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
+    
+      <category term="本地化" scheme="Aaronzjp.cn/tags/%E6%9C%AC%E5%9C%B0%E5%8C%96/"/>
+    
+      <category term="数据库" scheme="Aaronzjp.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="SQLite" scheme="Aaronzjp.cn/tags/SQLite/"/>
+    
+      <category term="数据持久化" scheme="Aaronzjp.cn/tags/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>KVO/KVC的使用</title>
+    <link href="Aaronzjp.cn/2016/03/31/KVO:KVC/"/>
+    <id>Aaronzjp.cn/2016/03/31/KVO:KVC/</id>
+    <published>2016-03-31T02:40:37.000Z</published>
+    <updated>2017-04-19T09:09:57.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;KVO&lt;/code&gt;（&lt;code&gt;key-value observing&lt;/code&gt;）和&lt;code&gt;KVC&lt;/code&gt;（&lt;code&gt;Key-value coding&lt;/code&gt;）这两种模式其实是一种观察者模式的设计，可以让我们更加灵活的利用&lt;code&gt;Objective-C&lt;/code&gt;语言的动态特性来编写代码。&lt;code&gt;KVO&lt;/code&gt;和&lt;code&gt;KVC&lt;/code&gt;其实是一套非正式的协议，是在其&lt;code&gt;NSObject&lt;/code&gt;类中实现的，所以只有继承了该类就可以使用这一非正式的协议。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="设计模式" scheme="Aaronzjp.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="KVO/KVC" scheme="Aaronzjp.cn/tags/KVO-KVC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>block的使用</title>
+    <link href="Aaronzjp.cn/2016/03/29/Block/"/>
+    <id>Aaronzjp.cn/2016/03/29/Block/</id>
+    <published>2016-03-29T13:53:52.000Z</published>
+    <updated>2017-04-20T07:46:36.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    block（代码块）他的本质其实是和其他的变量类似的，不同的就是block（代码块中存储的是一个函数体，或者一段代码）。在使用block的时候可以像调用方法一样的，传入参数，然后得到返回值。&lt;/p&gt;
+&lt;p&gt;^（脱字符）是block的语法标记，下面是block的声明：&lt;/p&gt;
+&lt;p&gt; &lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149258899397315.png&quot; alt=&quot;block示意图&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="block" scheme="Aaronzjp.cn/tags/block/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>App皮肤，更换皮肤思路</title>
+    <link href="Aaronzjp.cn/2016/03/26/AppThemes/"/>
+    <id>Aaronzjp.cn/2016/03/26/AppThemes/</id>
+    <published>2016-03-26T06:35:20.000Z</published>
+    <updated>2017-04-20T07:33:05.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    最近遇到了一个需求，就是做App皮肤的换肤的功能，因为之前一直没有涉及到这方面的需求，所以刚刚拿到这个需求的时候我也不知道怎么做，后面通过查看相关的资料终于完成了这个需求。下面就是我对本次这个需求的一点想法和具体完成的方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS开发思路" scheme="Aaronzjp.cn/tags/iOS%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Masonry布局UI</title>
+    <link href="Aaronzjp.cn/2016/03/20/UseMasonryLayoutUI/"/>
+    <id>Aaronzjp.cn/2016/03/20/UseMasonryLayoutUI/</id>
+    <published>2016-03-20T08:29:23.000Z</published>
+    <updated>2017-04-19T09:18:56.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Masonry 是一个针对 AutoLayout 的封装的轻量级的布局框架，拥有自己的语法描述，通过链式语法封装 AutoLayout，大大的提高了代码的可读性和简洁度。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="UI" scheme="Aaronzjp.cn/categories/UI/"/>
+    
+    
+      <category term="AutoLayout" scheme="Aaronzjp.cn/tags/AutoLayout/"/>
+    
+  </entry>
+  
+</feed>
