@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2017-04-20T07:09:33.000Z</updated>
+  <updated>2017-07-05T14:40:13.000Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React Native开发环境搭建</title>
+    <link href="Aaronzjp.cn/2017/07/05/React-Native%20IDE-setup/"/>
+    <id>Aaronzjp.cn/2017/07/05/React-Native IDE-setup/</id>
+    <published>2017-07-05T12:55:29.000Z</published>
+    <updated>2017-07-05T14:40:13.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;React-Native的开发环境搭建&quot;&gt;&lt;a href=&quot;#React-Native的开发环境搭建&quot; class=&quot;headerlink&quot; title=&quot;React Native的开发环境搭建&quot;&gt;&lt;/a&gt;React Native的开发环境搭建&lt;/h1&gt;&lt;h5 id=&quot;Homebrew&quot;&gt;&lt;a href=&quot;#Homebrew&quot; class=&quot;headerlink&quot; title=&quot;Homebrew&quot;&gt;&lt;/a&gt;Homebrew&lt;/h5&gt;&lt;p&gt;​    首先需要安装一个包管理软件，Homebrew，该工具是在 Mac OS 下最受欢迎的一款包管理工具，但是在安装 Homebrew 之前最好是先确认是否安装了 Xcode ，因为这样就可以方便的使用基于 Xcode Command Line Tools 来安装该工具了。&lt;/p&gt;
+&lt;p&gt;打开 Terminal 输入如下命令：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/usr/bin/ruby -e “$(curl -fsSL &lt;a href=&quot;https://raw.githubusercontent.com/Homebrew/install/master/install&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://raw.githubusercontent.com/Homebrew/install/master/install&lt;/a&gt;)”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在安装 Homebrew 时可能会因为目录的写入权限问题安装失败，具体的使用Google查看解决方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="React Native" scheme="Aaronzjp.cn/tags/React-Native/"/>
+    
+  </entry>
   
   <entry>
     <title>自定义转场动画（ViewController Transition）</title>
@@ -97,6 +120,26 @@
   </entry>
   
   <entry>
+    <title>swift - 函数</title>
+    <link href="Aaronzjp.cn/2016/12/01/swift%203.0-Function/"/>
+    <id>Aaronzjp.cn/2016/12/01/swift 3.0-Function/</id>
+    <published>2016-12-01T06:11:37.000Z</published>
+    <updated>2017-04-20T11:36:33.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Swift" scheme="Aaronzjp.cn/categories/Swift/"/>
+    
+    
+      <category term="Swift基础" scheme="Aaronzjp.cn/tags/Swift%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>初识CALayer</title>
     <link href="Aaronzjp.cn/2016/12/01/iOS-CALayer/"/>
     <id>Aaronzjp.cn/2016/12/01/iOS-CALayer/</id>
@@ -117,26 +160,6 @@
       <category term="CALayer" scheme="Aaronzjp.cn/tags/CALayer/"/>
     
       <category term="Core Animation" scheme="Aaronzjp.cn/tags/Core-Animation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift - 函数</title>
-    <link href="Aaronzjp.cn/2016/12/01/swift%203.0-Function/"/>
-    <id>Aaronzjp.cn/2016/12/01/swift 3.0-Function/</id>
-    <published>2016-12-01T06:11:37.000Z</published>
-    <updated>2017-04-20T11:36:33.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Swift" scheme="Aaronzjp.cn/categories/Swift/"/>
-    
-    
-      <category term="Swift基础" scheme="Aaronzjp.cn/tags/Swift%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -427,26 +450,6 @@
     
     
       <category term="iOS开发思路" scheme="Aaronzjp.cn/tags/iOS%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用Masonry布局UI</title>
-    <link href="Aaronzjp.cn/2016/03/20/UseMasonryLayoutUI/"/>
-    <id>Aaronzjp.cn/2016/03/20/UseMasonryLayoutUI/</id>
-    <published>2016-03-20T08:29:23.000Z</published>
-    <updated>2017-04-19T09:18:56.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Masonry 是一个针对 AutoLayout 的封装的轻量级的布局框架，拥有自己的语法描述，通过链式语法封装 AutoLayout，大大的提高了代码的可读性和简洁度。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="UI" scheme="Aaronzjp.cn/categories/UI/"/>
-    
-    
-      <category term="AutoLayout" scheme="Aaronzjp.cn/tags/AutoLayout/"/>
     
   </entry>
   
