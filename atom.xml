@@ -97,6 +97,26 @@
   </entry>
   
   <entry>
+    <title>想养一只狗的单身狗</title>
+    <link href="Aaronzjp.cn/2017/03/17/I-Love-the-dog/"/>
+    <id>Aaronzjp.cn/2017/03/17/I-Love-the-dog/</id>
+    <published>2017-03-17T06:44:31.000Z</published>
+    <updated>2017-07-20T15:45:49.009Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;!-- 只显示播放器 --&gt;&lt;div style=&quot;max-width: 350px;max-height: 150px&quot;&gt;&lt;embed style=&quot;margin-top: -35px;&quot; frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=
+    
+    </summary>
+    
+    
+      <category term="趣事" scheme="Aaronzjp.cn/tags/%E8%B6%A3%E4%BA%8B/"/>
+    
+      <category term="随便写写" scheme="Aaronzjp.cn/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS动画</title>
     <link href="Aaronzjp.cn/2017/03/07/Animation/"/>
     <id>Aaronzjp.cn/2017/03/07/Animation/</id>
@@ -116,26 +136,6 @@
       <category term="动画" scheme="Aaronzjp.cn/tags/%E5%8A%A8%E7%94%BB/"/>
     
       <category term="Animation" scheme="Aaronzjp.cn/tags/Animation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift - 函数</title>
-    <link href="Aaronzjp.cn/2016/12/01/swift%203.0-Function/"/>
-    <id>Aaronzjp.cn/2016/12/01/swift 3.0-Function/</id>
-    <published>2016-12-01T06:11:37.000Z</published>
-    <updated>2017-04-20T11:36:33.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Swift" scheme="Aaronzjp.cn/categories/Swift/"/>
-    
-    
-      <category term="Swift基础" scheme="Aaronzjp.cn/tags/Swift%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -160,6 +160,26 @@
       <category term="CALayer" scheme="Aaronzjp.cn/tags/CALayer/"/>
     
       <category term="Core Animation" scheme="Aaronzjp.cn/tags/Core-Animation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift - 函数</title>
+    <link href="Aaronzjp.cn/2016/12/01/swift%203.0-Function/"/>
+    <id>Aaronzjp.cn/2016/12/01/swift 3.0-Function/</id>
+    <published>2016-12-01T06:11:37.000Z</published>
+    <updated>2017-04-20T11:36:33.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Swift" scheme="Aaronzjp.cn/categories/Swift/"/>
+    
+    
+      <category term="Swift基础" scheme="Aaronzjp.cn/tags/Swift%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -432,24 +452,6 @@
     
     
       <category term="block" scheme="Aaronzjp.cn/tags/block/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>App皮肤，更换皮肤思路</title>
-    <link href="Aaronzjp.cn/2016/03/26/AppThemes/"/>
-    <id>Aaronzjp.cn/2016/03/26/AppThemes/</id>
-    <published>2016-03-26T06:35:20.000Z</published>
-    <updated>2017-04-20T07:33:05.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;​    最近遇到了一个需求，就是做App皮肤的换肤的功能，因为之前一直没有涉及到这方面的需求，所以刚刚拿到这个需求的时候我也不知道怎么做，后面通过查看相关的资料终于完成了这个需求。下面就是我对本次这个需求的一点想法和具体完成的方法。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="iOS开发思路" scheme="Aaronzjp.cn/tags/iOS%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/"/>
     
   </entry>
   
