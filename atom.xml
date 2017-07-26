@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2017-07-20T15:59:04.662Z</updated>
+  <updated>2017-07-26T06:17:58.532Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -20,11 +20,13 @@
     <link href="Aaronzjp.cn/2017/07/17/I-Love-the-dog/"/>
     <id>Aaronzjp.cn/2017/07/17/I-Love-the-dog/</id>
     <published>2017-07-17T06:44:31.000Z</published>
-    <updated>2017-07-20T15:59:04.662Z</updated>
+    <updated>2017-07-26T06:17:58.532Z</updated>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;想养一只狗&quot;&gt;&lt;a href=&quot;#想养一只狗&quot; class=&quot;headerlink&quot; title=&quot;想养一只狗&quot;&gt;&lt;/a&gt;想养一只狗&lt;/h1&gt;&lt;blockquote&gt;
+      &lt;h1 id=&quot;想养一只狗&quot;&gt;&lt;a href=&quot;#想养一只狗&quot; class=&quot;headerlink&quot; title=&quot;想养一只狗&quot;&gt;&lt;/a&gt;想养一只狗&lt;/h1&gt;&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;0&quot; height=&quot;0&quot; src=&quot;//music.163.com/outchain/player?type=2&amp;id=4875060&amp;auto=1&amp;height=66&quot;&gt;&lt;/iframe&gt;
+
+&lt;blockquote&gt;
 &lt;p&gt;​    转眼毕业也快两年时间了，除了工作之余平时基本是很无聊的。作为一个码农按理说应该像网上段子所说的那样整天忙着敲代码，衣衫不整，蓬头垢面吧。但是我却不是这样，没有整体很忙碌的感觉，反而让我觉得很无聊，可能我是一个不上进的码农吧！😀 不工作的时候也很少的看一些技术性的书籍和文章。&lt;/p&gt;
 &lt;p&gt;​    因为最近从别人嘴中得知，可能我在别人眼中我是一个无所事事，没有自我的人。其实我自己也感觉到了，整天在家除了感觉无聊就是感觉无聊。所以最近我买了很多书来看，用来打发我的闲暇时光，也慢慢找到了一点感觉。我发现在周末除了约朋友KTV、疯玩、撒欢，其实还是有很多的事可以做的。听一首歌，看一本书。技术书籍看来固然无聊，所以我尽量看一些我自己感兴趣的书籍。现在也尝试在自己的博客上随随便便写点东西。&lt;/p&gt;
 &lt;p&gt;​    这是我第一次写点非技术类的博客文章，文笔不好，只能尽量的写出自己心中的感悟，经历，和自己平时一些天马行空的想象。什么事都有一个循序渐进的过程，不可能突然就能写出让自己满意的文章，马上达到自己想要的状态，我需要不断的练习，去学习。就像恋爱一样，需要不断的去学习怎么和自己的伴侣相处，让彼此的关系进入佳境。&lt;/p&gt;
@@ -44,14 +46,14 @@
     <link href="Aaronzjp.cn/2017/07/05/React-Native%20IDE-setup/"/>
     <id>Aaronzjp.cn/2017/07/05/React-Native IDE-setup/</id>
     <published>2017-07-05T12:55:29.000Z</published>
-    <updated>2017-07-05T14:40:13.000Z</updated>
+    <updated>2017-07-26T06:09:08.192Z</updated>
     
     <summary type="html">
     
       &lt;h1 id=&quot;React-Native的开发环境搭建&quot;&gt;&lt;a href=&quot;#React-Native的开发环境搭建&quot; class=&quot;headerlink&quot; title=&quot;React Native的开发环境搭建&quot;&gt;&lt;/a&gt;React Native的开发环境搭建&lt;/h1&gt;&lt;h5 id=&quot;Homebrew&quot;&gt;&lt;a href=&quot;#Homebrew&quot; class=&quot;headerlink&quot; title=&quot;Homebrew&quot;&gt;&lt;/a&gt;Homebrew&lt;/h5&gt;&lt;p&gt;​    首先需要安装一个包管理软件，Homebrew，该工具是在 Mac OS 下最受欢迎的一款包管理工具，但是在安装 Homebrew 之前最好是先确认是否安装了 Xcode ，因为这样就可以方便的使用基于 Xcode Command Line Tools 来安装该工具了。&lt;/p&gt;
 &lt;p&gt;打开 Terminal 输入如下命令：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;/usr/bin/ruby -e “$(curl -fsSL &lt;a href=&quot;https://raw.githubusercontent.com/Homebrew/install/master/install&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://raw.githubusercontent.com/Homebrew/install/master/install&lt;/a&gt;)”&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt; /usr/bin/ruby -e &lt;span class=&quot;string&quot;&gt;&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;在安装 Homebrew 时可能会因为目录的写入权限问题安装失败，具体的使用Google查看解决方法。&lt;/p&gt;
     
@@ -125,7 +127,7 @@
     <link href="Aaronzjp.cn/2017/03/07/Animation/"/>
     <id>Aaronzjp.cn/2017/03/07/Animation/</id>
     <published>2017-03-07T06:44:31.000Z</published>
-    <updated>2017-04-19T08:40:40.000Z</updated>
+    <updated>2017-07-26T05:46:24.237Z</updated>
     
     <summary type="html">
     
@@ -133,8 +135,6 @@
 &lt;p&gt;​    在iOS／MacOS中，基本上所有的动画都是由 Core Animation 这个框架来完成的。这个框架的主要功能就是渲染图形，以及动画的实现，使用 Core Animation 来实现图形渲染以及动画只需要配置一些简单的参数，告诉它动画应该什么时候开始，什么时候结束，以及状态等。 Core Animation 通过硬件加速自动的完成图形的绘制，渲染以及动画。&lt;/p&gt;
     
     </summary>
-    
-      <category term="Core Animation" scheme="Aaronzjp.cn/categories/Core-Animation/"/>
     
     
       <category term="动画" scheme="Aaronzjp.cn/tags/%E5%8A%A8%E7%94%BB/"/>
