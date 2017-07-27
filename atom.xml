@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2017-07-26T06:18:54.699Z</updated>
+  <updated>2017-07-27T02:57:11.264Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="Aaronzjp.cn/2017/07/17/I-Love-the-dog/"/>
     <id>Aaronzjp.cn/2017/07/17/I-Love-the-dog/</id>
     <published>2017-07-17T06:44:31.000Z</published>
-    <updated>2017-07-26T06:18:54.699Z</updated>
+    <updated>2017-07-27T02:57:11.264Z</updated>
     
     <summary type="html">
     
@@ -69,7 +69,7 @@
     <link href="Aaronzjp.cn/2017/04/19/TransitionAnimation/"/>
     <id>Aaronzjp.cn/2017/04/19/TransitionAnimation/</id>
     <published>2017-04-19T09:28:41.000Z</published>
-    <updated>2017-04-20T07:09:33.000Z</updated>
+    <updated>2017-07-27T02:52:28.262Z</updated>
     
     <summary type="html">
     
@@ -78,6 +78,8 @@
     </summary>
     
     
+      <category term="转场动画" scheme="Aaronzjp.cn/tags/%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
+    
   </entry>
   
   <entry>
@@ -85,7 +87,7 @@
     <link href="Aaronzjp.cn/2017/03/27/Swift-Initialization/"/>
     <id>Aaronzjp.cn/2017/03/27/Swift-Initialization/</id>
     <published>2017-03-27T14:06:28.000Z</published>
-    <updated>2017-04-19T09:18:09.000Z</updated>
+    <updated>2017-07-27T02:52:00.340Z</updated>
     
     <summary type="html">
     
@@ -96,8 +98,6 @@
     
       <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
-      <category term="构造过程" scheme="Aaronzjp.cn/tags/%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B/"/>
-    
   </entry>
   
   <entry>
@@ -105,7 +105,7 @@
     <link href="Aaronzjp.cn/2017/03/22/Swift-Method/"/>
     <id>Aaronzjp.cn/2017/03/22/Swift-Method/</id>
     <published>2017-03-22T04:57:57.000Z</published>
-    <updated>2017-03-31T10:23:11.000Z</updated>
+    <updated>2017-07-27T02:53:02.976Z</updated>
     
     <summary type="html">
     
@@ -113,12 +113,8 @@
     
     </summary>
     
-      <category term="Swift" scheme="Aaronzjp.cn/categories/Swift/"/>
-    
     
       <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
-    
-      <category term="枚举" scheme="Aaronzjp.cn/tags/%E6%9E%9A%E4%B8%BE/"/>
     
   </entry>
   
@@ -148,15 +144,13 @@
     <link href="Aaronzjp.cn/2016/12/01/iOS-CALayer/"/>
     <id>Aaronzjp.cn/2016/12/01/iOS-CALayer/</id>
     <published>2016-12-01T06:11:37.000Z</published>
-    <updated>2017-04-20T11:46:00.000Z</updated>
+    <updated>2017-07-27T02:57:07.284Z</updated>
     
     <summary type="html">
     
       &lt;p&gt; CALayer 和 UIView 类似，也是一些被层级关系树管理的块。 CALayer 和 UIView 一样的可以可以在其中展示图片，文本，通过方法或属性做动画和图形变换等等的界面上的显示相关的东西，可以说 UIView 能做到的 CALayer 基本上也能做到，但是 CALayer 和  UIView 最大的不同是 CALayer 不处理和用户的交互。因为  CALayer 不能很好的处理具体的响应链，无法响应事件的处理，即使在 CALayer 的方法中提供了触摸事件的检测方法。&lt;/p&gt;
     
     </summary>
-    
-      <category term="Core Animation" scheme="Aaronzjp.cn/categories/Core-Animation/"/>
     
     
       <category term="图层" scheme="Aaronzjp.cn/tags/%E5%9B%BE%E5%B1%82/"/>
@@ -172,7 +166,7 @@
     <link href="Aaronzjp.cn/2016/12/01/swift%203.0-Function/"/>
     <id>Aaronzjp.cn/2016/12/01/swift 3.0-Function/</id>
     <published>2016-12-01T06:11:37.000Z</published>
-    <updated>2017-04-20T11:36:33.000Z</updated>
+    <updated>2017-07-27T02:52:56.153Z</updated>
     
     <summary type="html">
     
@@ -180,10 +174,8 @@
     
     </summary>
     
-      <category term="Swift" scheme="Aaronzjp.cn/categories/Swift/"/>
     
-    
-      <category term="Swift基础" scheme="Aaronzjp.cn/tags/Swift%E5%9F%BA%E7%A1%80/"/>
+      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
   </entry>
   
@@ -192,7 +184,7 @@
     <link href="Aaronzjp.cn/2016/09/19/Method-Swizzling/"/>
     <id>Aaronzjp.cn/2016/09/19/Method-Swizzling/</id>
     <published>2016-09-19T09:33:52.000Z</published>
-    <updated>2017-04-19T09:10:17.000Z</updated>
+    <updated>2017-07-27T02:55:04.031Z</updated>
     
     <summary type="html">
     
@@ -200,8 +192,6 @@
 &lt;p&gt;&lt;code&gt;id objc_msgSend ( id self, SEL cmd, ... );&lt;/code&gt;结构的C语言函数，在程序运行的时候程序就会根据id所对应的类，以及传入的SEL选择子在该类的方法列表中去查找相对应的方法，并执行。利用这一特点，我们可以在运行期去改变选择子名称相对应的方法，这样我们既不需要查看到源代码，又没有必要去重写子类来覆写方法就能改变类本身的功能。这样一来新功能就会在类的所有实例中表现出来，而不仅限于那些重写子类的实例。这种方案就叫做“方法调配”（&lt;code&gt;method swizzling&lt;/code&gt;）。&lt;/p&gt;
     
     </summary>
-    
-      <category term="runtime" scheme="Aaronzjp.cn/categories/runtime/"/>
     
     
       <category term="runtime" scheme="Aaronzjp.cn/tags/runtime/"/>
@@ -213,7 +203,7 @@
     <link href="Aaronzjp.cn/2016/09/13/Message-Forwarding/"/>
     <id>Aaronzjp.cn/2016/09/13/Message-Forwarding/</id>
     <published>2016-09-13T03:48:39.000Z</published>
-    <updated>2017-04-19T09:10:10.000Z</updated>
+    <updated>2017-07-27T02:55:08.082Z</updated>
     
     <summary type="html">
     
@@ -227,8 +217,6 @@
     
     </summary>
     
-      <category term="runtime" scheme="Aaronzjp.cn/categories/runtime/"/>
-    
     
       <category term="runtime​" scheme="Aaronzjp.cn/tags/runtime%E2%80%8B/"/>
     
@@ -239,7 +227,7 @@
     <link href="Aaronzjp.cn/2016/09/08/objc-msgSend/"/>
     <id>Aaronzjp.cn/2016/09/08/objc-msgSend/</id>
     <published>2016-09-08T14:23:28.000Z</published>
-    <updated>2017-04-21T07:58:30.000Z</updated>
+    <updated>2017-07-27T02:53:39.592Z</updated>
     
     <summary type="html">
     
@@ -247,8 +235,6 @@
 &lt;p&gt;&lt;code&gt;id retrunValue = [someObject messageName:parameter];&lt;/code&gt;&lt;/p&gt;
     
     </summary>
-    
-      <category term="runtime" scheme="Aaronzjp.cn/categories/runtime/"/>
     
     
       <category term="runtime" scheme="Aaronzjp.cn/tags/runtime/"/>
@@ -260,7 +246,7 @@
     <link href="Aaronzjp.cn/2016/08/18/Associated%20Object/"/>
     <id>Aaronzjp.cn/2016/08/18/Associated Object/</id>
     <published>2016-08-18T10:35:51.000Z</published>
-    <updated>2017-04-21T07:58:48.000Z</updated>
+    <updated>2017-07-27T02:57:42.814Z</updated>
     
     <summary type="html">
     
@@ -270,8 +256,6 @@
 &lt;/blockquote&gt;
     
     </summary>
-    
-      <category term="runtime" scheme="Aaronzjp.cn/categories/runtime/"/>
     
     
       <category term="runtime" scheme="Aaronzjp.cn/tags/runtime/"/>
@@ -283,7 +267,7 @@
     <link href="Aaronzjp.cn/2016/08/11/iOS-NetWork-Programming-NSURLConnectionAndNSURLSession/"/>
     <id>Aaronzjp.cn/2016/08/11/iOS-NetWork-Programming-NSURLConnectionAndNSURLSession/</id>
     <published>2016-08-11T04:16:49.000Z</published>
-    <updated>2017-04-19T09:09:35.000Z</updated>
+    <updated>2017-07-27T02:56:59.804Z</updated>
     
     <summary type="html">
     
@@ -291,10 +275,8 @@
     
     </summary>
     
-      <category term="iOS网络编程" scheme="Aaronzjp.cn/categories/iOS%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
-    
-      <category term="网络" scheme="Aaronzjp.cn/tags/%E7%BD%91%E7%BB%9C/"/>
+      <category term="网络编程" scheme="Aaronzjp.cn/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -303,7 +285,7 @@
     <link href="Aaronzjp.cn/2016/08/09/iOS10-CrashOfPermission/"/>
     <id>Aaronzjp.cn/2016/08/09/iOS10-CrashOfPermission/</id>
     <published>2016-08-09T03:22:30.000Z</published>
-    <updated>2017-04-19T09:09:46.000Z</updated>
+    <updated>2017-07-27T02:56:10.162Z</updated>
     
     <summary type="html">
     
@@ -312,10 +294,8 @@
     
     </summary>
     
-      <category term="疑难杂症" scheme="Aaronzjp.cn/categories/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
     
-    
-      <category term="小坑" scheme="Aaronzjp.cn/tags/%E5%B0%8F%E5%9D%91/"/>
+      <category term="疑难杂症" scheme="Aaronzjp.cn/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
     
   </entry>
   
@@ -346,15 +326,13 @@
     <link href="Aaronzjp.cn/2016/05/17/Multiple-Thread/"/>
     <id>Aaronzjp.cn/2016/05/17/Multiple-Thread/</id>
     <published>2016-05-17T01:40:48.000Z</published>
-    <updated>2017-04-20T07:46:54.000Z</updated>
+    <updated>2017-07-27T02:54:50.186Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;很多时候在我们的软件项目中我们都需要用到多线程，在iOS的项目中也不例外。多线程是编程中重要的一项技术，多线程又分为并发和串行，在此基础上又分为同步线程和异步线程。以下这几点很容易混淆，当然GCD中还有并发队列和串行队列，这个在下面的GCD中有提到。&lt;/p&gt;
     
     </summary>
-    
-      <category term="多线程技术" scheme="Aaronzjp.cn/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E6%9C%AF/"/>
     
     
       <category term="iOS多线程" scheme="Aaronzjp.cn/tags/iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
@@ -366,15 +344,13 @@
     <link href="Aaronzjp.cn/2016/04/28/File-Manager/"/>
     <id>Aaronzjp.cn/2016/04/28/File-Manager/</id>
     <published>2016-04-28T04:53:47.000Z</published>
-    <updated>2017-04-19T08:41:22.000Z</updated>
+    <updated>2017-07-27T02:57:17.189Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;​    在 iOS 开发中，总是有需求我们需要在本地存储数据，但是存储数据的方式有很多，我们怎么样去决定用什么方式去存储数据？目前 iOS 开发中存储数据的方式有属性列表、对象归档、数据库（SQLite，Core Data）等，最终这些数据都会以某些文件等形式存入该App对应的沙盒（SandBox）目录中。&lt;/p&gt;
     
     </summary>
-    
-      <category term="数据存储" scheme="Aaronzjp.cn/categories/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
     
     
       <category term="数据存储" scheme="Aaronzjp.cn/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
@@ -390,7 +366,7 @@
     <link href="Aaronzjp.cn/2016/04/20/SQLite-DataBase/"/>
     <id>Aaronzjp.cn/2016/04/20/SQLite-DataBase/</id>
     <published>2016-04-20T13:00:25.000Z</published>
-    <updated>2017-04-20T07:47:11.000Z</updated>
+    <updated>2017-07-27T02:53:31.194Z</updated>
     
     <summary type="html">
     
@@ -404,18 +380,10 @@
     
     </summary>
     
-      <category term="数据库（DataBase）" scheme="Aaronzjp.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88DataBase%EF%BC%89/"/>
-    
-    
-      <category term="数据存储" scheme="Aaronzjp.cn/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
-    
-      <category term="本地化" scheme="Aaronzjp.cn/tags/%E6%9C%AC%E5%9C%B0%E5%8C%96/"/>
     
       <category term="数据库" scheme="Aaronzjp.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
       <category term="SQLite" scheme="Aaronzjp.cn/tags/SQLite/"/>
-    
-      <category term="数据持久化" scheme="Aaronzjp.cn/tags/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/"/>
     
   </entry>
   
@@ -424,7 +392,7 @@
     <link href="Aaronzjp.cn/2016/03/31/KVO:KVC/"/>
     <id>Aaronzjp.cn/2016/03/31/KVO:KVC/</id>
     <published>2016-03-31T02:40:37.000Z</published>
-    <updated>2017-04-19T09:09:57.000Z</updated>
+    <updated>2017-07-27T02:55:23.701Z</updated>
     
     <summary type="html">
     
@@ -432,10 +400,10 @@
     
     </summary>
     
-      <category term="设计模式" scheme="Aaronzjp.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
     
       <category term="KVO/KVC" scheme="Aaronzjp.cn/tags/KVO-KVC/"/>
+    
+      <category term="设计模式" scheme="Aaronzjp.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
