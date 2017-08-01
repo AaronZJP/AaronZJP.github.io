@@ -63,6 +63,42 @@
   </entry>
   
   <entry>
+    <title>Swift-集合类型</title>
+    <link href="Aaronzjp.cn/2017/05/05/Swift-CollectionTypes/"/>
+    <id>Aaronzjp.cn/2017/05/05/Swift-CollectionTypes/</id>
+    <published>2017-05-05T07:10:35.000Z</published>
+    <updated>2017-08-01T07:53:45.992Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;集合类型&quot;&gt;&lt;a href=&quot;#集合类型&quot; class=&quot;headerlink&quot; title=&quot;集合类型&quot;&gt;&lt;/a&gt;集合类型&lt;/h1&gt;&lt;p&gt;在 Swift 中集合类型主要有 Array、Sets、Dictionaries。和 O-bjc 中不同的是 Swift 中集合的可变类型和不可变类型并不是子类和父类的关系，而是同一个类。可变和不可变是通过变量类型来区分的，如果使用 var 来声明成变量那么就是可变的，如果使用 let 来声明成常量那么就是不可变的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift-枚举</title>
+    <link href="Aaronzjp.cn/2017/04/20/Swift-Enum/"/>
+    <id>Aaronzjp.cn/2017/04/20/Swift-Enum/</id>
+    <published>2017-04-20T07:01:27.000Z</published>
+    <updated>2017-08-01T07:06:31.144Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 Swift 中枚举是一等类型。 Swift 中枚举是一个很强大的类型，在 C 语言中枚举会为一组整型值分配相关联的名称。但是在 Swift 中不是必须的，如果给枚举成员赋值(在 Swift 中又叫原始值)，则该值的类型可以是字符、字符串、整型、或者是一个浮点数。除了这些以为 Swift 中的枚举还可以指定任意类型的关联值到枚举成员中，还可以添加计算属性，实例方法，还可以定义构造函数，还可以遵守协议。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
     <title>自定义转场动画（ViewController Transition）</title>
     <link href="Aaronzjp.cn/2017/04/19/TransitionAnimation/"/>
     <id>Aaronzjp.cn/2017/04/19/TransitionAnimation/</id>
@@ -160,11 +196,11 @@
   </entry>
   
   <entry>
-    <title>swift - 函数</title>
-    <link href="Aaronzjp.cn/2016/12/01/swift%203.0-Function/"/>
-    <id>Aaronzjp.cn/2016/12/01/swift 3.0-Function/</id>
+    <title>swift-函数</title>
+    <link href="Aaronzjp.cn/2016/12/01/Swift%203.0-Function/"/>
+    <id>Aaronzjp.cn/2016/12/01/Swift 3.0-Function/</id>
     <published>2016-12-01T06:11:37.000Z</published>
-    <updated>2017-07-27T02:52:56.153Z</updated>
+    <updated>2017-08-01T07:52:36.572Z</updated>
     
     <summary type="html">
     
@@ -382,46 +418,6 @@
       <category term="数据库" scheme="Aaronzjp.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
       <category term="SQLite" scheme="Aaronzjp.cn/tags/SQLite/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>KVO/KVC的使用</title>
-    <link href="Aaronzjp.cn/2016/03/31/KVO:KVC/"/>
-    <id>Aaronzjp.cn/2016/03/31/KVO:KVC/</id>
-    <published>2016-03-31T02:40:37.000Z</published>
-    <updated>2017-07-27T02:55:23.701Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;KVO&lt;/code&gt;（&lt;code&gt;key-value observing&lt;/code&gt;）和&lt;code&gt;KVC&lt;/code&gt;（&lt;code&gt;Key-value coding&lt;/code&gt;）这两种模式其实是一种观察者模式的设计，可以让我们更加灵活的利用&lt;code&gt;Objective-C&lt;/code&gt;语言的动态特性来编写代码。&lt;code&gt;KVO&lt;/code&gt;和&lt;code&gt;KVC&lt;/code&gt;其实是一套非正式的协议，是在其&lt;code&gt;NSObject&lt;/code&gt;类中实现的，所以只有继承了该类就可以使用这一非正式的协议。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="KVO/KVC" scheme="Aaronzjp.cn/tags/KVO-KVC/"/>
-    
-      <category term="设计模式" scheme="Aaronzjp.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>block的使用</title>
-    <link href="Aaronzjp.cn/2016/03/29/Block/"/>
-    <id>Aaronzjp.cn/2016/03/29/Block/</id>
-    <published>2016-03-29T13:53:52.000Z</published>
-    <updated>2017-04-20T07:46:36.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;​    block（代码块）他的本质其实是和其他的变量类似的，不同的就是block（代码块中存储的是一个函数体，或者一段代码）。在使用block的时候可以像调用方法一样的，传入参数，然后得到返回值。&lt;/p&gt;
-&lt;p&gt;^（脱字符）是block的语法标记，下面是block的声明：&lt;/p&gt;
-&lt;p&gt; &lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149258899397315.png&quot; alt=&quot;block示意图&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="block" scheme="Aaronzjp.cn/tags/block/"/>
     
   </entry>
   
