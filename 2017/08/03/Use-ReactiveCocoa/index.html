@@ -1,0 +1,763 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ReactiveCocoa," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aaron的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="什么是ReactiveCocoa？最近因为公司的一个项目因为是用 ReactiveCocoa 结合 MVVM 来写的，所以在我接手的时候我也打算继续使用这种模式，因为我觉得这种模式还是有一定的好处的，通过 ReactiveCocoa 的使用强化了项目中围绕数据变化所做的改变。所以最近还是学习一下 ReactiveCocoa 的一些基本的使用。 ReactiveCocoa（其简称为RAC）是由Git">
+<meta name="keywords" content="ReactiveCocoa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactiveCocoa的使用">
+<meta property="og:url" content="Aaronzjp.cn/2017/08/03/Use-ReactiveCocoa/index.html">
+<meta property="og:site_name" content="Aaron的博客">
+<meta property="og:description" content="什么是ReactiveCocoa？最近因为公司的一个项目因为是用 ReactiveCocoa 结合 MVVM 来写的，所以在我接手的时候我也打算继续使用这种模式，因为我觉得这种模式还是有一定的好处的，通过 ReactiveCocoa 的使用强化了项目中围绕数据变化所做的改变。所以最近还是学习一下 ReactiveCocoa 的一些基本的使用。 ReactiveCocoa（其简称为RAC）是由Git">
+<meta property="og:updated_time" content="2017-08-17T02:31:47.841Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ReactiveCocoa的使用">
+<meta name="twitter:description" content="什么是ReactiveCocoa？最近因为公司的一个项目因为是用 ReactiveCocoa 结合 MVVM 来写的，所以在我接手的时候我也打算继续使用这种模式，因为我觉得这种模式还是有一定的好处的，通过 ReactiveCocoa 的使用强化了项目中围绕数据变化所做的改变。所以最近还是学习一下 ReactiveCocoa 的一些基本的使用。 ReactiveCocoa（其简称为RAC）是由Git">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="Aaronzjp.cn/2017/08/03/Use-ReactiveCocoa/"/>
+
+
+
+
+
+  <title>ReactiveCocoa的使用 | Aaron的博客</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay foolish,Stay hungry!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2017/08/03/Use-ReactiveCocoa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron_36">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://onocdmhtw.bkt.clouddn.com//Home/20170721000136_iJ9xGI_IMG_0513.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ReactiveCocoa的使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-03T09:59:47+08:00">
+                2017-08-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="什么是ReactiveCocoa？"><a href="#什么是ReactiveCocoa？" class="headerlink" title="什么是ReactiveCocoa？"></a>什么是ReactiveCocoa？</h1><p>最近因为公司的一个项目因为是用 ReactiveCocoa 结合 MVVM 来写的，所以在我接手的时候我也打算继续使用这种模式，因为我觉得这种模式还是有一定的好处的，通过 ReactiveCocoa 的使用强化了项目中围绕数据变化所做的改变。所以最近还是学习一下 ReactiveCocoa 的一些基本的使用。</p>
+<p>ReactiveCocoa（其简称为RAC）是由Github工程师们开发的一个应用于iOS和OS X开发的函数响应式编程新框架。ReactiveCocoa 的灵感来源于 函数式响应式编程。ReactiveCocoa 的优点是可以很轻松的处理状态以及状态之间依赖过多的问题，同时也是一种很好的消息传递的机制。通过对 RACSignal (信号) 的使用，可以很好的处理事件流，以及事件的监控，状态改变的处理。</p>
+<a id="more"></a>
+<h1 id="ReactiveCocoa与传统iOS开发的比较"><a href="#ReactiveCocoa与传统iOS开发的比较" class="headerlink" title="ReactiveCocoa与传统iOS开发的比较"></a>ReactiveCocoa与传统iOS开发的比较</h1><p>在传统的代码中如果我们要去检测 TextFiled 中输入的变换可能需要像下面这样使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[self.usernameTextField addTarget:self action:@selector(usernameTextFieldChanged) forControlEvents:UIControlEventEditingChanged:];</div><div class="line"></div><div class="line">- (void)passwordTextFieldChanged:(UITextField *)sender &#123;</div><div class="line">    NSLog(@“%@”,sender.text);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但是在 ReactiveCocoa 中我们就可以很巧妙的用极少的代码在 Block 中去处理 TextFiled 的输入状态的变化，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[self.usernameTextField.rac_textSignal subscribeNext:^(NSString * _Nullable x) &#123;</div><div class="line">        NSLog(@&quot;%@&quot;,x);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>是不是很简便，但是这只是简单的处理，所以看不出来特别大的优势，如果是稍微复杂一点的，ReactiveCocoa 的优势就可以很明显的展示出来了。</p>
+<h1 id="ReactiveCocoa的简单使用"><a href="#ReactiveCocoa的简单使用" class="headerlink" title="ReactiveCocoa的简单使用"></a>ReactiveCocoa的简单使用</h1><h2 id="信号创建"><a href="#信号创建" class="headerlink" title="信号创建"></a>信号创建</h2><p>大部分情况下 ReactiveCocoa 框架中 UIKit 控件都已经添加了信号，供我们订阅信号进行处理。但是在有些时候我们也需要自己去创建信号。创建信号方式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 1.创建信号</div><div class="line">RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">// 3.发送信号</div><div class="line">[subscriber sendNext:@&quot;ws&quot;];</div><div class="line">// 4.取消信号，如果信号想要被取消，就必须返回一个RACDisposable</div><div class="line">// 信号什么时候被取消：1.自动取消，当一个信号的订阅者被销毁的时候机会自动取消订阅，2.手动取消，</div><div class="line">//block什么时候调用：一旦一个信号被取消订阅就会调用</div><div class="line">//block作用：当信号被取消时用于清空一些资源</div><div class="line">return [RACDisposable disposableWithBlock:^&#123;</div><div class="line">NSLog(@&quot;取消订阅&quot;);</div><div class="line">&#125;];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<h2 id="信号订阅"><a href="#信号订阅" class="headerlink" title="信号订阅"></a>信号订阅</h2><p>信号订阅，通过信号订阅我们可以做到实时观察需要的数据以及状态。比如要观察处理 UITextField 的输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[self.usernameTextField.rac_textSignal subscribeNext:^(NSString * _Nullable x) &#123;</div><div class="line">        NSLog(@&quot;%@&quot;,x);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>上面的代码当 usernameTextField 在输入时，输入的文字改变就会触发 block 中代码的执行。</p>
+<p>ReactiveCocoa 的信号会向信号的订阅者发送已订阅的事件流。其中发送的事件分为三种类型：next、error 和 completed。RACSignal 提供了多种方法用来订阅不同的事件类型。可以接受一个或多个 block 作为参数，当事件流传递到当前事件的时候，就会执行 block 中的代码。ReactiveCocoa 框架使用 Category 为大部分的标准的 UIKit 控件都添加了信号，通过这些已经添加的信号我们进行订阅，可以完成大部分常见的操作。同时我们也可以针对自己的控件自己定义信号。</p>
+<p>信号可以被订阅，也可以被主动的取消订阅，取消订阅的方式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 只要订阅信号就会返回一个取消订阅信号的类</div><div class="line">RACDisposable *disposable = [signal subscribeNext:^(id x) &#123;</div><div class="line">// block的调用时刻：只要信号内部发出数据就会调用这个block</div><div class="line">NSLog(@&quot;======%@&quot;, x);</div><div class="line">&#125;];</div><div class="line">// 取消订阅</div><div class="line">[disposable dispose];</div></pre></td></tr></table></figure>
+<h2 id="信号过滤"><a href="#信号过滤" class="headerlink" title="信号过滤"></a>信号过滤</h2><p>ReactiveCocoa还具有对事件流进行过滤的操作。比如下面这样，我们只需要在控制台打印字符串长度超过3的情况。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[[self.usernameTextField.rac_textSignal filter:^BOOL(NSString * _Nullable value) &#123;</div><div class="line">    NSString *text = value;</div><div class="line">    return text.length &gt; 3;</div><div class="line">&#125;] subscribeNext:^(NSString * _Nullable x) &#123;</div><div class="line">    NSLog(@&quot;%@&quot;,x);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>现在再 TextField 中输入，只有当字符串长度超过3点时候才会在控制台打印出来。</p>
+<h2 id="信号的处理"><a href="#信号的处理" class="headerlink" title="信号的处理"></a>信号的处理</h2><p>在 ReactiveCocoa 中还可以对当前原始信号进行处理后在进入到事件流中。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[[[self.usernameTextField.rac_textSignal map:^id _Nullable(NSString * _Nullable value) &#123;</div><div class="line">    return @(value.length);</div><div class="line">&#125;] filter:^BOOL(id  _Nullable value) &#123;</div><div class="line">    return [value integerValue] &gt; 3;</div><div class="line">&#125;] subscribeNext:^(id  _Nullable x) &#123;</div><div class="line">    NSLog(@&quot;%@&quot;,x);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>上面的代码中我们就将 NSString 类型的 Vlue 进行了处理，当它传到下一步时就成了NSNumber 类型了。当然也可以对这里的 Value 做其他操作，传到下一步的时候就是其他类型的数据了。</p>
+<h2 id="信号合成"><a href="#信号合成" class="headerlink" title="信号合成"></a>信号合成</h2><p>在某些时候，我们可能需要多种信号都满足某个条件后再进行下一步的操作和执行。比如做一个登陆的时候，当账号和密码都满足的时候才可以进行下一步的处理。这个时候我们就可以使用信号合并，将账号验证的信号和密码验证的信号合并后来出来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">//账户验证的信号</div><div class="line">RACSignal *validUserNameSignal = [self.usernameTextField.rac_textSignal map:^id _Nullable(NSString * _Nullable value) &#123;</div><div class="line">    return @([self isValidUsername:value]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line">//密码验证的信号</div><div class="line">RACSignal *validPassWordSignal = [self.passwordTextField.rac_textSignal map:^id _Nullable(NSString * _Nullable value) &#123;</div><div class="line">        return @([self isValidPassword:value]);</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">//信号合并，完成登陆按钮的可点击</div><div class="line">RACSignal *mergeSignal = [RACSignal combineLatest:@[validUserNameSignal,validPassWordSignal] reduce:^id (NSNumber *userNameValid, NSNumber *passWordValid)&#123;</div><div class="line">    return @([userNameValid boolValue] &amp;&amp; [passWordValid boolValue]);</div><div class="line">&#125;];</div><div class="line"></div><div class="line">//再次订阅合并的信号处理登陆按钮的响应</div><div class="line">[mergeSignal subscribeNext:^(id  _Nullable x) &#123;</div><div class="line">    self.signInButton.enabled = [x boolValue];</div><div class="line">&#125;];</div><div class="line"></div><div class="line">//账户和密码的验证方式</div><div class="line">- (BOOL)isValidUsername:(NSString *)username &#123;</div><div class="line">    return username.length &gt; 3;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (BOOL)isValidPassword:(NSString *)password &#123;</div><div class="line">    return password.length &gt; 3;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面这段代码就使用信号合并，合并后的信号携带了一个 Bool 值，当每次其中一个发送新的信号时 reduce 中的block 就会执行返回的这个 Bool 值就会作为一个新的合成的这个信号发送出去，最终通过订阅这个合并后的信号携带的 Bool 值来判断登陆按钮是否可以被点击。</p>
+<blockquote>
+<p>注意：<code>RACSignal</code>合成方法可以合成任意数量的信号，而reduce block的入参和源信号一一对应。ReactiveCocoa有一个巧妙的工具类<code>RACBlockTrampoline</code>，用以内部处理reduce block的可变入参列表。</p>
+</blockquote>
+<h2 id="信号中的信号"><a href="#信号中的信号" class="headerlink" title="信号中的信号"></a>信号中的信号</h2><p>有时候在信号中，我们可能还需要去创建一个新的信号，用来处理事件，但是这种信号中的信号，就是一个信号中又包含了另外一个信号。要怎么去处理呢？</p>
+<p>​         可以通过在信号中去订阅这个内部的信号来获取里面信号的结果，但是这样做来说订阅嵌套会让代码很混乱，所以 ReactiveCocoa 为这样的情况提供了一个解决的方式。 使用 flattenMap 就可以过滤获取到内部的信号，在传到下一个事件的时候就传递的是内部的信号了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">[[[self.signInButton rac_signalForControlEvents:UIControlEventTouchUpInside] flattenMap:^__kindof RACSignal * _Nullable(__kindof UIControl * _Nullable value) &#123;</div><div class="line">    return [self loginSignal];</div><div class="line">&#125;]subscribeNext:^(id  _Nullable x) &#123;</div><div class="line">    BOOL isLoginSucces = [x boolValue];</div><div class="line">    self.signInFailureText.hidden = isLoginSucces;</div><div class="line">    [self performSegueWithIdentifier:@&quot;signInSuccess&quot; sender:self];</div><div class="line">&#125;];</div><div class="line"></div><div class="line">- (RACSignal *)loginSignal &#123;</div><div class="line">    return [RACSignal createSignal:^RACDisposable * _Nullable(id&lt;RACSubscriber&gt;  _Nonnull subscriber) &#123;</div><div class="line">        [self.signInService signInWithUsername:self.usernameTextField.text password:self.passwordTextField.text complete:^(BOOL success) &#123;</div><div class="line">            [subscriber sendNext:@(success)];</div><div class="line">            [subscriber sendCompleted];</div><div class="line">        &#125;];</div><div class="line">        return [RACDisposable disposableWithBlock:^&#123;</div><div class="line">            NSLog(@&quot;信号订阅被取消&quot;);</div><div class="line">        &#125;];</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面这段代码在处理按钮点击的信号中调用 <code>[self loginSignal]</code> 方法返回了一个新的信号，这就造成了信号中的信号，在下面的信号传递中获取到的 x 就获取到的是一个信号，而不是想要登陆的信号。所以这里用 <code>flattenMap</code> 去获取信号中的信号，以方便在接下来的信号传递中能方便的获取到信号中登陆信号中传递的值。</p>
+<h2 id="注入效果"><a href="#注入效果" class="headerlink" title="注入效果"></a>注入效果</h2><p>注入效果，主要的作用的是在信号发出的时候做出一些处理。注入效果有这样三种 <code>-doNext:</code>  、<code>-doError:</code> 、 <code>-doCompleted:</code> ，注入效果没有返回值，它只是在其对应的操作之前执行 block 中的代码。如下，在 <code>-subscribeNext:</code> 前作一些其他处理就可以使用 <code>-doNext:</code> 的注入效果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[[[[self.signInButton rac_signalForControlEvents:UIControlEventTouchUpInside] doNext:^(__kindof UIControl * _Nullable x) &#123;</div><div class="line">    self.signInButton.enabled = NO;</div><div class="line">&#125;]flattenMap:^__kindof RACSignal * _Nullable(__kindof UIControl * _Nullable value) &#123;</div><div class="line">    return [self loginSignal];</div><div class="line">&#125;]subscribeNext:^(id  _Nullable x) &#123;</div><div class="line">    BOOL isLoginSucces = [x boolValue];</div><div class="line">    self.signInFailureText.hidden = isLoginSucces;</div><div class="line">    [self performSegueWithIdentifier:@&quot;signInSuccess&quot; sender:self];</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<p>这里就是在按钮被点击的时候在 <code>-doNext:</code> 的注入效果中将登陆按钮设置为不可用。</p>
+<p>其余两个注入效果也是一样的，分别是在 <code>-subscribeError:</code> 和 <code>-subscribeCompleted:</code> 执行之前执行 block 中的代码，但是如果添加了注入效果，但是后面没有进行 <code>-subscribeNext:</code> 、 <code>-subscribeError:</code> 和 <code>-subscribeCompleted:</code> 操作的话注入效果是不会执行的。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactiveCocoa/" rel="tag"># ReactiveCocoa</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/17/I-Love-the-dog/" rel="next" title="想养一只狗">
+                <i class="fa fa-chevron-left"></i> 想养一只狗
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://onocdmhtw.bkt.clouddn.com//Home/20170721000136_iJ9xGI_IMG_0513.jpeg"
+               alt="Aaron_36" />
+          <p class="site-author-name" itemprop="name">Aaron_36</p>
+           
+              <p class="site-description motion-element" itemprop="description">好记性不如烂笔头，随便写写，想到啥就写啥。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AaronZJP" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/AaronZJP" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是ReactiveCocoa？"><span class="nav-number">1.</span> <span class="nav-text">什么是ReactiveCocoa？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ReactiveCocoa与传统iOS开发的比较"><span class="nav-number">2.</span> <span class="nav-text">ReactiveCocoa与传统iOS开发的比较</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ReactiveCocoa的简单使用"><span class="nav-number">3.</span> <span class="nav-text">ReactiveCocoa的简单使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信号创建"><span class="nav-number">3.1.</span> <span class="nav-text">信号创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号订阅"><span class="nav-number">3.2.</span> <span class="nav-text">信号订阅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号过滤"><span class="nav-number">3.3.</span> <span class="nav-text">信号过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号的处理"><span class="nav-number">3.4.</span> <span class="nav-text">信号的处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号合成"><span class="nav-number">3.5.</span> <span class="nav-text">信号合成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信号中的信号"><span class="nav-number">3.6.</span> <span class="nav-text">信号中的信号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注入效果"><span class="nav-number">3.7.</span> <span class="nav-text">注入效果</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron_36</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

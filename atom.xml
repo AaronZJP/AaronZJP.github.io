@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2017-07-31T19:26:10.093Z</updated>
+  <updated>2017-08-17T02:31:47.841Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -14,6 +14,25 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ReactiveCocoa的使用</title>
+    <link href="Aaronzjp.cn/2017/08/03/Use-ReactiveCocoa/"/>
+    <id>Aaronzjp.cn/2017/08/03/Use-ReactiveCocoa/</id>
+    <published>2017-08-03T01:59:47.000Z</published>
+    <updated>2017-08-17T02:31:47.841Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;什么是ReactiveCocoa？&quot;&gt;&lt;a href=&quot;#什么是ReactiveCocoa？&quot; class=&quot;headerlink&quot; title=&quot;什么是ReactiveCocoa？&quot;&gt;&lt;/a&gt;什么是ReactiveCocoa？&lt;/h1&gt;&lt;p&gt;最近因为公司的一个项目因为是用 ReactiveCocoa 结合 MVVM 来写的，所以在我接手的时候我也打算继续使用这种模式，因为我觉得这种模式还是有一定的好处的，通过 ReactiveCocoa 的使用强化了项目中围绕数据变化所做的改变。所以最近还是学习一下 ReactiveCocoa 的一些基本的使用。&lt;/p&gt;
+&lt;p&gt;ReactiveCocoa（其简称为RAC）是由Github工程师们开发的一个应用于iOS和OS X开发的函数响应式编程新框架。ReactiveCocoa 的灵感来源于 函数式响应式编程。ReactiveCocoa 的优点是可以很轻松的处理状态以及状态之间依赖过多的问题，同时也是一种很好的消息传递的机制。通过对 RACSignal (信号) 的使用，可以很好的处理事件流，以及事件的监控，状态改变的处理。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ReactiveCocoa" scheme="Aaronzjp.cn/tags/ReactiveCocoa/"/>
+    
+  </entry>
   
   <entry>
     <title>想养一只狗</title>
@@ -59,24 +78,6 @@
     
     
       <category term="React Native" scheme="Aaronzjp.cn/tags/React-Native/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift-集合类型</title>
-    <link href="Aaronzjp.cn/2017/05/05/Swift-CollectionTypes/"/>
-    <id>Aaronzjp.cn/2017/05/05/Swift-CollectionTypes/</id>
-    <published>2017-05-05T07:10:35.000Z</published>
-    <updated>2017-08-01T07:53:45.992Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;集合类型&quot;&gt;&lt;a href=&quot;#集合类型&quot; class=&quot;headerlink&quot; title=&quot;集合类型&quot;&gt;&lt;/a&gt;集合类型&lt;/h1&gt;&lt;p&gt;在 Swift 中集合类型主要有 Array、Sets、Dictionaries。和 O-bjc 中不同的是 Swift 中集合的可变类型和不可变类型并不是子类和父类的关系，而是同一个类。可变和不可变是通过变量类型来区分的，如果使用 var 来声明成变量那么就是可变的，如果使用 let 来声明成常量那么就是不可变的。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
   </entry>
   
@@ -170,6 +171,24 @@
       <category term="动画" scheme="Aaronzjp.cn/tags/%E5%8A%A8%E7%94%BB/"/>
     
       <category term="Animation" scheme="Aaronzjp.cn/tags/Animation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift-集合类型</title>
+    <link href="Aaronzjp.cn/2017/03/05/Swift-CollectionTypes/"/>
+    <id>Aaronzjp.cn/2017/03/05/Swift-CollectionTypes/</id>
+    <published>2017-03-05T07:10:35.000Z</published>
+    <updated>2017-08-01T07:55:09.022Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;集合类型&quot;&gt;&lt;a href=&quot;#集合类型&quot; class=&quot;headerlink&quot; title=&quot;集合类型&quot;&gt;&lt;/a&gt;集合类型&lt;/h1&gt;&lt;p&gt;在 Swift 中集合类型主要有 Array、Sets、Dictionaries。和 O-bjc 中不同的是 Swift 中集合的可变类型和不可变类型并不是子类和父类的关系，而是同一个类。可变和不可变是通过变量类型来区分的，如果使用 var 来声明成变量那么就是可变的，如果使用 let 来声明成常量那么就是不可变的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
   </entry>
   
@@ -392,32 +411,6 @@
       <category term="本地化" scheme="Aaronzjp.cn/tags/%E6%9C%AC%E5%9C%B0%E5%8C%96/"/>
     
       <category term="文件管理" scheme="Aaronzjp.cn/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发-SQLite数据库</title>
-    <link href="Aaronzjp.cn/2016/04/20/SQLite-DataBase/"/>
-    <id>Aaronzjp.cn/2016/04/20/SQLite-DataBase/</id>
-    <published>2016-04-20T13:00:25.000Z</published>
-    <updated>2017-07-27T02:53:31.194Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;​    在 iOS 开发中我们经常会对数据进行存储，我们已知有如下几种数据本地化的方式：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;属性列表&lt;/li&gt;
-&lt;li&gt;对象归档&lt;/li&gt;
-&lt;li&gt;SQLite数据库&lt;/li&gt;
-&lt;li&gt;Core Data&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="数据库" scheme="Aaronzjp.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="SQLite" scheme="Aaronzjp.cn/tags/SQLite/"/>
     
   </entry>
   
