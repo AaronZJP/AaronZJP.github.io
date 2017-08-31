@@ -1,0 +1,769 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Reactive Cocoa,MVVM," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aaron的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="MVVM在 iOS 中最开始的时候以及我们一开始学习的时候就是使用的 MVC 的模式来进行iOS App 开发的。MVC 的模式总的来说就是分为三个部分 Model(数据模型)、View(界面，视图)、Controller(控制器)。 在 MVC 中他们的通信方式如下图所示，该图来自斯坦福公开课中的 PDF 文件。">
+<meta name="keywords" content="Reactive Cocoa,MVVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactiveCocoa 和 MVVM 的简单使用">
+<meta property="og:url" content="Aaronzjp.cn/2017/08/28/ReactiveCocoa-and-MVVM/index.html">
+<meta property="og:site_name" content="Aaron的博客">
+<meta property="og:description" content="MVVM在 iOS 中最开始的时候以及我们一开始学习的时候就是使用的 MVC 的模式来进行iOS App 开发的。MVC 的模式总的来说就是分为三个部分 Model(数据模型)、View(界面，视图)、Controller(控制器)。 在 MVC 中他们的通信方式如下图所示，该图来自斯坦福公开课中的 PDF 文件。">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com//Home/20170828133751_2D003l_AED3559B-85AA-4D3C-9FF8-0C0DD9036277.jpeg">
+<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com//Home/20170828154620_gfP2rU_MVVMPattern.jpeg">
+<meta property="og:updated_time" content="2017-08-31T06:51:40.776Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ReactiveCocoa 和 MVVM 的简单使用">
+<meta name="twitter:description" content="MVVM在 iOS 中最开始的时候以及我们一开始学习的时候就是使用的 MVC 的模式来进行iOS App 开发的。MVC 的模式总的来说就是分为三个部分 Model(数据模型)、View(界面，视图)、Controller(控制器)。 在 MVC 中他们的通信方式如下图所示，该图来自斯坦福公开课中的 PDF 文件。">
+<meta name="twitter:image" content="http://onocdmhtw.bkt.clouddn.com//Home/20170828133751_2D003l_AED3559B-85AA-4D3C-9FF8-0C0DD9036277.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="Aaronzjp.cn/2017/08/28/ReactiveCocoa-and-MVVM/"/>
+
+
+
+
+
+  <title>ReactiveCocoa 和 MVVM 的简单使用 | Aaron的博客</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay foolish,Stay hungry!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2017/08/28/ReactiveCocoa-and-MVVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron_36">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://onocdmhtw.bkt.clouddn.com//Home/20170721000136_iJ9xGI_IMG_0513.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ReactiveCocoa 和 MVVM 的简单使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-28T13:14:55+08:00">
+                2017-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><p>在 iOS 中最开始的时候以及我们一开始学习的时候就是使用的 MVC 的模式来进行iOS App 开发的。MVC 的模式总的来说就是分为三个部分 Model(数据模型)、View(界面，视图)、Controller(控制器)。</p>
+<p>在 MVC 中他们的通信方式如下图所示，该图来自斯坦福公开课中的 PDF 文件。</p>
+<a id="more"></a>
+<p><img src="http://onocdmhtw.bkt.clouddn.com//Home/20170828133751_2D003l_AED3559B-85AA-4D3C-9FF8-0C0DD9036277.jpeg" alt=""></p>
+<p>如图所示，在 iOS 开发中 MVC 的模式之间的通信方式如图所示，在该模式中 Model 和 View 之间是无法相互通信的，都是通过 Controller 来完成 Model 和 VIew 之前的通信。如此一来 Controller 中的东西就会十分多，Controller 类就会十分的复杂和大量的代码。所以后来就出现了 MVVM 的模式。</p>
+<p>MVVM 它分别是由 Model View View-Model 三个部分组成的。</p>
+<p>Model：Model 在 MVVM 模式中没有太大的变化，主要还是数据的模型。可能也会在其中封装一部分的关于数据处理和业务逻辑的一些代码。</p>
+<p>View：很明显就是说视图，在 iOS 中视图不单单是视图类的代码，其中也包括了 storyboard、xib等视图，同时也包括 Controller 在内。</p>
+<p>View-Model：View-Model 在这里看起来应该是前面两种的组合，其实并不是。这里的 View-Model 其实是负责视图显示需要数据的处理的一个类，可以包括数据的请求，数据的处理等。View-Model 中的数据主要提供给 View 用来展示和显示。</p>
+<p>MVVM 其结构图如下所示：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com//Home/20170828154620_gfP2rU_MVVMPattern.jpeg" alt=""></p>
+<p>图片来自维基百科，在 iOS 中图上的 View 也应该包括 Controller。其中 View-Model 是介于 View(Controller) 和 Model 之间的。在 MVVM 模式中数据的获取和数据的获取以及数据的处理都是在 View-Model 中来完成的，其中 View-Model 再通过 Model 将数据转化成一个一个的 Model 用来供视图展示和显示出来。其实 MVVM 模型就是一个 MVC 经过优化后的模式。它将原来需要在 View(Controller) 中需要处理的数据单独提取到 View-Model 中来处理，这样 View(Controller) 只要负责显示即可，让 View(Controller) 更加的轻量化。</p>
+<h1 id="MVVM与ReactiveCocoa"><a href="#MVVM与ReactiveCocoa" class="headerlink" title="MVVM与ReactiveCocoa"></a>MVVM与ReactiveCocoa</h1><h2 id="View-Model"><a href="#View-Model" class="headerlink" title="View-Model"></a>View-Model</h2><p>View-Model 是和 Controller 在一起的，但是 View-Model 和 Controller 是相互独立的两个东西，View-Model 基本上是负责处理数据的获取和过滤的。Controller 通过 View-Model 获取数据来使用。</p>
+<p>在例子中，有这样一个 UITableView 用来展示一些车辆审验的信息，这里结合了 ReactiveCocoa 来做控制数据请求后的数据流动。请求获取大数据后，通过在 Controller 对信号订阅从信号管道中获取到数据。我看到有的人是在请求到的数据通过只读属性暴露在外的，但是我绝既然这里使用了 ReactiveCocoa 来做处理，所以我还是把数据通过信号管道的方式来使用请求到的数据好一点。另外 View-Model 这个类在设计的时候因为对数据种类这点没考虑到所以这个类设计得不是很好，这里也就先不细化的说了。主要记录一下 MVVM + ReactiveCocoa 的简单的使用的一个范例。</p>
+<blockquote>
+<p>CarCheckViewModel.h</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &lt;ReactiveObjC.h&gt;</div><div class="line">#import &quot;CarCheckModel.h&quot;</div><div class="line"></div><div class="line">//数据种类</div><div class="line">typedef NS_ENUM(NSUInteger, CarCheckDataType) &#123;</div><div class="line">    Plan = 0,</div><div class="line">    History</div><div class="line">&#125;;</div><div class="line"></div><div class="line">@interface CarCheckViewModel : NSObject</div><div class="line">@property (nonatomic,strong,readonly) RACCommand *getCarCheckListCommand;</div><div class="line">//加载数据</div><div class="line">- (void)loadDataWithType:(CarCheckDataType)type;</div><div class="line">//加载更多数据</div><div class="line">- (void)loadMoreDataWithType:(CarCheckDataType)type;</div><div class="line">//刷新数据</div><div class="line">- (void)refreshDataWithType:(CarCheckDataType)type;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<blockquote>
+<p>CarCheckViewModel.m</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">#import &quot;CarCheckViewModel.h&quot;</div><div class="line">#import &quot;CarCheckAPIManager.h&quot;</div><div class="line">#import &quot;AccountManager.h&quot;</div><div class="line">#import &quot;CarCheckModel.h&quot;</div><div class="line"></div><div class="line">@interface CarCheckViewModel()</div><div class="line"></div><div class="line">@property (nonatomic,strong,readwrite) RACCommand *getCarCheckListCommand;</div><div class="line">//Model数组</div><div class="line">@property (nonatomic,strong,readwrite) NSArray&lt;CarCheckModel *&gt; *carCheckList;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation CarCheckViewModel</div><div class="line"></div><div class="line">- (instancetype)init &#123;</div><div class="line">    if (self = [super init]) &#123;</div><div class="line">        if (!_getCarCheckListCommand) &#123;</div><div class="line">            _getCarCheckListCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) &#123;</div><div class="line">                return [self getCarCheckListSignalWithParameter:input];</div><div class="line">            &#125;];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)loadDataWithType:(CarCheckDataType)type &#123;</div><div class="line">    NSDictionary *parameter = @&#123;@&quot;number&quot;:[[AccountManager sharedInstance]getStoredNumber],@&quot;first&quot;:@(0),@&quot;type&quot;:@(type)&#125;;</div><div class="line">    [self.getCarCheckListCommand execute:parameter];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)loadMoreDataWithType:(CarCheckDataType)type &#123;</div><div class="line">     NSDictionary *parameter = @&#123;@&quot;number&quot;:[[AccountManager sharedInstance]getStoredNumber],@&quot;first&quot;:@(_carCheckList.count),@&quot;type&quot;:@(type)&#125;;</div><div class="line">    [self.getCarCheckListCommand execute:parameter];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)refreshDataWithType:(CarCheckDataType)type &#123;</div><div class="line">    [self loadDataWithType:type];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (RACSignal *)getCarCheckListSignalWithParameter:(NSDictionary *) parameter &#123;</div><div class="line">    </div><div class="line">    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id&lt;RACSubscriber&gt;  _Nonnull subscriber) &#123;</div><div class="line">        [[[CarCheckAPIManager alloc]init]loadDataWithParams:parameter success:^(id data) &#123;</div><div class="line">            [subscriber sendNext:data];</div><div class="line">            [subscriber sendCompleted];</div><div class="line">        &#125; failure:^(id data) &#123;</div><div class="line">            [subscriber sendError:data];</div><div class="line">            [subscriber sendCompleted];</div><div class="line">        &#125;];</div><div class="line">        return nil;</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    return [signal map:^id _Nullable(id  _Nullable value) &#123;</div><div class="line">        NSMutableArray *dicArray = value[@&quot;resultInfos&quot;];</div><div class="line">        _carCheckList = [[dicArray.rac_sequence map:^id _Nullable(id  _Nullable value) &#123;</div><div class="line">            return [[CarCheckModel alloc]initWithDictionary:value];</div><div class="line">        &#125;] array];</div><div class="line">        return _carCheckList;</div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>他的 Model 类如下，该模型类是使用 JSONExport 自动生成的：</p>
+<blockquote>
+<p>CarCheckModel.h</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line"></div><div class="line">@interface CarCheckModel : NSObject</div><div class="line"></div><div class="line">@property (nonatomic, strong) NSString * inspectionTime;</div><div class="line">@property (nonatomic, strong) NSString * plateNumber;</div><div class="line">@property (nonatomic, strong) NSString * remark;</div><div class="line">@property (nonatomic, assign) NSInteger type;</div><div class="line">@property (nonatomic, strong) NSString * waiteTime;</div><div class="line"></div><div class="line">-(instancetype)initWithDictionary:(NSDictionary *)dictionary;</div><div class="line"></div><div class="line">-(NSDictionary *)toDictionary;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<blockquote>
+<p>CarCheckModel.m</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div></pre></td><td class="code"><pre><div class="line">#import &quot;CarCheckModel.h&quot;</div><div class="line"></div><div class="line">NSString *const kCarCheckModelInspectionTime = @&quot;inspectionTime&quot;;</div><div class="line">NSString *const kCarCheckModelPlateNumber = @&quot;plateNumber&quot;;</div><div class="line">NSString *const kCarCheckModelRemark = @&quot;remark&quot;;</div><div class="line">NSString *const kCarCheckModelType = @&quot;type&quot;;</div><div class="line">NSString *const kCarCheckModelWaiteTime = @&quot;waiteTime&quot;;</div><div class="line"></div><div class="line">@interface CarCheckModel ()</div><div class="line">@end</div><div class="line">@implementation CarCheckModel</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * Instantiate the instance using the passed dictionary values to set the properties values</div><div class="line"> */</div><div class="line"></div><div class="line">-(instancetype)initWithDictionary:(NSDictionary *)dictionary</div><div class="line">&#123;</div><div class="line">	self = [super init];</div><div class="line">	if(![dictionary[kCarCheckModelInspectionTime] isKindOfClass:[NSNull class]])&#123;</div><div class="line">		self.inspectionTime = dictionary[kCarCheckModelInspectionTime];</div><div class="line">	&#125;	</div><div class="line">	if(![dictionary[kCarCheckModelPlateNumber] isKindOfClass:[NSNull class]])&#123;</div><div class="line">		self.plateNumber = dictionary[kCarCheckModelPlateNumber];</div><div class="line">	&#125;	</div><div class="line">	if(![dictionary[kCarCheckModelRemark] isKindOfClass:[NSNull class]])&#123;</div><div class="line">		self.remark = dictionary[kCarCheckModelRemark];</div><div class="line">	&#125;	</div><div class="line">	if(![dictionary[kCarCheckModelType] isKindOfClass:[NSNull class]])&#123;</div><div class="line">		self.type = [dictionary[kCarCheckModelType] integerValue];</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	if(![dictionary[kCarCheckModelWaiteTime] isKindOfClass:[NSNull class]])&#123;</div><div class="line">		self.waiteTime = dictionary[kCarCheckModelWaiteTime];</div><div class="line">	&#125;	</div><div class="line">	return self;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property</div><div class="line"> */</div><div class="line">-(NSDictionary *)toDictionary</div><div class="line">&#123;</div><div class="line">	NSMutableDictionary * dictionary = [NSMutableDictionary dictionary];</div><div class="line">	if(self.inspectionTime != nil)&#123;</div><div class="line">		dictionary[kCarCheckModelInspectionTime] = self.inspectionTime;</div><div class="line">	&#125;</div><div class="line">	if(self.plateNumber != nil)&#123;</div><div class="line">		dictionary[kCarCheckModelPlateNumber] = self.plateNumber;</div><div class="line">	&#125;</div><div class="line">	if(self.remark != nil)&#123;</div><div class="line">		dictionary[kCarCheckModelRemark] = self.remark;</div><div class="line">	&#125;</div><div class="line">	dictionary[kCarCheckModelType] = @(self.type);</div><div class="line">	if(self.waiteTime != nil)&#123;</div><div class="line">		dictionary[kCarCheckModelWaiteTime] = self.waiteTime;</div><div class="line">	&#125;</div><div class="line">	return dictionary;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Implementation of NSCoding encoding method</div><div class="line"> */</div><div class="line">/**</div><div class="line"> * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property</div><div class="line"> */</div><div class="line">- (void)encodeWithCoder:(NSCoder *)aCoder</div><div class="line">&#123;</div><div class="line">	if(self.inspectionTime != nil)&#123;</div><div class="line">		[aCoder encodeObject:self.inspectionTime forKey:kCarCheckModelInspectionTime];</div><div class="line">	&#125;</div><div class="line">	if(self.plateNumber != nil)&#123;</div><div class="line">		[aCoder encodeObject:self.plateNumber forKey:kCarCheckModelPlateNumber];</div><div class="line">	&#125;</div><div class="line">	if(self.remark != nil)&#123;</div><div class="line">		[aCoder encodeObject:self.remark forKey:kCarCheckModelRemark];</div><div class="line">	&#125;</div><div class="line">	[aCoder encodeObject:@(self.type) forKey:kCarCheckModelType];	if(self.waiteTime != nil)&#123;</div><div class="line">		[aCoder encodeObject:self.waiteTime forKey:kCarCheckModelWaiteTime];</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Implementation of NSCoding initWithCoder: method</div><div class="line"> */</div><div class="line">- (instancetype)initWithCoder:(NSCoder *)aDecoder</div><div class="line">&#123;</div><div class="line">	self = [super init];</div><div class="line">	self.inspectionTime = [aDecoder decodeObjectForKey:kCarCheckModelInspectionTime];</div><div class="line">	self.plateNumber = [aDecoder decodeObjectForKey:kCarCheckModelPlateNumber];</div><div class="line">	self.remark = [aDecoder decodeObjectForKey:kCarCheckModelRemark];</div><div class="line">	self.type = [[aDecoder decodeObjectForKey:kCarCheckModelType] integerValue];</div><div class="line">	self.waiteTime = [aDecoder decodeObjectForKey:kCarCheckModelWaiteTime];</div><div class="line">	return self;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Implementation of NSCopying copyWithZone: method</div><div class="line"> */</div><div class="line">- (instancetype)copyWithZone:(NSZone *)zone</div><div class="line">&#123;</div><div class="line">	CarCheckModel *copy = [CarCheckModel new];</div><div class="line"></div><div class="line">	copy.inspectionTime = [self.inspectionTime copy];</div><div class="line">	copy.plateNumber = [self.plateNumber copy];</div><div class="line">	copy.remark = [self.remark copy];</div><div class="line">	copy.type = self.type;</div><div class="line">	copy.waiteTime = [self.waiteTime copy];</div><div class="line"></div><div class="line">	return copy;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>该类主要是数据模型的作用，用来存储和使用数据，以及对数据进行一些业务逻辑的处理的作用。</p>
+<h2 id="View-Controller"><a href="#View-Controller" class="headerlink" title="View(Controller)"></a>View(Controller)</h2><p>通过这样的方式后在 View 中主要做的事就很简单了，只需要把数据和 View 绑定起来并展示出来就可以。在这个类中涉及了项目中很多其他的类，所以不要在意其他的，重要的是看清思路，MVVM 大概就是这么个结构来做处理的。当然在这个页面中只是用来展示东西，没有了其他更多的操作。具体应用到项目中的时候，可能还要结合 ReactiveCocoa 来做一些其他的功能，比如登陆界面，也可以使用 MVVM + ReactiveCocoa 来做，使用 ReactiveCocoa 来监控用户的交互判断用户名和密码来决定是否可以登陆和是否登陆成功等。</p>
+<blockquote>
+<p>CarCheckViewController.m</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div></pre></td><td class="code"><pre><div class="line">#import &quot;CarCheckViewController.h&quot;</div><div class="line">#import &quot;CarCheckTableViewCell.h&quot;</div><div class="line">#import &quot;CarCheckViewModel.h&quot;</div><div class="line">#import &quot;AccountManager.h&quot;</div><div class="line">#import &quot;HLYHUD.h&quot;</div><div class="line">#import &quot;TaskVCHeaderView.h&quot;</div><div class="line">#import &quot;MJRefresh.h&quot;</div><div class="line"></div><div class="line">@interface CarCheckViewController () &lt;UITableViewDataSource,UITableViewDelegate&gt;</div><div class="line">@property (nonatomic,strong) UITableView *planTableView;</div><div class="line">@property (nonatomic,strong) UITableView *historyTableView;</div><div class="line">@property (nonatomic,strong) CarCheckViewModel *planViewModel;</div><div class="line">@property (nonatomic,strong) CarCheckViewModel *historyViewModel;</div><div class="line">@property (nonatomic,strong) NSArray&lt;CarCheckModel *&gt; *planDataSource;</div><div class="line">@property (nonatomic,strong) NSArray&lt;CarCheckModel *&gt; *historyDataSource;</div><div class="line">@property (nonatomic,strong) TaskVCHeaderView *segmentView;</div><div class="line">@property (nonatomic,strong) UIScrollView *scrollView;</div><div class="line">@property (nonatomic,assign) NSInteger currentPageIndex;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation CarCheckViewController</div><div class="line"></div><div class="line">- (CarCheckViewModel *)planViewModel &#123;</div><div class="line">    if (!_planViewModel) &#123;</div><div class="line">        _planViewModel = [[CarCheckViewModel alloc]init];</div><div class="line">        [_planViewModel.getCarCheckListCommand.executionSignals.switchToLatest subscribeNext:^(id  _Nullable x) &#123;</div><div class="line">            _planDataSource = x;</div><div class="line">            [_planTableView.mj_header endRefreshing];</div><div class="line">            [_planTableView.mj_footer endRefreshing];</div><div class="line">            [_planTableView reloadData];</div><div class="line">        &#125;];</div><div class="line">        </div><div class="line">        [_planViewModel.getCarCheckListCommand.errors subscribeNext:^(id _Nullable x) &#123;</div><div class="line">            [HLYHUD hideHUDForView:_planTableView];</div><div class="line">            [_planTableView.mj_header endRefreshing];</div><div class="line">            [_planTableView.mj_footer endRefreshing];</div><div class="line">            [HLYHUD showHUDWithMessage:x[@&quot;message&quot;] addToView:_planTableView];</div><div class="line">        &#125;];</div><div class="line">        </div><div class="line">        [_planViewModel.getCarCheckListCommand.executing subscribeNext:^(NSNumber * _Nullable x) &#123;</div><div class="line">            if ([x boolValue]) &#123;</div><div class="line">                [HLYHUD showLoadingHudAddToView:self.view];</div><div class="line">            &#125; else &#123;</div><div class="line">                [HLYHUD hideHUDForView:self.view];</div><div class="line">            &#125;</div><div class="line">        &#125;];</div><div class="line">    &#125;</div><div class="line">    return _planViewModel;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (CarCheckViewModel *)historyViewModel &#123;</div><div class="line">    if (!_historyViewModel) &#123;</div><div class="line">        _historyViewModel = [[CarCheckViewModel alloc]init];</div><div class="line">        [_historyViewModel.getCarCheckListCommand.executionSignals.switchToLatest subscribeNext:^(id  _Nullable x) &#123;</div><div class="line">            _historyDataSource = x;</div><div class="line">            [_historyTableView.mj_header endRefreshing];</div><div class="line">            [_historyTableView.mj_footer endRefreshing];</div><div class="line">            [_historyTableView reloadData];</div><div class="line">        &#125;];</div><div class="line">        </div><div class="line">        [_historyViewModel.getCarCheckListCommand.errors subscribeNext:^(id _Nullable x) &#123;</div><div class="line">            [HLYHUD hideHUDForView:_historyTableView];</div><div class="line">            [_historyTableView.mj_header endRefreshing];</div><div class="line">            [_historyTableView.mj_footer endRefreshing];</div><div class="line">            [HLYHUD showHUDWithMessage:x[@&quot;message&quot;] addToView:_historyTableView];</div><div class="line">        &#125;];</div><div class="line">        </div><div class="line">        [_historyViewModel.getCarCheckListCommand.executing subscribeNext:^(NSNumber * _Nullable x) &#123;</div><div class="line">            if ([x boolValue]) &#123;</div><div class="line">                [HLYHUD showLoadingHudAddToView:self.view];</div><div class="line">            &#125; else &#123;</div><div class="line">                [HLYHUD hideHUDForView:self.view];</div><div class="line">            &#125;</div><div class="line">        &#125;];</div><div class="line">    &#125;</div><div class="line">    return _historyViewModel;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    self.view.backgroundColor = [UIColor whiteColor];</div><div class="line">    self.title = @&quot;车辆审验&quot;;</div><div class="line">    _currentPageIndex = 100;</div><div class="line">    </div><div class="line">    _segmentView = [[TaskVCHeaderView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];</div><div class="line">    _segmentView.titleArray = @[@&quot;计划执行&quot;,@&quot;历史记录&quot;];</div><div class="line">    __weak CarCheckViewController *weakSelf =self;</div><div class="line">    _segmentView.changeVCBlock = ^(NSInteger index) &#123;</div><div class="line">        if (index == _currentPageIndex) &#123;</div><div class="line">            return;</div><div class="line">        &#125; else &#123;</div><div class="line">            _currentPageIndex = index;</div><div class="line">            if (index == 100) &#123;</div><div class="line">                [weakSelf.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];</div><div class="line">                [weakSelf.planViewModel loadDataWithType:Plan];</div><div class="line">            &#125; else &#123;</div><div class="line">                [weakSelf.scrollView setContentOffset:CGPointMake(CGRectGetWidth(weakSelf.view.bounds), 0) animated:YES];</div><div class="line">                [weakSelf.historyViewModel loadDataWithType:History];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    [self.view addSubview:_segmentView];</div><div class="line">    </div><div class="line">    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 44, CGRectGetWidth(self.view.bounds) * 2, CGRectGetHeight(self.view.bounds) - 44)];</div><div class="line">    [self.view addSubview:_scrollView];</div><div class="line">    </div><div class="line">    _planTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 44) style:UITableViewStylePlain];</div><div class="line">    _planTableView.dataSource = self;</div><div class="line">    _planTableView.delegate = self;</div><div class="line">    _planTableView.rowHeight = UITableViewAutomaticDimension;</div><div class="line">    _planTableView.estimatedRowHeight = 100;</div><div class="line">    _planTableView.tableFooterView = [UIView new];</div><div class="line">    </div><div class="line">    _planTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^&#123;</div><div class="line">        [_planViewModel refreshDataWithType:Plan];</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    _planTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^&#123;</div><div class="line">        [_planViewModel loadMoreDataWithType:Plan];</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    [_scrollView addSubview:_planTableView];</div><div class="line">    </div><div class="line">    _historyTableView = [[UITableView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.view.bounds), 0, self.view.bounds.size.width, self.view.bounds.size.height - 44) style:UITableViewStylePlain];</div><div class="line">    _historyTableView.dataSource = self;</div><div class="line">    _historyTableView.delegate = self;</div><div class="line">    _historyTableView.rowHeight = UITableViewAutomaticDimension;</div><div class="line">    _historyTableView.estimatedRowHeight = 100;</div><div class="line">    _historyTableView.tableFooterView = [UIView new];</div><div class="line">    </div><div class="line">    _historyTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^&#123;</div><div class="line">        [_historyViewModel refreshDataWithType:History];</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    _historyTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^&#123;</div><div class="line">        [_historyViewModel loadMoreDataWithType:History];</div><div class="line">    &#125;];</div><div class="line">    </div><div class="line">    [_scrollView addSubview:_historyTableView];</div><div class="line">    </div><div class="line">    [self.planViewModel loadDataWithType:Plan];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)didReceiveMemoryWarning &#123;</div><div class="line">    [super didReceiveMemoryWarning];</div><div class="line">    </div><div class="line">&#125;</div><div class="line"></div><div class="line">- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section &#123;</div><div class="line">    if (tableView == _historyTableView) &#123;</div><div class="line">        return _historyDataSource.count;</div><div class="line">    &#125; else &#123;</div><div class="line">        return _planDataSource.count;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath &#123;</div><div class="line">    static NSString *identifier = @&quot;CheckCarCell&quot;;</div><div class="line">    CarCheckTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];</div><div class="line">    if (!cell) &#123;</div><div class="line">        cell = [[CarCheckTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];</div><div class="line">    &#125;</div><div class="line">    CarCheckModel *carCheck;</div><div class="line">    if (tableView == _historyTableView) &#123;</div><div class="line">        carCheck = _historyDataSource[indexPath.row];</div><div class="line">    &#125; else &#123;</div><div class="line">        carCheck = _planDataSource[indexPath.row];</div><div class="line">    &#125;</div><div class="line">    [cell fillDataWithModel:carCheck];</div><div class="line">    return cell;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Reactive-Cocoa/" rel="tag"># Reactive Cocoa</a>
+          
+            <a href="/tags/MVVM/" rel="tag"># MVVM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/03/Use-ReactiveCocoa/" rel="next" title="ReactiveCocoa的基本使用">
+                <i class="fa fa-chevron-left"></i> ReactiveCocoa的基本使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://onocdmhtw.bkt.clouddn.com//Home/20170721000136_iJ9xGI_IMG_0513.jpeg"
+               alt="Aaron_36" />
+          <p class="site-author-name" itemprop="name">Aaron_36</p>
+           
+              <p class="site-description motion-element" itemprop="description">好记性不如烂笔头，随便写写，想到啥就写啥。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AaronZJP" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/AaronZJP" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MVVM"><span class="nav-number">1.</span> <span class="nav-text">MVVM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MVVM与ReactiveCocoa"><span class="nav-number">2.</span> <span class="nav-text">MVVM与ReactiveCocoa</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#View-Model"><span class="nav-number">2.1.</span> <span class="nav-text">View-Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">2.2.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View-Controller"><span class="nav-number">2.3.</span> <span class="nav-text">View(Controller)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron_36</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
