@@ -56,30 +56,6 @@
   </entry>
   
   <entry>
-    <title>想养一只狗</title>
-    <link href="Aaronzjp.cn/2017/07/17/I-Love-the-dog/"/>
-    <id>Aaronzjp.cn/2017/07/17/I-Love-the-dog/</id>
-    <published>2017-07-17T06:44:31.000Z</published>
-    <updated>2017-07-31T19:26:10.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;想养一只狗&quot;&gt;&lt;a href=&quot;#想养一只狗&quot; class=&quot;headerlink&quot; title=&quot;想养一只狗&quot;&gt;&lt;/a&gt;想养一只狗&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;​    转眼毕业也快两年时间了，除了工作之余平时基本是很无聊的。作为一个码农按理说应该像网上段子所说的那样整天忙着敲代码，衣衫不整，蓬头垢面吧。但是我却不是这样，没有整体很忙碌的感觉，反而让我觉得很无聊，可能我是一个不上进的码农吧！😀 不工作的时候也很少的看一些技术性的书籍和文章。&lt;/p&gt;
-&lt;p&gt;​    因为最近从别人嘴中得知，可能我在别人眼中我是一个无所事事，没有自我的人。其实我自己也感觉到了，整天在家除了感觉无聊就是感觉无聊。所以最近我买了很多书来看，用来打发我的闲暇时光，也慢慢找到了一点感觉。我发现在周末除了约朋友KTV、疯玩、撒欢，其实还是有很多的事可以做的。听一首歌，看一本书。技术书籍看来固然无聊，所以我尽量看一些我自己感兴趣的书籍。现在也尝试在自己的博客上随随便便写点东西。&lt;/p&gt;
-&lt;p&gt;​    这是我第一次写点非技术类的博客文章，文笔不好，只能尽量的写出自己心中的感悟，经历，和自己平时一些天马行空的想象。什么事都有一个循序渐进的过程，不可能突然就能写出让自己满意的文章，马上达到自己想要的状态，我需要不断的练习，去学习。就像恋爱一样，需要不断的去学习怎么和自己的伴侣相处，让彼此的关系进入佳境。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="趣事" scheme="Aaronzjp.cn/tags/%E8%B6%A3%E4%BA%8B/"/>
-    
-      <category term="随便写写" scheme="Aaronzjp.cn/tags/%E9%9A%8F%E4%BE%BF%E5%86%99%E5%86%99/"/>
-    
-  </entry>
-  
-  <entry>
     <title>React Native开发环境搭建</title>
     <link href="Aaronzjp.cn/2017/07/05/React-Native%20IDE-setup/"/>
     <id>Aaronzjp.cn/2017/07/05/React-Native IDE-setup/</id>
@@ -214,6 +190,24 @@
   </entry>
   
   <entry>
+    <title>swift-函数</title>
+    <link href="Aaronzjp.cn/2016/12/01/Swift%203.0-Function/"/>
+    <id>Aaronzjp.cn/2016/12/01/Swift 3.0-Function/</id>
+    <published>2016-12-01T06:11:37.000Z</published>
+    <updated>2017-08-01T07:52:36.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
     <title>初识CALayer</title>
     <link href="Aaronzjp.cn/2016/12/01/iOS-CALayer/"/>
     <id>Aaronzjp.cn/2016/12/01/iOS-CALayer/</id>
@@ -232,24 +226,6 @@
       <category term="CALayer" scheme="Aaronzjp.cn/tags/CALayer/"/>
     
       <category term="Core Animation" scheme="Aaronzjp.cn/tags/Core-Animation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-函数</title>
-    <link href="Aaronzjp.cn/2016/12/01/Swift%203.0-Function/"/>
-    <id>Aaronzjp.cn/2016/12/01/Swift 3.0-Function/</id>
-    <published>2016-12-01T06:11:37.000Z</published>
-    <updated>2017-08-01T07:52:36.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
   </entry>
   
@@ -410,6 +386,28 @@
     
     
       <category term="iOS多线程" scheme="Aaronzjp.cn/tags/iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发-文件管理</title>
+    <link href="Aaronzjp.cn/2016/04/28/File-Manager/"/>
+    <id>Aaronzjp.cn/2016/04/28/File-Manager/</id>
+    <published>2016-04-28T04:53:47.000Z</published>
+    <updated>2017-07-27T02:57:17.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    在 iOS 开发中，总是有需求我们需要在本地存储数据，但是存储数据的方式有很多，我们怎么样去决定用什么方式去存储数据？目前 iOS 开发中存储数据的方式有属性列表、对象归档、数据库（SQLite，Core Data）等，最终这些数据都会以某些文件等形式存入该App对应的沙盒（SandBox）目录中。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据存储" scheme="Aaronzjp.cn/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
+    
+      <category term="本地化" scheme="Aaronzjp.cn/tags/%E6%9C%AC%E5%9C%B0%E5%8C%96/"/>
+    
+      <category term="文件管理" scheme="Aaronzjp.cn/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
