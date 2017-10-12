@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2017-08-31T06:51:40.776Z</updated>
+  <updated>2017-10-12T03:18:31.584Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>What&#39;s new in iOS11</title>
+    <link href="Aaronzjp.cn/2017/10/12/What-s-new-in-iOS11/"/>
+    <id>Aaronzjp.cn/2017/10/12/What-s-new-in-iOS11/</id>
+    <published>2017-10-12T03:06:03.000Z</published>
+    <updated>2017-10-12T03:18:31.584Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;距离iOS11开发大会结束很久了，然而一天懒得跟猪🐷一样的，iOS11正式发布后也一直没有去整理这些东西，现在才整理一点点出来。下面就是在iOS11中新加入的一些东西，可能不是很全面，但是后续会有补充吧。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="WWDC2017" scheme="Aaronzjp.cn/tags/WWDC2017/"/>
+    
+  </entry>
   
   <entry>
     <title>ReactiveCocoa 和 MVVM 的简单使用</title>
@@ -52,29 +70,6 @@
     
     
       <category term="ReactiveCocoa" scheme="Aaronzjp.cn/tags/ReactiveCocoa/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React Native开发环境搭建</title>
-    <link href="Aaronzjp.cn/2017/07/05/React-Native%20IDE-setup/"/>
-    <id>Aaronzjp.cn/2017/07/05/React-Native IDE-setup/</id>
-    <published>2017-07-05T12:55:29.000Z</published>
-    <updated>2017-07-26T06:09:08.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;React-Native的开发环境搭建&quot;&gt;&lt;a href=&quot;#React-Native的开发环境搭建&quot; class=&quot;headerlink&quot; title=&quot;React Native的开发环境搭建&quot;&gt;&lt;/a&gt;React Native的开发环境搭建&lt;/h1&gt;&lt;h5 id=&quot;Homebrew&quot;&gt;&lt;a href=&quot;#Homebrew&quot; class=&quot;headerlink&quot; title=&quot;Homebrew&quot;&gt;&lt;/a&gt;Homebrew&lt;/h5&gt;&lt;p&gt;​    首先需要安装一个包管理软件，Homebrew，该工具是在 Mac OS 下最受欢迎的一款包管理工具，但是在安装 Homebrew 之前最好是先确认是否安装了 Xcode ，因为这样就可以方便的使用基于 Xcode Command Line Tools 来安装该工具了。&lt;/p&gt;
-&lt;p&gt;打开 Terminal 输入如下命令：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt; /usr/bin/ruby -e &lt;span class=&quot;string&quot;&gt;&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在安装 Homebrew 时可能会因为目录的写入权限问题安装失败，具体的使用Google查看解决方法。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="React Native" scheme="Aaronzjp.cn/tags/React-Native/"/>
     
   </entry>
   
@@ -190,24 +185,6 @@
   </entry>
   
   <entry>
-    <title>swift-函数</title>
-    <link href="Aaronzjp.cn/2016/12/01/Swift%203.0-Function/"/>
-    <id>Aaronzjp.cn/2016/12/01/Swift 3.0-Function/</id>
-    <published>2016-12-01T06:11:37.000Z</published>
-    <updated>2017-08-01T07:52:36.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
-    
-  </entry>
-  
-  <entry>
     <title>初识CALayer</title>
     <link href="Aaronzjp.cn/2016/12/01/iOS-CALayer/"/>
     <id>Aaronzjp.cn/2016/12/01/iOS-CALayer/</id>
@@ -226,6 +203,24 @@
       <category term="CALayer" scheme="Aaronzjp.cn/tags/CALayer/"/>
     
       <category term="Core Animation" scheme="Aaronzjp.cn/tags/Core-Animation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-函数</title>
+    <link href="Aaronzjp.cn/2016/12/01/Swift%203.0-Function/"/>
+    <id>Aaronzjp.cn/2016/12/01/Swift 3.0-Function/</id>
+    <published>2016-12-01T06:11:37.000Z</published>
+    <updated>2017-08-01T07:52:36.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
   </entry>
   
