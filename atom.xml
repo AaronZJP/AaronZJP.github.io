@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2017-10-12T03:18:31.584Z</updated>
+  <updated>2017-10-25T08:29:13.821Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信小程序开发(一)</title>
+    <link href="Aaronzjp.cn/2017/10/23/WeChat%20Mini%20Apps%20(%E4%B8%80)/"/>
+    <id>Aaronzjp.cn/2017/10/23/WeChat Mini Apps (一)/</id>
+    <published>2017-10-23T06:25:38.000Z</published>
+    <updated>2017-10-25T08:29:13.821Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    最近公司有个很小的项目，要求用微信小程序来做，于是最近就在学习小程序的相关知识。一直是做 iOS 原生开发，Java Script、HTML 以及 CSS 都不会，微信小程序又和这类知识有关，所有也简单的学习和看了一下这方面的知识。关于前端的这部分会单独的总结成博
+    
+    </summary>
+    
+    
+      <category term="微信小程序" scheme="Aaronzjp.cn/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>What&#39;s new in iOS11</title>
@@ -38,7 +56,7 @@
     <link href="Aaronzjp.cn/2017/08/28/ReactiveCocoa-and-MVVM/"/>
     <id>Aaronzjp.cn/2017/08/28/ReactiveCocoa-and-MVVM/</id>
     <published>2017-08-28T05:14:55.000Z</published>
-    <updated>2017-08-31T06:51:40.776Z</updated>
+    <updated>2017-11-16T07:07:08.337Z</updated>
     
     <summary type="html">
     
@@ -150,7 +168,7 @@
     <link href="Aaronzjp.cn/2017/03/07/Animation/"/>
     <id>Aaronzjp.cn/2017/03/07/Animation/</id>
     <published>2017-03-07T06:44:31.000Z</published>
-    <updated>2017-07-26T05:46:24.000Z</updated>
+    <updated>2017-11-14T03:01:19.047Z</updated>
     
     <summary type="html">
     
@@ -349,7 +367,7 @@
     <link href="Aaronzjp.cn/2016/05/31/UINavigationBar/"/>
     <id>Aaronzjp.cn/2016/05/31/UINavigationBar/</id>
     <published>2016-05-31T10:31:30.000Z</published>
-    <updated>2017-04-19T09:22:57.000Z</updated>
+    <updated>2017-10-12T03:19:30.659Z</updated>
     
     <summary type="html">
     
@@ -381,28 +399,6 @@
     
     
       <category term="iOS多线程" scheme="Aaronzjp.cn/tags/iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS开发-文件管理</title>
-    <link href="Aaronzjp.cn/2016/04/28/File-Manager/"/>
-    <id>Aaronzjp.cn/2016/04/28/File-Manager/</id>
-    <published>2016-04-28T04:53:47.000Z</published>
-    <updated>2017-07-27T02:57:17.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;​    在 iOS 开发中，总是有需求我们需要在本地存储数据，但是存储数据的方式有很多，我们怎么样去决定用什么方式去存储数据？目前 iOS 开发中存储数据的方式有属性列表、对象归档、数据库（SQLite，Core Data）等，最终这些数据都会以某些文件等形式存入该App对应的沙盒（SandBox）目录中。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="数据存储" scheme="Aaronzjp.cn/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/"/>
-    
-      <category term="本地化" scheme="Aaronzjp.cn/tags/%E6%9C%AC%E5%9C%B0%E5%8C%96/"/>
-    
-      <category term="文件管理" scheme="Aaronzjp.cn/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   

@@ -105,7 +105,7 @@
 <meta property="og:description" content="MVVM在 iOS 中最开始的时候以及我们一开始学习的时候就是使用的 MVC 的模式来进行iOS App 开发的。MVC 的模式总的来说就是分为三个部分 Model(数据模型)、View(界面，视图)、Controller(控制器)。 在 MVC 中他们的通信方式如下图所示，该图来自斯坦福公开课中的 PDF 文件。">
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com//Home/20170828133751_2D003l_AED3559B-85AA-4D3C-9FF8-0C0DD9036277.jpeg">
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com//Home/20170828154620_gfP2rU_MVVMPattern.jpeg">
-<meta property="og:updated_time" content="2017-08-31T06:51:40.776Z">
+<meta property="og:updated_time" content="2017-11-16T07:07:08.337Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactiveCocoa 和 MVVM 的简单使用">
 <meta name="twitter:description" content="MVVM在 iOS 中最开始的时候以及我们一开始学习的时候就是使用的 MVC 的模式来进行iOS App 开发的。MVC 的模式总的来说就是分为三个部分 Model(数据模型)、View(界面，视图)、Controller(控制器)。 在 MVC 中他们的通信方式如下图所示，该图来自斯坦福公开课中的 PDF 文件。">
@@ -347,7 +347,7 @@
 <p><img src="http://onocdmhtw.bkt.clouddn.com//Home/20170828154620_gfP2rU_MVVMPattern.jpeg" alt=""></p>
 <p>图片来自维基百科，在 iOS 中图上的 View 也应该包括 Controller。其中 View-Model 是介于 View(Controller) 和 Model 之间的。在 MVVM 模式中数据的获取和数据的获取以及数据的处理都是在 View-Model 中来完成的，其中 View-Model 再通过 Model 将数据转化成一个一个的 Model 用来供视图展示和显示出来。其实 MVVM 模型就是一个 MVC 经过优化后的模式。它将原来需要在 View(Controller) 中需要处理的数据单独提取到 View-Model 中来处理，这样 View(Controller) 只要负责显示即可，让 View(Controller) 更加的轻量化。</p>
 <h1 id="MVVM与ReactiveCocoa"><a href="#MVVM与ReactiveCocoa" class="headerlink" title="MVVM与ReactiveCocoa"></a>MVVM与ReactiveCocoa</h1><h2 id="View-Model"><a href="#View-Model" class="headerlink" title="View-Model"></a>View-Model</h2><p>View-Model 是和 Controller 在一起的，但是 View-Model 和 Controller 是相互独立的两个东西，View-Model 基本上是负责处理数据的获取和过滤的。Controller 通过 View-Model 获取数据来使用。</p>
-<p>在例子中，有这样一个 UITableView 用来展示一些车辆审验的信息，这里结合了 ReactiveCocoa 来做控制数据请求后的数据流动。请求获取大数据后，通过在 Controller 对信号订阅从信号管道中获取到数据。我看到有的人是在请求到的数据通过只读属性暴露在外的，但是我绝既然这里使用了 ReactiveCocoa 来做处理，所以我还是把数据通过信号管道的方式来使用请求到的数据好一点。另外 View-Model 这个类在设计的时候因为对数据种类这点没考虑到所以这个类设计得不是很好，这里也就先不细化的说了。主要记录一下 MVVM + ReactiveCocoa 的简单的使用的一个范例。</p>
+<p>在例子中，有这样一个 UITableView 用来展示一些车辆审验的信息，这里结合了 ReactiveCocoa 来做控制数据请求后的数据流动。请求获取数据后，通过在 Controller 对信号订阅从信号管道中获取到数据。我看到有的人是在请求到的数据通过只读属性暴露在外的，但是我绝既然这里使用了 ReactiveCocoa 来做处理，所以我还是把数据通过信号管道的方式来使用请求到的数据好一点。另外 View-Model 这个类在设计的时候因为对数据种类这点没考虑到所以这个类设计得不是很好，这里也就先不细化的说了。主要记录一下 MVVM + ReactiveCocoa 的简单的使用的一个范例。</p>
 <blockquote>
 <p>CarCheckViewModel.h</p>
 </blockquote>
@@ -492,7 +492,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -514,7 +514,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
