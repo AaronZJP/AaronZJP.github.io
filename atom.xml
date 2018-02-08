@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2017-10-12T03:18:31.000Z</updated>
+  <updated>2017-12-12T08:46:32.003Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -16,15 +16,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>《HTTP权威指南》读书笔记之 - Cookie</title>
+    <link href="Aaronzjp.cn/2017/12/12/HTTP-Cookie/"/>
+    <id>Aaronzjp.cn/2017/12/12/HTTP-Cookie/</id>
+    <published>2017-12-12T08:44:28.000Z</published>
+    <updated>2017-12-12T08:46:32.003Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="HTTP" scheme="Aaronzjp.cn/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《HTTP权威指南》读书笔记之 - HTTP报文</title>
+    <link href="Aaronzjp.cn/2017/12/06/HTTP-Protocol/"/>
+    <id>Aaronzjp.cn/2017/12/06/HTTP-Protocol/</id>
+    <published>2017-12-05T23:40:35.000Z</published>
+    <updated>2017-12-12T08:45:53.257Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    HTTP 协议最初设计目的是用来接收和发布 HTML 网页的，因为其数据传输的可靠性后来被广泛的使用，HTTP 是一种可靠的数据传输协议，该协议位于 TCP/IP 协议族中的应用层。目前 HTTP 已经不只是用来传输简单的网页了。我们在网络上浏览的所有的资源都是存
+    
+    </summary>
+    
+    
+      <category term="HTTP" scheme="Aaronzjp.cn/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>What&#39;s new in iOS11</title>
     <link href="Aaronzjp.cn/2017/10/12/What-s-new-in-iOS11/"/>
     <id>Aaronzjp.cn/2017/10/12/What-s-new-in-iOS11/</id>
     <published>2017-10-12T03:06:03.000Z</published>
-    <updated>2017-10-12T03:18:31.000Z</updated>
+    <updated>2018-02-08T02:43:27.814Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;距离iOS11开发大会结束很久了，然而一天懒得跟猪🐷一样的，iOS11正式发布后也一直没有去整理这些东西，现在才整理一点点出来。下面就是在iOS11中新加入的一些东西，可能不是很全面，但是后续会有补充吧。&lt;/p&gt;
+      &lt;p&gt;iOS 11正式发布后也一直没有去整理这些东西，现在才整理一点点出来。下面就是在iOS11中新加入的一些东西，可能不是很全面，但是后续会有补充吧。&lt;/p&gt;
     
     </summary>
     
@@ -185,20 +219,23 @@
   </entry>
   
   <entry>
-    <title>swift-函数</title>
-    <link href="Aaronzjp.cn/2016/12/01/Swift%203.0-Function/"/>
-    <id>Aaronzjp.cn/2016/12/01/Swift 3.0-Function/</id>
-    <published>2016-12-01T06:11:37.000Z</published>
-    <updated>2017-08-01T07:52:36.000Z</updated>
+    <title>《HTTP权威指南》读书笔记之 - URL与资源</title>
+    <link href="Aaronzjp.cn/2016/12/02/URL-and-Resource/"/>
+    <id>Aaronzjp.cn/2016/12/02/URL-and-Resource/</id>
+    <published>2016-12-02T13:31:46.000Z</published>
+    <updated>2018-02-08T02:58:42.629Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
+      &lt;p&gt;​    如今我们随时随地都在通过各种设备上网，我们通过网络听歌，查看图片，浏览网页。那我们所访问的这些东西，音乐，图片，网页是从哪来的呢？放在什么地方呢？我们通过什么样的方式使用手中的设备去访问的这些资源呢？&lt;/p&gt;
+&lt;p&gt;​    其实我们所访问的这些资源都是存储在世界各地的 Web 服务器的，我们通过 URL 在网络上定位和访问这些资源。我们最常见的 URL 就是我们在上网时打开浏览器后在地址栏输入的网址，这个就是 URL。URL 是 URI 的子集。&lt;/p&gt;
     
     </summary>
     
     
-      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
+      <category term="HTTP" scheme="Aaronzjp.cn/tags/HTTP/"/>
+    
+      <category term="URL" scheme="Aaronzjp.cn/tags/URL/"/>
     
   </entry>
   
@@ -221,6 +258,24 @@
       <category term="CALayer" scheme="Aaronzjp.cn/tags/CALayer/"/>
     
       <category term="Core Animation" scheme="Aaronzjp.cn/tags/Core-Animation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift-函数</title>
+    <link href="Aaronzjp.cn/2016/12/01/Swift-Function/"/>
+    <id>Aaronzjp.cn/2016/12/01/Swift-Function/</id>
+    <published>2016-12-01T06:11:37.000Z</published>
+    <updated>2018-02-08T02:59:19.674Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
   </entry>
   
@@ -341,67 +396,6 @@
     
     
       <category term="疑难杂症" scheme="Aaronzjp.cn/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UINavigationBar</title>
-    <link href="Aaronzjp.cn/2016/05/31/UINavigationBar/"/>
-    <id>Aaronzjp.cn/2016/05/31/UINavigationBar/</id>
-    <published>2016-05-31T10:31:30.000Z</published>
-    <updated>2017-10-12T03:19:30.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;NavigationBar 是在大多数App中很常见的一个控件，它总是显示在 App 窗口的顶部，其作用就是用来显示当前视图的层级。&lt;/p&gt;
-&lt;p&gt;NavigationBar 主要包含了这样几个部分，left(back) Button 、 CenterTitle 、 RightButton。如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/2017033114909574652892.png&quot; alt=&quot;2017033114909574652892.png&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="UIKit" scheme="Aaronzjp.cn/tags/UIKit/"/>
-    
-      <category term="UINavigationBar" scheme="Aaronzjp.cn/tags/UINavigationBar/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《HTTP权威指南》读书笔记一</title>
-    <link href="Aaronzjp.cn/2016/05/25/URL-and-Resource/"/>
-    <id>Aaronzjp.cn/2016/05/25/URL-and-Resource/</id>
-    <published>2016-05-25T13:31:46.000Z</published>
-    <updated>2017-12-05T15:12:50.452Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;​    如今我们随时随地都在通过各种设备上网，我们通过网络听歌，查看图片，浏览网页。那我们所访问的这些东西，音乐，图片，网页是从哪来的呢？放在什么地方呢？我们通过什么样的方式使用手中的设备去访问的这些资源呢？&lt;/p&gt;
-&lt;p&gt;​    其实我们所访问的这些资源都是存储在世界各地的服务器的，我们通过 &lt;strong&gt;URL&lt;/strong&gt; 在网络上定位和访问这些资源。我们最常见的 &lt;strong&gt;URL&lt;/strong&gt; 就是我们在上网时打开浏览器后在地址栏输入的网址，这个就是 &lt;strong&gt;URL&lt;/strong&gt;。&lt;strong&gt;URL&lt;/strong&gt; 是 &lt;strong&gt;URI&lt;/strong&gt; 的子集。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="HTTP" scheme="Aaronzjp.cn/tags/HTTP/"/>
-    
-      <category term="URL" scheme="Aaronzjp.cn/tags/URL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS - 多线程</title>
-    <link href="Aaronzjp.cn/2016/05/17/Multiple-Thread/"/>
-    <id>Aaronzjp.cn/2016/05/17/Multiple-Thread/</id>
-    <published>2016-05-17T01:40:48.000Z</published>
-    <updated>2017-07-27T02:54:50.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;很多时候在我们的软件项目中我们都需要用到多线程，在iOS的项目中也不例外。多线程是编程中重要的一项技术，多线程又分为并发和串行，在此基础上又分为同步线程和异步线程。以下这几点很容易混淆，当然GCD中还有并发队列和串行队列，这个在下面的GCD中有提到。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="iOS多线程" scheme="Aaronzjp.cn/tags/iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
