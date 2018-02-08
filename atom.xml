@@ -36,16 +36,37 @@
     <link href="Aaronzjp.cn/2017/12/06/HTTP-Protocol/"/>
     <id>Aaronzjp.cn/2017/12/06/HTTP-Protocol/</id>
     <published>2017-12-05T23:40:35.000Z</published>
-    <updated>2017-12-12T08:45:53.257Z</updated>
+    <updated>2018-02-08T03:07:56.733Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;​    HTTP 协议最初设计目的是用来接收和发布 HTML 网页的，因为其数据传输的可靠性后来被广泛的使用，HTTP 是一种可靠的数据传输协议，该协议位于 TCP/IP 协议族中的应用层。目前 HTTP 已经不只是用来传输简单的网页了。我们在网络上浏览的所有的资源都是存
+      &lt;p&gt;​    HTTP 协议最初设计目的是用来接收和发布 HTML 网页的，因为其数据传输的可靠性后来被广泛的使用，HTTP 是一种可靠的数据传输协议，该协议位于 TCP/IP 协议族中的应用层。目前 HTTP 已经不只是用来传输简单的网页了。我们在网络上浏览的所有的资源都是存储在 Web 服务器中的，这些资源通过 HTTP 协议被传输到我们的设备中让我们使用。这些使用 HTTP 协议传输数据的服务器就被称为 HTTP 服务器。&lt;/p&gt;
     
     </summary>
     
     
       <category term="HTTP" scheme="Aaronzjp.cn/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《HTTP权威指南》读书笔记之 - URL与资源</title>
+    <link href="Aaronzjp.cn/2017/12/02/URL-and-Resource/"/>
+    <id>Aaronzjp.cn/2017/12/02/URL-and-Resource/</id>
+    <published>2017-12-02T13:31:46.000Z</published>
+    <updated>2018-02-08T03:05:37.583Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​    如今我们随时随地都在通过各种设备上网，我们通过网络听歌，查看图片，浏览网页。那我们所访问的这些东西，音乐，图片，网页是从哪来的呢？放在什么地方呢？我们通过什么样的方式使用手中的设备去访问的这些资源呢？&lt;/p&gt;
+&lt;p&gt;​    其实我们所访问的这些资源都是存储在世界各地的 Web 服务器的，我们通过 URL 在网络上定位和访问这些资源。我们最常见的 URL 就是我们在上网时打开浏览器后在地址栏输入的网址，这个就是 URL。URL 是 URI 的子集。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="HTTP" scheme="Aaronzjp.cn/tags/HTTP/"/>
+    
+      <category term="URL" scheme="Aaronzjp.cn/tags/URL/"/>
     
   </entry>
   
@@ -219,23 +240,20 @@
   </entry>
   
   <entry>
-    <title>《HTTP权威指南》读书笔记之 - URL与资源</title>
-    <link href="Aaronzjp.cn/2016/12/02/URL-and-Resource/"/>
-    <id>Aaronzjp.cn/2016/12/02/URL-and-Resource/</id>
-    <published>2016-12-02T13:31:46.000Z</published>
-    <updated>2018-02-08T02:58:42.629Z</updated>
+    <title>Swift-函数</title>
+    <link href="Aaronzjp.cn/2016/12/01/Swift-Function/"/>
+    <id>Aaronzjp.cn/2016/12/01/Swift-Function/</id>
+    <published>2016-12-01T06:11:37.000Z</published>
+    <updated>2018-02-08T02:59:19.674Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;​    如今我们随时随地都在通过各种设备上网，我们通过网络听歌，查看图片，浏览网页。那我们所访问的这些东西，音乐，图片，网页是从哪来的呢？放在什么地方呢？我们通过什么样的方式使用手中的设备去访问的这些资源呢？&lt;/p&gt;
-&lt;p&gt;​    其实我们所访问的这些资源都是存储在世界各地的 Web 服务器的，我们通过 URL 在网络上定位和访问这些资源。我们最常见的 URL 就是我们在上网时打开浏览器后在地址栏输入的网址，这个就是 URL。URL 是 URI 的子集。&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
     
     </summary>
     
     
-      <category term="HTTP" scheme="Aaronzjp.cn/tags/HTTP/"/>
-    
-      <category term="URL" scheme="Aaronzjp.cn/tags/URL/"/>
+      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
   </entry>
   
@@ -258,24 +276,6 @@
       <category term="CALayer" scheme="Aaronzjp.cn/tags/CALayer/"/>
     
       <category term="Core Animation" scheme="Aaronzjp.cn/tags/Core-Animation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift-函数</title>
-    <link href="Aaronzjp.cn/2016/12/01/Swift-Function/"/>
-    <id>Aaronzjp.cn/2016/12/01/Swift-Function/</id>
-    <published>2016-12-01T06:11:37.000Z</published>
-    <updated>2018-02-08T02:59:19.674Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
   </entry>
   
