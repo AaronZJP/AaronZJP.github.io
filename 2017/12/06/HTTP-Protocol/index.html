@@ -108,7 +108,7 @@
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20171208134139_m7xkT6_Screenshot.jpeg">
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20171208133732_BxVop1_Screenshot.jpeg">
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20171211141845_CWYl7o_Screenshot.jpeg">
-<meta property="og:updated_time" content="2018-02-08T03:07:56.733Z">
+<meta property="og:updated_time" content="2018-04-27T09:44:01.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《HTTP权威指南》读书笔记之 - HTTP报文">
 <meta name="twitter:description" content="​    HTTP 协议最初设计目的是用来接收和发布 HTML 网页的，因为其数据传输的可靠性后来被广泛的使用，HTTP 是一种可靠的数据传输协议，该协议位于 TCP/IP 协议族中的应用层。目前 HTTP 已经不只是用来传输简单的网页了。我们在网络上浏览的所有的资源都是存储在 Web 服务器中的，这些资源通过 HTTP 协议被传输到我们的设备中让我们使用。这些使用 HTTP 协议传输数据的服务器">
@@ -445,7 +445,7 @@
 <h1 id="HTTP连接"><a href="#HTTP连接" class="headerlink" title="HTTP连接"></a>HTTP连接</h1><p>​    上面已经说了 HTTP 协议是处于 TCP/IP 协议族中的应用层，所以 HTTP 的连接是通过 TCP 来连接的。TCP/IP 是全球计算机及网络设备都在使用的一种常用的分组交换网络分层协议集。TCP 为 HTTP 提供了稳定可靠的数据传输，TCP 传输的数据是有序的，且无差错的。</p>
 <p>​    HTTP 在传送数据发送报文的时候是以流的形式传送的，通过打开一条 TCP 连接按序传送。TCP 在收到数据流的时候会把数据分隔成一段一段的数据块，把数据块进一步封装上目的 IP 地址、源 IP 地址、目的端口号、源端口号、序列号、数据完整校验等信息后将数据块按序发出。</p>
 <p><img src="http://onocdmhtw.bkt.clouddn.com/20171208134139_m7xkT6_Screenshot.jpeg" alt="HTTP 报文数据的传输-图片截取自《HTTP权威指南》"></p>
-<p>关于 TCP 的知识：<a href="">TCP/IP</a></p>
+<p>关于 TCP 的知识：<a href="https://zh.wikipedia.org/wiki/TCP/IP协议族" target="_blank" rel="external">TCP/IP</a></p>
 <p>​    HTTP 报文的发送会经过 HTTP、TCP、IP、网络接口，其中现在的 HTTP 则是在 HTTP 和 TCP 层之间加入了安全层，用 TLS 或者 SSL 密码加密层。如下图所示：</p>
 <p><img src="http://onocdmhtw.bkt.clouddn.com/20171208133732_BxVop1_Screenshot.jpeg" alt="图片截取自《HTTP 权威指南》"></p>
 <h2 id="HTTP性能的考虑"><a href="#HTTP性能的考虑" class="headerlink" title="HTTP性能的考虑"></a>HTTP性能的考虑</h2><h3 id="TCP连接的握手延时"><a href="#TCP连接的握手延时" class="headerlink" title="TCP连接的握手延时"></a>TCP连接的握手延时</h3><p>​    在频繁的 HTTP 请求下很多时候就要考虑到网络请求的性能问题。比如我公司一个项目中需要持续从服务器获取一个人的位置，项目中使用的是 HTTP 连接来做的，每隔3秒就会发送一个请求去获取数据。其实这样是很耗费性能的。</p>
