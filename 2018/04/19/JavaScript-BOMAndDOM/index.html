@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS, iOS 开发, 博客, Aaron_36" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aaron的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="BOM(浏览器对象模型)JavaScript 可以获取浏览器提供的很多对象。浏览器对象模型（Browser Object Model）尚无正式标准。由于浏览器已经实现了 JavaScript 交互性方面的相同方法和属性，因此常被认为是 BOM 的方法和属性。 window 对象所有的浏览器都支持 window 对象，表示浏览器窗口。window 是一个全局对象，不但这样所有 JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-BOMAndDOM">
+<meta property="og:url" content="Aaronzjp.cn/2018/04/19/JavaScript-BOMAndDOM/index.html">
+<meta property="og:site_name" content="Aaron的博客">
+<meta property="og:description" content="BOM(浏览器对象模型)JavaScript 可以获取浏览器提供的很多对象。浏览器对象模型（Browser Object Model）尚无正式标准。由于浏览器已经实现了 JavaScript 交互性方面的相同方法和属性，因此常被认为是 BOM 的方法和属性。 window 对象所有的浏览器都支持 window 对象，表示浏览器窗口。window 是一个全局对象，不但这样所有 JavaScript">
+<meta property="og:updated_time" content="2018-04-19T09:20:31.981Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript-BOMAndDOM">
+<meta name="twitter:description" content="BOM(浏览器对象模型)JavaScript 可以获取浏览器提供的很多对象。浏览器对象模型（Browser Object Model）尚无正式标准。由于浏览器已经实现了 JavaScript 交互性方面的相同方法和属性，因此常被认为是 BOM 的方法和属性。 window 对象所有的浏览器都支持 window 对象，表示浏览器窗口。window 是一个全局对象，不但这样所有 JavaScript">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="Aaronzjp.cn/2018/04/19/JavaScript-BOMAndDOM/"/>
+
+
+
+
+
+  <title>JavaScript-BOMAndDOM | Aaron的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay foolish,Stay hungry!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2018/04/19/JavaScript-BOMAndDOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron_36">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://onocdmhtw.bkt.clouddn.com/20180427165642_tLVia7_C4146327-19B5-490D-9192-867FB89D10D3.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript-BOMAndDOM</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-19T14:37:13+08:00">
+                2018-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="BOM-浏览器对象模型"><a href="#BOM-浏览器对象模型" class="headerlink" title="BOM(浏览器对象模型)"></a>BOM(浏览器对象模型)</h1><p>JavaScript 可以获取浏览器提供的很多对象。浏览器对象模型（Browser Object Model）尚无正式标准。由于浏览器已经实现了 JavaScript 交互性方面的相同方法和属性，因此常被认为是 BOM 的方法和属性。</p>
+<h2 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h2><p>所有的浏览器都支持 <code>window</code> 对象，表示浏览器窗口。<code>window</code> 是一个全局对象，不但这样所有 JavaScript 全局对象、函数以及变量都会成为 <code>window</code> 对象的成员。</p>
+<a id="more"></a>
+<p>通过 window 对象我们可以获取到浏览器内容的尺寸</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> width = <span class="built_in">window</span>.innerWidth;</div><div class="line"><span class="keyword">var</span> height = <span class="built_in">window</span>.innerHeight;</div></pre></td></tr></table></figure>
+<p>当然也可以获取浏览器窗口的尺寸</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> outWidth = <span class="built_in">window</span>.outerWidth;</div><div class="line"><span class="keyword">var</span> outHeight = <span class="built_in">window</span>.outerHeight;</div></pre></td></tr></table></figure>
+<p><code>window</code> 还有一些其他的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.open() <span class="comment">// 打开新窗口</span></div><div class="line"><span class="built_in">window</span>.close() <span class="comment">// 关闭当前窗口</span></div><div class="line"><span class="built_in">window</span>.moveTo() <span class="comment">// 移动当前窗口</span></div><div class="line"><span class="built_in">window</span>.resizeTo() <span class="comment">// 调整当前窗口的尺寸</span></div></pre></td></tr></table></figure>
+<h2 id="screen-对象"><a href="#screen-对象" class="headerlink" title="screen 对象"></a>screen 对象</h2><p>通过 <code>screen</code> 对象可以获取设备屏幕相关的信息。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">screen.width; <span class="comment">//屏幕宽度</span></div><div class="line">screen.height; <span class="comment">//屏幕高度</span></div><div class="line"></div><div class="line">screen.availWidth <span class="comment">//可用屏幕宽度</span></div><div class="line">screen.availHeight; <span class="comment">//可用屏幕高度</span></div><div class="line"></div><div class="line">screen.colorDepth; <span class="comment">//屏幕色彩位数</span></div></pre></td></tr></table></figure>
+<h2 id="navigator-对象"><a href="#navigator-对象" class="headerlink" title="navigator 对象"></a>navigator 对象</h2><p><code>navigator</code> 对象中可以获取到浏览器的相关信息，以及常用的属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">navigator.appName <span class="comment">//浏览器名称；</span></div><div class="line">navigator.appVersion <span class="comment">//浏览器版本；</span></div><div class="line">navigator.language <span class="comment">//浏览器设置的语言；</span></div><div class="line">navigator.platform <span class="comment">//操作系统类型；</span></div><div class="line">navigator.userAgent <span class="comment">//浏览器设定的User-Agent字符串。</span></div></pre></td></tr></table></figure>
+<p>但是需要注意的是 navigator 的信息可以很容易的被用户修改，所以得到的值不一定是正确的。</p>
+<h2 id="location-对象"><a href="#location-对象" class="headerlink" title="location 对象"></a>location 对象</h2><p>通过 <code>location</code> 对象可以获取到当前页面的 URL 地址。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.location.href</div><div class="line"><span class="comment">// 获取当前页面 URL 地址</span></div><div class="line"><span class="comment">// http://www.w3school.com.cn/js/js_window_location.asp</span></div></pre></td></tr></table></figure>
+<p>获取 location 其他信息</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.location.host</div><div class="line"><span class="comment">// www.w3school.com.cn  web主机的域名</span></div><div class="line"><span class="built_in">window</span>.location.protocol</div><div class="line"><span class="comment">// http 当前页面使用的web协议</span></div><div class="line"><span class="built_in">window</span>.location.port</div><div class="line"><span class="comment">//端口</span></div><div class="line"><span class="built_in">window</span>.location.pathname</div><div class="line"><span class="comment">//当前页面路径和文件名</span></div></pre></td></tr></table></figure>
+<p>也可以通过 location 加载新的文档</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.location.assign(<span class="string">"http://www.google.com"</span>);</div></pre></td></tr></table></figure>
+<h2 id="document-对象"><a href="#document-对象" class="headerlink" title="document 对象"></a>document 对象</h2><p><code>document</code> 对象表示当前页面，在 HTML 浏览器中 DOM 形式表示为树状结构，<code>document</code> 就是整个 DOM 树的根节点。通过 document 可以动态的修改当前页面。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.title = <span class="string">"学习 JavaScript 中！"</span>;</div></pre></td></tr></table></figure>
+<p>在浏览器的控制台中输入上面的代码，可以看到浏览器的标题被修改了。</p>
+<p>要查找 DOM 树的某个节点就需要从 <code>document</code> 对象开始查找，常用的是更加 HTML 元素的 id 和 tagname 来查找。</p>
+<p><code>document</code> 对象还有一个 <code>cookie</code> 属性，可以获取到当前页面的 <code>cookie</code>。<code>cookie</code> 主要存储了用户的一些相关信息，基于安全。<code>cookie</code> 一般都是要设置 <code>httpOnly</code> 的，设置了 <code>httpOnly</code> 的 <code>cookie</code> 是不能被  JavaScript 读取到的。</p>
+<h2 id="history-对象"><a href="#history-对象" class="headerlink" title="history 对象"></a>history 对象</h2><p><code>history</code> 对象保存了浏览器的历史记录。可以通过 JavaScript 调用 <code>history</code> 对象的 <code>back()</code> 和 <code>forward()</code>  对象来前进后退页面，相当于用户点击了前进和后退按钮。但是尽量不要使用这两个方法。</p>
+<h1 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM(文档对象模型)"></a>DOM(文档对象模型)</h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/11/JavaScript-OOP/" rel="next" title="JavaScript-面向对象编程">
+                <i class="fa fa-chevron-left"></i> JavaScript-面向对象编程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/22/iOS11-design-guide/" rel="prev" title="iOS11设计概览">
+                iOS11设计概览 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://onocdmhtw.bkt.clouddn.com/20180427165642_tLVia7_C4146327-19B5-490D-9192-867FB89D10D3.jpeg"
+               alt="Aaron_36" />
+          <p class="site-author-name" itemprop="name">Aaron_36</p>
+           
+              <p class="site-description motion-element" itemprop="description">笨鸟先飞，笨人勤学。有一种学习的方式叫抄书式学习，博客里的文章主要是看的一些书或其他人的博客，用自己的话记录下来。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AaronZJP" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/AaronZJP" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM-浏览器对象模型"><span class="nav-number">1.</span> <span class="nav-text">BOM(浏览器对象模型)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#window-对象"><span class="nav-number">1.1.</span> <span class="nav-text">window 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#screen-对象"><span class="nav-number">1.2.</span> <span class="nav-text">screen 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigator-对象"><span class="nav-number">1.3.</span> <span class="nav-text">navigator 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location-对象"><span class="nav-number">1.4.</span> <span class="nav-text">location 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#document-对象"><span class="nav-number">1.5.</span> <span class="nav-text">document 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history-对象"><span class="nav-number">1.6.</span> <span class="nav-text">history 对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM-文档对象模型"><span class="nav-number">2.</span> <span class="nav-text">DOM(文档对象模型)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron_36</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

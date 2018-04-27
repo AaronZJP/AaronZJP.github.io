@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS学习,JS基础," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aaron的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="JavaScript 标准对象对象的类型在 JavaScript 中一切都是对象，但是 JavaScript 中的对象是有类型的，在 JavaScript 中使用 typeof 来获取对象的类型，返回的是类型的字符串 123456789typeof 123; // &apos;number&apos;typeof NaN; // &apos;number&apos;typeof &apos;str&apos;; // &apos;string&apos;typeof true">
+<meta name="keywords" content="JS学习,JS基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-面向对象编程">
+<meta property="og:url" content="Aaronzjp.cn/2018/04/11/JavaScript-OOP/index.html">
+<meta property="og:site_name" content="Aaron的博客">
+<meta property="og:description" content="JavaScript 标准对象对象的类型在 JavaScript 中一切都是对象，但是 JavaScript 中的对象是有类型的，在 JavaScript 中使用 typeof 来获取对象的类型，返回的是类型的字符串 123456789typeof 123; // &apos;number&apos;typeof NaN; // &apos;number&apos;typeof &apos;str&apos;; // &apos;string&apos;typeof true">
+<meta property="og:updated_time" content="2018-04-20T09:24:07.699Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript-面向对象编程">
+<meta name="twitter:description" content="JavaScript 标准对象对象的类型在 JavaScript 中一切都是对象，但是 JavaScript 中的对象是有类型的，在 JavaScript 中使用 typeof 来获取对象的类型，返回的是类型的字符串 123456789typeof 123; // &apos;number&apos;typeof NaN; // &apos;number&apos;typeof &apos;str&apos;; // &apos;string&apos;typeof true">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="Aaronzjp.cn/2018/04/11/JavaScript-OOP/"/>
+
+
+
+
+
+  <title>JavaScript-面向对象编程 | Aaron的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay foolish,Stay hungry!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2018/04/11/JavaScript-OOP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron_36">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://onocdmhtw.bkt.clouddn.com/20180427165642_tLVia7_C4146327-19B5-490D-9192-867FB89D10D3.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript-面向对象编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T13:56:16+08:00">
+                2018-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JavaScript-标准对象"><a href="#JavaScript-标准对象" class="headerlink" title="JavaScript 标准对象"></a>JavaScript 标准对象</h1><h2 id="对象的类型"><a href="#对象的类型" class="headerlink" title="对象的类型"></a>对象的类型</h2><p>在 JavaScript 中一切都是对象，但是 JavaScript 中的对象是有类型的，在 JavaScript 中使用 <code>typeof</code> 来获取对象的类型，返回的是类型的字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typeof</span> <span class="number">123</span>; <span class="comment">// 'number'</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span>; <span class="comment">// 'number'</span></div><div class="line"><span class="keyword">typeof</span> <span class="string">'str'</span>; <span class="comment">// 'string'</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">true</span>; <span class="comment">// 'boolean'</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>; <span class="comment">// 'undefined'</span></div><div class="line"><span class="keyword">typeof</span> <span class="built_in">Math</span>.abs; <span class="comment">// 'function'</span></div><div class="line"><span class="keyword">typeof</span> <span class="literal">null</span>; <span class="comment">// 'object'</span></div><div class="line"><span class="keyword">typeof</span> []; <span class="comment">// 'object'</span></div><div class="line"><span class="keyword">typeof</span> &#123;&#125;; <span class="comment">// 'object'</span></div></pre></td></tr></table></figure>
+<p>感觉没啥卵用，根本区分不出来对象的类型。。。。</p>
+<a id="more"></a>
+<h2 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h2><p>在 JavaScript 中提供了包装对象，包装对象使用 <code>new</code> 创建</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> number = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>);</div><div class="line"><span class="keyword">var</span> string = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'123'</span>);</div><div class="line"><span class="keyword">var</span> boolean = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> number);</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> string);</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> string);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'------------------------------'</span>)</div><div class="line"><span class="built_in">console</span>.log(number === <span class="number">123</span>);</div><div class="line"><span class="built_in">console</span>.log(string === <span class="string">'123'</span>);</div><div class="line"><span class="built_in">console</span>.log(boolean === <span class="literal">true</span>);</div></pre></td></tr></table></figure>
+<p>包装后的对象，类型会变成 <code>object</code> 这个时候在使用 <code>===</code> 去判断是永远都不能相等的。</p>
+<p><strong>所以在类型判断和转换的时候注意以下几点</strong></p>
+<ul>
+<li>不要使用<code>new Number()</code>、<code>new Boolean()</code>、<code>new String()</code>创建包装对象；</li>
+<li>用<code>parseInt()</code>或<code>parseFloat()</code>来转换任意类型到<code>number</code>；</li>
+<li>用<code>String()</code>来转换任意类型到<code>string</code>，或者直接调用某个对象的<code>toString()</code>方法；</li>
+<li>通常不必把任意类型转换为<code>boolean</code>再判断，因为可以直接写<code>if (myVar) {...}</code>；</li>
+<li><code>typeof</code>操作符可以判断出<code>number</code>、<code>boolean</code>、<code>string</code>、<code>function</code>和<code>undefined</code>；</li>
+<li>判断<code>Array</code>要使用<code>Array.isArray(arr)</code>；</li>
+<li>判断<code>null</code>请使用<code>myVar === null</code>；</li>
+<li>判断某个全局变量是否存在用<code>typeof window.myVar === &#39;undefined&#39;</code>；</li>
+<li>函数内部判断某个变量是否存在用<code>typeof myVar === &#39;undefined&#39;</code>。</li>
+</ul>
+<p>其中 <code>null</code> 和 <code>undefined</code> 是没有 <code>toString()</code> 方法的。 <code>number</code> 对象调用 <code>toString()</code> 方法也需要如下这样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numberString = <span class="number">123.</span>.toString(); <span class="comment">// '123', 注意是两个点！</span></div><div class="line"><span class="keyword">var</span> newNumberString = (<span class="number">123</span>).toString(); <span class="comment">// '123'</span></div><div class="line"><span class="keyword">var</span> pointNumberString = <span class="number">3.14</span>.toString; <span class="comment">// '3.14' 带有小数点的 后面使用一个点就可以了</span></div></pre></td></tr></table></figure>
+<h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><p>在 JavaScript 中，<code>Date</code> 对象是用来表示日期和时间的。简单的使用方式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"><span class="built_in">console</span>.log(now); <span class="comment">//完整时间</span></div><div class="line"><span class="built_in">console</span>.log(now.getFullYear()); <span class="comment">//年份</span></div><div class="line"><span class="built_in">console</span>.log(now.getMonth()); <span class="comment">//月份</span></div><div class="line"><span class="built_in">console</span>.log(now.getDate()); <span class="comment">//日期</span></div><div class="line"><span class="built_in">console</span>.log(now.getDay()); <span class="comment">//星期几</span></div><div class="line"><span class="built_in">console</span>.log(now.getHours()); <span class="comment">//小时</span></div><div class="line"><span class="built_in">console</span>.log(now.getMinutes()); <span class="comment">//分</span></div><div class="line"><span class="built_in">console</span>.log(now.getSeconds()); <span class="comment">//秒</span></div><div class="line"><span class="built_in">console</span>.log(now.getMilliseconds()); <span class="comment">//毫秒</span></div><div class="line"><span class="built_in">console</span>.log(now.getTime()); <span class="comment">// 时间戳 number 类型</span></div></pre></td></tr></table></figure>
+<p>需要注意的是通过该方法获取的时间是本机时间，所以有可能是不准确的，用户可以手动的设置为任意的时间。</p>
+<p>创建定制日期的 <code>Date</code> 对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newDay = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>,<span class="number">5</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">1000</span>); <span class="comment">//一次是年，月，日，时，分，秒，毫秒</span></div><div class="line"><span class="built_in">console</span>.log(newDay);</div></pre></td></tr></table></figure>
+<p>需要注意的是在 JavaScript 中月份是从 0 开始的。其他都是从一开始，但是月是从 0 开始的。</p>
+<p>第二种指定日期的方式就是解析一个符合 ISO8601 格式的字符串：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> d = <span class="built_in">Date</span>.parse(<span class="string">'2015-06-24T19:49:22.875+08:00'</span>);</div><div class="line">d; </div><div class="line"><span class="built_in">console</span>.log(d);</div><div class="line"><span class="comment">// 1435146562875</span></div></pre></td></tr></table></figure>
+<p>解析时间字符串的时候月份是从 1 开始的，但是这个方法返回的不是一个 <code>Date</code> 对象，而是一个时间戳。时间戳可以直接通过 Date 方法转换成 Date 对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newDay = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1435146562875</span>);</div><div class="line"><span class="built_in">console</span>.log(newDay);</div><div class="line"><span class="comment">//Wed Jun 24 2015 19:49:22 GMT+0800 (CST)</span></div></pre></td></tr></table></figure>
+<h2 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h2><p><code>Date</code> 对象表示的时间是按照浏览器所在的本地时区显示的，但是也可以通过调整，显示调整后的 UTC 时间</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1435146562875</span>);</div><div class="line">d.toLocaleString(); </div><div class="line"><span class="comment">// 2015-6-24 19:49:22</span></div><div class="line"><span class="comment">//显示的字符串与操作系统设定的格式有关</span></div><div class="line">d.toUTCString(); </div><div class="line"><span class="comment">// Wed, 24 Jun 2015 11:49:22 GMT   UTC时间与当前时间相差8小时，东八区时间</span></div></pre></td></tr></table></figure>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>JSON是JavaScript Object Notation的缩写，它是一种数据交换格式。</p>
+<p>在 JSON 以前都是使用 XML 传递数据，但是现在基本都是使用 JSON 传递数据，因为 JSON 相对于 XML 来说更加方便，高效。</p>
+<p>JSON 中有如下的几种类型：</p>
+<ul>
+<li>number：和JavaScript的 <code>number</code> 完全一致；</li>
+<li>boolean：就是JavaScript的 <code>true</code> 或 <code>false</code> ；</li>
+<li>string：就是JavaScript的 <code>string</code> ；</li>
+<li>null：就是JavaScript的 <code>null</code> ；</li>
+<li>array：就是JavaScript的 <code>Array</code> 表示方式—— <code>[]</code> ；</li>
+<li>object：就是JavaScript的 <code>{ ... }</code> 表示方式。</li>
+</ul>
+<h3 id="JSON序列化"><a href="#JSON序列化" class="headerlink" title="JSON序列化"></a>JSON序列化</h3><p>把一个 JavaScript 对象序列化成 JSON 字符串：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Jay = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"Jay Chou"</span>,</div><div class="line">    <span class="attr">age</span>: <span class="number">45</span>,</div><div class="line">    <span class="attr">gender</span>: <span class="string">"Male"</span>,</div><div class="line">    <span class="attr">height</span>: <span class="string">"58"</span>,</div><div class="line">    <span class="attr">skills</span>: [<span class="string">"Sing"</span>,<span class="string">"Magic"</span>,<span class="string">"BasketBall"</span>]</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> jsonString = <span class="built_in">JSON</span>.stringify(Jay);</div><div class="line"><span class="built_in">console</span>.log(jsonString);</div><div class="line"></div><div class="line"><span class="comment">//&#123;"name":"Jay Chou","age":45,"gender":"Male","height":"58","skills":["Sing","Magic","BasketBall"]&#125;</span></div><div class="line"></div><div class="line"><span class="comment">//如果需要带格式的输出，可以加上参数</span></div><div class="line"><span class="keyword">var</span> newJsonString = <span class="built_in">JSON</span>.stringify(Jay,<span class="literal">null</span>,<span class="string">" "</span>);</div><div class="line"><span class="built_in">console</span>.log(newJsonString);</div><div class="line"><span class="comment">/*</span></div><div class="line">&#123;</div><div class="line"> "name": "Jay Chou",</div><div class="line"> "age": 45,</div><div class="line"> "gender": "Male",</div><div class="line"> "height": "58",</div><div class="line"> "skills": [</div><div class="line">  "Sing",</div><div class="line">  "Magic",</div><div class="line">  "BasketBall"</div><div class="line"> ]</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>该方法第二个参数可以筛选对象的键值，如果只需要输出制定的属性，可以传入需要保留的键值的数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Jay = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"Jay Chou"</span>,</div><div class="line">    <span class="attr">age</span>: <span class="number">45</span>,</div><div class="line">    <span class="attr">gender</span>: <span class="string">"Male"</span>,</div><div class="line">    <span class="attr">height</span>: <span class="string">"58"</span>,</div><div class="line">    <span class="attr">skills</span>: [<span class="string">"Sing"</span>,<span class="string">"Magic"</span>,<span class="string">"BasketBall"</span>]</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> filterString = <span class="built_in">JSON</span>.stringify(Jay,[<span class="string">"name"</span>,<span class="string">"age"</span>],<span class="string">" "</span>);</div><div class="line"><span class="built_in">console</span>.log(filterString);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">&#123;</div><div class="line">test.js:42</div><div class="line"> "name": "Jay Chou",</div><div class="line"> "age": 45</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>也可以传入函数来对数据进行处理：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">convert</span>(<span class="params">key, value</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">"string"</span>)&#123;</div><div class="line">        <span class="keyword">return</span> value.toUpperCase();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> value;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> functionFilterString = <span class="built_in">JSON</span>.stringify(Jay,convert,<span class="string">" "</span>);</div><div class="line"><span class="built_in">console</span>.log(functionFilterString);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">&#123;</div><div class="line"> "name": "JAY CHOU",</div><div class="line"> "age": 45,</div><div class="line"> "gender": "MALE",</div><div class="line"> "height": "58",</div><div class="line"> "skills": [</div><div class="line">  "SING",</div><div class="line">  "MAGIC",</div><div class="line">  "BASKETBALL"</div><div class="line"> ]</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>同时还可以在对象中实现 <code>toJSON()</code> 方法用来控制序列化的数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Jay = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"Jay Chou"</span>,</div><div class="line">    <span class="attr">age</span>: <span class="number">45</span>,</div><div class="line">    <span class="attr">gender</span>: <span class="string">"Male"</span>,</div><div class="line">    <span class="attr">height</span>: <span class="string">"58"</span>,</div><div class="line">    <span class="attr">skills</span>: [<span class="string">"Sing"</span>,<span class="string">"Magic"</span>,<span class="string">"BasketBall"</span>],</div><div class="line">    <span class="attr">toJSON</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="string">'Name'</span>: <span class="keyword">this</span>.name,</div><div class="line">            <span class="string">'Age'</span>: <span class="keyword">this</span>.age</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> jsonString = <span class="built_in">JSON</span>.stringify(Jay);</div><div class="line"><span class="built_in">console</span>.log(jsonString);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">&#123;"Name":"Jay Chou","Age":45&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h3 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h3><p>JSON 字符串的反序列化很简单，只需要调用 <code>JSON.parse()</code> 方法就可以将 JSON 格式的字符串解析成对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jsonString = <span class="string">'&#123;"name": "JAY CHOU","age": 45,"gender": "MALE","height": "58","skills": ["SING","MAGIC","BASKETBALL"]&#125;'</span>;</div><div class="line"><span class="keyword">var</span> JAYCHOU = <span class="built_in">JSON</span>.parse(jsonString);</div><div class="line"><span class="built_in">console</span>.log(JAYCHOU);</div><div class="line"></div><div class="line"><span class="comment">// Object &#123;name: "JAY CHOU", age: 45, gender: "MALE", height: "58", skills: Array(3)&#125;</span></div></pre></td></tr></table></figure>
+<h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><p>面向对象的三大特点是：封装、继承、多态。同时面向对象也还有两个很很重要的基本概念就是 <strong>类</strong> 和 <strong>实例</strong>，这一点在其他的面向对象的编程语言中就很突出的体现了这一点。但是在 JavaScript 中是没有 <strong>类</strong> 和 <strong>实例</strong> 这个概念的。在 JavaScript 中是通过 <strong>原型(prototype)</strong> 来实现面向对象编程的。</p>
+<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><p>通过字面量创建对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Jay = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'jay chou'</span>,</div><div class="line">    <span class="attr">age</span>: <span class="number">68</span>,</div><div class="line">    <span class="attr">gender</span>: <span class="string">'male'</span>,</div><div class="line">    <span class="attr">height</span>: <span class="number">168</span></div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(Jay.name);</div><div class="line"></div><div class="line"><span class="comment">// jay chou</span></div></pre></td></tr></table></figure>
+<p>创建直接的实例对象，并依次赋值属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newJay = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">newJay.name = <span class="string">'jay chou'</span>;</div><div class="line">newJay.age = <span class="number">68</span>;</div><div class="line">newJay.gender = <span class="string">'male'</span>;</div><div class="line">newJay.height = <span class="number">168</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(newJay.name);</div><div class="line"><span class="comment">// jay chou</span></div></pre></td></tr></table></figure>
+<p>使用对象构造器创建对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,gender,height</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">    <span class="keyword">this</span>.gender = gender;</div><div class="line">    <span class="keyword">this</span>.height = height;</div><div class="line">    <span class="comment">//在对象中添加方法。</span></div><div class="line">    <span class="keyword">this</span>.sayhello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Hello i am jay chou'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> jay = <span class="keyword">new</span> Person(<span class="string">'jay chou'</span>,<span class="number">45</span>,<span class="string">'male'</span>,<span class="number">168</span>);</div><div class="line"><span class="built_in">console</span>.log(jay.name);</div><div class="line">jay.sayhello();</div><div class="line"><span class="comment">// jay chou</span></div><div class="line"><span class="comment">//Hello i am jay chou</span></div></pre></td></tr></table></figure>
+<p>在构造器创建对象中添加方法也很简单，直接赋值方法到属性。通过其他的方式创建的对象同样也可以通过给属性赋值函数对象来对对象添加方法。但是，在构造器创建的方法，在每个对象中不是共享的同一个方法，是两个不同的方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">'kitty'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> withteCat = <span class="keyword">new</span> Cat(<span class="string">'jerry'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(cat.say === withteCat.say);</div><div class="line"><span class="comment">// false</span></div></pre></td></tr></table></figure>
+<p>想要多个对象共享同一个方法，把方法赋值到构造函数的原型上：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">Cat.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">'Hello, '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>;</div><div class="line">   &#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat(<span class="string">'kitty'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> withteCat = <span class="keyword">new</span> Cat(<span class="string">'jerry'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(cat.say === withteCat.say);</div><div class="line"><span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>需要注意的是使用构造函数创建对象的时候如果没有写 <code>new</code> 那么这个函数就是一个普通的函数，会返回一个 <code>undefined</code> 。为了区分构造函数和普通函数，构造函数名都以大写字母开头，普通构造函数使用小写字母开头。除了这样还可以通过创建一个函数在内部封装 <code>new</code> 的操作，来防止。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,gender,height</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">    <span class="keyword">this</span>.gender = gender;</div><div class="line">    <span class="keyword">this</span>.height = height;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayhello = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Hello i am jay chou'</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">creatPerson</span>(<span class="params">props</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Person(props || &#123;&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> doubi = creatPerson(<span class="string">"doubi"</span>,<span class="number">21</span>,<span class="string">'male'</span>,<span class="number">168</span>);</div><div class="line"><span class="built_in">console</span>.log(doubi.name);</div><div class="line"></div><div class="line"><span class="comment">// doubi</span></div></pre></td></tr></table></figure>
+<h3 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h3><p>在 JavaScript 中的继承和其他面向对象语言的继承是不一样的，因为在 JavaScript 中没有类的概念。在 JavaScript 中继承是通过原型的继承方式来完成的。JavaScript 中有一个叫原型链的东西。继承关系会根据原型链不断向上查找，最终原型链都会指向 <code>null</code> 。</p>
+<p>以下是通过中间对象来实现原型链</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> (<span class="params">props</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = props.name || <span class="string">'Unnamed'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Animal.prototype.eat = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'我要吃东西了，你可以走开吗？'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span> (<span class="params">props</span>) </span>&#123;</div><div class="line">    Animal.call(<span class="keyword">this</span>,props);</div><div class="line">    <span class="keyword">this</span>.species = props.species || <span class="string">'dog'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//将 F 的原型指向 Animal</span></div><div class="line">F.prototype = Animal.prototype;</div><div class="line"></div><div class="line"><span class="comment">//把 Dog 的原型指向 新建的一个 F 对象， F对象的原型又指向了 Animal</span></div><div class="line">Dog.prototype = <span class="keyword">new</span> F();</div><div class="line"></div><div class="line"><span class="comment">//修复 Dog 原型的构造函数为 Dog</span></div><div class="line">Dog.prototype.constructor = Dog;</div><div class="line"></div><div class="line">Dog.prototype.eat = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'我是狗🐶我要吃骨头'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> husky = <span class="keyword">new</span> Dog(&#123;<span class="attr">name</span>:<span class="string">"DD"</span>,<span class="attr">species</span>: <span class="string">'Husky'</span>&#125;);</div><div class="line">husky.eat();</div><div class="line"><span class="built_in">console</span>.log(husky.name);</div><div class="line"><span class="built_in">console</span>.log(husky.species);</div></pre></td></tr></table></figure>
+<p>以上就是通过一个中间对象实现的原型继承，也可以把这些封装起来，重复使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 继承函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherits</span>(<span class="params">Child,Parent</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">    F.prototype = Parent.prototype;</div><div class="line">    Child.prototype = <span class="keyword">new</span> F();</div><div class="line">    Child.prototype.constructor = Child;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">props</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = props.name || <span class="string">'unnamed'</span>;</div><div class="line">    <span class="keyword">this</span>.age = props.age || <span class="number">0</span>;</div><div class="line">    <span class="keyword">this</span>.gender = props.gender || male;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Person.prototype.sayHi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"Hi!"</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Chinese</span>(<span class="params">props</span>)</span>&#123;</div><div class="line">    Person.call(<span class="keyword">this</span>,props);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 让 Chinese 继承 Person</span></div><div class="line">inherits(Chinese, Person);</div><div class="line"></div><div class="line"><span class="comment">// 重写 Chinese 的 sayHi 函数</span></div><div class="line">Chinese.prototype.sayHi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"你好啊！"</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Aaron = <span class="keyword">new</span> Chinese(&#123;<span class="attr">name</span>:<span class="string">'Aaron'</span>,<span class="attr">age</span>:<span class="number">25</span>,<span class="attr">gender</span>:<span class="string">'male'</span>&#125;);</div><div class="line">Aaron.sayHi();</div><div class="line"></div><div class="line"><span class="keyword">var</span> Edison = <span class="keyword">new</span> Person(&#123;<span class="attr">name</span>:<span class="string">'Edison'</span>,<span class="attr">age</span>:<span class="number">40</span>,<span class="attr">gender</span>:<span class="string">'male'</span>&#125;);</div><div class="line">Edison.sayHi();</div></pre></td></tr></table></figure>
+<p>关于 JavaScript 中的继承还有很多其他的方式，这个后面的时候再去深入学习。</p>
+<h3 id="class继承"><a href="#class继承" class="headerlink" title="class继承"></a>class继承</h3><p>在新的 ES6 的规范中引入了一个新的关键字 <code>class</code> 。<code>class</code> 让类的定义更加的简单，相比起上面的 Person 的实现，使用 <code>class</code> 可以这样来实现。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name) &#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line">    sayHi() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"Hi!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Aaron = <span class="keyword">new</span> Person(<span class="string">"Aaron"</span>);</div><div class="line">Aaron.sayHi();</div><div class="line"><span class="comment">// Hi!</span></div></pre></td></tr></table></figure>
+<p>通过 <code>class</code> 定义的对象如果想生成一个派生对象就更简单了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name) &#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line">    sayHi() &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"Hi!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Aaron = <span class="keyword">new</span> Person(<span class="string">"Aaron"</span>);</div><div class="line">Aaron.sayHi();</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chinese</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    <span class="keyword">constructor</span> (name,age) &#123;</div><div class="line">        <span class="keyword">super</span>(name);</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line">    sayHiInChina () &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"你好啊！我叫"</span>+ <span class="keyword">this</span>.name + <span class="string">"!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> Edison = <span class="keyword">new</span> Chinese(<span class="string">"Edison"</span>);</div><div class="line">Edison.sayHi();</div><div class="line">Edison.sayHiInChina();</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">Hi!</div><div class="line">Hi!</div><div class="line">你好啊！我叫Edison!</div><div class="line">*/</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS学习/" rel="tag"># JS学习</a>
+          
+            <a href="/tags/JS基础/" rel="tag"># JS基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/12/JavaScript-Function/" rel="next" title="JavaScript-函数">
+                <i class="fa fa-chevron-left"></i> JavaScript-函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/19/JavaScript-BOMAndDOM/" rel="prev" title="JavaScript-BOMAndDOM">
+                JavaScript-BOMAndDOM <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://onocdmhtw.bkt.clouddn.com/20180427165642_tLVia7_C4146327-19B5-490D-9192-867FB89D10D3.jpeg"
+               alt="Aaron_36" />
+          <p class="site-author-name" itemprop="name">Aaron_36</p>
+           
+              <p class="site-description motion-element" itemprop="description">笨鸟先飞，笨人勤学。有一种学习的方式叫抄书式学习，博客里的文章主要是看的一些书或其他人的博客，用自己的话记录下来。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AaronZJP" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/AaronZJP" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-标准对象"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 标准对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的类型"><span class="nav-number">1.1.</span> <span class="nav-text">对象的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包装对象"><span class="nav-number">1.2.</span> <span class="nav-text">包装对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Date"><span class="nav-number">1.3.</span> <span class="nav-text">Date</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时区"><span class="nav-number">1.4.</span> <span class="nav-text">时区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON"><span class="nav-number">1.5.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON序列化"><span class="nav-number">1.5.1.</span> <span class="nav-text">JSON序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反序列化"><span class="nav-number">1.5.2.</span> <span class="nav-text">反序列化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象编程"><span class="nav-number">2.</span> <span class="nav-text">面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建对象"><span class="nav-number">2.0.1.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型继承"><span class="nav-number">2.0.2.</span> <span class="nav-text">原型继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class继承"><span class="nav-number">2.0.3.</span> <span class="nav-text">class继承</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron_36</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

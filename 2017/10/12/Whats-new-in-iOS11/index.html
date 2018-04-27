@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="WWDC2017," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aaron的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="iOS 11正式发布后也一直没有去整理这些东西，现在才整理一点点出来。下面就是在iOS11中新加入的一些东西，可能不是很全面，但是后续会有补充吧。">
+<meta name="keywords" content="WWDC2017">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What&#39;s new in iOS11">
+<meta property="og:url" content="Aaronzjp.cn/2017/10/12/Whats-new-in-iOS11/index.html">
+<meta property="og:site_name" content="Aaron的博客">
+<meta property="og:description" content="iOS 11正式发布后也一直没有去整理这些东西，现在才整理一点点出来。下面就是在iOS11中新加入的一些东西，可能不是很全面，但是后续会有补充吧。">
+<meta property="og:updated_time" content="2018-02-08T02:43:27.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What&#39;s new in iOS11">
+<meta name="twitter:description" content="iOS 11正式发布后也一直没有去整理这些东西，现在才整理一点点出来。下面就是在iOS11中新加入的一些东西，可能不是很全面，但是后续会有补充吧。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="Aaronzjp.cn/2017/10/12/Whats-new-in-iOS11/"/>
+
+
+
+
+
+  <title>What's new in iOS11 | Aaron的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Stay foolish,Stay hungry!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2017/10/12/Whats-new-in-iOS11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron_36">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://onocdmhtw.bkt.clouddn.com/20180427165642_tLVia7_C4146327-19B5-490D-9192-867FB89D10D3.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">What's new in iOS11</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-12T11:06:03+08:00">
+                2017-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>iOS 11正式发布后也一直没有去整理这些东西，现在才整理一点点出来。下面就是在iOS11中新加入的一些东西，可能不是很全面，但是后续会有补充吧。</p>
+<a id="more"></a>
+<h1 id="what’s-new-in-iOS-11"><a href="#what’s-new-in-iOS-11" class="headerlink" title="what’s new in iOS 11"></a>what’s new in iOS 11</h1><h5 id="Drag-and-Drop"><a href="#Drag-and-Drop" class="headerlink" title="Drag and Drop"></a>Drag and Drop</h5><p>目前在 iPad 设备中的功能，可以通过拖动UI上的东西到其他App</p>
+<p>目前支持的控件有 TableView CollectionView TextView TextField WebView</p>
+<p>同时还整合了 UIPasteConfiguration</p>
+<h5 id="File-Manager"><a href="#File-Manager" class="headerlink" title="File Manager"></a><strong>File Manager</strong></h5><p>文件管理系统，可以浏览文件管理系统中云上的文件以及本地文件。其中可以通过相关的API去过滤文件，以便过滤到App不支持的文件类型</p>
+<p>UIDocumentBrowserViewController </p>
+<h5 id="部分的UI增强改善"><a href="#部分的UI增强改善" class="headerlink" title="部分的UI增强改善"></a>部分的UI增强改善</h5><p>1.</p>
+<p>添加了大的标题栏，Large Titles </p>
+<p>通过控制器的一个属性，prefersLargeTitle </p>
+<p>来决定大标题是否显示</p>
+<p>显示模式largeTitleDisplayMode  决定显示的模式，一般只在树桩导航结构中的根试图中显示</p>
+<p>2.</p>
+<p>SearchBar被整合进了UINavigationBar中，以前只能是作为TableView的 headerView 来处理的，现在可以直接将其赋值给 NavigationItem 切作为 NavigationBar 中的一个整体</p>
+<p>3.</p>
+<h5 id="safeAreaInsets"><a href="#safeAreaInsets" class="headerlink" title="safeAreaInsets"></a>safeAreaInsets</h5><p>在 iOS 11 中添加了安全区域的概念，其作用大概是为了更好的确保我们要显示的 View 能正确的出现在屏幕中，因为 iPhone</p>
+<p> X 的屏幕的特殊性，safeArea 这个东西应该更多是为了更好的适配 iPhone X 的屏幕的显示。</p>
+<p>safeAreaLayoutGuide </p>
+<p>安全区域中 AutoLayout 中的属性，可以通过添加约束的方式来确保 UI 显示在安全区域的范围内</p>
+<p>func safeAreaInsetsDidChange() </p>
+<p>安全区域发生改变时的回调方法，在我的实验中安全区域在 viewDidLoad 中是为0的</p>
+<h5 id="滑动操作"><a href="#滑动操作" class="headerlink" title="滑动操作"></a>滑动操作</h5><p>iOS11 中在 TableView 中对滑动操作进行了增强。以前 TableView 中滑动操作只是默认的支持删除。现在滑动操作可以更加灵活的自定义其他的功能</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UISwipeActionsConfiguration</span> </span>&#123; <span class="keyword">init</span>(actions: [<span class="type">UIContextualAction</span>])</div><div class="line"><span class="keyword">var</span> performsFirstActionWithFullSwipe: <span class="type">Bool</span> </div><div class="line"></div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UIContextualAction</span> </span>&#123;</div><div class="line"><span class="keyword">init</span>(style: <span class="type">Style</span>, title: <span class="type">String</span>?, handler: <span class="type">UIContextualActionHandler</span>) </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>TableView分割线</p>
+<p>可以自定义分割线的距离</p>
+<h5 id="Swift-4-和-开发框架的"><a href="#Swift-4-和-开发框架的" class="headerlink" title="Swift 4 和 开发框架的"></a>Swift 4 和 开发框架的</h5><p>Swift 4 中加入了对原生类型的归档支持，只需要遵守 Codable 协议即可，同时还支持 JSON 以及 Property List</p>
+<p>Key Paths 键值路径，以前的键值路径都是绝对的，这样就会导致如果写错了路径就会报错，但是在 Swift4 中新增了相对的键值路径</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> copresenterNameKeyPath = \<span class="type">Presenter</span>.copresenter.name</div><div class="line"></div><div class="line">eliza[keyPath: copresenterNameKeyPath]  <span class="comment">// “Josh”</span></div><div class="line"></div><div class="line">eliza[keyPath: .copresenter.name]</div></pre></td></tr></table></figure>
+<p>同时还新增了基于 block 的 KVO。通过 block 来完成 KVO 代码更加简洁</p>
+<h5 id="AutoLayout"><a href="#AutoLayout" class="headerlink" title="AutoLayout"></a>AutoLayout</h5><p>AutoLayout新增了对 ScrollView 更好的支持，ScrollView 因为是处于两种坐标的模式 Frame 和内容坐标模式 Content，这样在 AutoLayout中并不是很好处理。现在新增了 contentLayoutGuide  frameLayoutGuide 两个属性，已方便在 ScrollView 中的布局</p>
+<h5 id="Dynamic-Type"><a href="#Dynamic-Type" class="headerlink" title="Dynamic Type"></a>Dynamic Type</h5><p>UIFontMetrics </p>
+<p>动态类型。</p>
+<p>Sizing your text 字体自适应，在 iOS 7 中引入的功能，可以通过系统通用中设置的字体大小那改变 App 中的字体，iOS 11之前只能支持默认的字体，但是在 iOS 11中可以使用自定义的字体</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> bodyMetrics = <span class="type">UIFontMetrics</span>(forTextStyle: .body)</div><div class="line"></div><div class="line"><span class="keyword">let</span> standardFont = ... <span class="comment">// any font you want, for standard type size</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> font = bodyMetrics.scaledFont(<span class="keyword">for</span>: standardFont)</div></pre></td></tr></table></figure>
+<h5 id="AutoLayout-1"><a href="#AutoLayout-1" class="headerlink" title="AutoLayout"></a>AutoLayout</h5><p>在自动布局上控件间的距离也会随着字体大小的变化而自动调整</p>
+<h5 id="Password-AutoFill"><a href="#Password-AutoFill" class="headerlink" title="Password AutoFill"></a>Password AutoFill</h5><p>密码自动填充</p>
+<h5 id="Asset-Catalogs"><a href="#Asset-Catalogs" class="headerlink" title="Asset Catalogs"></a>Asset Catalogs</h5><p>Asset 支持添加颜色，并为颜色命名，同时支持广域色彩</p>
+<p>图片资源支持 PDF 以及 矢量图。tabBar 在 iOS 11 中可以大图标，如果在 Asset 中使用 PDF 图片资源，并勾选支持矢量图那么 tabBar 则默认支持显示大图标。如果没有则需要自行去设置</p>
+<h5 id="Variable-Refresh-Rate"><a href="#Variable-Refresh-Rate" class="headerlink" title="Variable Refresh Rate"></a>Variable Refresh Rate</h5><p>屏幕刷新率大获取，可以针对自己的 App 类型调整合适的</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/WWDC2017/" rel="tag"># WWDC2017</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/28/ReactiveCocoa-and-MVVM/" rel="next" title="ReactiveCocoa 和 MVVM 的简单使用">
+                <i class="fa fa-chevron-left"></i> ReactiveCocoa 和 MVVM 的简单使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/02/HTTP-URL-and-Resource/" rel="prev" title="《HTTP权威指南》读书笔记之 - URL与资源">
+                《HTTP权威指南》读书笔记之 - URL与资源 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://onocdmhtw.bkt.clouddn.com/20180427165642_tLVia7_C4146327-19B5-490D-9192-867FB89D10D3.jpeg"
+               alt="Aaron_36" />
+          <p class="site-author-name" itemprop="name">Aaron_36</p>
+           
+              <p class="site-description motion-element" itemprop="description">笨鸟先飞，笨人勤学。有一种学习的方式叫抄书式学习，博客里的文章主要是看的一些书或其他人的博客，用自己的话记录下来。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AaronZJP" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/AaronZJP" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#what’s-new-in-iOS-11"><span class="nav-number">1.</span> <span class="nav-text">what’s new in iOS 11</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Drag-and-Drop"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">Drag and Drop</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#File-Manager"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">File Manager</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#部分的UI增强改善"><span class="nav-number">1.0.0.0.3.</span> <span class="nav-text">部分的UI增强改善</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#safeAreaInsets"><span class="nav-number">1.0.0.0.4.</span> <span class="nav-text">safeAreaInsets</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#滑动操作"><span class="nav-number">1.0.0.0.5.</span> <span class="nav-text">滑动操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Swift-4-和-开发框架的"><span class="nav-number">1.0.0.0.6.</span> <span class="nav-text">Swift 4 和 开发框架的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AutoLayout"><span class="nav-number">1.0.0.0.7.</span> <span class="nav-text">AutoLayout</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Dynamic-Type"><span class="nav-number">1.0.0.0.8.</span> <span class="nav-text">Dynamic Type</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AutoLayout-1"><span class="nav-number">1.0.0.0.9.</span> <span class="nav-text">AutoLayout</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Password-AutoFill"><span class="nav-number">1.0.0.0.10.</span> <span class="nav-text">Password AutoFill</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Asset-Catalogs"><span class="nav-number">1.0.0.0.11.</span> <span class="nav-text">Asset Catalogs</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Variable-Refresh-Rate"><span class="nav-number">1.0.0.0.12.</span> <span class="nav-text">Variable Refresh Rate</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron_36</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

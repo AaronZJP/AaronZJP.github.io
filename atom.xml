@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2017-12-12T08:46:32.003Z</updated>
+  <updated>2018-04-27T08:48:50.593Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -14,6 +14,114 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS11设计概览</title>
+    <link href="Aaronzjp.cn/2018/04/22/iOS11-design-guide/"/>
+    <id>Aaronzjp.cn/2018/04/22/iOS11-design-guide/</id>
+    <published>2018-04-22T14:23:12.000Z</published>
+    <updated>2018-04-27T08:48:50.593Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在过去的五年时间扁平化设计已经变得很普遍了，但是在 iOS7 之前却并不普遍。正是因为这样设计风格开始转变，但是说这样的设计没有太多的变化是不准确的。iOS 的设计已经适应了更大的屏幕，与之前超写实拟物设计风格恰恰相反。现在扁平化的设计更加的微妙，在去掉了渐变、阴影、卡片等设计后。&lt;/p&gt;
+&lt;h1 id=&quot;iOS的演变&quot;&gt;&lt;a href=&quot;#iOS的演变&quot; class=&quot;headerlink&quot; title=&quot;iOS的演变&quot;&gt;&lt;/a&gt;iOS的演变&lt;/h1&gt;&lt;p&gt;让我们从头开始，看看下面的一组图片。在最左边是超写实设计，也就是我们所熟知的拟物化设计。这样的拟物化的设计在2007年是很有效的，因为那个时候很少人熟悉放在你口袋里的超级计算机。&lt;/p&gt;
+&lt;p&gt;在中间的这个图中，我们去掉了所有的装饰，使用带有色彩，漂亮字体以及简介清楚的内容的扁平化设计。由于人们对现代技术越来越熟悉适应，以及对智能手机的熟悉，所以在设计上去掉了原本厚重的装饰。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Design+Code" scheme="Aaronzjp.cn/tags/Design-Code/"/>
+    
+      <category term="iOS编程和设计" scheme="Aaronzjp.cn/tags/iOS%E7%BC%96%E7%A8%8B%E5%92%8C%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript-BOMAndDOM</title>
+    <link href="Aaronzjp.cn/2018/04/19/JavaScript-BOMAndDOM/"/>
+    <id>Aaronzjp.cn/2018/04/19/JavaScript-BOMAndDOM/</id>
+    <published>2018-04-19T06:37:13.000Z</published>
+    <updated>2018-04-19T09:20:31.981Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;BOM-浏览器对象模型&quot;&gt;&lt;a href=&quot;#BOM-浏览器对象模型&quot; class=&quot;headerlink&quot; title=&quot;BOM(浏览器对象模型)&quot;&gt;&lt;/a&gt;BOM(浏览器对象模型)&lt;/h1&gt;&lt;p&gt;JavaScript 可以获取浏览器提供的很多对象。浏览器对象模型（Browser Object Model）尚无正式标准。由于浏览器已经实现了 JavaScript 交互性方面的相同方法和属性，因此常被认为是 BOM 的方法和属性。&lt;/p&gt;
+&lt;h2 id=&quot;window-对象&quot;&gt;&lt;a href=&quot;#window-对象&quot; class=&quot;headerlink&quot; title=&quot;window 对象&quot;&gt;&lt;/a&gt;window 对象&lt;/h2&gt;&lt;p&gt;所有的浏览器都支持 &lt;code&gt;window&lt;/code&gt; 对象，表示浏览器窗口。&lt;code&gt;window&lt;/code&gt; 是一个全局对象，不但这样所有 JavaScript 全局对象、函数以及变量都会成为 &lt;code&gt;window&lt;/code&gt; 对象的成员。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript-面向对象编程</title>
+    <link href="Aaronzjp.cn/2018/04/11/JavaScript-OOP/"/>
+    <id>Aaronzjp.cn/2018/04/11/JavaScript-OOP/</id>
+    <published>2018-04-11T05:56:16.000Z</published>
+    <updated>2018-04-20T09:24:07.699Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;JavaScript-标准对象&quot;&gt;&lt;a href=&quot;#JavaScript-标准对象&quot; class=&quot;headerlink&quot; title=&quot;JavaScript 标准对象&quot;&gt;&lt;/a&gt;JavaScript 标准对象&lt;/h1&gt;&lt;h2 id=&quot;对象的类型&quot;&gt;&lt;a href=&quot;#对象的类型&quot; class=&quot;headerlink&quot; title=&quot;对象的类型&quot;&gt;&lt;/a&gt;对象的类型&lt;/h2&gt;&lt;p&gt;在 JavaScript 中一切都是对象，但是 JavaScript 中的对象是有类型的，在 JavaScript 中使用 &lt;code&gt;typeof&lt;/code&gt; 来获取对象的类型，返回的是类型的字符串&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;123&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// &#39;number&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;NaN&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// &#39;number&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;str&#39;&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// &#39;string&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// &#39;boolean&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;undefined&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// &#39;undefined&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Math&lt;/span&gt;.abs; &lt;span class=&quot;comment&quot;&gt;// &#39;function&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;// &#39;object&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; []; &lt;span class=&quot;comment&quot;&gt;// &#39;object&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &amp;#123;&amp;#125;; &lt;span class=&quot;comment&quot;&gt;// &#39;object&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;感觉没啥卵用，根本区分不出来对象的类型。。。。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="JS学习" scheme="Aaronzjp.cn/tags/JS%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="JS基础" scheme="Aaronzjp.cn/tags/JS%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript-函数</title>
+    <link href="Aaronzjp.cn/2018/03/12/JavaScript-Function/"/>
+    <id>Aaronzjp.cn/2018/03/12/JavaScript-Function/</id>
+    <published>2018-03-12T06:16:24.000Z</published>
+    <updated>2018-04-11T05:57:21.780Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;JavaScript-函数&quot;&gt;&lt;a href=&quot;#JavaScript-函数&quot; class=&quot;headerlink&quot; title=&quot;JavaScript 函数&quot;&gt;&lt;/a&gt;JavaScript 函数&lt;/h1&gt;&lt;h2 id=&quot;定义函数&quot;&gt;&lt;a href=&quot;#定义函数&quot; class=&quot;headerlink&quot; title=&quot;定义函数&quot;&gt;&lt;/a&gt;定义函数&lt;/h2&gt;&lt;p&gt;在 JavaScript 中定义函数的方式如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sum&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;number1,number2&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ( &lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; number1 === &lt;span class=&quot;string&quot;&gt;&#39;number&#39;&lt;/span&gt; &amp;amp;&amp;amp; &lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; number2 === &lt;span class=&quot;string&quot;&gt;&#39;number&#39;&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; number1 + number2;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;Not a number&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sum(&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;JavaScript 如果函数没有 &lt;code&gt;return&lt;/code&gt; 语句，但是也是会有返回值的。其返回的结果是 &lt;code&gt;undefined&lt;/code&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="JS学习" scheme="Aaronzjp.cn/tags/JS%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="JS基础" scheme="Aaronzjp.cn/tags/JS%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript 基础</title>
+    <link href="Aaronzjp.cn/2018/03/12/JavaScript-Basic/"/>
+    <id>Aaronzjp.cn/2018/03/12/JavaScript-Basic/</id>
+    <published>2018-03-12T06:02:10.000Z</published>
+    <updated>2018-04-11T05:57:01.248Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Java-Script基础&quot;&gt;&lt;a href=&quot;#Java-Script基础&quot; class=&quot;headerlink&quot; title=&quot;Java Script基础&quot;&gt;&lt;/a&gt;Java Script基础&lt;/h1&gt;&lt;p&gt;&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; 元素&lt;/p&gt;
+&lt;p&gt;向 HTML 页面中插入 JavaScirpt 的主要方法就是使用 &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; 元素。在使用&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; 元素嵌入 JavaScript 代码时，只须为&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; 指定 type 属性。然后，像下面这样把 JavaScript 代码直接放在元素内部即可：&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;script type=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sayHi&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        alert(&lt;span class=&quot;string&quot;&gt;&quot;Hi!&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;regexp&quot;&gt;/script&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;其实不写 type 类型也是可以的，因为现在大部分浏览器默认就是 text/javascript 类型。&lt;/p&gt;
+&lt;p&gt;通过&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; 元素来包含外部 Javascript 文件，需要用到 src 属性，该属性的值时指向一个外部 JavaScript 文件等链接，如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;script type=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; src=&lt;span class=&quot;string&quot;&gt;&quot;example.js&quot;&lt;/span&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="JS学习" scheme="Aaronzjp.cn/tags/JS%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="JS基础" scheme="Aaronzjp.cn/tags/JS%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>《HTTP权威指南》读书笔记之 - Cookie</title>
@@ -51,8 +159,8 @@
   
   <entry>
     <title>《HTTP权威指南》读书笔记之 - URL与资源</title>
-    <link href="Aaronzjp.cn/2017/12/02/URL-and-Resource/"/>
-    <id>Aaronzjp.cn/2017/12/02/URL-and-Resource/</id>
+    <link href="Aaronzjp.cn/2017/12/02/HTTP-URL-and-Resource/"/>
+    <id>Aaronzjp.cn/2017/12/02/HTTP-URL-and-Resource/</id>
     <published>2017-12-02T13:31:46.000Z</published>
     <updated>2018-02-08T03:05:37.583Z</updated>
     
@@ -72,8 +180,8 @@
   
   <entry>
     <title>What&#39;s new in iOS11</title>
-    <link href="Aaronzjp.cn/2017/10/12/What-s-new-in-iOS11/"/>
-    <id>Aaronzjp.cn/2017/10/12/What-s-new-in-iOS11/</id>
+    <link href="Aaronzjp.cn/2017/10/12/Whats-new-in-iOS11/"/>
+    <id>Aaronzjp.cn/2017/10/12/Whats-new-in-iOS11/</id>
     <published>2017-10-12T03:06:03.000Z</published>
     <updated>2018-02-08T02:43:27.814Z</updated>
     
@@ -125,6 +233,62 @@
     
     
       <category term="ReactiveCocoa" scheme="Aaronzjp.cn/tags/ReactiveCocoa/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ReactiveCocoa 基础教程 2-2</title>
+    <link href="Aaronzjp.cn/2017/06/20/ReactiveCocoa-Tutorial-2-2/"/>
+    <id>Aaronzjp.cn/2017/06/20/ReactiveCocoa-Tutorial-2-2/</id>
+    <published>2017-06-20T14:32:12.000Z</published>
+    <updated>2018-04-27T08:40:56.008Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，合并信号。&lt;/p&gt;
+&lt;p&gt;在这一部分将要介绍 ReactiveCocoa 中更多高级的用法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;另外的两个事件类型 &lt;strong&gt;error&lt;/strong&gt; 和 &lt;strong&gt;complete&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;节流(Throttling)&lt;/li&gt;
+&lt;li&gt;线程&lt;/li&gt;
+&lt;li&gt;持续性(Continuations)&lt;/li&gt;
+&lt;li&gt;更多&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;是时候开始了！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ReactiveCocoa" scheme="Aaronzjp.cn/tags/ReactiveCocoa/"/>
+    
+      <category term="响应式编程" scheme="Aaronzjp.cn/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ReactiveCocoa 基础教程 2-1</title>
+    <link href="Aaronzjp.cn/2017/05/22/ReactiveCocoa-Tutorial-2-1/"/>
+    <id>Aaronzjp.cn/2017/05/22/ReactiveCocoa-Tutorial-2-1/</id>
+    <published>2017-05-22T12:30:22.000Z</published>
+    <updated>2018-04-27T08:40:57.638Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为一个iOS开发，几乎编写的每一行代码都是在处理事件的响应。比如按钮的点击，接收的网络消息，属性的改变(Key Value Observing)，或者用户改变了当前的位置，都是很好的例子。然而这些事件以不同的编码方式散布在各个地方，比如动作触发，代理(delegates)，KVO，回调或者其他的。ReactiveCocoa 则定义了一套完整的处理这些事件的标准接口，因此可以使用它很容易的处理事件链接，过滤，组合等。&lt;/p&gt;
+&lt;p&gt;听起来很困惑？很有趣？….吹牛逼？继续看下去。&lt;/p&gt;
+&lt;p&gt;ReactiveCocoa 结合了以下几种编程风格：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;函数式编程，利用高阶函数，即其他函数作为函数的参数或返回值。&lt;/li&gt;
+&lt;li&gt;响应式编程，着重于数据流以及数据变化和传值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;通过这些原因，你应该知道 ReactiveCocoa 被称作为&lt;strong&gt;响应式函数编程&lt;/strong&gt;框架。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ReactiveCocoa" scheme="Aaronzjp.cn/tags/ReactiveCocoa/"/>
+    
+      <category term="响应式编程" scheme="Aaronzjp.cn/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -254,148 +418,6 @@
     
     
       <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初识CALayer</title>
-    <link href="Aaronzjp.cn/2016/12/01/iOS-CALayer/"/>
-    <id>Aaronzjp.cn/2016/12/01/iOS-CALayer/</id>
-    <published>2016-12-01T06:11:37.000Z</published>
-    <updated>2017-07-27T02:57:07.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; CALayer 和 UIView 类似，也是一些被层级关系树管理的块。 CALayer 和 UIView 一样的可以可以在其中展示图片，文本，通过方法或属性做动画和图形变换等等的界面上的显示相关的东西，可以说 UIView 能做到的 CALayer 基本上也能做到，但是 CALayer 和  UIView 最大的不同是 CALayer 不处理和用户的交互。因为  CALayer 不能很好的处理具体的响应链，无法响应事件的处理，即使在 CALayer 的方法中提供了触摸事件的检测方法。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="图层" scheme="Aaronzjp.cn/tags/%E5%9B%BE%E5%B1%82/"/>
-    
-      <category term="CALayer" scheme="Aaronzjp.cn/tags/CALayer/"/>
-    
-      <category term="Core Animation" scheme="Aaronzjp.cn/tags/Core-Animation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>方法调配技术（method swizzling）</title>
-    <link href="Aaronzjp.cn/2016/09/19/Method-Swizzling/"/>
-    <id>Aaronzjp.cn/2016/09/19/Method-Swizzling/</id>
-    <published>2016-09-19T09:33:52.000Z</published>
-    <updated>2017-07-27T02:55:04.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;​    在前面的关于&lt;code&gt;runtime&lt;/code&gt;中已经说过&lt;code&gt;OC&lt;/code&gt;运行时语言，在其编译的时候就会把OC中的消息转换成一个类似于如下：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;id objc_msgSend ( id self, SEL cmd, ... );&lt;/code&gt;结构的C语言函数，在程序运行的时候程序就会根据id所对应的类，以及传入的SEL选择子在该类的方法列表中去查找相对应的方法，并执行。利用这一特点，我们可以在运行期去改变选择子名称相对应的方法，这样我们既不需要查看到源代码，又没有必要去重写子类来覆写方法就能改变类本身的功能。这样一来新功能就会在类的所有实例中表现出来，而不仅限于那些重写子类的实例。这种方案就叫做“方法调配”（&lt;code&gt;method swizzling&lt;/code&gt;）。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="runtime" scheme="Aaronzjp.cn/tags/runtime/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>runtime-消息转发机制（message forwarding）</title>
-    <link href="Aaronzjp.cn/2016/09/13/Message-Forwarding/"/>
-    <id>Aaronzjp.cn/2016/09/13/Message-Forwarding/</id>
-    <published>2016-09-13T03:48:39.000Z</published>
-    <updated>2017-07-27T02:55:08.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;​    上次在发送消息&lt;code&gt;objc_msgSend&lt;/code&gt;中提到了，如果在当前的类的方法列表中如果找不到对应的选择子的方法就会执行消息转发（&lt;code&gt;message forwarding&lt;/code&gt;），在消息的转发过程中我们就可以在程序中告诉程序应该怎样去处理这样未知的消息，可以在消息的转发过程中设置挂钩，用来执行预定的逻辑处理方式，来做到当程序中的某个类找不到对应的方法时不至于导致程序的崩溃。&lt;/p&gt;
-&lt;p&gt;​    其中消息转发机制详细的来划分一共分为3个部分：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;动态方法解析&lt;/li&gt;
-&lt;li&gt;备援接收者&lt;/li&gt;
-&lt;li&gt;完整的消息转发&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="runtime​" scheme="Aaronzjp.cn/tags/runtime%E2%80%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS发送消息</title>
-    <link href="Aaronzjp.cn/2016/09/08/objc-msgSend/"/>
-    <id>Aaronzjp.cn/2016/09/08/objc-msgSend/</id>
-    <published>2016-09-08T14:23:28.000Z</published>
-    <updated>2017-07-27T02:53:39.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;​    &lt;code&gt;OC&lt;/code&gt; 语言中，对象调用方法我们称之为发送消息，或者叫做“传递消息”（&lt;code&gt;pass a message&lt;/code&gt;）。消息具有“名称”（&lt;code&gt;name&lt;/code&gt;）或“选择子”（&lt;code&gt;selector&lt;/code&gt;），实际上就是方法名称，可以接受参数，也可以有返回值。在 &lt;code&gt;OC&lt;/code&gt; 中我们是这样发送消息的，结构如下：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;id retrunValue = [someObject messageName:parameter];&lt;/code&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="runtime" scheme="Aaronzjp.cn/tags/runtime/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS-对象关联</title>
-    <link href="Aaronzjp.cn/2016/08/18/Associated%20Object/"/>
-    <id>Aaronzjp.cn/2016/08/18/Associated Object/</id>
-    <published>2016-08-18T10:35:51.000Z</published>
-    <updated>2017-07-27T02:57:42.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;关联对象就是给某个对象关联一些其他的对象，这些被关联的对象通过键（key）来区分管理。比如：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;有一个&lt;code&gt;Person&lt;/code&gt;类，&lt;code&gt;Aaron&lt;/code&gt;是这个&lt;code&gt;Person&lt;/code&gt;类的实例也就是对象。现在又增加了一个&lt;code&gt;Car&lt;/code&gt;类，且有一个&lt;code&gt;Audi&lt;/code&gt;的实例，我们需要给&lt;code&gt;Aaron&lt;/code&gt;实例增加关联一辆Audi车。显然常规的做法是把&lt;code&gt;Car&lt;/code&gt;类作为属性添加到&lt;code&gt;Aaron&lt;/code&gt;中，但是在有的某些特殊的情况下我们无法对&lt;code&gt;Aaron&lt;/code&gt;这个实例直接进行操作，也无法通过继承去操作，那么这个时候就可以用关联对象来解决这个问题了。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="runtime" scheme="Aaronzjp.cn/tags/runtime/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS网络编程NSURLConnection／NSURLSession</title>
-    <link href="Aaronzjp.cn/2016/08/11/iOS-NetWork-Programming-NSURLConnectionAndNSURLSession/"/>
-    <id>Aaronzjp.cn/2016/08/11/iOS-NetWork-Programming-NSURLConnectionAndNSURLSession/</id>
-    <published>2016-08-11T04:16:49.000Z</published>
-    <updated>2017-07-27T02:56:59.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;iOS网络编程是最基础常用的知识，可以说是从开始学习iOS的时候就应该要必备的基础知识。但是平常在项目中都使用比较成熟的第三方网络请求的框架（比如：AFNetworking）来替代了苹果官方所提供的网络请求API，对苹果提供的API相关的东西就逐渐的忽略了。为了理解其相关知识和原理，所以对这块知识复习一下，顺便整理成博客。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="网络编程" scheme="Aaronzjp.cn/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS10 权限Crash问题</title>
-    <link href="Aaronzjp.cn/2016/08/09/iOS10-CrashOfPermission/"/>
-    <id>Aaronzjp.cn/2016/08/09/iOS10-CrashOfPermission/</id>
-    <published>2016-08-09T03:22:30.000Z</published>
-    <updated>2017-07-27T02:56:10.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;​    手机升级iOS10beat版本后，公司项目在真机上测试出现了崩溃的现象。一打开App就Crash了，一开始还不太确定问题，以为是项目本身代码的问题。找了半天，后来居然在控制台的输出中找到了问题（控制台输出的内容太多了不好找啊😂）。&lt;/p&gt;
-&lt;p&gt;​    控制台输出的信息如下：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="疑难杂症" scheme="Aaronzjp.cn/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
     
   </entry>
   

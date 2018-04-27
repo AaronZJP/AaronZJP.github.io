@@ -268,7 +268,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron_36">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://onocdmhtw.bkt.clouddn.com//Home/20170923140629_JyMo4N_IMG_0196.jpeg">
+      <meta itemprop="image" content="http://onocdmhtw.bkt.clouddn.com/20180427165642_tLVia7_C4146327-19B5-490D-9192-867FB89D10D3.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -357,10 +357,10 @@
 <h1 id="忽略参数标签"><a href="#忽略参数标签" class="headerlink" title="忽略参数标签"></a>忽略参数标签</h1><p>当然参数标签也是可以忽略的，忽略参数标签使用<code>_</code>来占位代替参数标签：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">whoIsFriend</span><span class="params">(<span class="number">_</span> person: String, <span class="number">_</span> person1: String)</span></span> -&gt; <span class="type">String</span> &#123;</div><div class="line">  <span class="keyword">return</span> person+<span class="string">"和"</span>+person1+<span class="string">"是好朋友！"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> friend = whoIsFriend(<span class="string">"Aaron"</span>, <span class="string">"Edison"</span>)</div><div class="line"><span class="built_in">print</span>(friend)</div><div class="line"><span class="comment">//输出结果：Aaron和Edison是好朋友！</span></div></pre></td></tr></table></figure>
 <h1 id="函数默认参数值"><a href="#函数默认参数值" class="headerlink" title="函数默认参数值"></a>函数默认参数值</h1><p>函数中还可以为参数赋予默认值，当默认值被设置后在调用函数的时候可以忽略这个参数：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sumNumber</span><span class="params">(number1: Int, number2: Int = <span class="number">10</span>)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">  <span class="keyword">return</span> number1 + number2</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> sum = sumNumber(number1: <span class="number">1</span>)</div><div class="line"><span class="keyword">let</span> sum2 = sumNumber(number1: <span class="number">1</span>, number2: <span class="number">15</span>)</div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"sum = <span class="subst">\(sum)</span>,sum2 = <span class="subst">\(sum2)</span>"</span>)</div><div class="line"><span class="comment">//输出结果：sum = 11,sum2 = 16</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sumNumber</span><span class="params">(number1: Int, number2: Int = <span class="number">10</span>)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">  <span class="keyword">return</span> number1 + number2</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> sum = sumNumber(number1: <span class="number">1</span>)</div><div class="line"><span class="keyword">let</span> sum2 = sumNumber(number1: <span class="number">1</span>, number2: <span class="number">15</span>)</div><div class="line"></div><div class="line"><span class="built_in">print</span>(<span class="string">"sum = \(sum),sum2 = \(sum2)"</span>)</div><div class="line"><span class="comment">//输出结果：sum = 11,sum2 = 16</span></div></pre></td></tr></table></figure>
 <p>很明显<code>sum</code>在调用函数的时候忽略了第二个默认为 10 的参数，所以使用默认的值来计算返回 11，<code>sum2</code>在调用函数的时候传入了第二个参数为 15 来替代了默认值 10 所以返回为16。</p>
 <h1 id="输入输出参数"><a href="#输入输出参数" class="headerlink" title="输入输出参数"></a>输入输出参数</h1><p>输入输出参数是指给函数传入的参数是可以在函数内部被修改的，设置输入输出参数要在函数参数的类型前加上<code>inout</code>关键字，这样被标记的函数参数才是可以被修改的。调用函数的时候传入输入输出参数的值必须是变量，不能是常量或是字面量，因为只有变量可以被修改，可变参数不能设定为输入输出参数。且输入输出参数不能设置默认值。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapNumber</span><span class="params">( a: <span class="keyword">inout</span> Int,  b: <span class="keyword">inout</span> Int)</span></span> &#123;</div><div class="line">  <span class="keyword">let</span> temp = a</div><div class="line">  a = b</div><div class="line">  b = temp</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>,b = <span class="number">20</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"交换前 a = <span class="subst">\(a)</span>,b = <span class="subst">\(b)</span> "</span>)</div><div class="line"><span class="built_in">swap</span>(&amp;a, &amp;b)</div><div class="line"><span class="built_in">print</span>(<span class="string">"交换后 a = <span class="subst">\(a)</span>,b = <span class="subst">\(b)</span>"</span>)</div><div class="line"></div><div class="line"><span class="comment">//输出结果：交换前 a = 10,b = 20 </span></div><div class="line">	      交换后 a = <span class="number">20</span>,b = <span class="number">10</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapNumber</span><span class="params">( a: <span class="keyword">inout</span> Int,  b: <span class="keyword">inout</span> Int)</span></span> &#123;</div><div class="line">  <span class="keyword">let</span> temp = a</div><div class="line">  a = b</div><div class="line">  b = temp</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>,b = <span class="number">20</span></div><div class="line"><span class="built_in">print</span>(<span class="string">"交换前 a = \(a),b = \(b) "</span>)</div><div class="line"><span class="built_in">swap</span>(&amp;a, &amp;b)</div><div class="line"><span class="built_in">print</span>(<span class="string">"交换后 a = \(a),b = \(b)"</span>)</div><div class="line"></div><div class="line"><span class="comment">//输出结果：交换前 a = 10,b = 20 </span></div><div class="line">	      交换后 a = <span class="number">20</span>,b = <span class="number">10</span></div></pre></td></tr></table></figure>
 <p>该函数是交换两个<code>Int</code>类型的值，要注意的是在调用有输入输出参数的函数时需要在输入输出参数前加上<code>&amp;</code>符号。</p>
 <h1 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h1><p>在<em>swift</em>中函数是具有函数类型的，函数的类型是由函数参数和函数返回值组成的。如下函数：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">sumNumber</span><span class="params">(number1: Int, number2: Int = <span class="number">10</span>)</span></span> -&gt; <span class="type">Int</span> &#123;</div><div class="line">  <span class="keyword">return</span> number1 + number2</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -483,11 +483,11 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="http://onocdmhtw.bkt.clouddn.com//Home/20170923140629_JyMo4N_IMG_0196.jpeg"
+               src="http://onocdmhtw.bkt.clouddn.com/20180427165642_tLVia7_C4146327-19B5-490D-9192-867FB89D10D3.jpeg"
                alt="Aaron_36" />
           <p class="site-author-name" itemprop="name">Aaron_36</p>
            
-              <p class="site-description motion-element" itemprop="description">主要是对学习的内容做一些总结和记录，帮助记忆和方便查找。</p>
+              <p class="site-description motion-element" itemprop="description">笨鸟先飞，笨人勤学。有一种学习的方式叫抄书式学习，博客里的文章主要是看的一些书或其他人的博客，用自己的话记录下来。</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -495,7 +495,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -517,7 +517,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

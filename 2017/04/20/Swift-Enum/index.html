@@ -269,7 +269,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron_36">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://onocdmhtw.bkt.clouddn.com//Home/20170923140629_JyMo4N_IMG_0196.jpeg">
+      <meta itemprop="image" content="http://onocdmhtw.bkt.clouddn.com/20180427165642_tLVia7_C4146327-19B5-490D-9192-867FB89D10D3.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -343,7 +343,7 @@
 <h1 id="关联值"><a href="#关联值" class="headerlink" title="关联值"></a>关联值</h1><p>在 Swift 中，枚举成员还可以添加任意类型的枚举关联值，但是在同一个枚举类型变量中，只能同时存在一个枚举成员的关联值。如下：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">HttpStatus</span> </span>&#123;</div><div class="line">    <span class="keyword">case</span> errorCode(<span class="type">Int</span>)</div><div class="line">    <span class="keyword">case</span> errorMessage(<span class="type">String</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> code = <span class="type">HttpStatus</span>.errorCode(<span class="number">5</span>)</div></pre></td></tr></table></figure>
 <p>这些枚举值的关联值还可以通过变量/常量进行值绑定的方式提出来单独使用：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> code &#123;</div><div class="line"><span class="keyword">case</span> .errorCode(<span class="keyword">let</span> code):</div><div class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(code)</span>"</span>)</div><div class="line"><span class="keyword">case</span> .errorMessage(<span class="keyword">let</span> message):</div><div class="line">    <span class="built_in">print</span>(message)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> code &#123;</div><div class="line"><span class="keyword">case</span> .errorCode(<span class="keyword">let</span> code):</div><div class="line">    <span class="built_in">print</span>(<span class="string">"\(code)"</span>)</div><div class="line"><span class="keyword">case</span> .errorMessage(<span class="keyword">let</span> message):</div><div class="line">    <span class="built_in">print</span>(message)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h1><p>在 Swift 中枚举除了关联值以为，枚举还可以有原始值(默认值)，原始值的类型必须相同，枚举的原始值需要显示的声明类型。原始值可以是字符串，字符，或者任意整型值或浮点型值。每个原始值在枚举声明中必须是唯一的。如下为枚举设置原始值：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Season</span>: <span class="title">String</span> </span>&#123;</div><div class="line">    <span class="keyword">case</span> spring = <span class="string">"春天"</span></div><div class="line">    <span class="keyword">case</span> summer = <span class="string">"夏天"</span></div><div class="line">    <span class="keyword">case</span> autumn = <span class="string">"秋天"</span></div><div class="line">    <span class="keyword">case</span> winter = <span class="string">"冬天"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>声明隐式原始值：</p>
@@ -397,8 +397,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/03/Use-ReactiveCocoa/" rel="prev" title="ReactiveCocoa的基本使用">
-                ReactiveCocoa的基本使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/22/ReactiveCocoa-Tutorial-2-1/" rel="prev" title="ReactiveCocoa 基础教程 2-1">
+                ReactiveCocoa 基础教程 2-1 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -464,11 +464,11 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="http://onocdmhtw.bkt.clouddn.com//Home/20170923140629_JyMo4N_IMG_0196.jpeg"
+               src="http://onocdmhtw.bkt.clouddn.com/20180427165642_tLVia7_C4146327-19B5-490D-9192-867FB89D10D3.jpeg"
                alt="Aaron_36" />
           <p class="site-author-name" itemprop="name">Aaron_36</p>
            
-              <p class="site-description motion-element" itemprop="description">主要是对学习的内容做一些总结和记录，帮助记忆和方便查找。</p>
+              <p class="site-description motion-element" itemprop="description">笨鸟先飞，笨人勤学。有一种学习的方式叫抄书式学习，博客里的文章主要是看的一些书或其他人的博客，用自己的话记录下来。</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -476,7 +476,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -498,7 +498,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
