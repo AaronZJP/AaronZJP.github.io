@@ -118,7 +118,7 @@
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180427112533_sxTwTK_FinallyWeSeeTweets.jpeg">
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180427140823_NkYa5Z_AvatarsAtAlast.jpeg">
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180427142515_xf04lC_CompletePipeline.jpeg">
-<meta property="og:updated_time" content="2018-04-27T09:26:12.457Z">
+<meta property="og:updated_time" content="2018-05-02T05:11:39.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactiveCocoa 基础教程 2-2">
 <meta name="twitter:description" content="ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，合并信号。 在这一部分将要介绍 ReactiveCocoa 中更多高级的用法：  另外的两个事件类型 error 和 complete 节流(Throttling) 线程">
@@ -549,11 +549,11 @@
 <p>打开 <strong>RWSearchResultsViewController.m</strong> 文件，添加如下的代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">-(RACSignal *)signalForLoadingImage:(NSString *)imageUrl &#123;</div><div class="line">  </div><div class="line">  RACScheduler *scheduler = [RACScheduler</div><div class="line">                         schedulerWithPriority:RACSchedulerPriorityBackground];</div><div class="line">  </div><div class="line">  return [[RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) &#123;</div><div class="line">    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrl]];</div><div class="line">    UIImage *image = [UIImage imageWithData:data];</div><div class="line">    [subscriber sendNext:image];</div><div class="line">    [subscriber sendCompleted];</div><div class="line">    return nil;</div><div class="line">  &#125;] subscribeOn:scheduler];</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>现在你应该对这个模式很熟悉了！</p>
-<p>上面的代码中第一步是获得了一个异步后台县城，因为你希望这个信号在主线程以外执行。接下来创建了一个下载图片数据的信号，当有订阅者的时候创建图片。最后使用 <strong>subscribeOn:</strong> 方法让信号在异步线程中执行！</p>
+<p>上面的代码中第一步是获得了一个异步后台线程，因为你希望这个信号在主线程以外执行。接下来创建了一个下载图片数据的信号，当有订阅者的时候创建图片。最后使用 <strong>subscribeOn:</strong> 方法让信号在异步线程中执行！</p>
 <p>魔法！</p>
 <p>现在在同样文件的 <strong>tableView:cellForRowAtIndex:</strong> 方法中，添加如下的代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cell.twitterAvatarView.image = nil;</div><div class="line"></div><div class="line">[[[self signalForLoadingImage:tweet.profileImageUrl]</div><div class="line">  deliverOn:[RACScheduler mainThreadScheduler]]</div><div class="line">  subscribeNext:^(UIImage *image) &#123;</div><div class="line">   cell.twitterAvatarView.image = image;</div><div class="line">  &#125;];</div></pre></td></tr></table></figure>
-<p>上面代码的第一步就是先将之前 cell 中的图片设置为 nil ，因为 cell 会被重用，可能会催债之前的数据。接下来创建了一个信号去请求图片数据。在事件流管道的 <strong>deliverOn:</strong> 这一步骤中你以前也用到过，将 <strong>next</strong> 事件封装切换到主线程，然后在 <strong>subscribeNext:</strong> 的 block 中可以安全的执行。</p>
+<p>上面代码的第一步就是先将之前 cell 中的图片设置为 nil ，因为 cell 会被重用，可能会重用之前的数据。接下来创建了一个信号去请求图片数据。在事件流管道的 <strong>deliverOn:</strong> 这一步骤中你以前也用到过，将 <strong>next</strong> 事件封装切换到主线程，然后在 <strong>subscribeNext:</strong> 的 block 中可以安全的执行。</p>
 <p>很好，很简单的例子！</p>
 <p>编译运行，现在就可以看到用户的头像了。</p>
 <p><img src="http://onocdmhtw.bkt.clouddn.com/20180427140823_NkYa5Z_AvatarsAtAlast.jpeg" alt=""></p>
