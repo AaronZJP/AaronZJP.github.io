@@ -96,13 +96,13 @@
 
 
 
-<meta name="description" content="ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，合并信号。 在这一部分将要介绍 ReactiveCocoa 中更多高级的用法：  另外的两个事件类型 error 和 complete 节流(Throttling) 线程">
+<meta name="description" content="本文是翻译自国外网站的文章，其实这篇文章有很多的现成的翻译，但是看了过后感觉我自己很难理解别人的翻译方式，所以用自己的方式翻译了一遍，顺便也是加深一下印象。原文地址  ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，">
 <meta name="keywords" content="Reactive Cocoa,响应式编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ReactiveCocoa 基础教程 2-2">
 <meta property="og:url" content="Aaronzjp.cn/2017/06/20/ReactiveCocoa-Tutorial-2-2/index.html">
 <meta property="og:site_name" content="Aaron的博客">
-<meta property="og:description" content="ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，合并信号。 在这一部分将要介绍 ReactiveCocoa 中更多高级的用法：  另外的两个事件类型 error 和 complete 节流(Throttling) 线程">
+<meta property="og:description" content="本文是翻译自国外网站的文章，其实这篇文章有很多的现成的翻译，但是看了过后感觉我自己很难理解别人的翻译方式，所以用自己的方式翻译了一遍，顺便也是加深一下印象。原文地址  ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，">
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180426100047_dA7D9e_TwitterInstantStarter.jpeg">
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180426103036_pQtqpK_ValidatedTextField.jpeg">
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180426103158_W7IJLe_TextValidationPipeline.jpeg">
@@ -118,10 +118,10 @@
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180427112533_sxTwTK_FinallyWeSeeTweets.jpeg">
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180427140823_NkYa5Z_AvatarsAtAlast.jpeg">
 <meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180427142515_xf04lC_CompletePipeline.jpeg">
-<meta property="og:updated_time" content="2018-05-02T05:11:39.140Z">
+<meta property="og:updated_time" content="2018-05-02T09:15:40.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactiveCocoa 基础教程 2-2">
-<meta name="twitter:description" content="ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，合并信号。 在这一部分将要介绍 ReactiveCocoa 中更多高级的用法：  另外的两个事件类型 error 和 complete 节流(Throttling) 线程">
+<meta name="twitter:description" content="本文是翻译自国外网站的文章，其实这篇文章有很多的现成的翻译，但是看了过后感觉我自己很难理解别人的翻译方式，所以用自己的方式翻译了一遍，顺便也是加深一下印象。原文地址  ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，">
 <meta name="twitter:image" content="http://onocdmhtw.bkt.clouddn.com/20180426100047_dA7D9e_TwitterInstantStarter.jpeg">
 
 
@@ -347,7 +347,10 @@
       
 
       
-        <p>ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，合并信号。</p>
+        <blockquote>
+<p>本文是翻译自国外网站的文章，其实这篇文章有很多的现成的翻译，但是看了过后感觉我自己很难理解别人的翻译方式，所以用自己的方式翻译了一遍，顺便也是加深一下印象。<a href="https://www.raywenderlich.com/62796/reactivecocoa-tutorial-pt2" target="_blank" rel="external">原文地址</a></p>
+</blockquote>
+<p>ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，合并信号。</p>
 <p>在这一部分将要介绍 ReactiveCocoa 中更多高级的用法：</p>
 <ul>
 <li>另外的两个事件类型 <strong>error</strong> 和 <strong>complete</strong></li>
@@ -601,8 +604,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/22/ReactiveCocoa-Tutorial-2-1/" rel="next" title="ReactiveCocoa 基础教程 2-1">
-                <i class="fa fa-chevron-left"></i> ReactiveCocoa 基础教程 2-1
+              <a href="/2017/05/22/ReactiveCocoa-Tutorial-2-1/" rel="next" title="ReactiveCocoa 基础教程 2-1（译）">
+                <i class="fa fa-chevron-left"></i> ReactiveCocoa 基础教程 2-1（译）
               </a>
             
           </div>

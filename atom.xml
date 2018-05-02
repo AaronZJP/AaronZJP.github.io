@@ -241,11 +241,14 @@
     <link href="Aaronzjp.cn/2017/06/20/ReactiveCocoa-Tutorial-2-2/"/>
     <id>Aaronzjp.cn/2017/06/20/ReactiveCocoa-Tutorial-2-2/</id>
     <published>2017-06-20T14:32:12.000Z</published>
-    <updated>2018-05-02T05:11:39.140Z</updated>
+    <updated>2018-05-02T09:15:40.370Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，合并信号。&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;本文是翻译自国外网站的文章，其实这篇文章有很多的现成的翻译，但是看了过后感觉我自己很难理解别人的翻译方式，所以用自己的方式翻译了一遍，顺便也是加深一下印象。&lt;a href=&quot;https://www.raywenderlich.com/62796/reactivecocoa-tutorial-pt2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，合并信号。&lt;/p&gt;
 &lt;p&gt;在这一部分将要介绍 ReactiveCocoa 中更多高级的用法：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;另外的两个事件类型 &lt;strong&gt;error&lt;/strong&gt; 和 &lt;strong&gt;complete&lt;/strong&gt;&lt;/li&gt;
@@ -266,15 +269,18 @@
   </entry>
   
   <entry>
-    <title>ReactiveCocoa 基础教程 2-1</title>
+    <title>ReactiveCocoa 基础教程 2-1（译）</title>
     <link href="Aaronzjp.cn/2017/05/22/ReactiveCocoa-Tutorial-2-1/"/>
     <id>Aaronzjp.cn/2017/05/22/ReactiveCocoa-Tutorial-2-1/</id>
     <published>2017-05-22T12:30:22.000Z</published>
-    <updated>2018-04-27T09:26:08.298Z</updated>
+    <updated>2018-05-02T09:15:41.570Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;作为一个iOS开发，几乎编写的每一行代码都是在处理事件的响应。比如按钮的点击，接收的网络消息，属性的改变(Key Value Observing)，或者用户改变了当前的位置，都是很好的例子。然而这些事件以不同的编码方式散布在各个地方，比如动作触发，代理(delegates)，KVO，回调或者其他的。ReactiveCocoa 则定义了一套完整的处理这些事件的标准接口，因此可以使用它很容易的处理事件链接，过滤，组合等。&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;本文是翻译自国外网站的文章，其实这篇文章有很多的现成的翻译，但是看了过后感觉我自己很难理解别人的翻译方式，所以用自己的方式翻译了一遍，顺便也是加深一下印象。&lt;a href=&quot;https://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;作为一个iOS开发，几乎编写的每一行代码都是在处理事件的响应。比如按钮的点击，接收的网络消息，属性的改变(Key Value Observing)，或者用户改变了当前的位置，都是很好的例子。然而这些事件以不同的编码方式散布在各个地方，比如动作触发，代理(delegates)，KVO，回调或者其他的。ReactiveCocoa 则定义了一套完整的处理这些事件的标准接口，因此可以使用它很容易的处理事件链接，过滤，组合等。&lt;/p&gt;
 &lt;p&gt;听起来很困惑？很有趣？….吹牛逼？继续看下去。&lt;/p&gt;
 &lt;p&gt;ReactiveCocoa 结合了以下几种编程风格：&lt;/p&gt;
 &lt;ul&gt;
@@ -404,24 +410,20 @@
   </entry>
   
   <entry>
-    <title>初识CALayer</title>
-    <link href="Aaronzjp.cn/2016/12/01/iOS-CALayer/"/>
-    <id>Aaronzjp.cn/2016/12/01/iOS-CALayer/</id>
+    <title>Swift-函数</title>
+    <link href="Aaronzjp.cn/2016/12/01/Swift-Function/"/>
+    <id>Aaronzjp.cn/2016/12/01/Swift-Function/</id>
     <published>2016-12-01T06:11:37.000Z</published>
-    <updated>2017-07-27T02:57:07.000Z</updated>
+    <updated>2018-02-08T02:59:19.674Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt; CALayer 和 UIView 类似，也是一些被层级关系树管理的块。 CALayer 和 UIView 一样的可以可以在其中展示图片，文本，通过方法或属性做动画和图形变换等等的界面上的显示相关的东西，可以说 UIView 能做到的 CALayer 基本上也能做到，但是 CALayer 和  UIView 最大的不同是 CALayer 不处理和用户的交互。因为  CALayer 不能很好的处理具体的响应链，无法响应事件的处理，即使在 CALayer 的方法中提供了触摸事件的检测方法。&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;http://onocdmhtw.bkt.clouddn.com/20170419149259342224934.jpg&quot; alt=&quot;20170419149259342224934.jpg&quot;&gt;&lt;/p&gt;
     
     </summary>
     
     
-      <category term="图层" scheme="Aaronzjp.cn/tags/%E5%9B%BE%E5%B1%82/"/>
-    
-      <category term="CALayer" scheme="Aaronzjp.cn/tags/CALayer/"/>
-    
-      <category term="Core Animation" scheme="Aaronzjp.cn/tags/Core-Animation/"/>
+      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
   </entry>
   
