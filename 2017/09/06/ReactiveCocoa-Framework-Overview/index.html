@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Reactive Cocoa,响应式编程," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aaron的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="框架概览 本文档翻译自 ReactiveCocoa ( ReactiveObjC ) 中的 Framework Overview 文档，主要是用来帮助了解 ReactiveCocoa 这个框架的。  该文档主要包含了 ReactiveCocoa 框架中底层不同组件的相关介绍，并介绍了他们是如何一起工作，和划分工作的。这是学习这个新模块和找到更多相关知识文档的起点。 例如帮助我们理解怎么使用 RAC">
+<meta name="keywords" content="Reactive Cocoa,响应式编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactiveCocoa框架概览">
+<meta property="og:url" content="Aaronzjp.cn/2017/09/06/ReactiveCocoa-Framework-Overview/index.html">
+<meta property="og:site_name" content="Aaron的博客">
+<meta property="og:description" content="框架概览 本文档翻译自 ReactiveCocoa ( ReactiveObjC ) 中的 Framework Overview 文档，主要是用来帮助了解 ReactiveCocoa 这个框架的。  该文档主要包含了 ReactiveCocoa 框架中底层不同组件的相关介绍，并介绍了他们是如何一起工作，和划分工作的。这是学习这个新模块和找到更多相关知识文档的起点。 例如帮助我们理解怎么使用 RAC">
+<meta property="og:updated_time" content="2018-05-03T05:21:19.963Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ReactiveCocoa框架概览">
+<meta name="twitter:description" content="框架概览 本文档翻译自 ReactiveCocoa ( ReactiveObjC ) 中的 Framework Overview 文档，主要是用来帮助了解 ReactiveCocoa 这个框架的。  该文档主要包含了 ReactiveCocoa 框架中底层不同组件的相关介绍，并介绍了他们是如何一起工作，和划分工作的。这是学习这个新模块和找到更多相关知识文档的起点。 例如帮助我们理解怎么使用 RAC">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="Aaronzjp.cn/2017/09/06/ReactiveCocoa-Framework-Overview/"/>
+
+
+
+
+
+  <title>ReactiveCocoa框架概览 | Aaron的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">技术博客，记录和学习</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2017/09/06/ReactiveCocoa-Framework-Overview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron_36">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://onocdmhtw.bkt.clouddn.com/20180428134154_AzuJA2_brandon-brown-396090-unsplash.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ReactiveCocoa框架概览</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-06T21:25:22+08:00">
+                2017-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="框架概览"><a href="#框架概览" class="headerlink" title="框架概览"></a>框架概览</h1><blockquote>
+<p>本文档翻译自 ReactiveCocoa ( ReactiveObjC ) 中的 <a href="https://github.com/ReactiveCocoa/ReactiveObjC/blob/master/Documentation/FrameworkOverview.md" target="_blank" rel="external">Framework Overview</a> 文档，主要是用来帮助了解 ReactiveCocoa 这个框架的。</p>
+</blockquote>
+<p>该文档主要包含了 ReactiveCocoa 框架中底层不同组件的相关介绍，并介绍了他们是如何一起工作，和划分工作的。这是学习这个新模块和找到更多相关知识文档的起点。</p>
+<p>例如帮助我们理解怎么使用 RAC，可以查看这个<a href="https://github.com/ReactiveCocoa/ReactiveObjC/blob/master/Documentation/README.md" target="_blank" rel="external">使用文档</a> 以及<a href="https://github.com/ReactiveCocoa/ReactiveObjC/blob/master/Documentation/DesignGuidelines.md" target="_blank" rel="external">设计概览</a>。</p>
+<h1 id="Stream-流"><a href="#Stream-流" class="headerlink" title="Stream (流)"></a>Stream (流)</h1><p>流，在框架中使用 <strong>RACStream</strong> 这个抽象类表示，是一系列的对象值。</p>
+<p>这些值是可以立刻获取到的，或者在将来可以获取使用的，但是必须要按顺序检索。在流中不使用或者等待第一个值的情况下是没有办法跳过直接获取检索第二个值的。</p>
+<p>流就是 <strong><a href="http://en.wikipedia.org/wiki/Monad_(functional_programming" target="_blank" rel="external">monads</a>)</strong>（不知道怎么翻译），除此之外，这是使得复杂的操作可以建立在一些基本的操作上（特别是类似于 -<code>bind:</code>），RACStream 也实现了来自于 <a href="http://www.haskell.org/" target="_blank" rel="external">Haskell</a> 的 <a href="http://www.haskell.org/" target="_blank" rel="external">Monoid</a> 和 <a href="http://downloads.haskell.org/%7Eghc/latest/docs/html/libraries/Control-Monad-Zip.html" target="_blank" rel="external">MonadZip</a> 的 typeclasses 思想。</p>
+<p>RACStream 本身并不是特别的有用。大多数情况下 Stream 都是被当作信号( signals )和序列( sequences )来处理的。</p>
+<h1 id="Signals-信号"><a href="#Signals-信号" class="headerlink" title="Signals (信号)"></a>Signals (信号)</h1><p>信号是由 <strong>RACSignal</strong> 这个类表示的，是一个推驱动式( push-driven )的流。</p>
+<p>信号通常来说就是即将发送的数据。当工作被执行或者数据被接收的时候，值通过信号发送出去，这会将值推送给所有的订阅者。用户必须要订阅信号才能访问信号中的数据。</p>
+<p>信号可以发送三种不同类型的事件给订阅者：</p>
+<ul>
+<li><strong>next</strong> 事件在流中提供一个新的值。<strong>RACStream</strong> 类中的方法只对此类事件进行操作，与 Cocoa 中的集合类型不同的是，它对一个包含 nil 的信号是完全有效的。</li>
+<li><strong>error</strong> 事件标示着在信号完成之前发生了错误。该事件可能会包含一个 <strong>NSError</strong> 对象，该对象标示出哪里出了错误。错误事件必须特别处理，因为它们不包含在流的值中。</li>
+<li><strong>completed</strong> 事件标示出信号成功的执行完毕，并且不会添加更多的新的值到流中。完成事件也必须要得到特别处理，同样的它也不被包含在流的值中。</li>
+</ul>
+<p>一个信号的生命周期是由任意个数量的 <strong>next</strong> 事件，紧接着跟随一个 <strong>error</strong> 或者 <strong>completed</strong> (但是不会是同时出现的) 事件组成的。</p>
+<h1 id="Subscription-订阅者"><a href="#Subscription-订阅者" class="headerlink" title="Subscription (订阅者)"></a>Subscription (订阅者)</h1><p>订阅者是一个通过信号等待事件的任何对象。在 <strong>RAC</strong> 中，订阅者可以是遵守了 <strong>RACSubscriber</strong> 协议的任何对象。</p>
+<p>订阅者可以通过 <code>-subscribeNext:error:completed:</code> 方法创建，或者响应的便利方法。大多数 RACStream 和 RACSignal 操作对象都创建了订阅，但是这些订阅中间大多是实现的细节。</p>
+<p>订阅者持有其订阅的信号，并在信号完成或者发生错误时自动进行处理。当然订阅者也可以手动进行处理。</p>
+<h1 id="Subjects-热信号"><a href="#Subjects-热信号" class="headerlink" title="Subjects (热信号)"></a>Subjects (热信号)</h1><p>热信号( Subjects ) 由 <strong>RACSubject</strong> 这个类表示，这是一个可以手动控制的信号。</p>
+<p>热信号可以被认为是 <strong>Signal</strong>( 信号 ) 的一个可变的变体，就像是 <strong>NSMutableArray</strong> 和 <strong>NSArray</strong> 的关系一样。它们用来将非 RAC 的代码桥接到 ReactiveCocoa 中是非常有用的。</p>
+<p>例如，可以替代在应用中处理逻辑回调的 block ，block 可以很简单的发送事件到 subject 作为替代。然后 subject 可以作为一个 <strong>RACSignal</strong> 返回，隐藏在回调中的实现细节。</p>
+<p>一些 subject 也可以提供额外的处理方式。特别是 <strong>RACReplaySubject</strong> 可以用来为将来的订阅者缓冲事件，比如在网络请求完成之前，一些事情需要准备好处理结束。</p>
+<h1 id="Commands-命令"><a href="#Commands-命令" class="headerlink" title="Commands (命令)"></a>Commands (命令)</h1><p><strong>Commands</strong>(命令) 表现于 <strong>RACCommand</strong> 这个类，用于创建和订阅信号中的响应和动作。这让用户与 App 交互的时候可以很容易的执行一些其他的操作和效果。</p>
+<p>通常一个动作的触发命令是由 UI 驱动的，就像按钮被点击的时候一样。<strong>Commands</strong>(命令) 还可以基于信号自动的禁用一些操作，而这个禁用状态可以通过禁用与该命令相关联的任何控件来表示在UI中。</p>
+<p>在OS X上，RAC 将 <code>rac_command</code> 属性添加到 <strong>NSButton</strong> 中，用于自动设置这些行为。</p>
+<h1 id="Connections-连接"><a href="#Connections-连接" class="headerlink" title="Connections (连接)"></a>Connections (连接)</h1><p><strong>Connections</strong>(连接) 表现于 <strong>RACMulticastConnection</strong> 类，用于在多个订阅者之间共享订阅。</p>
+<p><strong>Signals</strong> 在默认情况下是冷信号，也就是说只有在每次添加订阅的时候才会发送事件。这种行为是可取的，因为这意味着数据是刚刚重新计算的对于每个订阅者来说，但是如果是在信号有副作用以及昂贵的操作的时候就会有问题( 比如发送网络请求 )。</p>
+<p>可以通过 RACSignal 中的 <code>-publish:</code> 或者 <code>-multicast:</code> 方法创建一个 <strong>Connections</strong>(连接)，并且保证只创建了一个订阅者，无论被订阅了多少次。一次连接后，被连接的信号被告知为热信号，而且底层订阅保持活跃直到所有的订阅者被处理清除。</p>
+<h1 id="Sequences-序列"><a href="#Sequences-序列" class="headerlink" title="Sequences (序列)"></a>Sequences (序列)</h1><p><strong>Sequences</strong>(序列)，表现于 <strong>RACSequence</strong> 类，是一个拉驱动式( pull-driven )的流。</p>
+<p><strong>Sequences</strong>(序列) 是一种集合类型，类似于 <strong>NSArray</strong> 。与 <strong>NSArray</strong> 不同的是 <strong>Sequences</strong> 中的值默认是懒加载的( 即在被需要的时候才加载 )，如果只是使用 <strong>Sequences</strong> 的一部分，可能会对性能有潜在的提升。就像 Cocoa 中的集合类型一样，<strong>Sequences</strong> 是不能包含 nil 的。</p>
+<p><strong>Sequences</strong> 类似于 <strong>Clojure</strong> 的序列(特别是lazy-seq)，或者 <strong>Haskell</strong> 中的 <strong>List</strong> 类型。</p>
+<p>RAC 将 <code>-rac_sequence:</code> 方法添加到大多数 Cocoa 的集合类中，允许它们作为<strong>Sequences</strong> 使用。</p>
+<h1 id="Disposables"><a href="#Disposables" class="headerlink" title="Disposables"></a>Disposables</h1><p><strong>Disposables</strong> 类用于取消和清理资源。</p>
+<p><strong>Disposables</strong> 通常用来取消信号的订阅。当订阅被清除取消，与其相关的订阅者就不会在信号中收到以后的事件。此外，任何与订阅相关的工作(后台处理、网络请求等)都将会被取消，因为不再需要结果。</p>
+<p>更多关于取消的信息，可以查看 RAC 的<strong><a href="https://github.com/ReactiveCocoa/ReactiveObjC/blob/master/Documentation/DesignGuidelines.md" target="_blank" rel="external">设计概览</a></strong>。</p>
+<h2 id="Schedulers-调度器"><a href="#Schedulers-调度器" class="headerlink" title="Schedulers (调度器)"></a>Schedulers (调度器)</h2><p><strong>Schedulers</strong> (调度器) 表现于 <strong>RACScheduler</strong> 类，<strong>Schedulers</strong> (调度器) 是一个串行执行队列，用于执行工作或交付结果的信号。</p>
+<p><strong>Schedulers</strong> (调度器) 类似于 GCD 队列，但是 <strong>Schedulers</strong> (调度器) 支持取消操作( 例如：disposables )，并且总是连续执行。除了 <code>+immediateScheduler:</code> 方法外，<strong>Schedulers</strong> (调度器) 不提供同步执行。这有助于避免死锁，而且鼓励使用信号操作来替代 block 。</p>
+<p>同时 <strong>Schedulers</strong> (调度器) 也类似于 <strong>NSOperationQueue</strong>，但是 <strong>Schedulers</strong> (调度器) 不允许任务被重新排列或者相互依赖。</p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>RAC 提供了一些其他类，方便地表示流中的值:</p>
+<ul>
+<li><strong>RACTuple</strong> 是一个轻量级的常量集合，可以包含 nil ( 由 RACTupleNil 表示 )。它通常用于表示多个流的组合值。</li>
+<li><strong>RACUnit</strong> 是一个单例空值，当没有有意义的值存在流中时，它被当作流中的值。</li>
+<li><strong>RACEvent</strong> 将任何信号事件表示为单个值。它主要通过 <code>-materialize:</code> 方法应用于 <strong>RACSignal</strong>。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Reactive-Cocoa/" rel="tag"># Reactive Cocoa</a>
+          
+            <a href="/tags/响应式编程/" rel="tag"># 响应式编程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/28/ReactiveCocoa-and-MVVM/" rel="next" title="ReactiveCocoa 和 MVVM 的简单使用">
+                <i class="fa fa-chevron-left"></i> ReactiveCocoa 和 MVVM 的简单使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/12/Whats-new-in-iOS11/" rel="prev" title="What's new in iOS11">
+                What's new in iOS11 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://onocdmhtw.bkt.clouddn.com/20180428134154_AzuJA2_brandon-brown-396090-unsplash.jpeg"
+               alt="Aaron_36" />
+          <p class="site-author-name" itemprop="name">Aaron_36</p>
+           
+              <p class="site-description motion-element" itemprop="description">Stay foolish,Stay hungry!</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AaronZJP" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/AaronZJP" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#框架概览"><span class="nav-number">1.</span> <span class="nav-text">框架概览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Stream-流"><span class="nav-number">2.</span> <span class="nav-text">Stream (流)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Signals-信号"><span class="nav-number">3.</span> <span class="nav-text">Signals (信号)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Subscription-订阅者"><span class="nav-number">4.</span> <span class="nav-text">Subscription (订阅者)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Subjects-热信号"><span class="nav-number">5.</span> <span class="nav-text">Subjects (热信号)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Commands-命令"><span class="nav-number">6.</span> <span class="nav-text">Commands (命令)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Connections-连接"><span class="nav-number">7.</span> <span class="nav-text">Connections (连接)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sequences-序列"><span class="nav-number">8.</span> <span class="nav-text">Sequences (序列)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Disposables"><span class="nav-number">9.</span> <span class="nav-text">Disposables</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Schedulers-调度器"><span class="nav-number">9.1.</span> <span class="nav-text">Schedulers (调度器)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型"><span class="nav-number">10.</span> <span class="nav-text">数据类型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron_36</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

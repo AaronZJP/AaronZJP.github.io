@@ -197,6 +197,27 @@
   </entry>
   
   <entry>
+    <title>ReactiveCocoa框架概览</title>
+    <link href="Aaronzjp.cn/2017/09/06/ReactiveCocoa-Framework-Overview/"/>
+    <id>Aaronzjp.cn/2017/09/06/ReactiveCocoa-Framework-Overview/</id>
+    <published>2017-09-06T13:25:22.000Z</published>
+    <updated>2018-05-03T05:21:19.963Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;框架概览&quot;&gt;&lt;a href=&quot;#框架概览&quot; class=&quot;headerlink&quot; title=&quot;框架概览&quot;&gt;&lt;/a&gt;框架概览&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;本文档翻译自 ReactiveCocoa ( ReactiveObjC ) 中的 &lt;a href=
+    
+    </summary>
+    
+    
+      <category term="Reactive Cocoa" scheme="Aaronzjp.cn/tags/Reactive-Cocoa/"/>
+    
+      <category term="响应式编程" scheme="Aaronzjp.cn/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ReactiveCocoa 和 MVVM 的简单使用</title>
     <link href="Aaronzjp.cn/2017/08/28/ReactiveCocoa-and-MVVM/"/>
     <id>Aaronzjp.cn/2017/08/28/ReactiveCocoa-and-MVVM/</id>
@@ -272,8 +293,8 @@
     <title>ReactiveCocoa 基础教程 2-1（译）</title>
     <link href="Aaronzjp.cn/2017/05/22/ReactiveCocoa-Tutorial-2-1/"/>
     <id>Aaronzjp.cn/2017/05/22/ReactiveCocoa-Tutorial-2-1/</id>
-    <published>2017-05-22T12:30:22.000Z</published>
-    <updated>2018-05-02T09:15:41.570Z</updated>
+    <published>2017-05-22T12:31:22.000Z</published>
+    <updated>2018-05-03T05:20:25.711Z</updated>
     
     <summary type="html">
     
@@ -406,28 +427,6 @@
     
     
       <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初识CALayer</title>
-    <link href="Aaronzjp.cn/2016/12/01/iOS-CALayer/"/>
-    <id>Aaronzjp.cn/2016/12/01/iOS-CALayer/</id>
-    <published>2016-12-01T06:11:37.000Z</published>
-    <updated>2017-07-27T02:57:07.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; CALayer 和 UIView 类似，也是一些被层级关系树管理的块。 CALayer 和 UIView 一样的可以可以在其中展示图片，文本，通过方法或属性做动画和图形变换等等的界面上的显示相关的东西，可以说 UIView 能做到的 CALayer 基本上也能做到，但是 CALayer 和  UIView 最大的不同是 CALayer 不处理和用户的交互。因为  CALayer 不能很好的处理具体的响应链，无法响应事件的处理，即使在 CALayer 的方法中提供了触摸事件的检测方法。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="图层" scheme="Aaronzjp.cn/tags/%E5%9B%BE%E5%B1%82/"/>
-    
-      <category term="CALayer" scheme="Aaronzjp.cn/tags/CALayer/"/>
-    
-      <category term="Core Animation" scheme="Aaronzjp.cn/tags/Core-Animation/"/>
     
   </entry>
   
