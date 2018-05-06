@@ -103,7 +103,7 @@
 <meta property="og:url" content="Aaronzjp.cn/2017/09/06/ReactiveCocoa-Framework-Overview/index.html">
 <meta property="og:site_name" content="Aaron的博客">
 <meta property="og:description" content="框架概览 本文档翻译自 ReactiveCocoa ( ReactiveObjC ) 中的 Framework Overview 文档，主要是用来帮助了解 ReactiveCocoa 这个框架的。  该文档主要包含了 ReactiveCocoa 框架中底层不同组件的相关介绍，并介绍了他们是如何一起工作，和划分工作的。这是学习这个新模块和找到更多相关知识文档的起点。 例如帮助我们理解怎么使用 RAC">
-<meta property="og:updated_time" content="2018-05-03T05:21:19.963Z">
+<meta property="og:updated_time" content="2018-05-06T12:09:26.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactiveCocoa框架概览">
 <meta name="twitter:description" content="框架概览 本文档翻译自 ReactiveCocoa ( ReactiveObjC ) 中的 Framework Overview 文档，主要是用来帮助了解 ReactiveCocoa 这个框架的。  该文档主要包含了 ReactiveCocoa 框架中底层不同组件的相关介绍，并介绍了他们是如何一起工作，和划分工作的。这是学习这个新模块和找到更多相关知识文档的起点。 例如帮助我们理解怎么使用 RAC">
@@ -338,6 +338,7 @@
 <p>例如帮助我们理解怎么使用 RAC，可以查看这个<a href="https://github.com/ReactiveCocoa/ReactiveObjC/blob/master/Documentation/README.md" target="_blank" rel="external">使用文档</a> 以及<a href="https://github.com/ReactiveCocoa/ReactiveObjC/blob/master/Documentation/DesignGuidelines.md" target="_blank" rel="external">设计概览</a>。</p>
 <h1 id="Stream-流"><a href="#Stream-流" class="headerlink" title="Stream (流)"></a>Stream (流)</h1><p>流，在框架中使用 <strong>RACStream</strong> 这个抽象类表示，是一系列的对象值。</p>
 <p>这些值是可以立刻获取到的，或者在将来可以获取使用的，但是必须要按顺序检索。在流中不使用或者等待第一个值的情况下是没有办法跳过直接获取检索第二个值的。</p>
+<a id="more"></a>
 <p>流就是 <strong><a href="http://en.wikipedia.org/wiki/Monad_(functional_programming" target="_blank" rel="external">monads</a>)</strong>（不知道怎么翻译），除此之外，这是使得复杂的操作可以建立在一些基本的操作上（特别是类似于 -<code>bind:</code>），RACStream 也实现了来自于 <a href="http://www.haskell.org/" target="_blank" rel="external">Haskell</a> 的 <a href="http://www.haskell.org/" target="_blank" rel="external">Monoid</a> 和 <a href="http://downloads.haskell.org/%7Eghc/latest/docs/html/libraries/Control-Monad-Zip.html" target="_blank" rel="external">MonadZip</a> 的 typeclasses 思想。</p>
 <p>RACStream 本身并不是特别的有用。大多数情况下 Stream 都是被当作信号( signals )和序列( sequences )来处理的。</p>
 <h1 id="Signals-信号"><a href="#Signals-信号" class="headerlink" title="Signals (信号)"></a>Signals (信号)</h1><p>信号是由 <strong>RACSignal</strong> 这个类表示的，是一个推驱动式( push-driven )的流。</p>
