@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2018-05-02T09:08:40.370Z</updated>
+  <updated>2018-05-16T15:13:33.726Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS 发现与自定义图标（Code + Design 翻译）</title>
+    <link href="Aaronzjp.cn/2018/05/15/iOS-Icons/"/>
+    <id>Aaronzjp.cn/2018/05/15/iOS-Icons/</id>
+    <published>2018-05-15T15:39:12.000Z</published>
+    <updated>2018-05-16T15:13:33.726Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;好的图标总是给人很熟悉的感觉，因为他们与我们每天看到的事物都是有联系的：相机，垃圾桶，云朵☁️。它们没有文字，但是设置了很友好的色调。在这一节中，你将要学到怎么找到好的图标，什么时候使用，什么时候不使用，以及如何自己制作，这样就可以使图标在你的应用程序中设计得更加漂亮。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Design+Code" scheme="Aaronzjp.cn/tags/Design-Code/"/>
+    
+      <category term="iOS编程和设计" scheme="Aaronzjp.cn/tags/iOS%E7%BC%96%E7%A8%8B%E5%92%8C%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS11设计概览（Code + Design 翻译）</title>
@@ -414,24 +434,6 @@
       <category term="动画" scheme="Aaronzjp.cn/tags/%E5%8A%A8%E7%94%BB/"/>
     
       <category term="Animation" scheme="Aaronzjp.cn/tags/Animation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift-集合类型</title>
-    <link href="Aaronzjp.cn/2017/03/05/Swift-CollectionTypes/"/>
-    <id>Aaronzjp.cn/2017/03/05/Swift-CollectionTypes/</id>
-    <published>2017-03-05T07:10:35.000Z</published>
-    <updated>2017-08-01T07:55:09.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;集合类型&quot;&gt;&lt;a href=&quot;#集合类型&quot; class=&quot;headerlink&quot; title=&quot;集合类型&quot;&gt;&lt;/a&gt;集合类型&lt;/h1&gt;&lt;p&gt;在 Swift 中集合类型主要有 Array、Sets、Dictionaries。和 O-bjc 中不同的是 Swift 中集合的可变类型和不可变类型并不是子类和父类的关系，而是同一个类。可变和不可变是通过变量类型来区分的，如果使用 var 来声明成变量那么就是可变的，如果使用 let 来声明成常量那么就是不可变的。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
   </entry>
   
