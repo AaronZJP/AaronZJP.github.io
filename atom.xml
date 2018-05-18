@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2018-05-18T10:24:42.672Z</updated>
+  <updated>2018-05-18T16:10:20.895Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iPad 设计指南（Code + Design 翻译）</title>
+    <link href="Aaronzjp.cn/2018/05/19/Designing-for-iPad/"/>
+    <id>Aaronzjp.cn/2018/05/19/Designing-for-iPad/</id>
+    <published>2018-05-18T16:10:12.000Z</published>
+    <updated>2018-05-18T16:10:20.895Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;针对 iPad 的设计并不是像翻转一个开关的那样简单，或者仅仅是将所有的东西变大。更大的屏幕提供了一个真正的机会来呈现更多的内容，同时也要遵守导航，排版，视觉层次的一些基本规则。不要仅仅是当作一个大的 iPhone 来对待 iPad。应该更多的像对待一个可以触摸的桌面电脑一样。换句话说，你的用户可以更加高效，查看更多的内容，更快的执行任务，比如，输入，拖放，以及多任务。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Design+Code" scheme="Aaronzjp.cn/tags/Design-Code/"/>
+    
+      <category term="iOS编程和设计" scheme="Aaronzjp.cn/tags/iOS%E7%BC%96%E7%A8%8B%E5%92%8C%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>iPhone X 设计指南（Code + Design 翻译）</title>
@@ -40,7 +60,7 @@
     <link href="Aaronzjp.cn/2018/05/15/iOS-Icons/"/>
     <id>Aaronzjp.cn/2018/05/15/iOS-Icons/</id>
     <published>2018-05-15T15:39:12.000Z</published>
-    <updated>2018-05-16T15:13:33.726Z</updated>
+    <updated>2018-05-18T10:33:46.053Z</updated>
     
     <summary type="html">
     
@@ -410,24 +430,6 @@
     <summary type="html">
     
       &lt;p&gt;Swift 构造过程是在使用类、结构体或者枚举类型的实例之前所做的准备工作。在使用类型实例之前为了确保类型实例能够正确的实例化，需要在实例化过程中对存储属性等设置初始值，和一些必须执行和初始化的工作。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift-方法</title>
-    <link href="Aaronzjp.cn/2017/03/22/Swift-Method/"/>
-    <id>Aaronzjp.cn/2017/03/22/Swift-Method/</id>
-    <published>2017-03-22T04:57:57.000Z</published>
-    <updated>2017-07-27T02:53:02.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在 Swift 中方法分为两种，实例方法、类型方法。其中类型方法和 Obj-c 中的类方法相似的，类型方法是作用于类型本身的，实例方法则是作用于类型对应的实例。和 Obj-c 不同的是，在 Swift 中不仅可以给类定义方法，同时还可以给结构体和枚举定义方法。&lt;/p&gt;
     
     </summary>
     
