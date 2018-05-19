@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2018-05-18T16:10:20.895Z</updated>
+  <updated>2018-05-19T05:30:23.674Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何使用颜色（Code + Design 翻译）</title>
+    <link href="Aaronzjp.cn/2018/05/19/Designing-with-Colors/"/>
+    <id>Aaronzjp.cn/2018/05/19/Designing-with-Colors/</id>
+    <published>2018-05-18T16:10:12.000Z</published>
+    <updated>2018-05-19T05:30:23.674Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;颜色很难掌握，因为太容易过度。当我们设计的时候，很容易过度设计。对于颜色，我们太倾向于使用鲜艳的色彩了，这样太过分散注意力，并且感觉十分不自然。我可以推荐的是简单的坚持基础基本原则，并且通过关注实用性和愉悦性来调节颜色的使用。当有疑问的时候，使用颜色来吸引注意力到按钮或重要元素上。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大自然可能是所有事物的最大灵感来源。在自然中的和谐，你只需要将它转换到数码世界里，应用到你的设计中。你会想选择一个基于自然中美丽的颜色，像天空，云朵，日落和植物。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Design+Code" scheme="Aaronzjp.cn/tags/Design-Code/"/>
+    
+      <category term="iOS编程和设计" scheme="Aaronzjp.cn/tags/iOS%E7%BC%96%E7%A8%8B%E5%92%8C%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>iPad 设计指南（Code + Design 翻译）</title>
@@ -417,24 +440,6 @@
     
     
       <category term="转场动画" scheme="Aaronzjp.cn/tags/%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift-构造过程</title>
-    <link href="Aaronzjp.cn/2017/03/27/Swift-Initializer/"/>
-    <id>Aaronzjp.cn/2017/03/27/Swift-Initializer/</id>
-    <published>2017-03-27T14:06:28.000Z</published>
-    <updated>2017-07-31T19:35:42.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Swift 构造过程是在使用类、结构体或者枚举类型的实例之前所做的准备工作。在使用类型实例之前为了确保类型实例能够正确的实例化，需要在实例化过程中对存储属性等设置初始值，和一些必须执行和初始化的工作。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
   </entry>
   
