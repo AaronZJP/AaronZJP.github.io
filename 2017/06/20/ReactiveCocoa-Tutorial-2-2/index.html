@@ -103,26 +103,26 @@
 <meta property="og:url" content="Aaronzjp.cn/2017/06/20/ReactiveCocoa-Tutorial-2-2/index.html">
 <meta property="og:site_name" content="Aaron的博客">
 <meta property="og:description" content="本文是翻译自国外网站的文章，其实这篇文章有很多的现成的翻译，但是看了过后感觉我自己很难理解别人的翻译方式，所以用自己的方式翻译了一遍，顺便也是加深一下印象。原文地址  ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180426100047_dA7D9e_TwitterInstantStarter.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180426103036_pQtqpK_ValidatedTextField.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180426103158_W7IJLe_TextValidationPipeline.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180426105223_rjX2L6_PipelineFormatting.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180426133642_vDH9Bq_AvoidRetainSelf.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180426135509_a5IMFO_TwitterCredentials.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180426163428_2lSlWr_RequestAccessToTwitter.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180426170416_nLFXku_PipelineWithThen.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180426174458_uanvFa_RemoveTwitterAccount.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180427101121_dmDGXi_BreakpointLocation.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180427101255_R2793Q_BreakpointResult.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180427105326_r9HwMU_BreakpointNowOnUIThread.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180427112533_sxTwTK_FinallyWeSeeTweets.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180427140823_NkYa5Z_AvatarsAtAlast.jpeg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20180427142515_xf04lC_CompletePipeline.jpeg">
-<meta property="og:updated_time" content="2018-05-02T09:23:04.069Z">
+<meta property="og:image" content="http://zjp.dennisce.com/20180426100047_dA7D9e_TwitterInstantStarter.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180426103036_pQtqpK_ValidatedTextField.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180426103158_W7IJLe_TextValidationPipeline.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180426105223_rjX2L6_PipelineFormatting.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180426133642_vDH9Bq_AvoidRetainSelf.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180426135509_a5IMFO_TwitterCredentials.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180426163428_2lSlWr_RequestAccessToTwitter.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180426170416_nLFXku_PipelineWithThen.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180426174458_uanvFa_RemoveTwitterAccount.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180427101121_dmDGXi_BreakpointLocation.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180427101255_R2793Q_BreakpointResult.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180427105326_r9HwMU_BreakpointNowOnUIThread.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180427112533_sxTwTK_FinallyWeSeeTweets.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180427140823_NkYa5Z_AvatarsAtAlast.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20180427142515_xf04lC_CompletePipeline.jpeg">
+<meta property="og:updated_time" content="2018-11-24T09:35:58.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactiveCocoa 基础教程 2-2（译）">
 <meta name="twitter:description" content="本文是翻译自国外网站的文章，其实这篇文章有很多的现成的翻译，但是看了过后感觉我自己很难理解别人的翻译方式，所以用自己的方式翻译了一遍，顺便也是加深一下印象。原文地址  ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，">
-<meta name="twitter:image" content="http://onocdmhtw.bkt.clouddn.com/20180426100047_dA7D9e_TwitterInstantStarter.jpeg">
+<meta name="twitter:image" content="http://zjp.dennisce.com/20180426100047_dA7D9e_TwitterInstantStarter.jpeg">
 
 
 
@@ -364,7 +364,7 @@
 <h1 id="Twitter-即时搜索"><a href="#Twitter-即时搜索" class="headerlink" title="Twitter 即时搜索"></a>Twitter 即时搜索</h1><p>在这个教程中，你将要开发一个叫 Twitter 即时搜索的 App (基于 Google 的即时搜索功能)，这是一个搜索 Twitter 的 App，它可以在你输入搜索的时候实时的更新搜索结果。</p>
 <p>在这个<a href="https://koenig-media.raywenderlich.com/uploads/2014/01/TwitterInstant-Starter2.zip" target="_blank" rel="external">开始项目</a>中包含了基本的用户界面和一些很乏味的代码，你需要下载这个开始项目。就想第一章教程一样，你需要使用 CocoaPods 来安装 ReactiveCocoa 这个到你的项目中。这个开始项目中已经包含了必要的 Podfile 文件了，所以直接打开 terminal 窗口执行 <code>pod install</code> 命令即可。详细的就不翻译了，相信 Pod 大家还是会使用的。</p>
 <p>编译运行项目，接下来你就可以看到如下界面：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180426100047_dA7D9e_TwitterInstantStarter.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180426100047_dA7D9e_TwitterInstantStarter.jpeg" alt=""></p>
 <p>使用一点时间先熟悉译者这个项目的代码。这是一个普通的 SplitViewController App。左边的视图是一个叫 <strong>RWSearchFormViewController</strong> 的控制器，这里面这些极少的控件都是通过 Storyboard 添加的，还有这个搜索输入框是连接到代码中一个 Outlet 的。右边的视图是一个叫 RWSearchResultsViewController 的控制器，现在这部分仅仅只是一个基于 UITableViewController 的子类。</p>
 <p>如果你打开了 <strong>RWSearchFormViewController.m</strong> 文件，你可以看到在 <strong>viewDidLoad</strong> 方法中获得了结果视图控制器，并把其赋值给了 <strong>reasultsViewController</strong> 这个私有属性。在这个应用中，大多数的逻辑都将放在 <strong>RWSearchFormViewController</strong> 这个文件中，将通过这个属性，提供搜索结果给 <strong>RWSearchResultsViewController</strong>。</p>
 <h1 id="验证搜索文本"><a href="#验证搜索文本" class="headerlink" title="验证搜索文本"></a>验证搜索文本</h1><p>首先第一件事就是要去验证搜索文本的字符长度，确保长度大于2。这应该是一个很好的复习，如果你完成了这个教程的第一部分。</p>
@@ -383,15 +383,15 @@
 <li>在 <code>subscribeNext:</code>  block 中将背景色应用到搜索输入框的 <strong>backgroundColor</strong> 属性上</li>
 </ul>
 <p>编译运行程序，观察文本输入框是如何改变背景色的，在输入的搜索字符太短的时候。</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180426103036_pQtqpK_ValidatedTextField.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180426103036_pQtqpK_ValidatedTextField.jpeg" alt=""></p>
 <p>这个简单的响应式事件流管道看起来就想下面插图这样：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180426103158_W7IJLe_TextValidationPipeline.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180426103158_W7IJLe_TextValidationPipeline.jpeg" alt=""></p>
 <p><strong>rac_textSignal</strong> 信号在当前输入框每次发生改变的时候都会发送 <strong>next</strong> 事件。在 map 这一步中将信号中的数据转换成了颜色，当 <code>subscribeNext:</code> 执行的时候就会把这个值应用到输入框的背景色上。</p>
 <p>当然你肯定记得这是来自教程的第一部分，对吗？如果不是那么你可以在这里停下来，好好理解练习一下。</p>
 <p>在给 Twitter 添加搜索逻辑之前，这里还有一些有趣的话题要讨论。</p>
 <h1 id="流式编程代码格式"><a href="#流式编程代码格式" class="headerlink" title="流式编程代码格式"></a>流式编程代码格式</h1><p>当你深入的研究 ReactiveCocoa 的代码格式的时候，一般的习惯是每一个新的操作都会新起一行，每个步骤都会垂直的对齐。</p>
 <p>在下面的这个图片上，你可以看到按照上面的格式在比较负责的例子中代码是怎么对齐的：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180426105223_rjX2L6_PipelineFormatting.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180426105223_rjX2L6_PipelineFormatting.jpeg" alt=""></p>
 <p>这可以让你很容易清晰的看到流式编程的每一步操作，同时也尽量的减少了别个 block 中的代码量。任何一个超过两行的代码都应该单独的抽出来写到一个方法中去。</p>
 <p>不幸的是 Xcode 并不支持这样的编程风格，所以你发现你会和它的自动缩进逻辑作斗争。</p>
 <h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><p>考虑到刚刚添加的代码到 TwitterInstant 项目中，你肯定很好奇你创建的事件流是怎么被保留的？因为它没有被分配个任何变量，也没有赋值给任何属性，也不会增加它的引用计数，所以会被销毁？</p>
@@ -420,14 +420,14 @@
 <p>提示：如果你对 <strong>@weakify</strong> 和 <strong>@strongify</strong> 实际做了什么感兴趣，你可以在 Xcode 菜单中选中 <strong>Product -&gt; Perform Action -&gt; Preprocess</strong> 在 <strong>RWSearchForViewController</strong> 文件中。这将预先处理 <strong>RWSearchForViewController</strong> 视图控制器，展开其中所有的宏，并允许你查看最终结果。</p>
 </blockquote>
 <p>还有一点要非常小心，当你在 block 中使用实例变量的时候，block 也会捕获并强引用 <strong>self</strong> 。你可以打开一个编译器设置，用来提醒你代码中存在这样的问题。在 Xcode 项目设置中找到 <strong>building setting</strong> 选项，搜索 <strong>retain</strong> 找到如下图所示的地方并设置为 Yes：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180426133642_vDH9Bq_AvoidRetainSelf.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180426133642_vDH9Bq_AvoidRetainSelf.jpeg" alt=""></p>
 <p>从上面的理论中你也了解了更多的知识，现在是时候开始真正有趣的部分了，向项目中添加真正的功能吧！</p>
 <blockquote>
 <p>提示：关注了上一篇教程的读者可能已经注意到可以使用 <strong>RAC</strong> 宏在 <strong>subscribeNext:</strong> 代码块中消除上面存在的隐患。如果你发现了这里，那就修改一下吧，顺便奖励给自己一颗闪亮的金星✨</p>
 </blockquote>
 <h1 id="Twitter接入请求"><a href="#Twitter接入请求" class="headerlink" title="Twitter接入请求"></a>Twitter接入请求</h1><p>你将要通过 <strong>Social Framework</strong> 框架使 TwitterInstant 应用来搜索 Tweets。以及 <strong>Accounts Framework</strong> 来授权访问 Twitter。<del>更多关于 <strong>Social Framework</strong> 框架的概述以及教程，可以去这里查看 <a href="https://www.raywenderlich.com/?page_id=19968" target="_blank" rel="external">iOS6 中的教程</a> 相关的部分。</del></p>
 <p>在你添加这些代码之前，你需要在你的模拟器或者 iPad 上登录你的 Twitter 账号。打开设置选择 Twitter 菜单，然后登录账号吧，如下所示：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180426135509_a5IMFO_TwitterCredentials.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180426135509_a5IMFO_TwitterCredentials.jpeg" alt=""></p>
 <p>在初始开始项目中已经导入了相关的框架，所以你只需要在 <strong>RWSearchFormViewController.m</strong> 文件中导入头文件即可：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#import &lt;Accounts/Accounts.h&gt;</div><div class="line">#import &lt;Social/Social.h&gt;</div></pre></td></tr></table></figure>
 <p>在头文件的导入下面添加如下枚举和常量，代码：</p>
@@ -459,7 +459,7 @@
 <p>最后，为了使用刚刚创建的信号，在 <strong>viewDidLoad:</strong> 方法中加入如下的代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[[self requestAccessToTwitterSignal]</div><div class="line">  subscribeNext:^(id x) &#123;</div><div class="line">    NSLog(@&quot;Access granted&quot;);</div><div class="line">  &#125; error:^(NSError *error) &#123;</div><div class="line">    NSLog(@&quot;An error occurred: %@&quot;, error);</div><div class="line">  &#125;];</div></pre></td></tr></table></figure>
 <p>如果你编译运行程序，你会马上看到如下图的提示：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180426163428_2lSlWr_RequestAccessToTwitter.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180426163428_2lSlWr_RequestAccessToTwitter.jpeg" alt=""></p>
 <p>如果点击 OK，就会执行 <strong>subscribeNext:</strong> 中 block 的代码，在控制台输出。如果点击 Don’t Allow，那么就会执行错误中的 block ，在控制台输出。</p>
 <p><strong>Account Framework</strong> 会存储你做的决定。为了测试各种情况，你需要重置模拟器。在模拟器的菜单栏选择 <strong>iOS Simulator -&gt; Reset Contents and Settings…</strong> 选项。这有点麻烦，因为你又要输入一次你的 Twitter 账号。</p>
 <h1 id="信号链"><a href="#信号链" class="headerlink" title="信号链"></a>信号链</h1><p>一旦用户允许访问他们的Twitter帐户，应用程序就需要不断地监视对搜索文本字段的更改，以便查询Twitter。</p>
@@ -478,7 +478,7 @@
 <p>编译后再次运行，观察添加了过滤器后的输出:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">2014-01-04 08:16:12.548 TwitterInstant[39118:a0b] magi</div><div class="line">2014-01-04 08:16:12.628 TwitterInstant[39118:a0b] magic</div><div class="line">2014-01-04 08:16:13.172 TwitterInstant[39118:a0b] magic!</div></pre></td></tr></table></figure>
 <p>当前事件流管道流程如下图所示：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180426170416_nLFXku_PipelineWithThen.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180426170416_nLFXku_PipelineWithThen.jpeg" alt=""></p>
 <p>应用的事件流管道开始于 <strong>requestAccessToTwitterSignal</strong> 接着切换到 <strong>rac_textSignal</strong> 。同时 <strong>next</strong> 事件通过过滤器最终到达了订阅者的 block 中。你也可以看到第一步中发出的任何的 <strong>error</strong> 都会被同样的 <strong>subscribeNext:error:</strong> 接收到，并执行 block 中的代码。</p>
 <p>现在你又了一个发送搜索文本的信号，是时候用这个来搜索 Twitter 了。你玩得开心吗?你应该这样做，因为现在你真的有所收获。</p>
 <h1 id="搜索-Twitter"><a href="#搜索-Twitter" class="headerlink" title="搜索 Twitter"></a>搜索 Twitter</h1><p><strong>Social Framework</strong> 库是一个可以访问 Twitter 搜索的 API 的选择。然后就像你预计的那样，<strong>Social Framework</strong> 框架并不是响应式的！下一步就是在信号中封装一个 API 的请求。你现在应该掌握这个过程的窍门了!</p>
@@ -504,7 +504,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">2014-01-05 07:42:27.697 TwitterInstant[40308:5403] &#123;</div><div class="line">    "search_metadata" =     &#123;</div><div class="line">        "completed_in" = "0.019";</div><div class="line">        count = 15;</div><div class="line">        "max_id" = 419735546840117248;</div><div class="line">        "max_id_str" = 419735546840117248;</div><div class="line">        "next_results" = "?max_id=419734921599787007&amp;q=asd&amp;include_entities=1";</div><div class="line">        query = asd;</div><div class="line">        "refresh_url" = "?since_id=419735546840117248&amp;q=asd&amp;include_entities=1";</div><div class="line">        "since_id" = 0;</div><div class="line">        "since_id_str" = 0;</div><div class="line">    &#125;;</div><div class="line">    statuses =     (</div><div class="line">                &#123;</div><div class="line">            contributors = "&lt;null&gt;";</div><div class="line">            coordinates = "&lt;null&gt;";</div><div class="line">            "created_at" = "Sun Jan 05 07:42:07 +0000 2014";</div><div class="line">            entities =             &#123;</div><div class="line">                hashtags = ...</div></pre></td></tr></table></figure>
 <p><strong>signalForSearchText:</strong> 方法也会发送 <strong>error</strong> 事件，<strong>subscribeNext:error:</strong> 方法会收到 <strong>error</strong> 事件并执行 block。如果你相信我的话，你可以自己测试一下！</p>
 <p>在模拟器打开设置，选择 Twitter 账户，然后删除。</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180426174458_uanvFa_RemoveTwitterAccount.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180426174458_uanvFa_RemoveTwitterAccount.jpeg" alt=""></p>
 <p>如果你再次运行程序，选择运行访问 Twitter 账户，但是因为这里没有有效的的账户，所以结果就是 <strong>signalForSearchText</strong> 方法会发送一个错误事件，控制台输出如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2014-01-05 07:52:11.705 TwitterInstant[41374:1403] An error occurred: Error </div><div class="line">  Domain=TwitterInstant Code=1 &quot;The operation couldn’t be completed. (TwitterInstant error 1.)&quot;</div></pre></td></tr></table></figure>
 <p><strong>Code = 1</strong> 意味着这是一个 <strong>RWTwitterInstantErrorNoTwitterAccounts</strong> 错误。在生产环境中的应用，你应该打开错误代码，做一些比记录结果更有意义的事情。</p>
@@ -514,15 +514,15 @@
 </blockquote>
 <h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><p>当然你也很渴望将搜索 Twitter 的 JSON 结果连接显示到 UI 上，但是在这之前你还有最后一件事要做。要找出这是什么，你需要进行一番探索！</p>
 <p>在 <strong>subscribeNext:error:</strong> 这一步中加上断点，如下图所示：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180427101121_dmDGXi_BreakpointLocation.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180427101121_dmDGXi_BreakpointLocation.jpeg" alt=""></p>
 <p>再运行程序，获取访问权限后在文本输入框输入文字，当断点执行的时候，你能看到如下图所示的东西：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180427101255_R2793Q_BreakpointResult.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180427101255_R2793Q_BreakpointResult.jpeg" alt=""></p>
 <p>注意，在调试器上的代码不是在主线程中执行的，在截图中 <strong>Thread 1</strong> 是主线程。需要记住的是，UI的更新是只能在主线程进行的。所以如果你想要在 UI 上显示搜索到的 <strong>tweets</strong> 就必须切换到主线程去。</p>
 <p>这说明了 ReactiveCocoa 框架很重要的一点。发送信号的操作是在异步线程中执行的，你可以试下在其他的事件流管道中打上断点查看，你可能会惊讶的发现它在更多的线程中执行。</p>
 <p>所以，怎么来更新 UI 呢？典型的方法是使用操作队列，但是ReactiveCocoa对这个问题有一个更简单的解决方案。更新事件流管道中的代码，在 <strong>flattenMap:</strong> 之后加上 <strong>deliverOn:</strong> 方法，如下所示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">[[[[[[self requestAccessToTwitterSignal]</div><div class="line">  then:^RACSignal *&#123;</div><div class="line">    @strongify(self)</div><div class="line">    return self.searchText.rac_textSignal;</div><div class="line">  &#125;]</div><div class="line">  filter:^BOOL(NSString *text) &#123;</div><div class="line">    @strongify(self)</div><div class="line">    return [self isValidSearchText:text];</div><div class="line">  &#125;]</div><div class="line">  flattenMap:^RACStream *(NSString *text) &#123;</div><div class="line">    @strongify(self)</div><div class="line">    return [self signalForSearchWithText:text];</div><div class="line">  &#125;]</div><div class="line">  deliverOn:[RACScheduler mainThreadScheduler]]</div><div class="line">  subscribeNext:^(id x) &#123;</div><div class="line">    NSLog(@&quot;%@&quot;, x);</div><div class="line">  &#125; error:^(NSError *error) &#123;</div><div class="line">    NSLog(@&quot;An error occurred: %@&quot;, error);</div><div class="line">  &#125;];</div></pre></td></tr></table></figure>
 <p>现在再次编译运行程序，在输入框输入文本，断点运行的时候查看断点运行的地方，现在 <strong>subscribeNext:error:</strong> block 就是在主线程执行的了：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180427105326_r9HwMU_BreakpointNowOnUIThread.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180427105326_r9HwMU_BreakpointNowOnUIThread.jpeg" alt=""></p>
 <p>什么？只需要这样简单的操作就能把事件流管道放到不同的线程上？这真的是太棒了！</p>
 <p>现在你可以安全的更新 UI 了！</p>
 <blockquote>
@@ -543,7 +543,7 @@
 <p>在上面的代码中，通过在 <strong>subscribeNext:</strong> 的 block 中获得了装有 tweets 的数字。<strong>linq_select</strong> 方法通过在每个数组元素上执行 block 中的代码，来转换NSDictionary实例的数组，从而产生一个RWTweet实例数组。</p>
 <p>数据转换成功后，tweet 就被发送到结果视图控制器。</p>
 <p>编译并运行程序，试着搜索一下，结果如下图：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180427112533_sxTwTK_FinallyWeSeeTweets.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180427112533_sxTwTK_FinallyWeSeeTweets.jpeg" alt=""></p>
 <blockquote>
 <p>提示：ReactiveCocoa 和 LinqToObjectiveC 有着相似的灵感来源。虽然ReactiveCocoa是模仿微软的 <strong><a href="http://msdn.microsoft.com/en-gb/data/gg577609.aspx" target="_blank" rel="external">Reactive Extensions</a></strong> 库，LinqToObjectiveC 是模仿他们的语言集成查询 API，或者LINQ，特别是 <strong><a href="http://msdn.microsoft.com/en-us/library/bb397919.aspx" target="_blank" rel="external">LINQ to Objects</a></strong>。</p>
 </blockquote>
@@ -559,7 +559,7 @@
 <p>上面代码的第一步就是先将之前 cell 中的图片设置为 nil ，因为 cell 会被重用，可能会重用之前的数据。接下来创建了一个信号去请求图片数据。在事件流管道的 <strong>deliverOn:</strong> 这一步骤中你以前也用到过，将 <strong>next</strong> 事件封装切换到主线程，然后在 <strong>subscribeNext:</strong> 的 block 中可以安全的执行。</p>
 <p>很好，很简单的例子！</p>
 <p>编译运行，现在就可以看到用户的头像了。</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180427140823_NkYa5Z_AvatarsAtAlast.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180427140823_NkYa5Z_AvatarsAtAlast.jpeg" alt=""></p>
 <h1 id="节流阀"><a href="#节流阀" class="headerlink" title="节流阀"></a>节流阀</h1><p>你可能注意到了，你每次输入新的字符，Twitter 搜索每次都会执行。如果是输入很快(或者一直按着删除键)，这回导致程序每秒执行几次搜索操作。这样的效果并不是很理想，主要有以下两个原因：第一，你每一次输入都会请求搜索 API，然后丢掉了大部分的搜索结果。第二，每次搜索文字变化都要去更新结果，这样让会用很分心！</p>
 <p>一个更好的方法是只在搜索文本在短时间内保持不变的情况下执行搜索，比如500毫秒。</p>
 <p>打开 <strong>RWSearchFormViewController.m</strong> 文件，在事件流管道中添加一个 <strong>throttle</strong> 步骤到 <strong>filter</strong> 后面，更新后到代码如下：</p>
@@ -568,7 +568,7 @@
 <p>构建并运行，以确认搜索结果只有在您停止输入500毫秒时才会更新。感觉好多了，不是吗?你的用户也会这么想。<br>最后一步，你的Twitter即时应用程序完成了。拍拍自己的背，跳个开心的舞。</p>
 <p>如果你在教程中的某个地方丢掉了一些东西，你可以下载最终完成的<a href="https://koenig-media.raywenderlich.com/uploads/2014/01/TwitterInstant-Final.zip" target="_blank" rel="external">项目</a>，或者从 <a href="https://github.com/ColinEberhardt/RWTwitterInstant" target="_blank" rel="external">GitHub</a> 获取项目。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在你去喝一杯胜利杯咖啡之前，你应该欣赏一下应用程序最终的流程图:</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20180427142515_xf04lC_CompletePipeline.jpeg" alt=""></p>
+<p><img src="http://zjp.dennisce.com/20180427142515_xf04lC_CompletePipeline.jpeg" alt=""></p>
 <p>这些相对复杂的事件流，通过 ReactiveCocoa 使用信号被简洁的表达了出来。相当的漂亮！你能想象如果这个项目不使用响应式编程会有多复杂吗？在这样的应用中看这样的数据流是有多复杂吗？听起来就很复杂，但是现在你不用再像之前那样去做了！</p>
 <p>现在你知道 ReactiveCocoa 是多么的令人惊叹了吧！</p>
 <p>还有最后一点，ReactiveCocoa 让我们可以使用 Model、View、ViewModel，或者 <a href="http://en.wikipedia.org/wiki/Model_View_ViewModel" target="_blank" rel="external">MVVM 的设计模式</a>。这样可以更好的分离出应用程序逻辑和视图逻辑。</p>

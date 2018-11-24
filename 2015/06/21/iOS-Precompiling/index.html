@@ -103,14 +103,14 @@
 <meta property="og:url" content="Aaronzjp.cn/2015/06/21/iOS-Precompiling/index.html">
 <meta property="og:site_name" content="Aaron的博客">
 <meta property="og:description" content="预处理程序，即预编译。预处理程序是程序编译过程中的一部分。顾名思义大概就是在程序编译之前就处理这些预编译程序指令。在平常开发工作中可能经常看到一大堆的全大写的代码有的还用下划线来连接起来，其实这个就是预编译代码。">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170421149275526192506.jpg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/2017042114927599556917.jpg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170421149275982158235.jpg">
-<meta property="og:updated_time" content="2017-07-27T02:56:48.000Z">
+<meta property="og:image" content="http://zjp.dennisce.com/20170421149275526192506.jpg">
+<meta property="og:image" content="http://zjp.dennisce.com/2017042114927599556917.jpg">
+<meta property="og:image" content="http://zjp.dennisce.com/20170421149275982158235.jpg">
+<meta property="og:updated_time" content="2018-11-24T09:34:07.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS-预处理程序">
 <meta name="twitter:description" content="预处理程序，即预编译。预处理程序是程序编译过程中的一部分。顾名思义大概就是在程序编译之前就处理这些预编译程序指令。在平常开发工作中可能经常看到一大堆的全大写的代码有的还用下划线来连接起来，其实这个就是预编译代码。">
-<meta name="twitter:image" content="http://onocdmhtw.bkt.clouddn.com/20170421149275526192506.jpg">
+<meta name="twitter:image" content="http://zjp.dennisce.com/20170421149275526192506.jpg">
 
 
 
@@ -349,7 +349,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define MAX_OF_NUMBER(a,b) a &gt;b ? a : b</div><div class="line">NSLog(@&quot;%d&quot;,MAX_OF_NUMBER(5, 10));</div></pre></td></tr></table></figure>
 <p>这段代码会输出10，该宏定义是带有两个参数的宏定义，其作用是取这两个数的最大值。</p>
 <p>消除宏定义可以使用 <strong>#undef</strong> 语句，如下：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20170421149275526192506.jpg" alt="20170421149275526192506.jpg"></p>
+<p><img src="http://zjp.dennisce.com/20170421149275526192506.jpg" alt="20170421149275526192506.jpg"></p>
 <p>如果要在宏定义中换行，则需呀在每行的结尾处添加反斜杠<code>\</code>。</p>
 <p>这里不讨论宏定义的正确性，只是简单介绍一下宏定义的使用，关于宏定义可以参考下面的资料。</p>
 <p><a href="https://onevcat.com/2014/01/black-magic-in-macro/" target="_blank" rel="external">宏定义的黑魔法 - 宏菜鸟起飞手册</a></p>
@@ -365,8 +365,8 @@
 <p>值得注意的就是这里的语句都是判断后面的条件是否满足，只有 <code>#ifdef</code> 是判断某个宏是否被定义。在使用上这两个是相同的：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#ifdef IPHONE </div><div class="line">    NSLog(IPHONE);</div><div class="line">#endif</div><div class="line">// *********************    </div><div class="line">#if defined (IPHONE)</div><div class="line">    NSLog(IPHONE);</div><div class="line">#endif</div></pre></td></tr></table></figure>
 <p>其中 <code>defined ()</code> 也是判断某个宏是否已经被定义，条件编译语句和普通的条件判断语句一样也是可以嵌套的。这里贴出一部分 Foudation 框架中的代码参考，可以看一下别人的使用。</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/2017042114927599556917.jpg" alt="2017042114927599556917.jpg"></p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20170421149275982158235.jpg" alt="20170421149275982158235.jpg"></p>
+<p><img src="http://zjp.dennisce.com/2017042114927599556917.jpg" alt="2017042114927599556917.jpg"></p>
+<p><img src="http://zjp.dennisce.com/20170421149275982158235.jpg" alt="20170421149275982158235.jpg"></p>
 <p>另外在很多时候创建头文件中都会有如下的代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#ifndef Header_h </div><div class="line">#define Header_h </div><div class="line"></div><div class="line">#endif</div></pre></td></tr></table></figure>
 <p>上面的这些预编于指令代码其实就是为了防止头文件重复导入。</p>

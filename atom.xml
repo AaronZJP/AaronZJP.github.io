@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2018-05-19T05:30:23.674Z</updated>
+  <updated>2018-11-24T09:32:07.037Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -16,11 +16,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iPad 设计指南（Code + Design 翻译）</title>
+    <link href="Aaronzjp.cn/2018/05/19/Designing-for-iPad/"/>
+    <id>Aaronzjp.cn/2018/05/19/Designing-for-iPad/</id>
+    <published>2018-05-18T16:10:12.000Z</published>
+    <updated>2018-11-24T09:32:07.037Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;针对 iPad 的设计并不是像翻转一个开关的那样简单，或者仅仅是将所有的东西变大。更大的屏幕提供了一个真正的机会来呈现更多的内容，同时也要遵守导航，排版，视觉层次的一些基本规则。不要仅仅是当作一个大的 iPhone 来对待 iPad。应该更多的像对待一个可以触摸的桌面电脑一样。换句话说，你的用户可以更加高效，查看更多的内容，更快的执行任务，比如，输入，拖放，以及多任务。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Design+Code" scheme="Aaronzjp.cn/tags/Design-Code/"/>
+    
+      <category term="iOS编程和设计" scheme="Aaronzjp.cn/tags/iOS%E7%BC%96%E7%A8%8B%E5%92%8C%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何使用颜色（Code + Design 翻译）</title>
     <link href="Aaronzjp.cn/2018/05/19/Designing-with-Colors/"/>
     <id>Aaronzjp.cn/2018/05/19/Designing-with-Colors/</id>
     <published>2018-05-18T16:10:12.000Z</published>
-    <updated>2018-05-19T05:30:23.674Z</updated>
+    <updated>2018-11-24T09:32:45.643Z</updated>
     
     <summary type="html">
     
@@ -39,31 +59,11 @@
   </entry>
   
   <entry>
-    <title>iPad 设计指南（Code + Design 翻译）</title>
-    <link href="Aaronzjp.cn/2018/05/19/Designing-for-iPad/"/>
-    <id>Aaronzjp.cn/2018/05/19/Designing-for-iPad/</id>
-    <published>2018-05-18T16:10:12.000Z</published>
-    <updated>2018-05-18T16:10:20.895Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;针对 iPad 的设计并不是像翻转一个开关的那样简单，或者仅仅是将所有的东西变大。更大的屏幕提供了一个真正的机会来呈现更多的内容，同时也要遵守导航，排版，视觉层次的一些基本规则。不要仅仅是当作一个大的 iPhone 来对待 iPad。应该更多的像对待一个可以触摸的桌面电脑一样。换句话说，你的用户可以更加高效，查看更多的内容，更快的执行任务，比如，输入，拖放，以及多任务。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Design+Code" scheme="Aaronzjp.cn/tags/Design-Code/"/>
-    
-      <category term="iOS编程和设计" scheme="Aaronzjp.cn/tags/iOS%E7%BC%96%E7%A8%8B%E5%92%8C%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
     <title>iPhone X 设计指南（Code + Design 翻译）</title>
     <link href="Aaronzjp.cn/2018/05/18/Designing-for-iPhoneX/"/>
     <id>Aaronzjp.cn/2018/05/18/Designing-for-iPhoneX/</id>
     <published>2018-05-18T10:24:12.000Z</published>
-    <updated>2018-05-18T10:24:42.672Z</updated>
+    <updated>2018-11-24T09:32:23.262Z</updated>
     
     <summary type="html">
     
@@ -83,7 +83,7 @@
     <link href="Aaronzjp.cn/2018/05/15/iOS-Icons/"/>
     <id>Aaronzjp.cn/2018/05/15/iOS-Icons/</id>
     <published>2018-05-15T15:39:12.000Z</published>
-    <updated>2018-05-18T10:33:46.053Z</updated>
+    <updated>2018-11-24T09:33:52.156Z</updated>
     
     <summary type="html">
     
@@ -103,7 +103,7 @@
     <link href="Aaronzjp.cn/2018/04/22/iOS11-design-guide/"/>
     <id>Aaronzjp.cn/2018/04/22/iOS11-design-guide/</id>
     <published>2018-04-22T14:23:12.000Z</published>
-    <updated>2018-05-02T09:08:40.370Z</updated>
+    <updated>2018-11-24T09:33:38.926Z</updated>
     
     <summary type="html">
     
@@ -125,7 +125,7 @@
     <link href="Aaronzjp.cn/2018/04/19/JavaScript-BOMAndDOM/"/>
     <id>Aaronzjp.cn/2018/04/19/JavaScript-BOMAndDOM/</id>
     <published>2018-04-19T06:37:13.000Z</published>
-    <updated>2018-04-19T09:20:31.981Z</updated>
+    <updated>2018-06-19T05:48:00.198Z</updated>
     
     <summary type="html">
     
@@ -186,7 +186,7 @@
     <link href="Aaronzjp.cn/2018/03/12/JavaScript-Basic/"/>
     <id>Aaronzjp.cn/2018/03/12/JavaScript-Basic/</id>
     <published>2018-03-12T06:02:10.000Z</published>
-    <updated>2018-04-11T05:57:01.248Z</updated>
+    <updated>2018-11-24T09:34:17.658Z</updated>
     
     <summary type="html">
     
@@ -227,7 +227,7 @@
     <link href="Aaronzjp.cn/2017/12/06/HTTP-Protocol/"/>
     <id>Aaronzjp.cn/2017/12/06/HTTP-Protocol/</id>
     <published>2017-12-05T23:40:35.000Z</published>
-    <updated>2018-04-27T09:44:01.630Z</updated>
+    <updated>2018-11-24T09:33:05.728Z</updated>
     
     <summary type="html">
     
@@ -245,7 +245,7 @@
     <link href="Aaronzjp.cn/2017/12/02/HTTP-URL-and-Resource/"/>
     <id>Aaronzjp.cn/2017/12/02/HTTP-URL-and-Resource/</id>
     <published>2017-12-02T13:31:46.000Z</published>
-    <updated>2018-02-08T03:05:37.583Z</updated>
+    <updated>2018-11-24T09:33:14.631Z</updated>
     
     <summary type="html">
     
@@ -266,7 +266,7 @@
     <link href="Aaronzjp.cn/2017/10/12/Whats-new-in-iOS11/"/>
     <id>Aaronzjp.cn/2017/10/12/Whats-new-in-iOS11/</id>
     <published>2017-10-12T03:06:03.000Z</published>
-    <updated>2018-02-08T02:43:27.814Z</updated>
+    <updated>2018-11-24T09:37:07.221Z</updated>
     
     <summary type="html">
     
@@ -284,7 +284,7 @@
     <link href="Aaronzjp.cn/2017/09/06/ReactiveCocoa-Framework-Overview/"/>
     <id>Aaronzjp.cn/2017/09/06/ReactiveCocoa-Framework-Overview/</id>
     <published>2017-09-06T13:25:22.000Z</published>
-    <updated>2018-05-06T12:09:26.705Z</updated>
+    <updated>2018-11-17T06:42:23.292Z</updated>
     
     <summary type="html">
     
@@ -310,7 +310,7 @@
     <link href="Aaronzjp.cn/2017/08/28/ReactiveCocoa-and-MVVM/"/>
     <id>Aaronzjp.cn/2017/08/28/ReactiveCocoa-and-MVVM/</id>
     <published>2017-08-28T05:14:55.000Z</published>
-    <updated>2017-11-16T07:08:39.000Z</updated>
+    <updated>2018-11-24T09:35:38.961Z</updated>
     
     <summary type="html">
     
@@ -350,7 +350,7 @@
     <link href="Aaronzjp.cn/2017/06/20/ReactiveCocoa-Tutorial-2-2/"/>
     <id>Aaronzjp.cn/2017/06/20/ReactiveCocoa-Tutorial-2-2/</id>
     <published>2017-06-20T14:32:12.000Z</published>
-    <updated>2018-05-02T09:23:04.069Z</updated>
+    <updated>2018-11-24T09:35:58.686Z</updated>
     
     <summary type="html">
     
@@ -382,7 +382,7 @@
     <link href="Aaronzjp.cn/2017/05/22/ReactiveCocoa-Tutorial-2-1/"/>
     <id>Aaronzjp.cn/2017/05/22/ReactiveCocoa-Tutorial-2-1/</id>
     <published>2017-05-22T12:31:22.000Z</published>
-    <updated>2018-05-03T05:20:25.711Z</updated>
+    <updated>2018-11-24T09:35:52.594Z</updated>
     
     <summary type="html">
     
@@ -430,7 +430,7 @@
     <link href="Aaronzjp.cn/2017/04/19/TransitionAnimation/"/>
     <id>Aaronzjp.cn/2017/04/19/TransitionAnimation/</id>
     <published>2017-04-19T09:28:41.000Z</published>
-    <updated>2017-07-27T02:52:28.000Z</updated>
+    <updated>2018-11-24T09:36:41.298Z</updated>
     
     <summary type="html">
     

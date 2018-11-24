@@ -103,13 +103,13 @@
 <meta property="og:url" content="Aaronzjp.cn/2016/03/29/Block/index.html">
 <meta property="og:site_name" content="Aaron的博客">
 <meta property="og:description" content="​    block（代码块）他的本质其实是和其他的变量类似的，不同的就是block（代码块中存储的是一个函数体，或者一段代码）。在使用block的时候可以像调用方法一样的，传入参数，然后得到返回值。 ^（脱字符）是block的语法标记，下面是block的声明：">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258899397315.png">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/2017041914925890217116.jpg">
-<meta property="og:updated_time" content="2017-04-20T07:46:36.000Z">
+<meta property="og:image" content="http://zjp.dennisce.com/20170419149258899397315.png">
+<meta property="og:image" content="http://zjp.dennisce.com/2017041914925890217116.jpg">
+<meta property="og:updated_time" content="2018-11-24T09:31:43.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="block的使用">
 <meta name="twitter:description" content="​    block（代码块）他的本质其实是和其他的变量类似的，不同的就是block（代码块中存储的是一个函数体，或者一段代码）。在使用block的时候可以像调用方法一样的，传入参数，然后得到返回值。 ^（脱字符）是block的语法标记，下面是block的声明：">
-<meta name="twitter:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258899397315.png">
+<meta name="twitter:image" content="http://zjp.dennisce.com/20170419149258899397315.png">
 
 
 
@@ -336,7 +336,7 @@
       
         <p>​    block（代码块）他的本质其实是和其他的变量类似的，不同的就是block（代码块中存储的是一个函数体，或者一段代码）。在使用block的时候可以像调用方法一样的，传入参数，然后得到返回值。</p>
 <p>^（脱字符）是block的语法标记，下面是block的声明：</p>
-<p> <img src="http://onocdmhtw.bkt.clouddn.com/20170419149258899397315.png" alt="block示意图"></p>
+<p> <img src="http://zjp.dennisce.com/20170419149258899397315.png" alt="block示意图"></p>
 <a id="more"></a>
 <p>下面就来声明一个block变量试试：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//声明一个block变量</div><div class="line">int multiplier = 7;</div><div class="line">int (^myBlock)(int) = ^(int num) &#123;</div><div class="line">    return num * multiplier;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//block变量可以像函数一样使用</div><div class="line">NSLog(@&quot;%d&quot;,myBlock(8));</div></pre></td></tr></table></figure>
@@ -345,7 +345,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">typedef void (^ReturnTextBlock) (NSString *showText);</div></pre></td></tr></table></figure>
 <h2 id="使用block回调传值"><a href="#使用block回调传值" class="headerlink" title="使用block回调传值"></a>使用block回调传值</h2><p>​    使用情景，有两个控制器（控制器一，控制器二）。在控制器二中输入一段文字，在返回到控制器一时，显示出来。</p>
 <p>​    首先，新建工程并创建两个控制器类，如图：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/2017041914925890217116.jpg" alt="block1-2"></p>
+<p><img src="http://zjp.dennisce.com/2017041914925890217116.jpg" alt="block1-2"></p>
 <p>​    在控制器二的头文件中声明一个block属性，并声明一个回调方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//给block定义一个别名</div><div class="line">typedef void (^ReturnTextBlock) (NSString *showText);</div><div class="line"></div><div class="line">@interface SecondViewController : UIViewController</div><div class="line"></div><div class="line">@property (nonatomic,copy) NSString *name;</div><div class="line"></div><div class="line">//声明一个block属性</div><div class="line">@property (nonatomic, copy) ReturnTextBlock returnTextBlock;</div><div class="line"></div><div class="line">//使用此方法回调，获取本控制器中输入的文字（也可以通过block属性来获取控制器中输入的文字）</div><div class="line">- (void)returnText:(ReturnTextBlock)block;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
 <p>​    在控制器二中，点击按钮回返回控制器一的时候我们将这个block属性赋值：</p>

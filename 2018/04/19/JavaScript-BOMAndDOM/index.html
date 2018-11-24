@@ -102,7 +102,7 @@
 <meta property="og:url" content="Aaronzjp.cn/2018/04/19/JavaScript-BOMAndDOM/index.html">
 <meta property="og:site_name" content="Aaron的博客">
 <meta property="og:description" content="BOM(浏览器对象模型)JavaScript 可以获取浏览器提供的很多对象。浏览器对象模型（Browser Object Model）尚无正式标准。由于浏览器已经实现了 JavaScript 交互性方面的相同方法和属性，因此常被认为是 BOM 的方法和属性。 window 对象所有的浏览器都支持 window 对象，表示浏览器窗口。window 是一个全局对象，不但这样所有 JavaScript">
-<meta property="og:updated_time" content="2018-04-19T09:20:31.981Z">
+<meta property="og:updated_time" content="2018-06-19T05:48:00.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript-BOMAndDOM">
 <meta name="twitter:description" content="BOM(浏览器对象模型)JavaScript 可以获取浏览器提供的很多对象。浏览器对象模型（Browser Object Model）尚无正式标准。由于浏览器已经实现了 JavaScript 交互性方面的相同方法和属性，因此常被认为是 BOM 的方法和属性。 window 对象所有的浏览器都支持 window 对象，表示浏览器窗口。window 是一个全局对象，不但这样所有 JavaScript">
@@ -354,9 +354,28 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.title = <span class="string">"学习 JavaScript 中！"</span>;</div></pre></td></tr></table></figure>
 <p>在浏览器的控制台中输入上面的代码，可以看到浏览器的标题被修改了。</p>
 <p>要查找 DOM 树的某个节点就需要从 <code>document</code> 对象开始查找，常用的是更加 HTML 元素的 id 和 tagname 来查找。</p>
-<p><code>document</code> 对象还有一个 <code>cookie</code> 属性，可以获取到当前页面的 <code>cookie</code>。<code>cookie</code> 主要存储了用户的一些相关信息，基于安全。<code>cookie</code> 一般都是要设置 <code>httpOnly</code> 的，设置了 <code>httpOnly</code> 的 <code>cookie</code> 是不能被  JavaScript 读取到的。</p>
+<p><code>document</code> 对象还有一个 <code>cookie</code> 属性，可以获取到当前页面的 <code>cookie</code>。<code>cookie</code> 主要存储了用户的一些相关信息，比如用户登录相关信息，区分用户，等就可以使用 cookie 来实现。此后浏览器在访问该网页的时候就会在请求头中附上这个 cookie 。基于安全。<code>cookie</code> 一般都是要设置 <code>httpOnly</code> 的，设置了 <code>httpOnly</code> 的 <code>cookie</code> 是不能被  JavaScript 读取到的。</p>
 <h2 id="history-对象"><a href="#history-对象" class="headerlink" title="history 对象"></a>history 对象</h2><p><code>history</code> 对象保存了浏览器的历史记录。可以通过 JavaScript 调用 <code>history</code> 对象的 <code>back()</code> 和 <code>forward()</code>  对象来前进后退页面，相当于用户点击了前进和后退按钮。但是尽量不要使用这两个方法。</p>
-<h1 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM(文档对象模型)"></a>DOM(文档对象模型)</h1>
+<h1 id="DOM-文档对象模型"><a href="#DOM-文档对象模型" class="headerlink" title="DOM(文档对象模型)"></a>DOM(文档对象模型)</h1><p>HTML 文档被浏览器解析后就是一颗 DOM 树，要改变 HTML 文档的结构，就需要通过 JavaScript 来操作 DOM。</p>
+<h2 id="操作-DOM"><a href="#操作-DOM" class="headerlink" title="操作 DOM"></a>操作 DOM</h2><p>需要始终记住的是 DOM 是一个树状结构。操作一个 DOM 节点实际上就是如下几个操作：</p>
+<ul>
+<li>更新：更新 DOM 节点的内容，相当于更新了 DOM 节点表示的内容；</li>
+<li>遍历：遍历节点下的子节点；</li>
+<li>添加：在 DOM 节点下新增一个子节点，其实就是动态的添加了一个 HTML 节点；</li>
+<li>删除：从 DOM 中删除一个节点，相当于删除了该节点的内容以及该节点包含的所有的子节点。</li>
+</ul>
+<p>在对 DOM 节点进行操作的时候，首先是要获取该节点。最常用的方法有如下几个：</p>
+<p><code>document.getElementById()</code>。</p>
+<p><code>document.getElementsByTagName()</code>。</p>
+<p>以及 CSS 选择器的方法：</p>
+<p><code>document.getElementsByClassName()</code>。</p>
+<p><code>document.getElementById()</code> 该方法是通过 ID 获取的，在 HTML 中 ID 是唯一的，所有可以用来直接获取唯一的一个DOM节点。<code>document.getElementsByTagName()</code> 和 <code>document.getElementsByClassName()</code> 是通过标签名和类名来获取节点的，在 HTML 文档中这些都不是唯一的，所有总是返回一组节点，想要通过这两个方法精确的获取及诶单，可以一层一层的获取，缩小范围。</p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//返回 ID 为 header 的节点</span></div><div class="line"><span class="keyword">var</span> test = <span class="built_in">document</span>.getElementById(<span class="string">'header'</span>);</div><div class="line"></div><div class="line"><span class="comment">//先通过 ID classNumber 获取节点，在获取其下的所有 tag 为 workmate 的节点</span></div><div class="line"><span class="keyword">var</span> names = <span class="built_in">document</span>.getElementById(<span class="string">"classNumber"</span>).getElementsByTagName:(<span class="string">"workmate"</span>);</div><div class="line"></div><div class="line"><span class="comment">//通过 ClassName 获取节点</span></div><div class="line"><span class="keyword">var</span> weather = getElementsByClassName(<span class="string">'weather'</span>);</div><div class="line"></div><div class="line"><span class="comment">//获取 weather 下的所有子节点</span></div><div class="line"><span class="keyword">var</span> weathers = weather.children;</div><div class="line"><span class="comment">//获取 waether 下的第一个子节点</span></div><div class="line"><span class="keyword">var</span> first = weather.firstElementChild;</div><div class="line"><span class="comment">//获取 waether 下的最后一个子节点</span></div><div class="line"><span class="keyword">var</span> last = weather.lastElementChild;</div></pre></td></tr></table></figure>
+<p>第二种获取 DOM 节点的方法是使用 <code>qureySelector()</code> 和 <code>querySelectorAll()</code>。使用该方式获取节点需要了解 selector 语法，该方式还可以通过条件来获取节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取 ID 为 name 的节点</span></div><div class="line"><span class="keyword">var</span> name = <span class="built_in">document</span>.querySelector(<span class="string">'#name'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 通过querySelectorAll获取q1节点内的符合条件的所有节点：</span></div><div class="line"><span class="keyword">var</span> ps = q1.querySelectorAll(<span class="string">'div.highlighted &gt; p'</span>);</div></pre></td></tr></table></figure>
+<p>需要注意的是这两个方法在 IE&lt;8 的版本中是不支持的，IE8 也仅支持部分。</p>
+<h3 id="更新-DOM"><a href="#更新-DOM" class="headerlink" title="更新 DOM"></a>更新 DOM</h3>
       
     </div>
     
@@ -557,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM-浏览器对象模型"><span class="nav-number">1.</span> <span class="nav-text">BOM(浏览器对象模型)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#window-对象"><span class="nav-number">1.1.</span> <span class="nav-text">window 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#screen-对象"><span class="nav-number">1.2.</span> <span class="nav-text">screen 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigator-对象"><span class="nav-number">1.3.</span> <span class="nav-text">navigator 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location-对象"><span class="nav-number">1.4.</span> <span class="nav-text">location 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#document-对象"><span class="nav-number">1.5.</span> <span class="nav-text">document 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history-对象"><span class="nav-number">1.6.</span> <span class="nav-text">history 对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM-文档对象模型"><span class="nav-number">2.</span> <span class="nav-text">DOM(文档对象模型)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM-浏览器对象模型"><span class="nav-number">1.</span> <span class="nav-text">BOM(浏览器对象模型)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#window-对象"><span class="nav-number">1.1.</span> <span class="nav-text">window 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#screen-对象"><span class="nav-number">1.2.</span> <span class="nav-text">screen 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigator-对象"><span class="nav-number">1.3.</span> <span class="nav-text">navigator 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location-对象"><span class="nav-number">1.4.</span> <span class="nav-text">location 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#document-对象"><span class="nav-number">1.5.</span> <span class="nav-text">document 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history-对象"><span class="nav-number">1.6.</span> <span class="nav-text">history 对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM-文档对象模型"><span class="nav-number">2.</span> <span class="nav-text">DOM(文档对象模型)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作-DOM"><span class="nav-number">2.1.</span> <span class="nav-text">操作 DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更新-DOM"><span class="nav-number">2.1.1.</span> <span class="nav-text">更新 DOM</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

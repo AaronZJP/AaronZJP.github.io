@@ -103,12 +103,12 @@
 <meta property="og:url" content="Aaronzjp.cn/2016/09/13/Message-Forwarding/index.html">
 <meta property="og:site_name" content="Aaron的博客">
 <meta property="og:description" content="​    上次在发送消息objc_msgSend中提到了，如果在当前的类的方法列表中如果找不到对应的选择子的方法就会执行消息转发（message forwarding），在消息的转发过程中我们就可以在程序中告诉程序应该怎样去处理这样未知的消息，可以在消息的转发过程中设置挂钩，用来执行预定的逻辑处理方式，来做到当程序中的某个类找不到对应的方法时不至于导致程序的崩溃。 ​    其中消息转发机制详细的">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258925551884.jpg">
-<meta property="og:updated_time" content="2017-07-27T02:55:08.000Z">
+<meta property="og:image" content="http://zjp.dennisce.com/20170419149258925551884.jpg">
+<meta property="og:updated_time" content="2018-11-24T09:35:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="runtime-消息转发机制（message forwarding）">
 <meta name="twitter:description" content="​    上次在发送消息objc_msgSend中提到了，如果在当前的类的方法列表中如果找不到对应的选择子的方法就会执行消息转发（message forwarding），在消息的转发过程中我们就可以在程序中告诉程序应该怎样去处理这样未知的消息，可以在消息的转发过程中设置挂钩，用来执行预定的逻辑处理方式，来做到当程序中的某个类找不到对应的方法时不至于导致程序的崩溃。 ​    其中消息转发机制详细的">
-<meta name="twitter:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258925551884.jpg">
+<meta name="twitter:image" content="http://zjp.dennisce.com/20170419149258925551884.jpg">
 
 
 
@@ -356,7 +356,7 @@
 <p>只要这个方法中最后返回的不适<code>nil</code>和<code>self</code>那么整个消息发送的过程就会被重启，当然接收消息的对象就回变成这里返回的这个类。如果这里还是没有及时的处理那么就回进入到消息转发的最后一步了，进行完整的消息转发。</p>
 <h1 id="完整的消息转发"><a href="#完整的消息转发" class="headerlink" title="完整的消息转发"></a>完整的消息转发</h1><p>​    到了这一步的时候就是最后挽救未解读消息的时候，在这步首先要创建<code>NSInvocation</code>对象，然后把未处理的消息的所有的细节都添加到此，此对象中包含了选择子，目标，以及参数。在这里我们同样的可以改变调用目标，使消息在新目标上调用，这个就和第二步中的操作其实是等效的了。我们还可以在消息触发前对消息进行其它的修改，比如改变消息内容，增加消息的参数，更改消息的目标。如果此消息不应该由本类来处理，也可以调用超类的同名方法来处理。如果最终还是未被处理，则还是会调用<code>doseNotRecognizeSelector</code>，以抛出异常，表示这条消息最终未能得到处理，导致程序崩溃。</p>
 <p>整个消息转发流程图如下：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258925551884.jpg" alt="消息转发流程图"></p>
+<p><img src="http://zjp.dennisce.com/20170419149258925551884.jpg" alt="消息转发流程图"></p>
 
       
     </div>
