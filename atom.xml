@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2018-11-25T16:02:19.262Z</updated>
+  <updated>2018-11-25T16:27:24.109Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -16,36 +16,16 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>iPhone X 设计指南（Code + Design 翻译）</title>
+    <title>Apple Watch 设计（Code + Design 翻译）</title>
     <link href="Aaronzjp.cn/2018/11/26/Designing-for-Apple-Watch/"/>
     <id>Aaronzjp.cn/2018/11/26/Designing-for-Apple-Watch/</id>
     <published>2018-11-25T16:02:12.000Z</published>
-    <updated>2018-11-25T16:02:19.262Z</updated>
+    <updated>2018-11-25T16:27:24.109Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;Apple Watch 发布于 2015 年 4 月 24 ，收到了开发者，设计师和媒体的高度期待。这真的是第一个出乎预料的可穿戴设备，使苹果成为了全世界第一个的手表制造商。&lt;/p&gt;
 &lt;p&gt;虽然它是苹果设备家族中的一员，但是它拥有自己的&lt;a href=&quot;https://de
-    
-    </summary>
-    
-    
-      <category term="Design+Code" scheme="Aaronzjp.cn/tags/Design-Code/"/>
-    
-      <category term="iOS编程和设计" scheme="Aaronzjp.cn/tags/iOS%E7%BC%96%E7%A8%8B%E5%92%8C%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iPad 设计指南（Code + Design 翻译）</title>
-    <link href="Aaronzjp.cn/2018/05/19/Designing-for-iPad/"/>
-    <id>Aaronzjp.cn/2018/05/19/Designing-for-iPad/</id>
-    <published>2018-05-18T16:10:12.000Z</published>
-    <updated>2018-11-24T09:32:07.037Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;针对 iPad 的设计并不是像翻转一个开关的那样简单，或者仅仅是将所有的东西变大。更大的屏幕提供了一个真正的机会来呈现更多的内容，同时也要遵守导航，排版，视觉层次的一些基本规则。不要仅仅是当作一个大的 iPhone 来对待 iPad。应该更多的像对待一个可以触摸的桌面电脑一样。换句话说，你的用户可以更加高效，查看更多的内容，更快的执行任务，比如，输入，拖放，以及多任务。&lt;/p&gt;
     
     </summary>
     
@@ -69,6 +49,26 @@
 &lt;blockquote&gt;
 &lt;p&gt;大自然可能是所有事物的最大灵感来源。在自然中的和谐，你只需要将它转换到数码世界里，应用到你的设计中。你会想选择一个基于自然中美丽的颜色，像天空，云朵，日落和植物。&lt;/p&gt;
 &lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Design+Code" scheme="Aaronzjp.cn/tags/Design-Code/"/>
+    
+      <category term="iOS编程和设计" scheme="Aaronzjp.cn/tags/iOS%E7%BC%96%E7%A8%8B%E5%92%8C%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iPad 设计指南（Code + Design 翻译）</title>
+    <link href="Aaronzjp.cn/2018/05/19/Designing-for-iPad/"/>
+    <id>Aaronzjp.cn/2018/05/19/Designing-for-iPad/</id>
+    <published>2018-05-18T16:10:12.000Z</published>
+    <updated>2018-11-24T09:32:07.037Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;针对 iPad 的设计并不是像翻转一个开关的那样简单，或者仅仅是将所有的东西变大。更大的屏幕提供了一个真正的机会来呈现更多的内容，同时也要遵守导航，排版，视觉层次的一些基本规则。不要仅仅是当作一个大的 iPhone 来对待 iPad。应该更多的像对待一个可以触摸的桌面电脑一样。换句话说，你的用户可以更加高效，查看更多的内容，更快的执行任务，比如，输入，拖放，以及多任务。&lt;/p&gt;
     
     </summary>
     
