@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2018-11-24T09:32:45.643Z</updated>
+  <updated>2018-11-25T16:02:19.262Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -16,18 +16,16 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>如何使用颜色（Code + Design 翻译）</title>
-    <link href="Aaronzjp.cn/2018/05/19/Designing-with-Colors/"/>
-    <id>Aaronzjp.cn/2018/05/19/Designing-with-Colors/</id>
-    <published>2018-05-18T16:10:12.000Z</published>
-    <updated>2018-11-24T09:32:45.643Z</updated>
+    <title>iPhone X 设计指南（Code + Design 翻译）</title>
+    <link href="Aaronzjp.cn/2018/11/26/Designing-for-Apple-Watch/"/>
+    <id>Aaronzjp.cn/2018/11/26/Designing-for-Apple-Watch/</id>
+    <published>2018-11-25T16:02:12.000Z</published>
+    <updated>2018-11-25T16:02:19.262Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;颜色很难掌握，因为太容易过度。当我们设计的时候，很容易过度设计。对于颜色，我们太倾向于使用鲜艳的色彩了，这样太过分散注意力，并且感觉十分不自然。我可以推荐的是简单的坚持基础基本原则，并且通过关注实用性和愉悦性来调节颜色的使用。当有疑问的时候，使用颜色来吸引注意力到按钮或重要元素上。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;大自然可能是所有事物的最大灵感来源。在自然中的和谐，你只需要将它转换到数码世界里，应用到你的设计中。你会想选择一个基于自然中美丽的颜色，像天空，云朵，日落和植物。&lt;/p&gt;
-&lt;/blockquote&gt;
+      &lt;p&gt;Apple Watch 发布于 2015 年 4 月 24 ，收到了开发者，设计师和媒体的高度期待。这真的是第一个出乎预料的可穿戴设备，使苹果成为了全世界第一个的手表制造商。&lt;/p&gt;
+&lt;p&gt;虽然它是苹果设备家族中的一员，但是它拥有自己的&lt;a href=&quot;https://de
     
     </summary>
     
@@ -48,6 +46,29 @@
     <summary type="html">
     
       &lt;p&gt;针对 iPad 的设计并不是像翻转一个开关的那样简单，或者仅仅是将所有的东西变大。更大的屏幕提供了一个真正的机会来呈现更多的内容，同时也要遵守导航，排版，视觉层次的一些基本规则。不要仅仅是当作一个大的 iPhone 来对待 iPad。应该更多的像对待一个可以触摸的桌面电脑一样。换句话说，你的用户可以更加高效，查看更多的内容，更快的执行任务，比如，输入，拖放，以及多任务。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Design+Code" scheme="Aaronzjp.cn/tags/Design-Code/"/>
+    
+      <category term="iOS编程和设计" scheme="Aaronzjp.cn/tags/iOS%E7%BC%96%E7%A8%8B%E5%92%8C%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何使用颜色（Code + Design 翻译）</title>
+    <link href="Aaronzjp.cn/2018/05/19/Designing-with-Colors/"/>
+    <id>Aaronzjp.cn/2018/05/19/Designing-with-Colors/</id>
+    <published>2018-05-18T16:10:12.000Z</published>
+    <updated>2018-11-24T09:32:45.643Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;颜色很难掌握，因为太容易过度。当我们设计的时候，很容易过度设计。对于颜色，我们太倾向于使用鲜艳的色彩了，这样太过分散注意力，并且感觉十分不自然。我可以推荐的是简单的坚持基础基本原则，并且通过关注实用性和愉悦性来调节颜色的使用。当有疑问的时候，使用颜色来吸引注意力到按钮或重要元素上。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大自然可能是所有事物的最大灵感来源。在自然中的和谐，你只需要将它转换到数码世界里，应用到你的设计中。你会想选择一个基于自然中美丽的颜色，像天空，云朵，日落和植物。&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -203,22 +224,6 @@
       <category term="JS学习" scheme="Aaronzjp.cn/tags/JS%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="JS基础" scheme="Aaronzjp.cn/tags/JS%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《HTTP权威指南》读书笔记之 - Cookie</title>
-    <link href="Aaronzjp.cn/2017/12/12/HTTP-Cookie/"/>
-    <id>Aaronzjp.cn/2017/12/12/HTTP-Cookie/</id>
-    <published>2017-12-12T08:44:28.000Z</published>
-    <updated>2017-12-12T08:46:32.003Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="HTTP" scheme="Aaronzjp.cn/tags/HTTP/"/>
     
   </entry>
   

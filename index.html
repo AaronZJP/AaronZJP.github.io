@@ -264,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2018/05/19/Designing-with-Colors/">
+    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2018/11/26/Designing-for-Apple-Watch/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron_36">
@@ -283,7 +283,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/19/Designing-with-Colors/" itemprop="url">如何使用颜色（Code + Design 翻译）</a></h1>
+                <a class="post-title-link" href="/2018/11/26/Designing-for-Apple-Watch/" itemprop="url">iPhone X 设计指南（Code + Design 翻译）</a></h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-19T00:10:12+08:00">
-                2018-05-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T00:02:12+08:00">
+                2018-11-26
               </time>
             
 
@@ -334,17 +334,89 @@
 
       
         
-          <p>颜色很难掌握，因为太容易过度。当我们设计的时候，很容易过度设计。对于颜色，我们太倾向于使用鲜艳的色彩了，这样太过分散注意力，并且感觉十分不自然。我可以推荐的是简单的坚持基础基本原则，并且通过关注实用性和愉悦性来调节颜色的使用。当有疑问的时候，使用颜色来吸引注意力到按钮或重要元素上。</p>
+          
+            <p>Apple Watch 发布于 2015 年 4 月 24 ，收到了开发者，设计师和媒体的高度期待。这真的是第一个出乎预料的可穿戴设备，使苹果成为了全世界第一个的手表制造商。</p>
+<p>虽然它是苹果设备家族中的一员，但是它拥有自己的<a href="https://developer.apple.com/watchos/human-interface-guidelines/overview/themes/" target="_blank" rel="external">人机交互指南</a>。对于 Apple Watch 来说，拥有自己的生态系统是非常重要的。</p>
+<p>根据Asymco的数据，苹果手表的销量为3300万。对于你的 app 来说这是很大的用户群。</p>
+<h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><p>Apple Watch 的设计和 iOS 的设计是完全不同的。我们需要了解不同的方面，这使得苹果手表成为一个令人惊讶的小型计算机，同时，它是 iPhone 的扩展。</p>
+<p>对于设计师来说，我们需要考虑 Apple Watch 的屏幕尺寸以及理解哪一部分的设计是与 iPhone 是完全不同的。</p>
+<p>这一点非常重要，因为屏幕大小带来了新的手势和新的UI/UX考虑。</p>
+<p><img src="http://zjp.dennisce.com/20180614182514_VT7arr_iPhone 8 Plus and AppleWatch Screens.jpeg" alt=""></p>
+<h1 id="Apple-Watch-设计概览"><a href="#Apple-Watch-设计概览" class="headerlink" title="Apple Watch 设计概览"></a>Apple Watch 设计概览</h1><p>或许我们对Apple Watch的第一次体验，是我们第一次收到通知。作为一名用户，直接从手表上操作而不使用手机是一种非常棒的体验。</p>
+<p>但是，是什么让体验如此棒呢？Overall 的设计主题是:</p>
+<p><img src="http://zjp.dennisce.com/20180614182809_lRXJQa_watchOS%20Design%20Themes.jpeg" alt=""></p>
+<h2 id="人机交流"><a href="#人机交流" class="headerlink" title="人机交流"></a>人机交流</h2><p>Apple Watch 或许是第一个与用户建立亲密联系的设备，所以你需要在设计过程中利用这种独特的联系。</p>
+<h2 id="整体设计"><a href="#整体设计" class="headerlink" title="整体设计"></a>整体设计</h2><p>Force Touch和Digital Crown是让用户与屏幕内容无缝交互的关键部件。当你在设计你的应用程序时，目标应该是增强用户的体检，即硬件和软件的体验是不可分割的。</p>
+<h2 id="轻量级交互"><a href="#轻量级交互" class="headerlink" title="轻量级交互"></a>轻量级交互</h2><p>在 Apple Watch 上快速的交互对用户体验来说是很有必要的。动画和声音的同步对于用户来说是至关重要的。重要的是要考虑显示的信息应该是快速浏览和容易忽略的。</p>
+<h1 id="Apple-Watch-优秀高品质的体验"><a href="#Apple-Watch-优秀高品质的体验" class="headerlink" title="Apple Watch 优秀高品质的体验"></a>Apple Watch 优秀高品质的体验</h1><p>当你开始设计你的 Apple Watch 的 app 的时候你需要小心仔细的计划。在这里有一段苹果公司的<a href="https://developer.apple.com/videos/play/wwdc2017/808/" target="_blank" rel="external">视频</a>，提供了一些计较和提示，让你更好的计划你的 app。</p>
+<p>评估里 app 最好的方式是需要考虑以下4个点：</p>
+<p><img src="http://onocdmhtw.bkt.clouddn.com/20180615101257_JD9j0n_Qualities of Apple Watch Experiences.jpeg" alt=""></p>
+<h2 id="清晰"><a href="#清晰" class="headerlink" title="清晰"></a>清晰</h2><p>用户需要一眼就能看到你展示的信息。</p>
+<h2 id="简洁"><a href="#简洁" class="headerlink" title="简洁"></a>简洁</h2><p>很直接的一点就是，需要记住当你的用户从收到你的信息抬起手腕到放下手腕的时候，你只有几秒钟的时间。</p>
+<h2 id="及时"><a href="#及时" class="headerlink" title="及时"></a>及时</h2><p>尽可能的在最短的时间内向用户展示最相关的信息。像这样，你可以让你的 app 更加贴近用户。</p>
+<h2 id="个人的"><a href="#个人的" class="headerlink" title="个人的"></a>个人的</h2><p>如果你的应用程序完成了前三个元素，你的用户将会感到一种个人的联系。理想情况下，尝试加深与用户的关系。</p>
+<h1 id="Apple-Watch-设计基本要素"><a href="#Apple-Watch-设计基本要素" class="headerlink" title="Apple Watch 设计基本要素"></a>Apple Watch 设计基本要素</h1><p>苹果提供了一些<a href="https://developer.apple.com/design/resources/" target="_blank" rel="external">很好的资源</a>，方便你开始设计你的 Apple Watch app。当你开始设计的时候你需要考虑一下遵守如下的一些原则：</p>
+<h2 id="问你自己一个问题"><a href="#问你自己一个问题" class="headerlink" title="问你自己一个问题"></a>问你自己一个问题</h2><p>确定一下在你的 Apple Watch app 中需要展示的最重要的是什么。找到终端用户特有的特性。问你自己：用户一眼看到的最重要的东西是什么？这是你需要理解的重点。如果你的 app 是关于天气的，这个问题答案应该是今天是什么天气？在最后，你的设计应该回答这个问题。</p>
 <blockquote>
-<p>大自然可能是所有事物的最大灵感来源。在自然中的和谐，你只需要将它转换到数码世界里，应用到你的设计中。你会想选择一个基于自然中美丽的颜色，像天空，云朵，日落和植物。</p>
+<p>你需要明白，你的设计将试图回答你的应用解决的主要问题，所以要保持简洁、重要和专注。</p>
 </blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/19/Designing-with-Colors/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+<p><img src="http://zjp.dennisce.com/20180615102901_w51q38_AskYourself.jpeg" alt=""></p>
+<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><p>好的就这样，你的 Apple Watch app有了一个很好的设计。很受用户喜欢。不要停留在这里，你要一直问你自己，怎样才能做得更好？</p>
+<p>总是有新的和创造性的方法为你的用户想出更好的设计。</p>
+<p><img src="http://zjp.dennisce.com/20180615103154_EDDh1F_Iterations.jpeg" alt=""></p>
+<h2 id="通知"><a href="#通知" class="headerlink" title="通知"></a>通知</h2><p>Apple Watch 的 app 有两种类型的通知：短时间展示和长时间展示通知。</p>
+<p>首先用户会收到一个通知，这是一个短时间展示的通知。这个通知会显示很短的时间，如果用户想关闭这个通知，只需要放下手腕即可。如果想查看更多的细节，用户可以抬起手腕，点击通知界面。</p>
+<p><img src="http://zjp.dennisce.com/20180710144305_1tEFc7_Notifications.jpeg" alt=""></p>
+<h2 id="视觉设计"><a href="#视觉设计" class="headerlink" title="视觉设计"></a>视觉设计</h2><p>这里有一些关于视觉设计的设计指南。</p>
+<h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><p>你需要保持动画简短，以及目的明确。你不需要在通知界面使用布局动画。尽量减少动画并发的情况，并让动画是可选的。</p>
+<p>你可以对以下属性做动画：</p>
+<ul>
+<li>高</li>
+<li>宽</li>
+<li>组嵌套</li>
+<li>对齐方式</li>
+<li>背景色</li>
+<li>色调</li>
+<li>透明度</li>
+</ul>
+<p><img src="http://zjp.dennisce.com/20180808155858_Y3K2PS_Untitled3.gif" alt=""></p>
+<h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>你需要为你的 app 选择一个全局色，这个颜色与你的 app 在其他设备上的颜色一致，比如 iPhone 。苹果建议从以下这几个方面考虑：</p>
+<ul>
+<li>使用黑色作为你的应用的背景颜色，因为它与苹果手表的边框混合在一起，创造了一个没有边缘的屏幕的错觉。</li>
+<li>注意色盲，以及不同文化群体对颜色的感知。</li>
+<li>尽量避免使用颜色作为显示交互性的唯一方法。</li>
+</ul>
+<p><img src="http://zjp.dennisce.com/20180808160356_TfawPK_Color Palette.jpeg" alt=""></p>
+<h3 id="显示尺寸"><a href="#显示尺寸" class="headerlink" title="显示尺寸"></a>显示尺寸</h3><p>Apple Watch 发布了两种尺寸的版本： 38 mm 和 42 mm。</p>
+<p>所以你需要用一个图片资源同时在两种尺寸的屏幕中展示。</p>
+<p><img src="http://zjp.dennisce.com/20180808160617_xOBqcy_Apple Watch Sizes.jpeg" alt=""></p>
+<h3 id="定制"><a href="#定制" class="headerlink" title="定制"></a>定制</h3><p>颜色，字体，和图标对于你需要定制的 app 来说是相当重要的一部分。但是这里有一些你必须要遵守的一些规则：</p>
+<ul>
+<li>始终尝试使用字体，颜色，图片选择，来明确的表明品牌标识。这些可以帮助你创建自己独一无二的风格。</li>
+<li>避免在 app 内显示你的 logo</li>
+<li>不要包含启动屏幕</li>
+<li>如果你需要不一样的排版，一定要让排版清晰，更多的信息你可以阅读 <a href="https://developer.apple.com/watchos/human-interface-guidelines/visual-design/typography/" target="_blank" rel="external">页面排版</a></li>
+<li>避免使用品牌颜色和 logo 填充背景区域</li>
+<li>使用你的品牌颜色作为 app 的全局色调</li>
+</ul>
+<p><img src="http://zjp.dennisce.com/20181125233411_jhm9qN_Screenshot.jpeg" alt=""></p>
+<h3 id="排版"><a href="#排版" class="headerlink" title="排版"></a>排版</h3><p>在苹果手表发布的同一年，苹果给设计界带来了另一个惊喜。他们发布了第一个系列的字体，叫做旧金山字体（San Francisco）。当时 Helvetica Neue 字体应用于iOS，但不适用于小屏幕上的文本。</p>
+<p>旧金山字体（San Francisco）有一个目的就是统一苹果平台，无论怎么样它不是一个单独的字体。</p>
+<p>旧金山字体（San Francisco）由两个主要的子系列组成。</p>
+<p>SF Pro 运行于 iOS 和 macOS , SF Compact 运行于 Apple Watch。</p>
+<p>第一个是文本风格上的，但是第二个是功能上的。</p>
+<p>SF Pro 和 SF Compact 是同类字体，这意味着它们是相关的，但不是完全相同的。两者之间最大的区别是如何处理圆形的形状。</p>
+<p>与 SF Pro 相比，SF Compact 有相当平坦的垂直线条，这是因为苹果希望在小屏幕上容纳更多的文字。</p>
+<p>确实，旧金山的 iOS、macOS 和 watchOS 字体是不一样的。你可以很容易地分辨出像 “o” 、“e” 这样的圆形字母的区别。</p>
+<p><img src="http://zjp.dennisce.com/20180808162527_shicbW_Typography.jpeg" alt=""></p>
+<h3 id="图标和图片"><a href="#图标和图片" class="headerlink" title="图标和图片"></a>图标和图片</h3><p>致于其他应用，你需要优化你应用的图片。苹果推荐你使用去交错式图像 PNG 位图文件或者光栅化图片。同时应该尝试避免图片的透明度，因为 alpha 通道会增加图片文件的大小。你也可以为不需要使用 24 位色的 PNG 图片使用 8 位色的图片。这个调色板不适用于照片。</p>
+<p><img src="http://zjp.dennisce.com/20181125235032_UDDj1u_Screenshot.jpeg" alt=""></p>
+<h3 id="导出-Apple-Watch-应用-icon图标"><a href="#导出-Apple-Watch-应用-icon图标" class="headerlink" title="导出 Apple Watch 应用 icon图标"></a>导出 Apple Watch 应用 icon图标</h3><p>当你需要为你的 Apple Watch 应用导出图片资源的时候，有一个简洁的付费应用程序非常的方便。<a href="https://itunes.apple.com/us/app/asset-catalog-creator-resizer/id809625456?ls=1&amp;mt=12" target="_blank" rel="external">Asset Catalog Creator</a> 是一个可以导出 Apple Watch 应用 icon 图标的应用程序。</p>
+<p><img src="http://zjp.dennisce.com/20181125235348_m7coDN_Screenshot.jpeg" alt=""></p>
+<h3 id="为其他可穿戴设备设计"><a href="#为其他可穿戴设备设计" class="headerlink" title="为其他可穿戴设备设计"></a>为其他可穿戴设备设计</h3><p>虽然Apple Watch是目前最流行的可穿戴设备，但作为设计师，我们有时也会被要求为其他可穿戴设备设计产品。针对于这个特例，你接下来看到的这个链接是非常有用的 <a href="https://designguidelines.withgoogle.com/wearos/wear-os-by-google/designing-for-watches.html#" target="_blank" rel="external">Android Wear</a> ， <a href="https://designguidelines.withgoogle.com/wearos/wear-os-by-google/designing-for-watches.html#" target="_blank" rel="external">Android Wear</a>。</p>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>综上所述，作为一个设计师，最重要的是你应该记住，你的设计应该是在不断的回答的一个问题：用户在这一瞥中最想看到的最重要的东西是什么？最终始终需要考虑到的4个重要的因素：清晰、简洁、及时、个性化。</p>
+
+          
         
       
     </div>
@@ -465,6 +537,133 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/19/Designing-for-iPad/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2018/05/19/Designing-with-Colors/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron_36">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://zjp.dennisce.com/20180428134154_AzuJA2_brandon-brown-396090-unsplash.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/19/Designing-with-Colors/" itemprop="url">如何使用颜色（Code + Design 翻译）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-19T00:10:12+08:00">
+                2018-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>颜色很难掌握，因为太容易过度。当我们设计的时候，很容易过度设计。对于颜色，我们太倾向于使用鲜艳的色彩了，这样太过分散注意力，并且感觉十分不自然。我可以推荐的是简单的坚持基础基本原则，并且通过关注实用性和愉悦性来调节颜色的使用。当有疑问的时候，使用颜色来吸引注意力到按钮或重要元素上。</p>
+<blockquote>
+<p>大自然可能是所有事物的最大灵感来源。在自然中的和谐，你只需要将它转换到数码世界里，应用到你的设计中。你会想选择一个基于自然中美丽的颜色，像天空，云朵，日落和植物。</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/19/Designing-with-Colors/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1349,125 +1548,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2017/12/12/HTTP-Cookie/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron_36">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://zjp.dennisce.com/20180428134154_AzuJA2_brandon-brown-396090-unsplash.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/12/HTTP-Cookie/" itemprop="url">《HTTP权威指南》读书笔记之 - Cookie</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-12T16:44:28+08:00">
-                2017-12-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
         
       
     </div>
