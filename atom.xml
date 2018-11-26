@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2018-11-25T16:42:25.340Z</updated>
+  <updated>2018-11-26T16:53:11.432Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS 排版设计（Code + Design 翻译）</title>
+    <link href="Aaronzjp.cn/2018/11/27/Learn-Typography/"/>
+    <id>Aaronzjp.cn/2018/11/27/Learn-Typography/</id>
+    <published>2018-11-26T16:52:12.000Z</published>
+    <updated>2018-11-26T16:53:11.432Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;iOS-排版&quot;&gt;&lt;a href=&quot;#iOS-排版&quot; class=&quot;headerlink&quot; title=&quot;iOS 排版&quot;&gt;&lt;/a&gt;iOS 排版&lt;/h1&gt;&lt;p&gt;文本内容占据设计的 80% 以上，因此理解排版是非常关键的。始终要把可读性放在第一位。&lt;/p&gt;
+&lt;h1 id=&quot;字体设计基础知识&quot;&gt;&lt;a href=&quot;#字体设计基础知识&quot; class=&quot;headerlink&quot; title=&quot;字体设计基础知识&quot;&gt;&lt;/a&gt;字体设计基础知识&lt;/h1&gt;&lt;p&gt;学习这些排版以及字体设计的术语和其含义是非常重要的。这些名字将经常用来解释排版以及字体设计。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Design+Code" scheme="Aaronzjp.cn/tags/Design-Code/"/>
+    
+      <category term="iOS编程和设计" scheme="Aaronzjp.cn/tags/iOS%E7%BC%96%E7%A8%8B%E5%92%8C%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>Apple Watch 设计（Code + Design 翻译）</title>
@@ -428,24 +449,6 @@
     
     
       <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义转场动画（ViewController Transition）</title>
-    <link href="Aaronzjp.cn/2017/04/19/TransitionAnimation/"/>
-    <id>Aaronzjp.cn/2017/04/19/TransitionAnimation/</id>
-    <published>2017-04-19T09:28:41.000Z</published>
-    <updated>2018-11-24T09:36:41.298Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;什么是转场动画，转场动画就是从一个 Controller 跳转到另一个 Controller 时呈现的动画。在现在的iOS App 中很多 App 都实现了自己的转场动画，要知道自定义转场动画在 iOS7 以前是没有这么轻松的，在 iOS7 以前要想自定义转场动画那就只能自己去一步一步的实现，很久以前我隐约记得我看过一篇文章是关于自定义控制器容易器转场动画的，大概意思就是自定&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="转场动画" scheme="Aaronzjp.cn/tags/%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB/"/>
     
   </entry>
   
