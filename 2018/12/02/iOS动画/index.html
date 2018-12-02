@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Design+Code,iOS编程和设计," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aaron的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="iOS动画UI 设计中的简洁化使得动画成为焦点。在这一课中，你将学习基本的动画技术比如滑动，缩放以及颜色过渡。然后你将学习关于 iOS 中更高级的动画介绍，用于 UI 过渡以及物理动画和手势相结合的动画。">
+<meta name="keywords" content="Design+Code,iOS编程和设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS动画（Code + Design 翻译）">
+<meta property="og:url" content="Aaronzjp.cn/2018/12/02/iOS动画/index.html">
+<meta property="og:site_name" content="Aaron的博客">
+<meta property="og:description" content="iOS动画UI 设计中的简洁化使得动画成为焦点。在这一课中，你将学习基本的动画技术比如滑动，缩放以及颜色过渡。然后你将学习关于 iOS 中更高级的动画介绍，用于 UI 过渡以及物理动画和手势相结合的动画。">
+<meta property="og:image" content="http://zjp.dennisce.com/20181130203840_SS5ohd_Animation-Good.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181201124802_PSbCnc_iOS-Animation-gif-1.gif">
+<meta property="og:image" content="http://zjp.dennisce.com/20181201125052_p85FD8_iOS-Animation-gif-2.gif">
+<meta property="og:image" content="http://zjp.dennisce.com/20181201125213_QapFkq_iOS-Animation-gif-3.gif">
+<meta property="og:image" content="http://zjp.dennisce.com/20181202134439_qrN4Rl_iOS-Animation-gif-4.gif">
+<meta property="og:image" content="http://zjp.dennisce.com/20181202134829_m06BgI_iOS-Animation-gif-5.gif">
+<meta property="og:image" content="http://zjp.dennisce.com/20181202135336_BuMMs5_iOS-Animation-gif-6.gif">
+<meta property="og:image" content="http://zjp.dennisce.com/20181202135735_hAYVOm_iOS-Animation-gif-7.gif">
+<meta property="og:image" content="http://zjp.dennisce.com/20181202140930_9Dctkv_iOS-Animation-gif-8.gif">
+<meta property="og:image" content="http://zjp.dennisce.com/20181202141824_ObEsgA_iOS-Animation-gif-9.gif">
+<meta property="og:image" content="http://zjp.dennisce.com/20181202143916_DER7XK_iOS-Animation-gif-10.gif">
+<meta property="og:image" content="http://zjp.dennisce.com/20181202144713_QezC4P_iOS-Animation-gif-11.gif">
+<meta property="og:image" content="http://zjp.dennisce.com/20181202145108_vankUA_iOS-Animation-gif-12.gif">
+<meta property="og:updated_time" content="2018-12-02T06:57:06.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS动画（Code + Design 翻译）">
+<meta name="twitter:description" content="iOS动画UI 设计中的简洁化使得动画成为焦点。在这一课中，你将学习基本的动画技术比如滑动，缩放以及颜色过渡。然后你将学习关于 iOS 中更高级的动画介绍，用于 UI 过渡以及物理动画和手势相结合的动画。">
+<meta name="twitter:image" content="http://zjp.dennisce.com/20181130203840_SS5ohd_Animation-Good.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="Aaronzjp.cn/2018/12/02/iOS动画/"/>
+
+
+
+
+
+  <title>iOS动画（Code + Design 翻译） | Aaron的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">技术博客，记录和学习</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2018/12/02/iOS动画/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron_36">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://zjp.dennisce.com/20180428134154_AzuJA2_brandon-brown-396090-unsplash.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS动画（Code + Design 翻译）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-02T14:56:12+08:00">
+                2018-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="iOS动画"><a href="#iOS动画" class="headerlink" title="iOS动画"></a>iOS动画</h1><p>UI 设计中的简洁化使得动画成为焦点。在这一课中，你将学习基本的动画技术比如滑动，缩放以及颜色过渡。然后你将学习关于 iOS 中更高级的动画介绍，用于 UI 过渡以及物理动画和手势相结合的动画。</p>
+<a id="more"></a>
+<h1 id="动画介绍"><a href="#动画介绍" class="headerlink" title="动画介绍"></a>动画介绍</h1><p>动画应该提升应用的体验。这会让你的应用更好以及更加的有活力。好的动画应该提供点击和手势的反馈，并给人一种直接操作的感觉。</p>
+<p><img src="http://zjp.dennisce.com/20181130203840_SS5ohd_Animation-Good.jpeg" alt=""></p>
+<h1 id="基础动画"><a href="#基础动画" class="headerlink" title="基础动画"></a>基础动画</h1><p>这里有一些从 A 点过渡到 B 点的基础动画技术。这些动画非常普遍，从Web到iOS，每个平台上都可以看到这样的动画。</p>
+<p>通常，你并不需要设置两个以上的动画状态：<strong>开始</strong>和<strong>结束</strong>。计算机将知道这些状态之间发生了什么。</p>
+<h2 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h2><p>这是一个简单的从 X 点过渡到 Y 点的动画。用不同的时间，用于滑动的翻转，弹性，以及摇动的视觉元素。</p>
+<p><img src="http://zjp.dennisce.com/20181201124802_PSbCnc_iOS-Animation-gif-1.gif" alt=""></p>
+<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><p>通过改变元素的角度，您可以创建有趣的效果，比如在iOS中加载动画，或者添加可以从开放图标转变成闭合的图标。</p>
+<p><img src="http://zjp.dennisce.com/20181201125052_p85FD8_iOS-Animation-gif-2.gif" alt=""></p>
+<h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><p>这种动画在iOS中随处可见，比如在应用程序中缩放的应用程序图标，或者扩展到全屏视图的照片缩略图。</p>
+<p><img src="http://zjp.dennisce.com/20181201125213_QapFkq_iOS-Animation-gif-3.gif" alt=""></p>
+<h1 id="动画曲线"><a href="#动画曲线" class="headerlink" title="动画曲线"></a>动画曲线</h1><p><strong>曲线</strong> 在使动画更加逼真方面起了很大的作用。好的动画尽最大的可能还原物理真实的情况。一个在地上弹跳的球比起一个直接掉到地上的球更加的有趣。现代应用陈序中更加的倾向于使用弹性和渐缓的动画，而不是线性动画。</p>
+<p><img src="http://zjp.dennisce.com/20181202134439_qrN4Rl_iOS-Animation-gif-4.gif" alt=""></p>
+<h1 id="3D变换"><a href="#3D变换" class="headerlink" title="3D变换"></a>3D变换</h1><p>当改变位置的时候，你也可以改变 X，Y 和 Z 的值。虽然3D变换通常更少见，也更难以提取，但它可以提供有趣的结果，让你的应用程序与众不同。</p>
+<p><img src="http://zjp.dennisce.com/20181202134829_m06BgI_iOS-Animation-gif-5.gif" alt=""></p>
+<h1 id="属性改变"><a href="#属性改变" class="headerlink" title="属性改变"></a>属性改变</h1><p>一种很流行的动画技术就是去改变颜色和不透明属性。仅仅修改不透明属性就会影响 Fade in （淡入）/ Fade out（淡出）效果，这是非常常见的。动画层，文本，背景色也可以产生有效的的过渡动画。</p>
+<p><img src="http://zjp.dennisce.com/20181202135336_BuMMs5_iOS-Animation-gif-6.gif" alt=""></p>
+<h1 id="动画组合"><a href="#动画组合" class="headerlink" title="动画组合"></a>动画组合</h1><p>几乎在任何情况下，您都希望同时处理2或3个转换。通过这样做，你会得到有趣的动画灵感来自真实的物理，如反弹，变形，摇晃等。Tubik 工作室的<a href="https://dribbble.com/shots/2148431-GIF-for-the-Timeline-App" target="_blank" rel="external">动画</a>。</p>
+<p><img src="http://zjp.dennisce.com/20181202135735_hAYVOm_iOS-Animation-gif-7.gif" alt=""></p>
+<h2 id="预设动画"><a href="#预设动画" class="headerlink" title="预设动画"></a>预设动画</h2><p>在我为 iOS 创建的 <a href="http://github.com/mengto/spring" target="_blank" rel="external">Spring</a> 这个动画框架中，我提供了一些预先设置好的动画，可以一次组合多个动画。这可以很便利的集成到你的应用中的，甚至都不用学习如何去编写代码。</p>
+<p><img src="http://zjp.dennisce.com/20181202140930_9Dctkv_iOS-Animation-gif-8.gif" alt=""></p>
+<h1 id="动画不应该超过1秒"><a href="#动画不应该超过1秒" class="headerlink" title="动画不应该超过1秒"></a>动画不应该超过1秒</h1><p>长时间的动画会产生用户的挫败感——它会影响任务的执行。我个人认为理想的动画时长应该在 0.3 — 1 秒之间。如果你做淡入、滑动或缩放动画，动画时长就是你应该关注的重点。任何更短时长的动画都会让人觉得没有动画，或者更糟糕的是，它会给用户带来压力。任何更长的时间都可能表现不佳，妨碍他们做自己想做的事情。来自 Jakub Antalík 的<a href="https://dribbble.com/shots/1949368-Sidebar-animation" target="_blank" rel="external">动画</a>。</p>
+<blockquote>
+<p>设计是一个人为创造物最基本的灵魂，最终经由产品或服务一层层的外表来展现自己。——史蒂夫•乔布斯</p>
+</blockquote>
+<p><img src="http://zjp.dennisce.com/20181202141824_ObEsgA_iOS-Animation-gif-9.gif" alt=""></p>
+<h1 id="与开发人员工作"><a href="#与开发人员工作" class="headerlink" title="与开发人员工作"></a>与开发人员工作</h1><p>学习这些动画将让你了解到这些动画背后的技术。一开始你会很想要看到在产品中的最终结果，所以这个过程中也包括你的工程师也是很重要的。一个原型将在解释你的动画概念上创造奇迹。根据我个人的经验，知道通往目标的不同路径，从简单的选择到复杂的选择，将使你能够根据自己的时间框架做出明智的决定。</p>
+<h1 id="动画工具"><a href="#动画工具" class="headerlink" title="动画工具"></a>动画工具</h1><p>在下面你有几个可以选择的动画工具。有些完全不需要什么经验，但是有些就需要相当长时间的学习。但是得到的回报可能会更加的好。获得的难度越大，你的应用程序就越有可能脱颖而出。</p>
+<h2 id="PRINCIPLE"><a href="#PRINCIPLE" class="headerlink" title="PRINCIPLE"></a>PRINCIPLE</h2><p>最简单的一个就是 <a href="http://principleformac.com/" target="_blank" rel="external">Principle</a>。你需要做的就是设置屏幕 A 和屏幕 B，该工具会自动的在这两个屏幕中找到共有的元素自动的生成动画。在这里，你可以自定义时间，和动画曲线。它的用户界面和 Sketch 很像。提示：你可以从 Sketch 中复制和粘贴。在 Principle 中预览动画。Principle 中的动画，由 Leon Wu 提供的共享资源。</p>
+<p><img src="http://zjp.dennisce.com/20181202143916_DER7XK_iOS-Animation-gif-10.gif" alt=""></p>
+<h2 id="FLINTO-FOR-MAC"><a href="#FLINTO-FOR-MAC" class="headerlink" title="FLINTO FOR MAC"></a>FLINTO FOR MAC</h2><p><a href="https://www.flinto.com/mac" target="_blank" rel="external">Flinto</a> 像 Principle 一样的简单。在 24 版本中，Sketch 中内置了通过从 Flinto 导入的功能。所以不再需要 Sketch 插件了。我很快从 Sketch 中导出了我的画板，并在 Flinto 中创建了我的动画。</p>
+<h2 id="ORIGAMI"><a href="#ORIGAMI" class="headerlink" title="ORIGAMI"></a>ORIGAMI</h2><p><a href="http://facebook.github.io/origami/" target="_blank" rel="external">Origami</a> 是一款由 Facebook 开发的独立应用程序，灵感来自苹果的Quartz Composer。众所周知，Quartz Composer 是一款用于制作 iOS 和 Facebook Paper 动画原型的工具。Origami 中的<a href="https://dribbble.com/shots/1812505-Updated-Reservation-Interaction" target="_blank" rel="external">动画</a>来自于 Sam Thibault。</p>
+<p><img src="http://zjp.dennisce.com/20181202144713_QezC4P_iOS-Animation-gif-11.gif" alt=""></p>
+<h2 id="FRAMER"><a href="#FRAMER" class="headerlink" title="FRAMER"></a>FRAMER</h2><p>如果你是 javascript 的粉丝，那么我认为 <a href="http://www.framerjs.com/" target="_blank" rel="external">Frameris</a> 适合你，因为它基于Web技术。它允许你实时预览你的代码，你甚至可以在你的手机上看到结果。Framer 中的<a href="https://dribbble.com/shots/2191447-SpaceInFramers" target="_blank" rel="external">动画</a>来自于 Balraj Chana。Framer 提供来源。</p>
+<p><img src="http://zjp.dennisce.com/20181202145108_vankUA_iOS-Animation-gif-12.gif" alt=""></p>
+<h2 id="AFTER-EFFECTS"><a href="#AFTER-EFFECTS" class="headerlink" title="AFTER EFFECTS"></a>AFTER EFFECTS</h2><p>对于不想接触代码的视觉设计师来说，<a href="http://www.adobe.com/products/aftereffects.html" target="_blank" rel="external">After Effects</a> 是最流行的动画工具。我在 Dribbble 上看到了惊人的结果。这是一个更传统的工具，使用框架和图层。由于它是 Adobe 的产品，它的工作方式与 Photoshop 的动画工具相似，但要高级得多。After Effects 中的<a href="https://dribbble.com/shots/1623679-Open-Close" target="_blank" rel="external">动画</a>来自于 Creativedash。作者提供了原文件。</p>
+<p>视频地址：<a href="https://dl.dropboxusercontent.com/s/lcmzfrrpdar95xd/openclose.mp4?dl=0" target="_blank" rel="external">https://dl.dropboxusercontent.com/s/lcmzfrrpdar95xd/openclose.mp4?dl=0</a></p>
+<p>·</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Design-Code/" rel="tag"># Design+Code</a>
+          
+            <a href="/tags/iOS编程和设计/" rel="tag"># iOS编程和设计</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/27/Learn-Typography/" rel="next" title="iOS 排版设计（Code + Design 翻译）">
+                <i class="fa fa-chevron-left"></i> iOS 排版设计（Code + Design 翻译）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://zjp.dennisce.com/20180428134154_AzuJA2_brandon-brown-396090-unsplash.jpeg"
+               alt="Aaron_36" />
+          <p class="site-author-name" itemprop="name">Aaron_36</p>
+           
+              <p class="site-description motion-element" itemprop="description">Stay foolish,Stay hungry!</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AaronZJP" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/AaronZJP" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS动画"><span class="nav-number">1.</span> <span class="nav-text">iOS动画</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画介绍"><span class="nav-number">2.</span> <span class="nav-text">动画介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础动画"><span class="nav-number">3.</span> <span class="nav-text">基础动画</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#过渡"><span class="nav-number">3.1.</span> <span class="nav-text">过渡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旋转"><span class="nav-number">3.2.</span> <span class="nav-text">旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缩放"><span class="nav-number">3.3.</span> <span class="nav-text">缩放</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画曲线"><span class="nav-number">4.</span> <span class="nav-text">动画曲线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3D变换"><span class="nav-number">5.</span> <span class="nav-text">3D变换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#属性改变"><span class="nav-number">6.</span> <span class="nav-text">属性改变</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画组合"><span class="nav-number">7.</span> <span class="nav-text">动画组合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#预设动画"><span class="nav-number">7.1.</span> <span class="nav-text">预设动画</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画不应该超过1秒"><span class="nav-number">8.</span> <span class="nav-text">动画不应该超过1秒</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#与开发人员工作"><span class="nav-number">9.</span> <span class="nav-text">与开发人员工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动画工具"><span class="nav-number">10.</span> <span class="nav-text">动画工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PRINCIPLE"><span class="nav-number">10.1.</span> <span class="nav-text">PRINCIPLE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FLINTO-FOR-MAC"><span class="nav-number">10.2.</span> <span class="nav-text">FLINTO FOR MAC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORIGAMI"><span class="nav-number">10.3.</span> <span class="nav-text">ORIGAMI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FRAMER"><span class="nav-number">10.4.</span> <span class="nav-text">FRAMER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AFTER-EFFECTS"><span class="nav-number">10.5.</span> <span class="nav-text">AFTER EFFECTS</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron_36</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

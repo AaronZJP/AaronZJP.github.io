@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2018-11-26T16:53:11.432Z</updated>
+  <updated>2018-12-02T06:57:06.823Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS动画（Code + Design 翻译）</title>
+    <link href="Aaronzjp.cn/2018/12/02/iOS%E5%8A%A8%E7%94%BB/"/>
+    <id>Aaronzjp.cn/2018/12/02/iOS动画/</id>
+    <published>2018-12-02T06:56:12.000Z</published>
+    <updated>2018-12-02T06:57:06.823Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;iOS动画&quot;&gt;&lt;a href=&quot;#iOS动画&quot; class=&quot;headerlink&quot; title=&quot;iOS动画&quot;&gt;&lt;/a&gt;iOS动画&lt;/h1&gt;&lt;p&gt;UI 设计中的简洁化使得动画成为焦点。在这一课中，你将学习基本的动画技术比如滑动，缩放以及颜色过渡。然后你将学习关于 iOS 中更高级的动画介绍，用于 UI 过渡以及物理动画和手势相结合的动画。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Design+Code" scheme="Aaronzjp.cn/tags/Design-Code/"/>
+    
+      <category term="iOS编程和设计" scheme="Aaronzjp.cn/tags/iOS%E7%BC%96%E7%A8%8B%E5%92%8C%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS 排版设计（Code + Design 翻译）</title>
@@ -431,24 +451,6 @@
       <category term="Reactive Cocoa" scheme="Aaronzjp.cn/tags/Reactive-Cocoa/"/>
     
       <category term="响应式编程" scheme="Aaronzjp.cn/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Swift-枚举</title>
-    <link href="Aaronzjp.cn/2017/04/20/Swift-Enum/"/>
-    <id>Aaronzjp.cn/2017/04/20/Swift-Enum/</id>
-    <published>2017-04-20T07:01:27.000Z</published>
-    <updated>2017-08-01T07:06:31.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在 Swift 中枚举是一等类型。 Swift 中枚举是一个很强大的类型，在 C 语言中枚举会为一组整型值分配相关联的名称。但是在 Swift 中不是必须的，如果给枚举成员赋值(在 Swift 中又叫原始值)，则该值的类型可以是字符、字符串、整型、或者是一个浮点数。除了这些以为 Swift 中的枚举还可以指定任意类型的关联值到枚举成员中，还可以添加计算属性，实例方法，还可以定义构造函数，还可以遵守协议。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Swift" scheme="Aaronzjp.cn/tags/Swift/"/>
     
   </entry>
   
