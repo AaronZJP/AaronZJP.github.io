@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Design+Code,iOS编程和设计," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aaron的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="iOS 排版文本内容占据设计的 80% 以上，因此理解排版是非常关键的。始终要把可读性放在第一位。 字体设计基础知识学习这些排版以及字体设计的术语和其含义是非常重要的。这些名字将经常用来解释排版以及字体设计。">
+<meta name="keywords" content="Design+Code,iOS编程和设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 排版设计（Code + Design 翻译）">
+<meta property="og:url" content="Aaronzjp.cn/2018/11/27/Designing-for-iOS-Typography/index.html">
+<meta property="og:site_name" content="Aaron的博客">
+<meta property="og:description" content="iOS 排版文本内容占据设计的 80% 以上，因此理解排版是非常关键的。始终要把可读性放在第一位。 字体设计基础知识学习这些排版以及字体设计的术语和其含义是非常重要的。这些名字将经常用来解释排版以及字体设计。">
+<meta property="og:image" content="http://zjp.dennisce.com/20181126225509_reuMr9_Typography-Basics.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181126230742_t197iU_Typography-Fonts.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181126231454_3Cjch2_Typography-Tracking.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181126231951_TIFEPq_Typography-DynamicType.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181126232522_U5OqK3_Typography-List.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181126232645_vfVq0d_Typography-Size.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181126232828_qb5npG_Typography-Donts.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181126233647_37SUEk_Typography-Weight.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181126234132_O3mxYb_Typography-LineHeight.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181126234353_hWAANt_Typography-Line.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181126234704_84EitM_Typography-Used.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181127001712_8zhCGe_Typography-Serif.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181127002000_0uxQ9n_Kerning.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181127004123_Heih9w_Fontpair.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181127004430_sbqA1y_Screen Shot 2018-11-27 at 00.43.13.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181127004741_aqJKd0_typography-whatTheFont.jpeg">
+<meta property="og:updated_time" content="2018-11-26T16:53:11.432Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 排版设计（Code + Design 翻译）">
+<meta name="twitter:description" content="iOS 排版文本内容占据设计的 80% 以上，因此理解排版是非常关键的。始终要把可读性放在第一位。 字体设计基础知识学习这些排版以及字体设计的术语和其含义是非常重要的。这些名字将经常用来解释排版以及字体设计。">
+<meta name="twitter:image" content="http://zjp.dennisce.com/20181126225509_reuMr9_Typography-Basics.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="Aaronzjp.cn/2018/11/27/Designing-for-iOS-Typography/"/>
+
+
+
+
+
+  <title>iOS 排版设计（Code + Design 翻译） | Aaron的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">技术博客，记录和学习</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2018/11/27/Designing-for-iOS-Typography/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron_36">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://zjp.dennisce.com/20180428134154_AzuJA2_brandon-brown-396090-unsplash.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS 排版设计（Code + Design 翻译）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T00:52:12+08:00">
+                2018-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="iOS-排版"><a href="#iOS-排版" class="headerlink" title="iOS 排版"></a>iOS 排版</h1><p>文本内容占据设计的 80% 以上，因此理解排版是非常关键的。始终要把可读性放在第一位。</p>
+<h1 id="字体设计基础知识"><a href="#字体设计基础知识" class="headerlink" title="字体设计基础知识"></a>字体设计基础知识</h1><p>学习这些排版以及字体设计的术语和其含义是非常重要的。这些名字将经常用来解释排版以及字体设计。</p>
+<a id="more"></a>
+<p><img src="http://zjp.dennisce.com/20181126225509_reuMr9_Typography-Basics.jpeg" alt=""></p>
+<p>kerning：字距</p>
+<p>ascender：字头</p>
+<p>x-height：字高</p>
+<p>baseline：基线</p>
+<p>descender：字尾</p>
+<p>leading：行距</p>
+<h1 id="好的排版设计规则"><a href="#好的排版设计规则" class="headerlink" title="好的排版设计规则"></a>好的排版设计规则</h1><p>除非你是一个排版爱好者，否则你将会更加的喜欢干净简单的东西，不一定非要是原创的。好的排版让我们想去阅读，所以要去更好的去关注排版的效果。让我们看下这五个好的排版规则，并将之应用到现代化的移动应用中，以及网页上。</p>
+<h1 id="旧金山字体"><a href="#旧金山字体" class="headerlink" title="旧金山字体"></a>旧金山字体</h1><p>在 iOS 中默认的字体是旧金山字体 <a href="https://developer.apple.com/fonts/" target="_blank" rel="external">San Francisco</a>，它是由 Apple 公司内部制造的。你可以通过这个<a href="https://developer.apple.com/fonts/" target="_blank" rel="external">链接</a>下载新的字体。该字体非常的漂亮以及便于阅读，最重要的是它是免费的。我鼓励你们看下这个<a href="https://developer.apple.com/videos/wwdc/2015/?id=804" target="_blank" rel="external">视频</a>，以便来理解它是如何影响 iOS 设计的。</p>
+<p><img src="http://zjp.dennisce.com/20181126230742_t197iU_Typography-Fonts.jpeg" alt=""></p>
+<h2 id="旧金山字体跟踪值"><a href="#旧金山字体跟踪值" class="headerlink" title="旧金山字体跟踪值"></a>旧金山字体跟踪值</h2><p>iOS会根据字体大小自动调整旧金山的<a href="https://developer.apple.com/ios/human-interface-guidelines/visual-design/typography/" target="_blank" rel="external">跟踪值</a>和文本/显示。这确保了字体始终易于阅读。在字体处于 20 pt 或者更大的时候，就应该使用 <strong>SF UI Display</strong> ，或者 <strong>SF UI Text</strong></p>
+<p>。这些跟踪值只能在Photoshop中应用，但是这里有一个在Sketch中转换的公式。</p>
+<p>使用这个 Sketch 插件 可以快速的使用字体的间距。</p>
+<p><img src="http://zjp.dennisce.com/20181126231454_3Cjch2_Typography-Tracking.jpeg" alt=""></p>
+<h2 id="动态类型"><a href="#动态类型" class="headerlink" title="动态类型"></a>动态类型</h2><p>可访问性是 iOS 11 中一个非常重要的一个主题。现在，这里有一些动态的字体预设在下面的图片中。像这样，如果你把文本设置为 Body 并且开启了动态类型后，系统就会基于用户的设置自动的改变字体大小。</p>
+<p><img src="http://zjp.dennisce.com/20181126231951_TIFEPq_Typography-DynamicType.jpeg" alt=""></p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>选择一个在正文中看起来比较好的字体。当你很疑惑的时候你可以选择一个干净和易于阅读的字体。San Francisco （旧金山字体），Helvetica Neue，Open Sans，Roboto，Proxima Nova 和 Museo Sans 都是几个我比较喜欢的。它们都可以在<a href="https://www.google.com/fonts" target="_blank" rel="external">谷歌字体</a>和 <a href="https://typekit.com/" target="_blank" rel="external">Typekit</a> 上免费获得(通过 <a href="http://www.adobe.com/ca/creativecloud.html" target="_blank" rel="external">Creative Cloud</a> 的账号)。</p>
+<p><img src="http://zjp.dennisce.com/20181126232522_U5OqK3_Typography-List.jpeg" alt=""></p>
+<h1 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a>字体大小</h1><p>字体大小应至少为 <strong>11pt</strong>，才能在 iPhone 、iPad 和 Apple Watch 上阅读。虽然这是最小值，但正文文本的推荐大小实际上是 <strong>15-19pt</strong>。</p>
+<p><img src="http://zjp.dennisce.com/20181126232645_vfVq0d_Typography-Size.jpeg" alt=""></p>
+<h2 id="字大小对与错"><a href="#字大小对与错" class="headerlink" title="字大小对与错"></a>字大小对与错</h2><p>你的字体大小不应该低于 <strong>10 pt</strong>，因为这会让你的许多读者都不适应阅读。</p>
+<p><img src="http://zjp.dennisce.com/20181126232828_qb5npG_Typography-Donts.jpeg" alt=""></p>
+<h1 id="字重"><a href="#字重" class="headerlink" title="字重"></a>字重</h1><p>在现代的字体中比如 <strong>SF</strong> 字体中，除了<strong>Regular</strong>, and <strong>Bold</strong>。还有很多额外的字重的：<strong>Thin</strong>, <strong>Ultralight</strong>, <strong>Light</strong>, <strong>Medium</strong>, <strong>Semibold</strong>, <strong>Heavy</strong> and <strong>Black</strong> 。</p>
+<p>一般情况下，字体在 <strong>11-19 pt</strong>，大小的时候使用 SF Text <strong>Regular</strong>。字体在 <strong>20-34 pt</strong> 大小的时候使用 SF 字体显示 <strong>Medium</strong> 以及在 <strong>34pt</strong> 或者更大的时候，使用 SF 显示 <strong>Bold</strong>  。请注意，在更大的尺寸，你可以使用更薄的字体，比如 Light 和 Ultralight ，我建议这样做，如果你想要一个舒适的排版。在iOS 11中，大标题通常要大胆得多。</p>
+<p><img src="http://zjp.dennisce.com/20181126233647_37SUEk_Typography-Weight.jpeg" alt=""></p>
+<h1 id="行高"><a href="#行高" class="headerlink" title="行高"></a>行高</h1><p>行高应该在字体大小的 <strong>120%</strong> 到 <strong>145%</strong> 之间。</p>
+<p>一个正确的例子是行高和字体的大小是相等的（100%）。在下图的左边，我使用了  <strong>145%</strong> 的比例。这有很大的不同。现在，将这些单词乘以十倍后你就能知道阅读如此拥挤的文本是多么的令人沮丧。</p>
+<p><img src="http://zjp.dennisce.com/20181126234132_O3mxYb_Typography-LineHeight.jpeg" alt=""></p>
+<h1 id="保持每行-45-90-个字符"><a href="#保持每行-45-90-个字符" class="headerlink" title="保持每行 45-90 个字符"></a>保持每行 45-90 个字符</h1><p>当你每一行很长的时候，读者就会很难将注意力集中于此。每行大量的文本会让它们疲惫不堪，因为每次跳转到新行都会令人兴奋，而当行太长时，这种情况很少发生。</p>
+<p><img src="http://zjp.dennisce.com/20181126234353_hWAANt_Typography-Line.jpeg" alt=""></p>
+<h1 id="聪明的使用字体"><a href="#聪明的使用字体" class="headerlink" title="聪明的使用字体"></a>聪明的使用字体</h1><p>了解字体是一回事儿，但是怎么去使用字体又是另外一回事儿。漂亮的排版设计是不会凭空出现的，你必须精心策划和定制它。例如，如果字体不支持，不要强制使用粗体或斜体。</p>
+<p>使用斜体、下划线、粗体、列表和颜色来加强层次结构和交互。</p>
+<p><img src="http://zjp.dennisce.com/20181126234704_84EitM_Typography-Used.jpeg" alt=""></p>
+<h1 id="衬线字体和无衬线字体"><a href="#衬线字体和无衬线字体" class="headerlink" title="衬线字体和无衬线字体"></a>衬线字体和无衬线字体</h1><p>无衬线字体是一种在笔触末端没有称为“衬线”的小突出特征的字体。有衬线字体和无衬线字体都是很好的选择。</p>
+<p>衬线字体在传统应用程序中更常用，这些应用程序鼓励阅读和讲故事，比如 Medium、iBooks 和《纽约时报》。它很有魅力。就我个人而言，我认为在设计时回归本源很重要，所以我肯定会鼓励在讲故事时使用衬线字体。由于它们在现代应用程序中使用较少，所以您会对它们有一种独特的感觉。</p>
+<p>无衬线字体更实用、更中性，在大多数现代应用程序中广泛使用。它的流行也意味着它更通用。无衬线字体的数量是压倒性的，所以要小心选择。</p>
+<blockquote>
+<p>人们说设计不是艺术。不是吗？好的设计才是艺术。</p>
+</blockquote>
+<p><img src="http://zjp.dennisce.com/20181127001712_8zhCGe_Typography-Serif.jpeg" alt=""></p>
+<h1 id="字距"><a href="#字距" class="headerlink" title="字距"></a>字距</h1><p>字距是调整两个特定字符之间的间距，以达到令人愉悦的视觉效果结果。</p>
+<p>这里有一个很棒的网站，你可以在这里测试你的字距效果。</p>
+<p><img src="http://zjp.dennisce.com/20181127002000_0uxQ9n_Kerning.jpeg" alt=""></p>
+<h1 id="在哪里去找字体"><a href="#在哪里去找字体" class="headerlink" title="在哪里去找字体"></a>在哪里去找字体</h1><p>很多字体都是非常贵的。但是这里有很多免费且很优秀的字体。一定要选你喜欢的字体。这里有一些最好的地方可以找到它们。</p>
+<h2 id="Google-fonts"><a href="#Google-fonts" class="headerlink" title="Google fonts"></a>Google fonts</h2><p>在 <a href="http://google.com/fonts" target="_blank" rel="external">Google Fonts</a> ，你可以免费的下载你看起来觉得合适的字体，并应用到你的项目中。就免费字体而言，它是最好的选择。由于在iOS上获得自定义字体的唯一方法是下载和导入字体文件，因此下载选项非常有用。至少有两种很棒的字体: <strong>Open Sans</strong> 和 <strong>Roboto</strong>，这是现代 Android 手机默认使用的字体。</p>
+<p>您可以为 Mac 使用 <a href="https://skyfonts.com/" target="_blank" rel="external">SkyFonts</a> 自动同步到您的桌面。</p>
+<p>如果您想从谷歌字体下载所有可用的字体，有一个 <a href="https://github.com/google/fonts" target="_blank" rel="external">GitHub 仓库</a> 可以实现这一点。</p>
+<h2 id="TYPEKIT"><a href="#TYPEKIT" class="headerlink" title="TYPEKIT"></a>TYPEKIT</h2><p><a href="https://typekit.com/fonts" target="_blank" rel="external">Typekitis</a> 是 Creative Cloud 订阅的一部分，拥有丰富的字体选择。对于那些刚刚起步的人来说，它是完美的。我喜欢的字体包括：<strong>Proxima Nova</strong>, <strong>Museo</strong>, Adelle Sans and Brandon Grotesque。</p>
+<h3 id="FONTSTAND"><a href="#FONTSTAND" class="headerlink" title="FONTSTAND"></a>FONTSTAND</h3><p><a href="https://fontstand.com/" target="_blank" rel="external">Fontstand for Macis</a> 最棒的一点是，你可以在购买字体前试用1小时。此外，你不用购买字体，而是以每月价格的一小部分租用它们。</p>
+<h3 id="FONTS-COM"><a href="#FONTS-COM" class="headerlink" title="FONTS.COM"></a>FONTS.COM</h3><p>对于每月订阅的字体，<a href="http://fonts.com/" target="_blank" rel="external">fonts.com</a> 可以让您使用任意数量的字体。到目前为止，它拥有最大的选择。你可以选择你喜欢的字体。例如，Avenir Next 拥有一个完整的系列，但它并不是免费的。</p>
+<p>Fonts.com 还允许您自己托管字体文件，这意味着您可以下载并在服务器上托管它们。因为我对排版很着迷，所以我几乎在所有的项目中都使用这项服务。</p>
+<h1 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h1><p>版式是一种值得探索的艺术形式。它远远超出了iOS。当你达到可以称之为工艺艺术的水平时，那就是你能获得的最大成就。</p>
+<h2 id="排版指南"><a href="#排版指南" class="headerlink" title="排版指南"></a>排版指南</h2><p>如果您想了解更多有关组合字体、撇号、引号、破折号和括号的信息，我建议您阅读<a href="http://typogui.de/" target="_blank" rel="external">typogui.de</a>。</p>
+<h2 id="更好的排版五分钟指南"><a href="#更好的排版五分钟指南" class="headerlink" title="更好的排版五分钟指南"></a>更好的排版五分钟指南</h2><p>一本真正值得一读的书。聪明的设计让你有时间停下来思考每一点。同时也能与很多巧妙的动画效果有所碰撞。</p>
+<h2 id="字体配对指南"><a href="#字体配对指南" class="headerlink" title="字体配对指南"></a>字体配对指南</h2><p>在某些情况下，您可能希望在设计中使用多种字体来设置正文和标题、标题或块引号之间的对比。本<a href="http://webdesign.tutsplus.com/articles/a-beginners-guide-to-pairing-fonts--webdesign-5706" target="_blank" rel="external">指南</a>特别有助于您根据一组标准对字体进行配对。</p>
+<h2 id="手绘字体"><a href="#手绘字体" class="headerlink" title="手绘字体"></a>手绘字体</h2><p>还有一门关于手绘字体的有趣课程。使用这些技术，您可以创建徽标、个人品牌和一般的字体设计。</p>
+<h2 id="Font-Pair-co"><a href="#Font-Pair-co" class="headerlink" title="Font Pair.co"></a>Font Pair.co</h2><p>字体配对是一个很有用的网站，它帮助您将谷歌字体配对在一起，它有不同的组合类型，如无衬线与衬线，衬线与无衬线，以及许多其他。</p>
+<p><img src="http://zjp.dennisce.com/20181127004123_Heih9w_Fontpair.jpeg" alt=""></p>
+<h2 id="Font-Base"><a href="#Font-Base" class="headerlink" title="Font Base"></a>Font Base</h2><p><a href="https://fontba.se/" target="_blank" rel="external">FontBaseis</a> 字体管理应用程序，有了它，你可以通过将字体添加到任何云文件夹与整个团队共享字体。您还可以在一次单击中访问来自谷歌库的任何字体。这是一个非常有趣的工具，有许多隐藏的特性。</p>
+<p><img src="http://zjp.dennisce.com/20181127004430_sbqA1y_Screen Shot 2018-11-27 at 00.43.13.jpeg" alt=""></p>
+<h2 id="Right-Font"><a href="#Right-Font" class="headerlink" title="Right Font"></a>Right Font</h2><p>通过 <a href="https://rightfontapp.com/" target="_blank" rel="external">Right Font</a> 你也可以与你的团队同步你的字体，可以喜欢任何字体。它自动同步来自谷歌字体和Adobe 、Typekit的字体。你也可以访问不同的图标，你可以在你的设计中使用它们，这是一个非常好的应用。</p>
+<h2 id="What-The-Font"><a href="#What-The-Font" class="headerlink" title="What The Font"></a>What The Font</h2><p>你有没有见过一种字体，想知道是哪种字体？所以这里有一款软件 <a href="https://www.myfonts.com/WhatTheFont/" target="_blank" rel="external">What The Font</a> ，可以通过上传字体的图片来查找字体，字体会在数据库中找到最匹配的字体。它还有一个iOS版本的应用。</p>
+<p><img src="http://zjp.dennisce.com/20181127004741_aqJKd0_typography-whatTheFont.jpeg" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Design-Code/" rel="tag"># Design+Code</a>
+          
+            <a href="/tags/iOS编程和设计/" rel="tag"># iOS编程和设计</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/26/Designing-for-Apple-Watch/" rel="next" title="Apple Watch 设计（Code + Design 翻译）">
+                <i class="fa fa-chevron-left"></i> Apple Watch 设计（Code + Design 翻译）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/02/Designing-for-iOS-Animation/" rel="prev" title="iOS动画（Code + Design 翻译）">
+                iOS动画（Code + Design 翻译） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://zjp.dennisce.com/20180428134154_AzuJA2_brandon-brown-396090-unsplash.jpeg"
+               alt="Aaron_36" />
+          <p class="site-author-name" itemprop="name">Aaron_36</p>
+           
+              <p class="site-description motion-element" itemprop="description">Stay foolish,Stay hungry!</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AaronZJP" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/AaronZJP" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS-排版"><span class="nav-number">1.</span> <span class="nav-text">iOS 排版</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字体设计基础知识"><span class="nav-number">2.</span> <span class="nav-text">字体设计基础知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#好的排版设计规则"><span class="nav-number">3.</span> <span class="nav-text">好的排版设计规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#旧金山字体"><span class="nav-number">4.</span> <span class="nav-text">旧金山字体</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#旧金山字体跟踪值"><span class="nav-number">4.1.</span> <span class="nav-text">旧金山字体跟踪值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态类型"><span class="nav-number">4.2.</span> <span class="nav-text">动态类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">5.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字体大小"><span class="nav-number">6.</span> <span class="nav-text">字体大小</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字大小对与错"><span class="nav-number">6.1.</span> <span class="nav-text">字大小对与错</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字重"><span class="nav-number">7.</span> <span class="nav-text">字重</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#行高"><span class="nav-number">8.</span> <span class="nav-text">行高</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#保持每行-45-90-个字符"><span class="nav-number">9.</span> <span class="nav-text">保持每行 45-90 个字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#聪明的使用字体"><span class="nav-number">10.</span> <span class="nav-text">聪明的使用字体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#衬线字体和无衬线字体"><span class="nav-number">11.</span> <span class="nav-text">衬线字体和无衬线字体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字距"><span class="nav-number">12.</span> <span class="nav-text">字距</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在哪里去找字体"><span class="nav-number">13.</span> <span class="nav-text">在哪里去找字体</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-fonts"><span class="nav-number">13.1.</span> <span class="nav-text">Google fonts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TYPEKIT"><span class="nav-number">13.2.</span> <span class="nav-text">TYPEKIT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FONTSTAND"><span class="nav-number">13.2.1.</span> <span class="nav-text">FONTSTAND</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FONTS-COM"><span class="nav-number">13.2.2.</span> <span class="nav-text">FONTS.COM</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#资源"><span class="nav-number">14.</span> <span class="nav-text">资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#排版指南"><span class="nav-number">14.1.</span> <span class="nav-text">排版指南</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更好的排版五分钟指南"><span class="nav-number">14.2.</span> <span class="nav-text">更好的排版五分钟指南</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体配对指南"><span class="nav-number">14.3.</span> <span class="nav-text">字体配对指南</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手绘字体"><span class="nav-number">14.4.</span> <span class="nav-text">手绘字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Font-Pair-co"><span class="nav-number">14.5.</span> <span class="nav-text">Font Pair.co</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Font-Base"><span class="nav-number">14.6.</span> <span class="nav-text">Font Base</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Right-Font"><span class="nav-number">14.7.</span> <span class="nav-text">Right Font</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-The-Font"><span class="nav-number">14.8.</span> <span class="nav-text">What The Font</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron_36</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

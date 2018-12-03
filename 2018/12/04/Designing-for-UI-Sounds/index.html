@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Design+Code,iOS编程和设计," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Aaron的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="UI音效音效在应用程序中很少使用，但在关键动作中使用时，它们不仅可以将一个平凡的动作转化为真正有意义的体验，还可以为你的应用程序或公司创建一个品牌，就像一个标识一样。它就像你最喜欢的热门音乐之一，我们称之为副歌，它重复了一个朗朗上口的音乐线，牢牢地印在你的脑海里。你的音效要可以像签名一样很深刻，这样人们甚至可以在没有看到你的应用程序的情况下就可以识别你的应用程序，并且成为了你应用程序的一个“钩子”">
+<meta name="keywords" content="Design+Code,iOS编程和设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 音效设计（Code + Design 翻译）">
+<meta property="og:url" content="Aaronzjp.cn/2018/12/04/Designing-for-UI-Sounds/index.html">
+<meta property="og:site_name" content="Aaron的博客">
+<meta property="og:description" content="UI音效音效在应用程序中很少使用，但在关键动作中使用时，它们不仅可以将一个平凡的动作转化为真正有意义的体验，还可以为你的应用程序或公司创建一个品牌，就像一个标识一样。它就像你最喜欢的热门音乐之一，我们称之为副歌，它重复了一个朗朗上口的音乐线，牢牢地印在你的脑海里。你的音效要可以像签名一样很深刻，这样人们甚至可以在没有看到你的应用程序的情况下就可以识别你的应用程序，并且成为了你应用程序的一个“钩子”">
+<meta property="og:image" content="http://zjp.dennisce.com/20181203231025_xcRWJX_uiSounds-whereToUseSounds.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181203231355_0pqTMj_uiSounds-Notifications.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181203232218_w5uc89_uiSounds-realisticsActions.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181203234145_kANhJF_Sounds-Facebook.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181203234403_KckotO_uiSounds-8ve.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181203234626_PeWFWa_uiSounds-Sonics.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181203234750_2yENbq_uiSounds-rcpTones.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181203235115_QduAt3_uiSounds-appsounds.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181203235444_2f7Qm3_uiSounds-freeSound.jpeg">
+<meta property="og:image" content="http://zjp.dennisce.com/20181203235723_2Jf4g7_uiSounds-soundkit.jpeg">
+<meta property="og:updated_time" content="2018-12-03T16:00:21.367Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 音效设计（Code + Design 翻译）">
+<meta name="twitter:description" content="UI音效音效在应用程序中很少使用，但在关键动作中使用时，它们不仅可以将一个平凡的动作转化为真正有意义的体验，还可以为你的应用程序或公司创建一个品牌，就像一个标识一样。它就像你最喜欢的热门音乐之一，我们称之为副歌，它重复了一个朗朗上口的音乐线，牢牢地印在你的脑海里。你的音效要可以像签名一样很深刻，这样人们甚至可以在没有看到你的应用程序的情况下就可以识别你的应用程序，并且成为了你应用程序的一个“钩子”">
+<meta name="twitter:image" content="http://zjp.dennisce.com/20181203231025_xcRWJX_uiSounds-whereToUseSounds.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="Aaronzjp.cn/2018/12/04/Designing-for-UI-Sounds/"/>
+
+
+
+
+
+  <title>iOS 音效设计（Code + Design 翻译） | Aaron的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">技术博客，记录和学习</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="Aaronzjp.cn/2018/12/04/Designing-for-UI-Sounds/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron_36">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://zjp.dennisce.com/20180428134154_AzuJA2_brandon-brown-396090-unsplash.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS 音效设计（Code + Design 翻译）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-04T00:00:12+08:00">
+                2018-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="UI音效"><a href="#UI音效" class="headerlink" title="UI音效"></a>UI音效</h1><p>音效在应用程序中很少使用，但在关键动作中使用时，它们不仅可以将一个平凡的动作转化为真正有意义的体验，还可以为你的应用程序或公司创建一个品牌，就像一个标识一样。它就像你最喜欢的热门音乐之一，我们称之为副歌，它重复了一个朗朗上口的音乐线，牢牢地印在你的脑海里。你的音效要可以像签名一样很深刻，这样人们甚至可以在没有看到你的应用程序的情况下就可以识别你的应用程序，并且成为了你应用程序的一个“钩子”。当你的音效给出了一个正确的印象，你的应用程序就可以通过一小点的努力就可以赢得许多的用户好的印象。请你记住，你选择的音效将会成为你应用程序更加容易被识别中的一个很重要的部分。它将是代表你的产品的音效——所以利用它为你的应用程序创建最好的UI音效。它将是代表你的产品的音效——所以利用它为你的应用程序创建最好的UI音效。在这个章节中我们将教会你怎么去找到以及创建一个好的UI音效，以及如何使用它们以获得最大的效率。</p>
+<a id="more"></a>
+<blockquote>
+<p>我喜欢“人性化设计”这个表达。我们设计东西是为了让我们在使用的感官体验中感觉到更加的人性化。到目前为止，我们已经实现了5种感官中的3种:触觉、视觉和听觉。第三个和其他的一样重要。这就是为什么我们应该尽可能地利用它。</p>
+</blockquote>
+<h1 id="在什么地方使用音效"><a href="#在什么地方使用音效" class="headerlink" title="在什么地方使用音效"></a>在什么地方使用音效</h1><p>除非你正在做的是一个游戏，否则你不应该在任何地方都使用音效。并不是每个用户手机的音效都是打开的。在这样几个关键的地方你应该使用音效，这样可以增强你应用程序的体验。大多数情况下，软件UI会给出可视化的反馈，在许多情况下，这就足够了。但是你还是应该在你的应用程序中从完全没有音效到到处都是音效中找到一个很好的平衡。</p>
+<p><img src="http://zjp.dennisce.com/20181203231025_xcRWJX_uiSounds-whereToUseSounds.jpeg" alt=""></p>
+<h2 id="通知"><a href="#通知" class="headerlink" title="通知"></a>通知</h2><p>iOS 中通知的音效是有默认音效的。那个音效其实是可以自定义合适自己应用程序品牌的。因为这只是用一个简单的音效替换另一个音效，所以你这样做是很值得被鼓励的。</p>
+<p><img src="http://zjp.dennisce.com/20181203231355_0pqTMj_uiSounds-Notifications.jpeg" alt=""></p>
+<h2 id="正面积极的操作"><a href="#正面积极的操作" class="headerlink" title="正面积极的操作"></a>正面积极的操作</h2><p>只需要一点点的努力，就可以对用户很友好，为你赢得回报。比如一些例子，喜欢，分享，或者创建一个任务。在这样的情况下应该配上一个有趣的动画和协调的音效。</p>
+<p><a href="https://dl.dropboxusercontent.com/s/iw3x8etw79vcbkg/sounds-3.mp4?dl=0" target="_blank" rel="external">示例视频</a></p>
+<h2 id="拟物操作"><a href="#拟物操作" class="headerlink" title="拟物操作"></a>拟物操作</h2><p>当你需要用户感觉他们在使用真实工具的数码版本时，使用真实的音效。比如当你使用你的手机拍照的时候。</p>
+<p><img src="http://zjp.dennisce.com/20181203232218_w5uc89_uiSounds-realisticsActions.jpeg" alt=""></p>
+<h2 id="破坏性操作"><a href="#破坏性操作" class="headerlink" title="破坏性操作"></a>破坏性操作</h2><p>同样，破坏性的行为也证实了某些东西被移走了。在某些情况下，人们会以删除东西为乐趣，因为这让他们觉得自己掌控着一切。</p>
+<p>苹果一个很著名的例子就是花了很多时间创建了一个纸被切碎的一个动画，当你在删除 Passbook 应用中的一个项目时。那是过去的一个很美好的时光。</p>
+<p><a href="https://dl.dropboxusercontent.com/s/ko2zgwpn6mo8587/passbook.mp4?dl=0" target="_blank" rel="external">示例视频</a></p>
+<p>在iOS中，随着样式的简化，动画仍然存在，但更加微妙。这与他们更注重内容的理念是一致的。</p>
+<h2 id="音调对应的操作"><a href="#音调对应的操作" class="headerlink" title="音调对应的操作"></a>音调对应的操作</h2><p>一旦我们听到有的音效或者某些音调，就有一种很熟悉的含义。例如，高音主要与打开类似的关键操作(接收文本、登录)相关，而低音主要与关闭类似的关键操作(发送文本)相关。与汽车类似，当加速时，它会发出高昂的音效，而当减速时，它会发出较低的音效。</p>
+<p>所以使用这个音调的规则，创建一个熟悉的用户体验。</p>
+<blockquote>
+<p>一个问题是，做到与众不同很容易，但是要做到更好却很困难。—— Jony Ive</p>
+</blockquote>
+<h1 id="在哪发现好的音效"><a href="#在哪发现好的音效" class="headerlink" title="在哪发现好的音效"></a>在哪发现好的音效</h1><p>我希望这能像用你的相机拍照片一样简单，但事实并非如此。它必须听起来是对的，而且非常清晰。这让我想起了Flash时代，当时许多Web应用程序使用了很多音效。我们必须为我们正在设计的未来主义用户界面找到很酷的音效技术。如今，音效不再那么前卫，而是更加现代。他们变得友好和熟悉，这是一件好事，因为这让我们受众更加的广泛。</p>
+<p>在过去的几年里，我一直在努力寻找好的音效集合。我遇到了一些很好的资源。</p>
+<h2 id="Facebook音效框架"><a href="#Facebook音效框架" class="headerlink" title="Facebook音效框架"></a>Facebook音效框架</h2><p>Facebook 的设计师提供了一个很优秀而且免费的<a href="http://facebook.design/soundkit" target="_blank" rel="external">工具包</a>。</p>
+<p><img src="http://zjp.dennisce.com/20181203234145_kANhJF_Sounds-Facebook.jpeg" alt=""></p>
+<h2 id="OCTAVE"><a href="#OCTAVE" class="headerlink" title="OCTAVE"></a>OCTAVE</h2><p><a href="http://raisedbeaches.com/octave/" target="_blank" rel="external">Octave</a> 是一个很好的音效库，在这个库中有 48 个音效。虽然这很有限，但是你可以从这里开始。</p>
+<p><img src="http://zjp.dennisce.com/20181203234403_KckotO_uiSounds-8ve.jpeg" alt=""></p>
+<h2 id="SONICS-付费"><a href="#SONICS-付费" class="headerlink" title="SONICS (付费)"></a>SONICS (付费)</h2><p><a href="https://gumroad.com/l/sonics" target="_blank" rel="external">Sonics</a> 里有各种提醒、通知、音乐铃声等等。此外，创建者还有一个有趣的<a href="https://www.sonics.io/blog/" target="_blank" rel="external">博客</a>，里面有一些录音、麦克风和播客的技巧。</p>
+<p><img src="http://zjp.dennisce.com/20181203234626_PeWFWa_uiSounds-Sonics.jpeg" alt=""></p>
+<h2 id="RCPTONES-付费"><a href="#RCPTONES-付费" class="headerlink" title="RCPTONES (付费)"></a>RCPTONES (付费)</h2><p><a href="http://rcptones.com/dev_tones" target="_blank" rel="external">500+ 专业UI音效</a>专为app设计。</p>
+<p><img src="http://zjp.dennisce.com/20181203234750_2yENbq_uiSounds-rcpTones.jpeg" alt=""></p>
+<h2 id="APPSOUNDS-付费"><a href="#APPSOUNDS-付费" class="headerlink" title="APPSOUNDS (付费)"></a>APPSOUNDS (付费)</h2><p><a href="https://appsounds.pro/" target="_blank" rel="external">Appsounds</a> 中包含了很多为应用程序准备的高质量音效，游戏以及你所有的数字产品。很好的划分，便于搜索和预览音效。你只需要选择你喜欢的音效并粘贴到你的项目中。</p>
+<p><img src="http://zjp.dennisce.com/20181203235115_QduAt3_uiSounds-appsounds.jpeg" alt=""></p>
+<h2 id="FREESOUND"><a href="#FREESOUND" class="headerlink" title="FREESOUND"></a>FREESOUND</h2><p><a href="http://freesound.org/" target="_blank" rel="external">Freesound</a> 中有很多的音效。你需要创建一个免费的账号和一些必要的搜索，但你会得到一些你在其他地方找不到的好东西。不要忘记使用时长这个高级搜索特性，可以固定在 0 到 1 秒之间。</p>
+<p><img src="http://zjp.dennisce.com/20181203235444_2f7Qm3_uiSounds-freeSound.jpeg" alt=""></p>
+<h2 id="SOUNDKIT-付费"><a href="#SOUNDKIT-付费" class="headerlink" title="SOUNDKIT (付费)"></a>SOUNDKIT (付费)</h2><p><a href="https://soundkit.io/" target="_blank" rel="external">SoundKit</a> 是一个拥有300个专业音效的免费库，非常适合用于移动和桌面应用程序设计。</p>
+<p><img src="http://zjp.dennisce.com/20181203235723_2Jf4g7_uiSounds-soundkit.jpeg" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Design-Code/" rel="tag"># Design+Code</a>
+          
+            <a href="/tags/iOS编程和设计/" rel="tag"># iOS编程和设计</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/02/Designing-for-iOS-Animation/" rel="next" title="iOS动画（Code + Design 翻译）">
+                <i class="fa fa-chevron-left"></i> iOS动画（Code + Design 翻译）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://zjp.dennisce.com/20180428134154_AzuJA2_brandon-brown-396090-unsplash.jpeg"
+               alt="Aaron_36" />
+          <p class="site-author-name" itemprop="name">Aaron_36</p>
+           
+              <p class="site-description motion-element" itemprop="description">Stay foolish,Stay hungry!</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/AaronZJP" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/AaronZJP" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      微博
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UI音效"><span class="nav-number">1.</span> <span class="nav-text">UI音效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在什么地方使用音效"><span class="nav-number">2.</span> <span class="nav-text">在什么地方使用音效</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#通知"><span class="nav-number">2.1.</span> <span class="nav-text">通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正面积极的操作"><span class="nav-number">2.2.</span> <span class="nav-text">正面积极的操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拟物操作"><span class="nav-number">2.3.</span> <span class="nav-text">拟物操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#破坏性操作"><span class="nav-number">2.4.</span> <span class="nav-text">破坏性操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#音调对应的操作"><span class="nav-number">2.5.</span> <span class="nav-text">音调对应的操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在哪发现好的音效"><span class="nav-number">3.</span> <span class="nav-text">在哪发现好的音效</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Facebook音效框架"><span class="nav-number">3.1.</span> <span class="nav-text">Facebook音效框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OCTAVE"><span class="nav-number">3.2.</span> <span class="nav-text">OCTAVE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SONICS-付费"><span class="nav-number">3.3.</span> <span class="nav-text">SONICS (付费)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RCPTONES-付费"><span class="nav-number">3.4.</span> <span class="nav-text">RCPTONES (付费)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APPSOUNDS-付费"><span class="nav-number">3.5.</span> <span class="nav-text">APPSOUNDS (付费)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FREESOUND"><span class="nav-number">3.6.</span> <span class="nav-text">FREESOUND</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SOUNDKIT-付费"><span class="nav-number">3.7.</span> <span class="nav-text">SOUNDKIT (付费)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron_36</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2018-12-02T06:57:06.823Z</updated>
+  <updated>2018-12-03T16:00:21.367Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -16,9 +16,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iOS 音效设计（Code + Design 翻译）</title>
+    <link href="Aaronzjp.cn/2018/12/04/Designing-for-UI-Sounds/"/>
+    <id>Aaronzjp.cn/2018/12/04/Designing-for-UI-Sounds/</id>
+    <published>2018-12-03T16:00:12.000Z</published>
+    <updated>2018-12-03T16:00:21.367Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;UI音效&quot;&gt;&lt;a href=&quot;#UI音效&quot; class=&quot;headerlink&quot; title=&quot;UI音效&quot;&gt;&lt;/a&gt;UI音效&lt;/h1&gt;&lt;p&gt;音效在应用程序中很少使用，但在关键动作中使用时，它们不仅可以将一个平凡的动作转化为真正有意义的体验，还可以为你的应用程序或公司创建一个品牌，就像一个标识一样。它就像你最喜欢的热门音乐之一，我们称之为副歌，它重复了一个朗朗上口的音乐线，牢牢地印在你的脑海里。你的音效要可以像签名一样很深刻，这样人们甚至可以在没有看到你的应用程序的情况下就可以识别你的应用程序，并且成为了你应用程序的一个“钩子”。当你的音效给出了一个正确的印象，你的应用程序就可以通过一小点的努力就可以赢得许多的用户好的印象。请你记住，你选择的音效将会成为你应用程序更加容易被识别中的一个很重要的部分。它将是代表你的产品的音效——所以利用它为你的应用程序创建最好的UI音效。它将是代表你的产品的音效——所以利用它为你的应用程序创建最好的UI音效。在这个章节中我们将教会你怎么去找到以及创建一个好的UI音效，以及如何使用它们以获得最大的效率。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Design+Code" scheme="Aaronzjp.cn/tags/Design-Code/"/>
+    
+      <category term="iOS编程和设计" scheme="Aaronzjp.cn/tags/iOS%E7%BC%96%E7%A8%8B%E5%92%8C%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS动画（Code + Design 翻译）</title>
-    <link href="Aaronzjp.cn/2018/12/02/iOS%E5%8A%A8%E7%94%BB/"/>
-    <id>Aaronzjp.cn/2018/12/02/iOS动画/</id>
+    <link href="Aaronzjp.cn/2018/12/02/Designing-for-iOS-Animation/"/>
+    <id>Aaronzjp.cn/2018/12/02/Designing-for-iOS-Animation/</id>
     <published>2018-12-02T06:56:12.000Z</published>
     <updated>2018-12-02T06:57:06.823Z</updated>
     
@@ -37,8 +57,8 @@
   
   <entry>
     <title>iOS 排版设计（Code + Design 翻译）</title>
-    <link href="Aaronzjp.cn/2018/11/27/Learn-Typography/"/>
-    <id>Aaronzjp.cn/2018/11/27/Learn-Typography/</id>
+    <link href="Aaronzjp.cn/2018/11/27/Designing-for-iOS-Typography/"/>
+    <id>Aaronzjp.cn/2018/11/27/Designing-for-iOS-Typography/</id>
     <published>2018-11-26T16:52:12.000Z</published>
     <updated>2018-11-26T16:53:11.432Z</updated>
     
@@ -143,8 +163,8 @@
   
   <entry>
     <title>iOS 发现与自定义图标（Code + Design 翻译）</title>
-    <link href="Aaronzjp.cn/2018/05/15/iOS-Icons/"/>
-    <id>Aaronzjp.cn/2018/05/15/iOS-Icons/</id>
+    <link href="Aaronzjp.cn/2018/05/15/Designing-for-iOS-Icons/"/>
+    <id>Aaronzjp.cn/2018/05/15/Designing-for-iOS-Icons/</id>
     <published>2018-05-15T15:39:12.000Z</published>
     <updated>2018-11-24T09:33:52.156Z</updated>
     
@@ -163,8 +183,8 @@
   
   <entry>
     <title>iOS11设计概览（Code + Design 翻译）</title>
-    <link href="Aaronzjp.cn/2018/04/22/iOS11-design-guide/"/>
-    <id>Aaronzjp.cn/2018/04/22/iOS11-design-guide/</id>
+    <link href="Aaronzjp.cn/2018/04/22/Designing-for-iOS11-guide/"/>
+    <id>Aaronzjp.cn/2018/04/22/Designing-for-iOS11-guide/</id>
     <published>2018-04-22T14:23:12.000Z</published>
     <updated>2018-11-24T09:33:38.926Z</updated>
     
@@ -414,36 +434,6 @@
 &lt;li&gt;更多&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;是时候开始了！&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reactive Cocoa" scheme="Aaronzjp.cn/tags/Reactive-Cocoa/"/>
-    
-      <category term="响应式编程" scheme="Aaronzjp.cn/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ReactiveCocoa 基础教程 2-1（译）</title>
-    <link href="Aaronzjp.cn/2017/05/22/ReactiveCocoa-Tutorial-2-1/"/>
-    <id>Aaronzjp.cn/2017/05/22/ReactiveCocoa-Tutorial-2-1/</id>
-    <published>2017-05-22T12:31:22.000Z</published>
-    <updated>2018-11-24T09:35:52.594Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是翻译自国外网站的文章，其实这篇文章有很多的现成的翻译，但是看了过后感觉我自己很难理解别人的翻译方式，所以用自己的方式翻译了一遍，顺便也是加深一下印象。&lt;a href=&quot;https://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;作为一个iOS开发，几乎编写的每一行代码都是在处理事件的响应。比如按钮的点击，接收的网络消息，属性的改变(Key Value Observing)，或者用户改变了当前的位置，都是很好的例子。然而这些事件以不同的编码方式散布在各个地方，比如动作触发，代理(delegates)，KVO，回调或者其他的。ReactiveCocoa 则定义了一套完整的处理这些事件的标准接口，因此可以使用它很容易的处理事件链接，过滤，组合等。&lt;/p&gt;
-&lt;p&gt;听起来很困惑？很有趣？….吹牛逼？继续看下去。&lt;/p&gt;
-&lt;p&gt;ReactiveCocoa 结合了以下几种编程风格：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;函数式编程，利用高阶函数，即其他函数作为函数的参数或返回值。&lt;/li&gt;
-&lt;li&gt;响应式编程，着重于数据流以及数据变化和传值。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;通过这些原因，你应该知道 ReactiveCocoa 被称作为&lt;strong&gt;响应式函数编程&lt;/strong&gt;框架。&lt;/p&gt;
     
     </summary>
     
