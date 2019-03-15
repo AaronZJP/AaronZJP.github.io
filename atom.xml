@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="Aaronzjp.cn/"/>
-  <updated>2018-12-03T16:00:21.367Z</updated>
+  <updated>2019-03-15T03:31:30.533Z</updated>
   <id>Aaronzjp.cn/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信支付SDK集成</title>
+    <link href="Aaronzjp.cn/2019/03/13/WeChat-Pay-SDK/"/>
+    <id>Aaronzjp.cn/2019/03/13/WeChat-Pay-SDK/</id>
+    <published>2019-03-13T06:11:37.000Z</published>
+    <updated>2019-03-15T03:31:30.533Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;微信支付SDK集成文档&quot;&gt;&lt;a href=&quot;#微信支付SDK集成文档&quot; class=&quot;headerlink&quot; title=&quot;微信支付SDK集成文档&quot;&gt;&lt;/a&gt;微信支付SDK集成文档&lt;/h1&gt;&lt;p&gt;最近工作项目中，Leader 要求总结一下微信支付 SDK 集成的文档。所以这里就简单的写了下，其实也没什么写的，基本就是官方文档整理了下。既然已经写了这个文档，还是记录下放上来吧。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="支付SDK" scheme="Aaronzjp.cn/tags/%E6%94%AF%E4%BB%98SDK/"/>
+    
+      <category term="微信" scheme="Aaronzjp.cn/tags/%E5%BE%AE%E4%BF%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS 音效设计（Code + Design 翻译）</title>
@@ -409,38 +429,6 @@
     
     
       <category term="Reactive Cocoa" scheme="Aaronzjp.cn/tags/Reactive-Cocoa/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ReactiveCocoa 基础教程 2-2（译）</title>
-    <link href="Aaronzjp.cn/2017/06/20/ReactiveCocoa-Tutorial-2-2/"/>
-    <id>Aaronzjp.cn/2017/06/20/ReactiveCocoa-Tutorial-2-2/</id>
-    <published>2017-06-20T14:32:12.000Z</published>
-    <updated>2018-11-24T09:35:58.686Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文是翻译自国外网站的文章，其实这篇文章有很多的现成的翻译，但是看了过后感觉我自己很难理解别人的翻译方式，所以用自己的方式翻译了一遍，顺便也是加深一下印象。&lt;a href=&quot;https://www.raywenderlich.com/62796/reactivecocoa-tutorial-pt2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ReactiveCocoa 这个框架允许将响应式编程技术应用到你的 iOS App 项目中。在上一个章节教程中介绍了如何使用事件流以及信号去替换标准的事件操作，以及事件处理逻辑。同时也介绍了如何改变信号中传递的数据，以及分割信号，合并信号。&lt;/p&gt;
-&lt;p&gt;在这一部分将要介绍 ReactiveCocoa 中更多高级的用法：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;另外的两个事件类型 &lt;strong&gt;error&lt;/strong&gt; 和 &lt;strong&gt;complete&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;节流(Throttling)&lt;/li&gt;
-&lt;li&gt;线程&lt;/li&gt;
-&lt;li&gt;持续性(Continuations)&lt;/li&gt;
-&lt;li&gt;更多&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;是时候开始了！&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Reactive Cocoa" scheme="Aaronzjp.cn/tags/Reactive-Cocoa/"/>
-    
-      <category term="响应式编程" scheme="Aaronzjp.cn/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
