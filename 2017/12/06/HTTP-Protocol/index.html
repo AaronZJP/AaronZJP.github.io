@@ -103,16 +103,16 @@
 <meta property="og:url" content="Aaronzjp.cn/2017/12/06/HTTP-Protocol/index.html">
 <meta property="og:site_name" content="Aaron的小站">
 <meta property="og:description" content="​    HTTP 协议最初设计目的是用来接收和发布 HTML 网页的，因为其数据传输的可靠性后来被广泛的使用，HTTP 是一种可靠的数据传输协议，该协议位于 TCP/IP 协议族中的应用层。目前 HTTP 已经不只是用来传输简单的网页了。我们在网络上浏览的所有的资源都是存储在 Web 服务器中的，这些资源通过 HTTP 协议被传输到我们的设备中让我们使用。这些使用 HTTP 协议传输数据的服务器">
-<meta property="og:image" content="http://zjp.dennisce.com/20171206132949_sxOxdA_Screenshot.jpeg">
-<meta property="og:image" content="http://zjp.dennisce.com/20171206155537_tb32hH_HTTP首部字段.jpeg">
-<meta property="og:image" content="http://zjp.dennisce.com/20171208134139_m7xkT6_Screenshot.jpeg">
-<meta property="og:image" content="http://zjp.dennisce.com/20171208133732_BxVop1_Screenshot.jpeg">
-<meta property="og:image" content="http://zjp.dennisce.com/20171211141845_CWYl7o_Screenshot.jpeg">
-<meta property="og:updated_time" content="2018-11-24T09:33:05.000Z">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20171206132949_sxOxdA_Screenshot.jpeg">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20171206155537_tb32hH_HTTP首部字段.jpeg">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20171208134139_m7xkT6_Screenshot.jpeg">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20171208133732_BxVop1_Screenshot.jpeg">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20171211141845_CWYl7o_Screenshot.jpeg">
+<meta property="og:updated_time" content="2020-01-17T09:23:04.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《HTTP权威指南》读书笔记之 - HTTP报文">
 <meta name="twitter:description" content="​    HTTP 协议最初设计目的是用来接收和发布 HTML 网页的，因为其数据传输的可靠性后来被广泛的使用，HTTP 是一种可靠的数据传输协议，该协议位于 TCP/IP 协议族中的应用层。目前 HTTP 已经不只是用来传输简单的网页了。我们在网络上浏览的所有的资源都是存储在 Web 服务器中的，这些资源通过 HTTP 协议被传输到我们的设备中让我们使用。这些使用 HTTP 协议传输数据的服务器">
-<meta name="twitter:image" content="http://zjp.dennisce.com/20171206132949_sxOxdA_Screenshot.jpeg">
+<meta name="twitter:image" content="http://blog.images.aaronzjp.cn/20171206132949_sxOxdA_Screenshot.jpeg">
 
 
 
@@ -374,7 +374,7 @@
 <p>以下还有一些其他的请求方法：</p>
 </li>
 </ul>
-<p><img src="http://zjp.dennisce.com/20171206132949_sxOxdA_Screenshot.jpeg" alt="HTTP 请求报文方法 - 截取自《HTTP权威指南》"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20171206132949_sxOxdA_Screenshot.jpeg" alt="HTTP 请求报文方法 - 截取自《HTTP权威指南》"></p>
 <h3 id="请求链接"><a href="#请求链接" class="headerlink" title="请求链接"></a>请求链接</h3><p>​    这里的请求链接是 URL 中路径部分，是不包含服务器的域名或者 IP 地址的。</p>
 <h3 id="HTTP协议版本"><a href="#HTTP协议版本" class="headerlink" title="HTTP协议版本"></a>HTTP协议版本</h3><p>​    当前客户端或服务器使用的协议版本，HTTP 协议版本和我们平时的软件版本是不一样的，HTTP 协议版本号是前后两个分别进行对比。如：HTTP/2.22 版本要高于 HTTP/2.3 版本。在客户端和服务器通信的时候告知当前支持的最高 HTTP 协议版本，是为了方便了解对方的能力和报文格式，避免版本不一样时出现新版本使用新的特性时在旧版本上得不到更好的兼容和处理。</p>
 <h3 id="状态码与原因短语"><a href="#状态码与原因短语" class="headerlink" title="状态码与原因短语"></a>状态码与原因短语</h3><p>​    响应报文中的状态码为接收响应报文的客户端提供了对处理请求响应结果的快捷处理方式，在平常的开发工作中就是通过响应报文中的状态码来判断请求是否成果或者其他各种情况的原因短语则是对当前响应报文的一个状态描述，也可以理解为是状态码的可读性语言描述。其中常用的状态码及原因短语如下：</p>
@@ -426,7 +426,7 @@
 <li>扩展首部</li>
 </ul>
 <p>具体的常用首部用以下图来展示，该图并没有完整的列出 HTTP 首部的所有字段。<a href="https://zh.wikipedia.org/zh-cn/HTTP头字段" target="_blank" rel="external">更多关于 HTTP 首部字段</a></p>
-<p><img src="http://zjp.dennisce.com/20171206155537_tb32hH_HTTP首部字段.jpeg" alt="HTTP首部"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20171206155537_tb32hH_HTTP首部字段.jpeg" alt="HTTP首部"></p>
 <p>其中在实体首部中 Content-Type 字段是用来区分实体数据媒体类型的，使用的是 MIME。</p>
 <p><strong>MIME</strong>（Multipurpose Internet Mail Extensions）多用途互联网邮件扩展，最初设计 MIME 的目的是用来在电子邮件中处理不同邮件系统中文件的兼容问题，因为在电子邮件系统中使用的非常稳定，所有在 HTTP 中也使用了该方法来区分 HTTP 中的数据类型。</p>
 <p>MIME 类型是一种文本标记，表示了数据的主要类型和子类型。常用的 MIME 类型如下：</p>
@@ -444,13 +444,13 @@
 <h2 id="主体"><a href="#主体" class="headerlink" title="主体"></a>主体</h2><p><strong>主体</strong> 和起始行和首部不一样的是主体部分除了可以包含文本外还可以包含二进制数据，主体部分是可选的，在很多时候 HTTP 报文是没有主体部分的</p>
 <h1 id="HTTP连接"><a href="#HTTP连接" class="headerlink" title="HTTP连接"></a>HTTP连接</h1><p>​    上面已经说了 HTTP 协议是处于 TCP/IP 协议族中的应用层，所以 HTTP 的连接是通过 TCP 来连接的。TCP/IP 是全球计算机及网络设备都在使用的一种常用的分组交换网络分层协议集。TCP 为 HTTP 提供了稳定可靠的数据传输，TCP 传输的数据是有序的，且无差错的。</p>
 <p>​    HTTP 在传送数据发送报文的时候是以流的形式传送的，通过打开一条 TCP 连接按序传送。TCP 在收到数据流的时候会把数据分隔成一段一段的数据块，把数据块进一步封装上目的 IP 地址、源 IP 地址、目的端口号、源端口号、序列号、数据完整校验等信息后将数据块按序发出。</p>
-<p><img src="http://zjp.dennisce.com/20171208134139_m7xkT6_Screenshot.jpeg" alt="HTTP 报文数据的传输-图片截取自《HTTP权威指南》"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20171208134139_m7xkT6_Screenshot.jpeg" alt="HTTP 报文数据的传输-图片截取自《HTTP权威指南》"></p>
 <p>关于 TCP 的知识：<a href="https://zh.wikipedia.org/wiki/TCP/IP协议族" target="_blank" rel="external">TCP/IP</a></p>
 <p>​    HTTP 报文的发送会经过 HTTP、TCP、IP、网络接口，其中现在的 HTTP 则是在 HTTP 和 TCP 层之间加入了安全层，用 TLS 或者 SSL 密码加密层。如下图所示：</p>
-<p><img src="http://zjp.dennisce.com/20171208133732_BxVop1_Screenshot.jpeg" alt="图片截取自《HTTP 权威指南》"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20171208133732_BxVop1_Screenshot.jpeg" alt="图片截取自《HTTP 权威指南》"></p>
 <h2 id="HTTP性能的考虑"><a href="#HTTP性能的考虑" class="headerlink" title="HTTP性能的考虑"></a>HTTP性能的考虑</h2><h3 id="TCP连接的握手延时"><a href="#TCP连接的握手延时" class="headerlink" title="TCP连接的握手延时"></a>TCP连接的握手延时</h3><p>​    在频繁的 HTTP 请求下很多时候就要考虑到网络请求的性能问题。比如我公司一个项目中需要持续从服务器获取一个人的位置，项目中使用的是 HTTP 连接来做的，每隔3秒就会发送一个请求去获取数据。其实这样是很耗费性能的。</p>
 <p>​    HTTP 底层是 TCP ，所有 HTTP 报文的发送最终都是通过 TCP 来处理的。在每次发送 HTTP 报文的时候就会建立一条新的 TCP 连接。每次从客户端到服务器建立一个 TCP 连接就要经历三次握手，三次握手中就需要传送验证信息。如果连接只用来发送少量的请求，以及频繁的发送请求就会造成 HTTP 性能的降低。</p>
-<p><img src="http://zjp.dennisce.com/20171211141845_CWYl7o_Screenshot.jpeg" alt="TCP连接的握手延时-截取自《HTTP权威指南》"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20171211141845_CWYl7o_Screenshot.jpeg" alt="TCP连接的握手延时-截取自《HTTP权威指南》"></p>
 <h3 id="延迟确认"><a href="#延迟确认" class="headerlink" title="延迟确认"></a>延迟确认</h3><p>​    在网络中，数据的传送是无法确保完整可靠的传送的。数据在传送的过程中可能会造成数据丢失。所以在 TCP 中实现了自己的一个确认机制来确保数据完成可靠的传输。</p>
 <p>​    在每个 TCP 段中都有一个用于数据排序的序列号，和用户数据完整性校验。每个段的接受者收到这个数据段的时候就会向发送者回送一个确认信息，告诉发送者已经收到数据，如果发送者没有在指定的窗口时间内收到确认信息就认为数据丢失会损毁，并重新发送这个 TCP 段。在 TCP 中这个确认信息是允许被捎带在相同方向的其他数据分组中一并发送的，这样可以有效的利用网路。TCP 为了增加捎带确认的可能性，TCP 实现了一个<strong>延迟确认</strong>的算法。</p>
 <p>​    延迟确认算法是将确认数据放在缓冲区，在特定的时间内如果有同向的数据发送就会把确认数据一并发送出去，如果在这个时间段内没有则会单独的发送出去。TCP 的延迟确认是可以进行修改和关闭的，但是这样会失去数据传输的完整性和可靠性。</p>

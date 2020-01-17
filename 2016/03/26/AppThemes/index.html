@@ -103,13 +103,13 @@
 <meta property="og:url" content="Aaronzjp.cn/2016/03/26/AppThemes/index.html">
 <meta property="og:site_name" content="Aaron的小站">
 <meta property="og:description" content="​    最近遇到了一个需求，就是做App皮肤的换肤的功能，因为之前一直没有涉及到这方面的需求，所以刚刚拿到这个需求的时候我也不知道怎么做，后面通过查看相关的资料终于完成了这个需求。下面就是我对本次这个需求的一点想法和具体完成的方法。">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258856152955.jpg">
-<meta property="og:image" content="http://onocdmhtw.bkt.clouddn.com/2017041914925886036640.jpg">
-<meta property="og:updated_time" content="2017-07-27T02:58:38.000Z">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20170419149258856152955.jpg">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/2017041914925886036640.jpg">
+<meta property="og:updated_time" content="2020-01-17T09:27:24.553Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="App皮肤，更换皮肤思路">
 <meta name="twitter:description" content="​    最近遇到了一个需求，就是做App皮肤的换肤的功能，因为之前一直没有涉及到这方面的需求，所以刚刚拿到这个需求的时候我也不知道怎么做，后面通过查看相关的资料终于完成了这个需求。下面就是我对本次这个需求的一点想法和具体完成的方法。">
-<meta name="twitter:image" content="http://onocdmhtw.bkt.clouddn.com/20170419149258856152955.jpg">
+<meta name="twitter:image" content="http://blog.images.aaronzjp.cn/20170419149258856152955.jpg">
 
 
 
@@ -339,7 +339,7 @@
 <h1 id="主题管理"><a href="#主题管理" class="headerlink" title="主题管理"></a>主题管理</h1><p>​    首先想到主题是什么，就是App的皮肤，皮肤其实划分细一点这里就要考虑到App皮肤是否有布局的改变，有布局的改变的皮肤就需要针对皮肤做出对应的布局的约束，有布局改变的皮肤不在本次的讨论之中，因为现在还没有涉及到有布局变化的需求，这里只说下简单的皮肤的变更。App的皮肤其实就是UI界面的图片，和颜色的改变，那我们用什么来存储这些UI的皮肤图片和颜色呢？这里我们就需要一个皮肤管理器了，这个皮肤管理器的作用其实就是一个皮肤相关的资源管理器，皮肤其实重点在于资源，这是一个只关心皮肤相关资源的管理器，而且这个资源管理器又是只能整个App唯一的一个资源管理器，如果有多个的话那我们设置皮肤的时候使用哪一个呢？这样岂不是乱套了。所有只能有一个。所以这里就用单例来作为皮肤管理器比较好。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">+ (ThemeManager *)sharedeThemeManager</div><div class="line">&#123;</div><div class="line">    if (!themeManager) &#123;</div><div class="line">        static dispatch_once_t onceToken;</div><div class="line">        dispatch_once(&amp;onceToken,^&#123;</div><div class="line">            themeManager = [[super allocWithZone:NULL]init];</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    return themeManager;</div><div class="line">&#125;</div><div class="line"></div><div class="line">+ (id)allocWithZone:(struct _NSZone *)zone &#123;</div><div class="line">    return [ThemeManager sharedeThemeManager];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="主题资源管理"><a href="#主题资源管理" class="headerlink" title="主题资源管理"></a>主题资源管理</h1><p>​    主题管理器有了，下面就是具体的资源了。资源我直接使用的是本地资源化来管理皮肤资源：</p>
-<p><img src="http://onocdmhtw.bkt.clouddn.com/20170419149258856152955.jpg" alt="皮肤资源的放置"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20170419149258856152955.jpg" alt="皮肤资源的放置"></p>
 <p>其中颜色和文字描述也放在了对应的主题文件夹类，使用plist文件来进行储存。</p>
 <ul>
 <li>每次获取主题的对应的相关资源时就会根据主题的主题名属性来获取主题的相关资源：</li>
@@ -353,7 +353,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//获取的图片的方法的实现</div><div class="line">- (UIImage *)getImageFromThemeWithName:(NSString *)imageName &#123;</div><div class="line">    return [UIImage imageWithContentsOfFile:[self.themePath stringByAppendingPathComponent:imageName]];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>主题相关的颜色因为是从对应主题文件夹的plist文件去读取，所以这里最好设计一个获取对应主题的plist文件的路径方法并把plist文件通过字典的方式读取出来，返回一个字典：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//主题的颜色文字的配置</div><div class="line">- (NSDictionary *)themeConfig &#123;</div><div class="line">    if (!_themeConfig) &#123;</div><div class="line">        _themeConfig = [NSDictionary dictionaryWithContentsOfFile:[self.themePath stringByAppendingPathComponent:THEME_CONFIG]];</div><div class="line">    &#125;</div><div class="line">    return _themeConfig;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>主题文字和颜色在plist文件中是这样存储的：<br><img src="http://onocdmhtw.bkt.clouddn.com/2017041914925886036640.jpg" alt="皮肤资源对应文字颜色的存储"></p>
+<p>主题文字和颜色在plist文件中是这样存储的：<br><img src="http://blog.images.aaronzjp.cn/2017041914925886036640.jpg" alt="皮肤资源对应文字颜色的存储"></p>
 <p>这里的颜色是按照16进制的方式存储的，在iOS中使用这个存储的方式的颜色的时候就需要把改颜色转换层RGB的颜色，这个这里就不细说了，百度iOS16进制颜色转换就能找到转换方法。</p>
 <p>下面就是对应的文件和颜色的读取方式，通过获取这个plist文件的内容返回的字典，从这个字典中去获取对应主题的相关的文字和颜色：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//获取颜色的方法的实现</div><div class="line">- (UIColor *)getColorFromThemeWithColorNmae:(NSString *)colorName &#123;</div><div class="line">    NSString *color = self.themeConfig[@&quot;Color&quot;][colorName];</div><div class="line">    return [UIColor colorWithHexString:color];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//获取文字的方法的实现</div><div class="line">- (NSString *)getStringFromThemeWithStringName:(NSString *)stringNmae &#123;</div><div class="line">    NSString *string = self.themeConfig[@&quot;Text&quot;][stringNmae];</div><div class="line">    return string;</div><div class="line">&#125;</div></pre></td></tr></table></figure>

@@ -103,14 +103,14 @@
 <meta property="og:url" content="Aaronzjp.cn/2019/03/13/WeChat-Pay-SDK/index.html">
 <meta property="og:site_name" content="Aaron的小站">
 <meta property="og:description" content="微信支付SDK集成文档最近工作项目中，Leader 要求总结一下微信支付 SDK 集成的文档。所以这里就简单的写了下，其实也没什么写的，基本就是官方文档整理了下。既然已经写了这个文档，还是记录下放上来吧。">
-<meta property="og:image" content="http://zjp.dennisce.com/20190312101056_t8J1AR_WX20190312-101048@2x.jpeg">
-<meta property="og:image" content="http://zjp.dennisce.com/20190312101323_lxaCpk_WX20190312-101314@2x.jpeg">
-<meta property="og:image" content="http://zjp.dennisce.com/20190312102726_EynVXj_chapter8_3_1.jpeg">
-<meta property="og:updated_time" content="2019-03-15T03:31:30.000Z">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20190312101056_t8J1AR_WX20190312-101048@2x.jpeg">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20190312101323_lxaCpk_WX20190312-101314@2x.jpeg">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20190312102726_EynVXj_chapter8_3_1.jpeg">
+<meta property="og:updated_time" content="2020-01-17T09:25:47.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信支付SDK集成">
 <meta name="twitter:description" content="微信支付SDK集成文档最近工作项目中，Leader 要求总结一下微信支付 SDK 集成的文档。所以这里就简单的写了下，其实也没什么写的，基本就是官方文档整理了下。既然已经写了这个文档，还是记录下放上来吧。">
-<meta name="twitter:image" content="http://zjp.dennisce.com/20190312101056_t8J1AR_WX20190312-101048@2x.jpeg">
+<meta name="twitter:image" content="http://blog.images.aaronzjp.cn/20190312101056_t8J1AR_WX20190312-101048@2x.jpeg">
 
 
 
@@ -342,15 +342,15 @@
 <p>登陆后按照官方提示流程步骤申请即可，审核通过后就可以集成微信支付的SDK了。</p>
 <h2 id="集成微信支付SDK"><a href="#集成微信支付SDK" class="headerlink" title="集成微信支付SDK"></a>集成微信支付SDK</h2><h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h3><p>首先去官网下载SDK资源，<a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=11_1" target="_blank" rel="external">微信支付SDK</a>，目前官方最新的版本为 1.8.4。</p>
 <p>下载完成后将SDK导入到项目中：</p>
-<p><img src="http://zjp.dennisce.com/20190312101056_t8J1AR_WX20190312-101048@2x.jpeg" alt=""></p>
+<p><img src="http://blog.images.aaronzjp.cn/20190312101056_t8J1AR_WX20190312-101048@2x.jpeg" alt=""></p>
 <p>导入SDK项目后需要在项目工程中设置appid，设置这一步主要是为了在微信支付结束的时候回调跳转到当前你支付的app。设置如下：</p>
-<p><img src="http://zjp.dennisce.com/20190312101323_lxaCpk_WX20190312-101314@2x.jpeg" alt=""></p>
+<p><img src="http://blog.images.aaronzjp.cn/20190312101323_lxaCpk_WX20190312-101314@2x.jpeg" alt=""></p>
 <p>需要注意的是现在最新版本目前这样设置工程后是没有问题的，在其他版本上可能需要手动的在工程项目中导入如下库：</p>
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt; SystemConfiguration.framework</div><div class="line">&gt; </div><div class="line">&gt; libz.tbd</div><div class="line">&gt; </div><div class="line">&gt; libsqlite3.0.tbd</div><div class="line">&gt; </div><div class="line">&gt; CoreTelephony.framework</div><div class="line">&gt; </div><div class="line">&gt; QuartzCore.framework</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="支付流程图"><a href="#支付流程图" class="headerlink" title="支付流程图"></a>支付流程图</h3><p>走到这一步微信支付SDK集成到项目相关设置就算完成了。接下来看下微信支付需要的整个流程：</p>
-<p><img src="http://zjp.dennisce.com/20190312102726_EynVXj_chapter8_3_1.jpeg" alt="微信支付流程，图片来自微信支付官方文档"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20190312102726_EynVXj_chapter8_3_1.jpeg" alt="微信支付流程，图片来自微信支付官方文档"></p>
 <p>下面总结下大概的流程如下所示：</p>
 <ol>
 <li>用户在商户APP中选择商品，提交订单到服务器，选择微信支付。</li>

@@ -103,12 +103,12 @@
 <meta property="og:url" content="Aaronzjp.cn/2015/12/26/StoryboardOrXibRealizeAutoLayoutCell/index.html">
 <meta property="og:site_name" content="Aaron的小站">
 <meta property="og:description" content="​    首先，UITableView这东西怎么用就不用说了吧，可以拖一个UITableview到UIController中，也可以直接拖一个UITableViewController出来。拖UITableView的时候不要忘记加代理和数据源就对了。 完成这一步后就可以在storyboard中对cell进行约束布局了，就用一个简单的demo来说。">
-<meta property="og:image" content="http://zjp.dennisce.com/20170419149259004747393.jpg">
-<meta property="og:updated_time" content="2018-11-24T09:36:09.000Z">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20170419149259004747393.jpg">
+<meta property="og:updated_time" content="2020-01-17T09:24:54.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Storyboard或Xib实现自适应Cell">
 <meta name="twitter:description" content="​    首先，UITableView这东西怎么用就不用说了吧，可以拖一个UITableview到UIController中，也可以直接拖一个UITableViewController出来。拖UITableView的时候不要忘记加代理和数据源就对了。 完成这一步后就可以在storyboard中对cell进行约束布局了，就用一个简单的demo来说。">
-<meta name="twitter:image" content="http://zjp.dennisce.com/20170419149259004747393.jpg">
+<meta name="twitter:image" content="http://blog.images.aaronzjp.cn/20170419149259004747393.jpg">
 
 
 
@@ -336,7 +336,7 @@
         <p>​    首先，UITableView这东西怎么用就不用说了吧，可以拖一个UITableview到UIController中，也可以直接拖一个UITableViewController出来。拖UITableView的时候不要忘记加代理和数据源就对了。</p>
 <p>完成这一步后就可以在storyboard中对cell进行约束布局了，就用一个简单的demo来说。</p>
 <a id="more"></a>
-<p><img src="http://zjp.dennisce.com/20170419149259004747393.jpg" alt="20170419149259004747393.jpg"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20170419149259004747393.jpg" alt="20170419149259004747393.jpg"></p>
 <p>这里选择你需要自适应换行的label。到右边的属性选择中设置下，这样label就可以自动换行了。不能约束label的高，否则自动换行就无效。设置好约束后，在右边把Lines的选项设置为0（默认为1），这里的0代表不限制label的行数。</p>
 <p>设置好以上步骤后，在代码中实现以下代码就已经成功的实现cell的高度只适应了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//这里是设置单元格的预判高度，根据自己的预估单元格的平均高度随便填写一个就行。</div><div class="line"></div><div class="line">self.tableView.estimatedRowHeight = 200;</div><div class="line"></div><div class="line">//这里是设置单元格默认的行高，就是会根据自己的计算来获得实际高度;</div><div class="line"></div><div class="line">self.tableView.rowHeight = UITableViewAutomaticDimension;</div></pre></td></tr></table></figure>

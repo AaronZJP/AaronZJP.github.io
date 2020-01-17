@@ -103,12 +103,12 @@
 <meta property="og:url" content="Aaronzjp.cn/2016/04/28/File-Manager/index.html">
 <meta property="og:site_name" content="Aaron的小站">
 <meta property="og:description" content="​    在 iOS 开发中，总是有需求我们需要在本地存储数据，但是存储数据的方式有很多，我们怎么样去决定用什么方式去存储数据？目前 iOS 开发中存储数据的方式有属性列表、对象归档、数据库（SQLite，Core Data）等，最终这些数据都会以某些文件等形式存入该App对应的沙盒（SandBox）目录中。">
-<meta property="og:image" content="http://zjp.dennisce.com/20170419149258996450514.jpg">
-<meta property="og:updated_time" content="2018-11-24T09:32:56.000Z">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20170419149258996450514.jpg">
+<meta property="og:updated_time" content="2020-01-17T09:22:58.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发-文件管理">
 <meta name="twitter:description" content="​    在 iOS 开发中，总是有需求我们需要在本地存储数据，但是存储数据的方式有很多，我们怎么样去决定用什么方式去存储数据？目前 iOS 开发中存储数据的方式有属性列表、对象归档、数据库（SQLite，Core Data）等，最终这些数据都会以某些文件等形式存入该App对应的沙盒（SandBox）目录中。">
-<meta name="twitter:image" content="http://zjp.dennisce.com/20170419149258996450514.jpg">
+<meta name="twitter:image" content="http://blog.images.aaronzjp.cn/20170419149258996450514.jpg">
 
 
 
@@ -346,7 +346,7 @@
 </li>
 <li>tmp：这是临时文件目录，用户可以访问此目录，该目录不能够通过 iTunes 或者 iCloud 备份。</li>
 </ul>
-<p><img src="http://zjp.dennisce.com/20170419149258996450514.jpg" alt="20170419149258996450514.jpg"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20170419149258996450514.jpg" alt="20170419149258996450514.jpg"></p>
 <p>各个文件夹的路径获取方式如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">NSString *homeString = NSHomeDirectory();</div><div class="line">    NSLog(@&quot;程序根目录：%@&quot;,homeString);</div><div class="line">    </div><div class="line">    NSString *DocumentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];</div><div class="line">    NSLog(@&quot;Document目录:%@&quot;,DocumentPath);</div><div class="line">    </div><div class="line">    NSString *LibraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];</div><div class="line">    NSLog(@&quot;Library目录:%@&quot;,LibraryPath);</div><div class="line">    </div><div class="line">    NSString *CachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];</div><div class="line">    NSLog(@&quot;Caches目录:%@&quot;,CachesPath);</div><div class="line">    </div><div class="line">    NSString *tempPath = NSTemporaryDirectory();</div><div class="line">    NSLog(@&quot;temp目录：%@&quot;,tempPath);</div></pre></td></tr></table></figure>
 <h1 id="NSFileManager"><a href="#NSFileManager" class="headerlink" title="NSFileManager"></a>NSFileManager</h1><p>NSFileManager这个类听名字也应该知道该类主要负责文件的管理，文件的增删查改，以及文件属性的管理。</p>

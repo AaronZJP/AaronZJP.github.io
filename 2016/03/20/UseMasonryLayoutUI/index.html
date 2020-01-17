@@ -103,13 +103,13 @@
 <meta property="og:url" content="Aaronzjp.cn/2016/03/20/UseMasonryLayoutUI/index.html">
 <meta property="og:site_name" content="Aaron的小站">
 <meta property="og:description" content="Masonry 是一个针对 AutoLayout 的封装的轻量级的布局框架，拥有自己的语法描述，通过链式语法封装 AutoLayout，大大的提高了代码的可读性和简洁度。">
-<meta property="og:image" content="http://zjp.dennisce.com/20170419149259044416388.png">
-<meta property="og:image" content="http://zjp.dennisce.com/20170419149259045554935.png">
-<meta property="og:updated_time" content="2018-11-24T09:37:03.000Z">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20170419149259044416388.png">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20170419149259045554935.png">
+<meta property="og:updated_time" content="2020-01-17T09:25:42.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Masonry布局UI">
 <meta name="twitter:description" content="Masonry 是一个针对 AutoLayout 的封装的轻量级的布局框架，拥有自己的语法描述，通过链式语法封装 AutoLayout，大大的提高了代码的可读性和简洁度。">
-<meta name="twitter:image" content="http://zjp.dennisce.com/20170419149259044416388.png">
+<meta name="twitter:image" content="http://blog.images.aaronzjp.cn/20170419149259044416388.png">
 
 
 
@@ -351,11 +351,11 @@
 <h2 id="例子1"><a href="#例子1" class="headerlink" title="例子1"></a>例子1</h2><p>首先来居中显示一个红色 View：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">UIView *redView = [[UIView alloc]init];</div><div class="line">redView.backgroundColor = [UIColor redColor];</div><div class="line">//添加约束前需要先把视图添加到superView上，否则会报错</div><div class="line">[self.view addSubview:redView];</div><div class="line"></div><div class="line">[redView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">  //中心点等于self.view</div><div class="line">  make.center.equalTo(self.view);</div><div class="line">  //view的宽和高等于300</div><div class="line">  make.width.and.height.mas_equalTo(300);</div><div class="line">  // 这一句和上面一句是等同的，也是设置view的宽和高的约束等于300</div><div class="line">  // make.width.and.height.equalTo(@300);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
 <p>效果如下：</p>
-<p><img src="http://zjp.dennisce.com/20170419149259044416388.png" alt="20170419149259044416388.png"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20170419149259044416388.png" alt="20170419149259044416388.png"></p>
 <h2 id="例子2"><a href="#例子2" class="headerlink" title="例子2"></a>例子2</h2><p>在例子1的基础上创建两个视图，边距相互为10，且高相等，宽相等：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">//首先添加这两个 View 到 redView 上</div><div class="line">UIView *view1 = [[UIView alloc]init];</div><div class="line">view1.backgroundColor = [UIColor purpleColor];</div><div class="line">[redView addSubview:view1];</div><div class="line"></div><div class="line">UIView *view2 = [[UIView alloc]init];</div><div class="line">view2.backgroundColor = [UIColor orangeColor];</div><div class="line">[redView addSubview:view2];</div><div class="line"></div><div class="line">//添加 View1 的约束</div><div class="line">[view1 mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">  //左边和顶部相对 redView 相距10</div><div class="line">  make.left.and.top.equalTo(redView).offset(10);</div><div class="line">  //右边相对于 View2 的左边相距 10</div><div class="line">  make.right.equalTo(view2.mas_left).offset(-10);</div><div class="line">  //中心点相对于 redView 中心Y轴对齐</div><div class="line">  make.centerY.equalTo(redView.mas_centerY);</div><div class="line">  //底部相对于 redView 的底部相距10</div><div class="line">  make.bottom.equalTo(redView).offset(-10);</div><div class="line">  //宽相对于 View2 的宽相等</div><div class="line">  make.width.equalTo(view2.mas_width);</div><div class="line">&#125;];</div><div class="line"></div><div class="line">[view2 mas_makeConstraints:^(MASConstraintMaker *make) &#123;</div><div class="line">  //左边相对于 View1 的右边相距10</div><div class="line">  make.left.equalTo(view1.mas_right).offset(10);</div><div class="line">  //右边相对于 redView 的右边相距10</div><div class="line">  make.right.equalTo(redView).offset(-10);</div><div class="line">  //中心点相对于 redView 中心Y轴对齐</div><div class="line">  make.centerY.equalTo(redView.mas_centerY);</div><div class="line">  //顶部相对于 redView 的边距为10</div><div class="line">  make.top.equalTo(redView).offset(10);</div><div class="line">  //底部相对于 redView 的边距为10</div><div class="line">  make.bottom.equalTo(redView).offset(-10);</div><div class="line">  //宽相对于 View1 的宽相等</div><div class="line">  make.width.equalTo(view1.mas_width);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
 <p>效果如下：</p>
-<p><img src="http://zjp.dennisce.com/20170419149259045554935.png" alt="20170419149259045554935.png"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20170419149259045554935.png" alt="20170419149259045554935.png"></p>
 
       
     </div>

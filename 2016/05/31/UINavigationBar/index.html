@@ -103,15 +103,15 @@
 <meta property="og:url" content="Aaronzjp.cn/2016/05/31/UINavigationBar/index.html">
 <meta property="og:site_name" content="Aaron的小站">
 <meta property="og:description" content="NavigationBar 是在大多数App中很常见的一个控件，它总是显示在 App 窗口的顶部，其作用就是用来显示当前视图的层级。 NavigationBar 主要包含了这样几个部分，left(back) Button 、 CenterTitle 、 RightButton。如下图：">
-<meta property="og:image" content="http://zjp.dennisce.com/2017033114909574652892.png">
-<meta property="og:image" content="http://zjp.dennisce.com/20170331149097063070405.png">
-<meta property="og:image" content="http://zjp.dennisce.com/20170401149101332388956.png">
-<meta property="og:image" content="http://zjp.dennisce.com/20170401149101595942735.jpg">
-<meta property="og:updated_time" content="2018-11-24T09:36:48.000Z">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/2017033114909574652892.png">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20170331149097063070405.png">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20170401149101332388956.png">
+<meta property="og:image" content="http://blog.images.aaronzjp.cn/20170401149101595942735.jpg">
+<meta property="og:updated_time" content="2020-01-17T09:25:28.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UINavigationBar">
 <meta name="twitter:description" content="NavigationBar 是在大多数App中很常见的一个控件，它总是显示在 App 窗口的顶部，其作用就是用来显示当前视图的层级。 NavigationBar 主要包含了这样几个部分，left(back) Button 、 CenterTitle 、 RightButton。如下图：">
-<meta name="twitter:image" content="http://zjp.dennisce.com/2017033114909574652892.png">
+<meta name="twitter:image" content="http://blog.images.aaronzjp.cn/2017033114909574652892.png">
 
 
 
@@ -338,7 +338,7 @@
       
         <p>NavigationBar 是在大多数App中很常见的一个控件，它总是显示在 App 窗口的顶部，其作用就是用来显示当前视图的层级。</p>
 <p>NavigationBar 主要包含了这样几个部分，left(back) Button 、 CenterTitle 、 RightButton。如下图：</p>
-<p><img src="http://zjp.dennisce.com/2017033114909574652892.png" alt="2017033114909574652892.png"></p>
+<p><img src="http://blog.images.aaronzjp.cn/2017033114909574652892.png" alt="2017033114909574652892.png"></p>
 <a id="more"></a>
 <p>大多数时候 NavigationBar 都是使用在 UINavigationController 中的，由 NavigationController 来管理和显示 NavigationBar 的。当然 NavigationBar 也可以单独的使用。当在 NavigationController 中使用 NavigationBar 的时候，NavigationController 会自动管理 NavigationBar 的状态，这时候 NavigationBar 的 Title 默认为当前控制器的 Title 。也可以自己去手动的修改，在 NavigationController 中修改 NavigationBar 直接通过 NavigationController 上的属性 NavigationBar 就可以修改的。</p>
 <h1 id="NavigationBar的使用"><a href="#NavigationBar的使用" class="headerlink" title="NavigationBar的使用"></a>NavigationBar的使用</h1><p>其实 NavigationBar 是很少单独使用的，但是不排除某些时候需要单独的去创建一个 NavigationBar 然后去自己管理。所以还是在这里写一下，以免到时候需要用到我又得到处去翻资料。</p>
@@ -352,7 +352,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">//是否 push 该 Item</div><div class="line">- (BOOL)navigationBar:(UINavigationBar *)navigationBar shouldPushItem:(UINavigationItem *)item &#123;</div><div class="line">    return YES;</div><div class="line">&#125;</div><div class="line">//Item push 后到回调</div><div class="line">- (void)navigationBar:(UINavigationBar *)navigationBar didPushItem:(UINavigationItem *)item &#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">//是否 pop 该 Item</div><div class="line">- (BOOL)navigationBar:(UINavigationBar *)navigationBar shouldPopItem:(UINavigationItem *)item &#123;</div><div class="line">    return YES;</div><div class="line">&#125;</div><div class="line">//Item pop后到回调</div><div class="line">- (void)navigationBar:(UINavigationBar *)navigationBar didPopItem:(UINavigationItem *)item &#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>通过 UINavigationBar 的代理可以很方便的管理 UINavigationBar 中 items 的进栈和出栈。</p>
 <p>UINavigationBar 中 items 的进栈和出栈示意图：</p>
-<p><img src="http://zjp.dennisce.com/20170331149097063070405.png" alt="20170331149097063070405.png"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20170331149097063070405.png" alt="20170331149097063070405.png"></p>
 <h1 id="自定义UINavigationBar的外观"><a href="#自定义UINavigationBar的外观" class="headerlink" title="自定义UINavigationBar的外观"></a>自定义UINavigationBar的外观</h1><p>了解如下属性后，就可以通过这些属性来设置自己满意的 UINavigationBar 了。</p>
 <p>barStyle： UINavigationBar 的样式，可供选择的有两种白色(UIBarStyleDefault)和黑色(UIBarStyleBlack)</p>
 <p>translucent： UINavigationBar 是否半透明，默认为 YES</p>
@@ -367,13 +367,13 @@
 <p>backIndicatorTransitionMaskImage 返回按钮图标遮罩</p>
 <p>需要注意的是要同时设置这两个属性才能修改返回按钮的图标</p>
 <p>NavigationBar颜色和标题如下图所示：</p>
-<p><img src="http://zjp.dennisce.com/20170401149101332388956.png" alt="20170401149101332388956.png"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20170401149101332388956.png" alt="20170401149101332388956.png"></p>
 <p>为 NavigationBar 设置背景图片以及阴影图片：</p>
 <p>使用该方法可以为 UINavigationBar 设置背景图片，调整图片位置等等</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)setBackgroundImage:(nullable UIImage *)backgroundImage forBarPosition:(UIBarPosition)barPosition barMetrics:(UIBarMetrics)barMetrics;</div></pre></td></tr></table></figure>
 <p>同样也可以提供一个可调整大小的图片来设置阴影图片，通过 shadowImage 这个属性即可，需要注意的是如果没有设置背景图片，那么阴影图片是不会生效的。之前就遇到一个需求要求隐藏 NavigationBar 下面的黑线，就可以通过设置一个空的图片来达到。</p>
 <p>在 UINavigationBar 中层级关系如下图：</p>
-<p><img src="http://zjp.dennisce.com/20170401149101595942735.jpg" alt="20170401149101595942735.jpg"></p>
+<p><img src="http://blog.images.aaronzjp.cn/20170401149101595942735.jpg" alt="20170401149101595942735.jpg"></p>
 <p>参考资料：</p>
 <p><a href="https://developer.apple.com/reference/uikit/uinavigationbar?language=objc" target="_blank" rel="external">UINavigationBar</a></p>
 <p><a href="https://developer.apple.com/reference/uikit/uinavigationitem?language=objc" target="_blank" rel="external">UINavigationItem</a></p>
